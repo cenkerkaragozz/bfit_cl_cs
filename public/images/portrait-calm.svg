@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 520" role="img" aria-labelledby="title">
+  <title id="title">Calm portrait</title>
+  <rect width="360" height="520" fill="#91DDF4"/>
+  <path d="M0 400c82-54 184-50 360-4v124H0z" fill="#C9F58B"/>
+  <circle cx="252" cy="88" r="56" fill="#F9DC7B"/>
+  <path d="M89 220c14-88 146-102 181-26 22 47 5 101-12 135H105c-20-37-24-74-16-109z" fill="#241D18"/>
+  <circle cx="180" cy="206" r="79" fill="#B07355"/>
+  <path d="M112 207c8-71 58-116 122-82 28 15 44 43 47 83-48 2-92-10-127-41-10 25-24 38-42 40z" fill="#241D18"/>
+  <path d="M126 309c32 28 75 30 110 3l9 92H115z" fill="#B07355"/>
+  <path d="M91 520c0-92 38-146 103-146 67 0 108 54 111 146z" fill="#FAF9F5"/>
+  <path d="M121 392c27 36 89 38 121-3" fill="none" stroke="#164C35" stroke-width="13" stroke-linecap="round"/>
+  <circle cx="154" cy="218" r="7" fill="#160A08"/>
+  <circle cx="217" cy="218" r="7" fill="#160A08"/>
+  <path d="M157 262c18 13 38 13 56 0" fill="none" stroke="#160A08" stroke-width="7" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" role="img" aria-labelledby="title">
+  <title id="title">Focus illustration</title>
+  <rect width="520" height="300" fill="#FAF9F5"/>
+  <circle cx="418" cy="76" r="46" fill="#F9DC7B"/>
+  <path d="M0 232c120-58 300-59 520 0v68H0z" fill="#F4865D"/>
+  <path d="M165 166c9-56 50-88 106-88s97 33 104 90c7 53-29 92-72 111h-64c-43-20-82-61-74-113z" fill="#2B1712"/>
+  <circle cx="272" cy="176" r="62" fill="#9A624B"/>
+  <path d="M199 171c10-56 54-80 102-53 24 14 39 34 45 58-47 0-85-15-112-45-9 21-20 34-35 40z" fill="#2B1712"/>
+</svg>

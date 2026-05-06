@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" role="img" aria-labelledby="title">
+  <title id="title">Steady support illustration</title>
+  <rect width="560" height="420" fill="#F9DC7B"/>
+  <path d="M0 320c148-55 330-61 560 0v100H0z" fill="#F4865D"/>
+  <circle cx="122" cy="84" r="48" fill="#91DDF4"/>
+  <path d="M180 192c11-73 62-113 129-113 70 0 120 42 127 114 6 68-35 119-89 144h-80c-53-26-96-77-87-145z" fill="#4A332B"/>
+  <circle cx="309" cy="202" r="80" fill="#C78563"/>
+  <path d="M214 195c14-74 74-103 134-69 29 17 45 42 50 72-59 0-102-19-130-54-12 28-30 44-54 51z" fill="#4A332B"/>
+  <path d="M253 302c33 26 76 26 109 0l10 82H241z" fill="#C78563"/>
+  <path d="M149 420c14-92 66-141 158-141s145 49 159 141z" fill="#164C35"/>
+  <path d="M415 88c34 5 61 21 83 49" stroke="#9B66F4" stroke-width="9" stroke-linecap="round" fill="none"/>
+</svg>

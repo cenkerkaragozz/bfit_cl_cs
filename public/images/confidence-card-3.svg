@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" role="img" aria-labelledby="title">
+  <title id="title">Better patterns illustration</title>
+  <rect width="560" height="420" fill="#C9F58B"/>
+  <path d="M0 325c119-68 301-72 560 0v95H0z" fill="#91DDF4"/>
+  <circle cx="452" cy="86" r="51" fill="#9B66F4"/>
+  <path d="M159 192c11-76 66-119 136-119s123 45 130 121c7 70-36 124-91 149h-82c-55-27-103-83-93-151z" fill="#2B1712"/>
+  <circle cx="296" cy="205" r="82" fill="#9A624B"/>
+  <path d="M197 196c15-71 73-105 134-72 33 17 53 44 60 76-61 0-110-18-145-55-11 28-26 45-49 51z" fill="#2B1712"/>
+  <path d="M244 309c33 27 75 27 108 0l10 82H233z" fill="#9A624B"/>
+  <path d="M139 420c16-94 69-143 158-143 91 0 145 49 161 143z" fill="#FAF9F5"/>
+  <path d="M65 104c43-17 85-15 126 6" stroke="#F4865D" stroke-width="9" stroke-linecap="round" fill="none"/>
+</svg>

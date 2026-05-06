@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 640" role="img" aria-labelledby="title">
+  <title id="title">Doctor portrait</title>
+  <rect width="520" height="640" fill="#F9DC7B"/>
+  <circle cx="420" cy="96" r="58" fill="#F4865D"/>
+  <path d="M122 226c10-91 71-145 152-145 82 0 142 55 150 147 8 89-39 157-99 187H218c-59-32-105-100-96-189z" fill="#2C1C18"/>
+  <circle cx="274" cy="247" r="98" fill="#B87558"/>
+  <path d="M159 232c18-91 91-137 168-98 39 20 62 54 69 99-67 0-124-20-169-60-15 34-37 54-68 59z" fill="#2C1C18"/>
+  <path d="M217 366c37 32 83 32 120-1l12 102H203z" fill="#B87558"/>
+  <path d="M92 640c13-133 78-206 180-206s169 73 183 206z" fill="#FAF9F5"/>
+  <path d="M166 640c9-88 45-151 107-189 62 39 98 101 106 189z" fill="#164C35"/>
+  <path d="M184 477c-19 36-32 87-39 163M362 477c19 36 32 87 39 163" stroke="#F4F1EB" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="239" cy="253" r="8" fill="#160A08"/>
+  <circle cx="311" cy="253" r="8" fill="#160A08"/>
+  <path d="M242 303c21 16 46 16 68 0" fill="none" stroke="#160A08" stroke-width="8" stroke-linecap="round"/>
+</svg>
