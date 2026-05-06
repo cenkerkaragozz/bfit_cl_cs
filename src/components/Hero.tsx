@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowDown } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDoodle, StarBurst, Squiggle } from "@/components/Decorations";
 
@@ -36,31 +36,40 @@ export function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative min-h-[100svh] pb-6 pt-[96px] md:pb-10 md:pt-[118px]">
+    <section className="relative min-h-screen pb-6 pt-[96px] md:pb-10 md:pt-[118px]">
       <div className="inner grid items-center gap-5 md:gap-8 lg:grid-cols-[0.95fr_1.05fr] xl:gap-12">
-        <div className="relative z-10 max-w-[620px]">
-          <div className="badge">Mental health at 30&apos;s</div>
-          <h1 className="display mt-5 text-[clamp(50px,8.7vw,126px)] md:mt-7 xl:text-[clamp(72px,9.5vw,136px)]">
-            <span className="block text-[var(--muted-brown)]">Mental health</span>
-            <span className="block text-[var(--ink)]">is wealth</span>
+        <div className="relative z-10 max-w-[720px]">
+          <div className="badge border-[rgba(36,29,24,0.22)] text-[#FBAE17]">
+            BİLİMSEL · KANITLANMIŞ · KİŞİSEL
+          </div>
+          <h1 className="mt-6 font-[var(--body)] tracking-normal md:mt-8">
+            <span className="block text-[clamp(34px,5vw,70px)] font-medium leading-[1.08] text-[#241d18]">
+              Bilişsel gelişimi artırmak için
+            </span>
+            <span className="block font-[var(--font-playfair)] text-[clamp(44px,6vw,88px)] font-bold leading-[1.02] text-[#FBAE17]">
+              bilimsel yöntemlerle
+            </span>
+            <span className="block text-[clamp(34px,5vw,70px)] font-medium leading-[1.08] text-[#241d18]">
+              tasarlanmış programlarımızla tanışın.
+            </span>
           </h1>
-          <div className="mt-6 flex items-end gap-5 md:mt-7 md:gap-6">
-            <a
-              className="grid h-[58px] w-[58px] shrink-0 place-items-center rounded-full border border-[var(--line)] bg-white transition hover:-translate-y-1"
-              href="#help"
-              aria-label="Scroll to help section"
-            >
-              <ArrowDown size={22} />
-            </a>
-            <p className="body-copy max-w-[385px]">
-              A calmer way to start care, designed around everyday support,
-              practical programs, and thoughtful clinical guidance.
+          <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-center md:mt-9">
+            <p className="max-w-[430px] text-lg font-normal leading-8 text-[rgba(36,29,24,0.7)]">
+              Çocuğunuzun öğrenme sürecini, dikkatini ve zihinsel kapasitesini
+              bilimsel egzersizlerle destekliyoruz.
             </p>
+            <a
+              className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-[#F05A38] px-5 text-[14px] font-extrabold text-white transition hover:-translate-y-1 hover:bg-[#F05A38]"
+              href="#help"
+            >
+              Ücretsiz Check-Up rezervasyonu yap
+              <ArrowUpRight size={16} />
+            </a>
           </div>
         </div>
 
         <div className="relative min-h-[270px] md:min-h-[500px] lg:min-h-[560px] xl:min-h-[610px]">
-          <StarBurst className="absolute left-[10%] top-[0%] z-40 h-12 w-12" />
+          <StarBurst className="absolute left-[10%] top-[0%] z-40 h-12 w-12" color="#FBAE17" />
           <Squiggle className="absolute right-[3%] top-[5%] z-40 hidden md:block" />
           <ArrowDoodle className="absolute bottom-[8%] left-[4%] z-40 hidden md:block" />
 

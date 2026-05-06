@@ -1,15 +1,24 @@
 "use client";
 
-import { ArrowUpRight, Menu } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { LogoMark } from "@/components/Decorations";
 
-const navItems = ["Services", "Clinics", "Treatments"];
+const navItems = [
+  { label: "Programlar", href: "#services" },
+  { label: "Zihin Check-Up", href: "#clinics" },
+  { label: "Treatments", href: "#treatments" },
+  { label: "Hakkımızda", href: "#about" },
+  { label: "İletişim", href: "#contact" },
+];
 
 export function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className="pointer-events-none sticky top-0 z-50 h-0">
-      <div className="inner pointer-events-auto pt-5">
+      <div className="inner pointer-events-auto relative pt-5">
         <nav
           className="main-nav mx-auto flex min-h-[72px] max-w-[1110px] items-center justify-between gap-4 rounded-b-[30px] rounded-t-[18px] bg-white/95 px-5 shadow-[0_18px_50px_rgba(36,29,24,0.08)] backdrop-blur"
           aria-label="Primary navigation"
@@ -19,35 +28,51 @@ export function Header() {
             <span className="text-[20px] tracking-normal">BrainFit</span>
           </Link>
 
-          <div className="hidden items-center gap-10 text-[14px] font-bold text-[rgba(36,29,24,0.76)] md:flex">
+          <div className="hidden items-center gap-6 text-[14px] font-bold text-[rgba(36,29,24,0.76)] lg:flex xl:gap-10">
             {navItems.map((item) => (
-              <a key={item} className="transition hover:text-[var(--ink)]" href={`#${item.toLowerCase()}`}>
-                {item}
+              <a key={item.href} className="transition hover:text-[var(--ink)]" href={item.href}>
+                {item.label}
               </a>
             ))}
           </div>
 
           <div className="flex items-center gap-3">
             <button
-              className="hidden h-10 rounded-full border border-[var(--line)] px-4 text-[13px] font-extrabold md:inline-flex"
-              type="button"
-              aria-label="Selected language English"
-            >
-              EN
-            </button>
-            <button
               className="grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-white"
               type="button"
-              aria-label="Open menu"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-controls="mobile-navigation"
+              aria-expanded={isMenuOpen}
+              onClick={() => setIsMenuOpen((open) => !open)}
             >
-              <Menu size={18} />
+              {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
             <a className="pill-button header-cta arrow-shift" href="#help">
-              Get Help ?
+              Yetişkin Programı
               <ArrowUpRight size={16} />
             </a>
           </div>
         </nav>
+
+        {isMenuOpen ? (
+          <div
+            id="mobile-navigation"
+            className="mx-auto mt-3 max-w-[1110px] rounded-[24px] bg-white/95 p-3 shadow-[0_18px_50px_rgba(36,29,24,0.1)] backdrop-blur lg:hidden"
+          >
+            <div className="grid gap-1 text-[15px] font-extrabold text-[rgba(36,29,24,0.76)]">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  className="rounded-full px-5 py-3 transition hover:bg-[var(--paper)] hover:text-[var(--ink)]"
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : null}
       </div>
     </header>
   );

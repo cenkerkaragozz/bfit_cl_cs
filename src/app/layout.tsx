@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Fraunces, Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 
@@ -10,8 +10,15 @@ const fraunces = Fraunces({
 });
 
 const manrope = Manrope({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-body",
+  display: "swap",
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin", "latin-ext"],
+  weight: "700",
+  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -27,7 +34,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${manrope.variable}`}>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${manrope.variable} ${playfairDisplay.variable}`}
+    >
       <body>
         <SmoothScroll />
         {children}

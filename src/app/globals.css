@@ -126,10 +126,16 @@ img {
 }
 
 .header-cta {
+  background: #f05a38;
+  color: white;
   flex-shrink: 0;
-  min-width: 126px;
+  min-width: 172px;
   padding-inline: 16px;
   white-space: nowrap;
+}
+
+.header-cta:hover {
+  background: #f05a38;
 }
 
 .hero-mobile-cta {
@@ -252,7 +258,7 @@ img {
 
   .header-cta {
     min-height: 44px;
-    min-width: 126px;
+    min-width: 156px;
     padding-inline: 14px;
     font-size: 13px;
   }

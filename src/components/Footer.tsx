@@ -5,7 +5,7 @@ import { LogoMark } from "@/components/Decorations";
 
 export function Footer() {
   return (
-    <footer className="bg-[var(--footer)] px-0 py-12 text-white md:py-16">
+    <footer id="contact" className="bg-[var(--footer)] px-0 py-12 text-white md:py-16">
       <div className="inner">
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr]">
           <div>

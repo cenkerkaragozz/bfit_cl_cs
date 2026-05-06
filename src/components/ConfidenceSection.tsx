@@ -50,6 +50,7 @@ export function ConfidenceSection() {
       id="treatments"
       className="relative overflow-hidden bg-[var(--green)] py-[92px] text-white md:py-[126px]"
     >
+      <span id="about" className="absolute top-0" aria-hidden="true" />
       <StarBurst className="absolute left-[4%] top-[16%] opacity-60" color="#F9DC7B" />
       <Sunflower className="absolute bottom-[-22px] left-[48%] hidden opacity-95 md:block" />
       <div className="absolute right-[-32px] top-[42%] h-32 w-32 rounded-full border-[18px] border-[#F4865D]" />
