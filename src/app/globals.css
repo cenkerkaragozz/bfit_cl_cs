@@ -25,12 +25,12 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--matte);
+  background: var(--canvas);
 }
 
 body {
   margin: 0;
-  background: var(--matte);
+  background: var(--canvas);
   color: var(--ink);
   font-family: var(--body);
   text-rendering: optimizeLegibility;
@@ -64,17 +64,15 @@ img {
 
 .site-matte {
   min-height: 100vh;
-  background: var(--matte);
-  padding: 20px clamp(8px, 2vw, 32px);
+  background: var(--canvas);
+  padding: 0;
 }
 
 .page-shell {
-  width: min(1440px, 100%);
+  width: 100%;
   margin: 0 auto;
   overflow: clip;
-  border-radius: 0 0 34px 34px;
   background: var(--canvas);
-  box-shadow: 0 26px 80px rgba(20, 10, 5, 0.18);
 }
 
 .inner {
