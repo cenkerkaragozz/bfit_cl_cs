@@ -24,7 +24,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   background: var(--canvas);
 }
 
@@ -218,16 +217,11 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
 }
@@ -257,10 +251,7 @@ img {
   }
 
   .header-cta {
-    min-height: 44px;
-    min-width: 156px;
-    padding-inline: 14px;
-    font-size: 13px;
+    display: none;
   }
 
   .hero-mobile-cta {
