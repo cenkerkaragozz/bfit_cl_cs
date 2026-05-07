@@ -1,35 +1,33 @@
 "use client";
 
 import Image from "next/image";
-import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { DrawnUnderline, Reveal, StarBurst, Sunflower } from "@/components/Decorations";
 
 const cards = [
   {
-    title: "Guided confidence",
-    copy: "Small routines that make daily decisions feel lighter.",
+    title: "Dikkatini sürdürmek",
+    copy: "Başlamak kadar, başladığı işi küçük adımlarla devam ettirmek de ayrı bir beceridir.",
     image: "/images/confidence-card-1.svg",
     color: "#91DDF4",
   },
   {
-    title: "Steady support",
-    copy: "Clinical care and coaching coordinated around your life.",
+    title: "Bilgiyi hatırlamak",
+    copy: "Anladığı bilgiyi doğru zamanda geri çağırmak, hafıza ritmi ve tekrar alışkanlığıyla ilişkilidir.",
     image: "/images/confidence-card-2.svg",
     color: "#F9DC7B",
   },
   {
-    title: "Better patterns",
-    copy: "Evidence-led tools for sleep, focus, and emotional recovery.",
+    title: "Öğrendiğini kullanmak",
+    copy: "Sınavda ya da ödevde bildiğini göstermek; dikkat, hız ve planlama ile birlikte çalışır.",
     image: "/images/confidence-card-3.svg",
     color: "#C9F58B",
   },
-];
+] as const;
 
 export function ConfidenceSection() {
   const [active, setActive] = useState(0);
-  const ref = useRef<HTMLElement | null>(null);
-  const inView = useInView(ref, { once: false, margin: "-20% 0px" });
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
@@ -37,7 +35,7 @@ export function ConfidenceSection() {
 
     const timer = window.setInterval(() => {
       setActive((current) => (current + 1) % cards.length);
-    }, 2200);
+    }, 2800);
 
     return () => window.clearInterval(timer);
   }, [reduceMotion]);
@@ -45,90 +43,115 @@ export function ConfidenceSection() {
   const card = cards[active];
 
   return (
-    <section
-      ref={ref}
-      id="treatments"
-      className="relative overflow-hidden bg-[var(--green)] py-[92px] text-white md:py-[126px]"
-    >
-      <span id="about" className="absolute top-0" aria-hidden="true" />
-      <StarBurst className="absolute left-[4%] top-[16%] opacity-60" color="#F9DC7B" />
-      <Sunflower className="absolute bottom-[-22px] left-[48%] hidden opacity-95 md:block" />
-      <div className="absolute right-[-32px] top-[42%] h-32 w-32 rounded-full border-[18px] border-[#F4865D]" />
+    <>
+      <section id="treatments" className="relative overflow-hidden bg-[#FEF9F5] py-[74px] md:py-[112px]">
+        <div className="inner grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <Reveal>
+            <div className="badge border-[#8C8480] text-[#8C8480]">Daha fazla baskıdan önce</div>
+            <h2 className="mt-7 max-w-[780px] font-[var(--display)] text-[clamp(48px,7.5vw,96px)] font-bold leading-[0.92] tracking-normal text-[#241D18]">
+              Bu bir{" "}
+              <span className="relative inline-block">
+                tembellik
+                <DrawnUnderline className="absolute -bottom-5 left-0 w-full" />
+              </span>{" "}
+              meselesi olmayabilir.
+            </h2>
+          </Reveal>
 
-      <div className="inner grid items-center gap-12 lg:grid-cols-[0.98fr_0.86fr]">
-        <Reveal>
-          <div className="badge border-white/70 text-[#F9DC7B]">Caring is always free</div>
-          <h2 className="display mt-8 max-w-[680px] text-[clamp(50px,7.5vw,104px)] text-white">
-            We help you to{" "}
-            <span className="relative inline-block">
-              grow confidence
-              <DrawnUnderline
-                active={inView && !reduceMotion}
-                className="absolute -bottom-5 left-0 w-full"
-              />
-            </span>{" "}
-            at any age
-          </h2>
-        </Reveal>
+          <Reveal delay={0.1} className="grid gap-5">
+            <p className="body-copy">
+              Çocuklar bazen gerçekten ister, dener ve yorulur. Fakat dikkatini
+              sürdürmek, bilgiyi akılda tutmak veya öğrendiğini doğru anda
+              kullanmak zor geldiğinde sonuç çabasıyla aynı görünmeyebilir.
+            </p>
+            <p className="body-copy">
+              Bu yüzden ilk adım daha çok zorlamak değil, hangi becerinin
+              desteklenmeye ihtiyaç duyduğunu sakin bir şekilde anlamaktır.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
-        <Reveal delay={0.14} className="relative">
-          <div className="flex items-stretch gap-5">
-            <div className="flex flex-col justify-center gap-3" aria-label="Confidence card progress">
-              {cards.map((item, index) => (
-                <button
-                  key={item.title}
-                  type="button"
-                  aria-label={`Show ${item.title}`}
-                  onClick={() => setActive(index)}
-                  className="relative h-[82px] w-[8px] overflow-hidden rounded-full bg-white/20"
-                >
-                  <motion.span
-                    className="absolute bottom-0 left-0 w-full rounded-full bg-[var(--yellow)]"
-                    initial={false}
-                    animate={{ height: index === active ? "100%" : "20%" }}
-                    transition={{ duration: 0.35 }}
-                  />
-                </button>
-              ))}
-            </div>
+      <section className="relative overflow-hidden bg-[#1B4332] py-[86px] text-white md:py-[126px]">
+        <StarBurst className="absolute left-[4%] top-[14%] opacity-60" color="#FBAE17" />
+        <Sunflower className="absolute bottom-[-22px] left-[48%] hidden opacity-95 md:block" />
+        <div
+          className="absolute right-[-32px] top-[42%] h-32 w-32 rounded-full border-[18px] border-[#FBAE17]/70"
+          aria-hidden="true"
+        />
 
-            <div className="relative min-h-[470px] flex-1 overflow-hidden rounded-[28px] bg-white p-4 text-[var(--ink)] shadow-[0_26px_70px_rgba(0,0,0,0.16)]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={card.title}
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.03 }}
-                  transition={{ duration: 0.45 }}
-                  className="h-full"
-                >
-                  <div
-                    className="relative h-[325px] overflow-hidden rounded-[22px]"
-                    style={{ background: card.color }}
+        <div className="inner grid items-center gap-12 lg:grid-cols-[0.96fr_0.9fr]">
+          <Reveal>
+            <div className="badge border-white/60 text-[#FBAE17]">Yalnız değilsiniz</div>
+            <h2 className="display mt-8 max-w-[680px] text-[clamp(46px,7vw,92px)] text-white">
+              Öğrenmek tek bir beceri değildir.
+            </h2>
+            <p className="mt-8 max-w-[580px] text-[17px] font-medium leading-8 text-white/76">
+              Dikkat, hafıza, işlem ritmi ve planlama birlikte çalışır. Bu
+              alanlardan biri zorlandığında çocuk “biliyor ama yapamıyor” gibi
+              görünebilir.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.14} className="relative">
+            <div className="flex items-stretch gap-5">
+              <div className="flex flex-col justify-center gap-3" aria-label="Öğrenme kartları">
+                {cards.map((item, index) => (
+                  <button
+                    key={item.title}
+                    type="button"
+                    aria-label={`${item.title} kartını göster`}
+                    onClick={() => setActive(index)}
+                    className="relative h-[82px] w-[8px] overflow-hidden rounded-full bg-white/20"
                   >
-                    <Image
-                      src={card.image}
-                      alt=""
-                      aria-hidden="true"
-                      fill
-                      sizes="(max-width: 768px) 80vw, 430px"
-                      className="object-cover"
+                    <motion.span
+                      className="absolute bottom-0 left-0 w-full rounded-full bg-[#FBAE17]"
+                      initial={false}
+                      animate={{ height: index === active ? "100%" : "20%" }}
+                      transition={{ duration: 0.35 }}
                     />
-                  </div>
-                  <div className="px-3 pt-6">
-                    <h3 className="font-[var(--display)] text-[34px] leading-none">
-                      {card.title}
-                    </h3>
-                    <p className="mt-3 max-w-[330px] text-[15px] leading-7 text-[rgba(36,29,24,0.66)]">
-                      {card.copy}
-                    </p>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
+                  </button>
+                ))}
+              </div>
+
+              <div className="relative min-h-[470px] flex-1 overflow-hidden rounded-[28px] bg-white p-4 text-[var(--ink)] shadow-[0_26px_70px_rgba(0,0,0,0.16)]">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={card.title}
+                    initial={reduceMotion ? undefined : { opacity: 0, scale: 0.96 }}
+                    animate={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
+                    exit={reduceMotion ? undefined : { opacity: 0, scale: 1.03 }}
+                    transition={{ duration: 0.45 }}
+                    className="h-full"
+                  >
+                    <div
+                      className="relative h-[325px] overflow-hidden rounded-[22px]"
+                      style={{ background: card.color }}
+                    >
+                      <Image
+                        src={card.image}
+                        alt=""
+                        aria-hidden="true"
+                        fill
+                        sizes="(max-width: 768px) 80vw, 430px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="px-3 pt-6">
+                      <h3 className="font-[var(--display)] text-[34px] leading-none">
+                        {card.title}
+                      </h3>
+                      <p className="mt-3 max-w-[340px] text-[15px] leading-7 text-[rgba(36,29,24,0.66)]">
+                        {card.copy}
+                      </p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
+          </Reveal>
+        </div>
+      </section>
+    </>
   );
 }

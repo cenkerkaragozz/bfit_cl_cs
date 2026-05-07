@@ -5,13 +5,10 @@ import {
   ArrowUpRight,
   Brain,
   BookOpen,
-  ChartNoAxesColumnIncreasing,
-  Globe2,
   Heart,
   Lightbulb,
   Puzzle,
   Sparkles,
-  UsersRound,
 } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -22,33 +19,6 @@ import {
   Squiggle,
   StarBurst,
 } from "@/components/Decorations";
-
-const stats = [
-  {
-    value: "92%",
-    copy: "BrainFit programlarına katılan bireylerin %92'si bilişsel becerilerinde gözle görülür bir gelişim sağladı.",
-    icon: ChartNoAxesColumnIncreasing,
-    colorClass: "text-[#2F8C49]",
-    iconClass: "bg-[#EAF7DD] text-[#2F8C49]",
-    lineClass: "bg-[#2F8C49]",
-  },
-  {
-    value: "20+",
-    copy: "BrainFit, 20 yılı aşkın süredir dünya genelinde 50.000’den fazla bireyin öğrenme kapasitelerini artırmasına yardımcı oldu.",
-    icon: Globe2,
-    colorClass: "text-[#2471C7]",
-    iconClass: "bg-[#E8F2FB] text-[#2471C7]",
-    lineClass: "bg-[#2471C7]",
-  },
-  {
-    value: "100+",
-    copy: "Karşıyaka BrainFit'te, 6 yaşından 60 yaşına kadar her birey için özel olarak tasarlanmış 100+ program sunuyoruz.",
-    icon: UsersRound,
-    colorClass: "text-[#D94C25]",
-    iconClass: "bg-[#FFF0D7] text-[#D94C25]",
-    lineClass: "bg-[#D94C25]",
-  },
-] as const;
 
 const visualDoodles = [
   {
@@ -83,7 +53,7 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="inner relative z-10 grid gap-10 pb-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:pb-0 xl:grid-cols-[0.86fr_1.14fr]">
+      <div className="inner relative z-10 grid gap-10 pb-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:pb-16 xl:grid-cols-[0.86fr_1.14fr]">
         <div className="relative z-20 max-w-[332px] pb-0 sm:max-w-[650px] lg:pb-24">
           <div className="badge gap-2 border-[#D94C25] bg-white/70 text-[#B63A1A] shadow-[0_10px_24px_rgba(36,29,24,0.06)] backdrop-blur">
             <span className="grid h-5 w-5 place-items-center rounded-full bg-[#F05A38] text-white" aria-hidden="true">
@@ -93,28 +63,28 @@ export function Hero() {
           </div>
 
           <h1 className="mt-5 max-w-[332px] font-[var(--body)] text-[clamp(35px,9vw,48px)] font-extrabold leading-[1.02] tracking-normal text-[#160A08] sm:max-w-[680px] sm:text-[clamp(58px,8.5vw,78px)] lg:text-[clamp(60px,5.25vw,86px)]">
-            <span className="block">Hafıza ve</span>
-            <span className="relative inline-block text-[#D94C25]">
-              Öğrenme Kapasitenizi
+            <span className="block">Çocuğunuzun</span>
+            <span className="relative inline-block">
+              öğrenme haritasını
               <HeroUnderline
                 animate={!reduceMotion}
                 className="absolute -bottom-5 left-[-6px] h-7 w-[min(100%,330px)] text-[#FBAE17] sm:-bottom-6 sm:w-[360px]"
               />
             </span>
-            <span className="mt-1 block">Artırın</span>
+            <span className="mt-1 block">birlikte çıkaralım.</span>
           </h1>
 
           <div className="mt-9 max-w-[332px] sm:max-w-[560px] md:mt-11">
             <p className="max-w-full text-[19px] font-extrabold leading-8 text-[#241D18] md:text-[25px] md:leading-9">
-              Karşıyaka’da Zihin Check-Up Fırsatı! Hemen Katılın!
+              Etiket koymadan, nereden başlayabileceğinizi birlikte görelim.
             </p>
             <p className="mt-4 text-[16px] font-medium leading-8 text-[rgba(36,29,24,0.72)] md:text-lg">
-              Çocuğunuzun dikkat, hafıza ve öğrenme becerilerini bilimsel
-              egzersizlerle desteklemek için ilk adımı atın.
+              45 dakikalık ücretsiz Zihin Check-Up ile çocuğunuzun dikkat,
+              hafıza ve öğrenme becerilerine daha yakından bakın.
             </p>
             <a
-              className="arrow-shift mt-7 inline-flex min-h-13 max-w-full items-center justify-center gap-2 rounded-full bg-[#F05A38] px-6 py-4 text-center text-[15px] font-extrabold leading-5 text-[#160A08] shadow-[0_18px_36px_rgba(240,90,56,0.24)] transition hover:-translate-y-1 hover:bg-[#FF6845] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D94C25] sm:px-7"
-              href="#help"
+              className="arrow-shift mt-7 inline-flex min-h-13 max-w-full items-center justify-center gap-2 rounded-full bg-[#F05A38] px-6 py-4 text-center text-[15px] font-extrabold leading-5 text-white shadow-[0_18px_36px_rgba(240,90,56,0.24)] transition hover:-translate-y-1 hover:bg-[#FF6845] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D94C25] sm:px-7"
+              href="#checkup-form"
             >
               <span>Ücretsiz Zihin Check-Up’ı Alın</span>
               <ArrowUpRight className="shrink-0" size={18} strokeWidth={2.7} />
@@ -185,48 +155,13 @@ export function Hero() {
             </div>
             <p className="mt-3 text-[17px] font-extrabold leading-7 text-[#241D18] md:text-[19px] md:leading-8">
               Her çocuğun potansiyeli{" "}
-              <span className="text-[#D94C25]">keşfedilmeyi</span> bekler.
+              <span className="text-[#1B4332]">keşfedilmeyi</span> bekler.
             </p>
             <span className="mt-3 block h-1.5 w-16 rounded-full bg-[#A6D96F]" aria-hidden="true" />
           </motion.div>
         </div>
       </div>
 
-      <div className="relative z-20 pb-14 md:pb-20 lg:mt-[-58px]">
-        <dl className="inner grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4 xl:gap-5">
-          {stats.map((stat) => {
-            const Icon = stat.icon;
-
-            return (
-              <div
-                key={stat.value}
-                className="relative w-full max-w-[332px] overflow-hidden rounded-[24px] border border-white/80 bg-white/86 p-6 shadow-[0_24px_70px_rgba(36,29,24,0.1)] backdrop-blur sm:max-w-none md:p-7 lg:min-h-[230px]"
-              >
-                <div
-                  className={`absolute bottom-5 left-6 h-1.5 w-20 rounded-full opacity-80 md:left-7 ${stat.lineClass}`}
-                  aria-hidden="true"
-                />
-                <div className="flex flex-col items-start gap-4 sm:flex-row sm:gap-5">
-                  <div
-                    className={`grid h-16 w-16 shrink-0 place-items-center rounded-full md:h-[76px] md:w-[76px] ${stat.iconClass}`}
-                    aria-hidden="true"
-                  >
-                    <Icon size={34} strokeWidth={2.25} />
-                  </div>
-                  <div className="min-w-0">
-                    <dt className={`text-[clamp(52px,13vw,70px)] font-extrabold leading-none tracking-normal md:text-[72px] ${stat.colorClass}`}>
-                      {stat.value}
-                    </dt>
-                    <dd className="mt-3 break-words pb-8 text-[15px] font-medium leading-7 text-[rgba(36,29,24,0.78)] md:text-[16px]">
-                      {stat.copy}
-                    </dd>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </dl>
-      </div>
     </section>
   );
 }

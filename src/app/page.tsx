@@ -1,11 +1,8 @@
 import { BlogSection } from "@/components/BlogSection";
-import { ConfidenceSection } from "@/components/ConfidenceSection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { HelpSection } from "@/components/HelpSection";
 import { Hero } from "@/components/Hero";
-import { ProgramSection } from "@/components/ProgramSection";
-import { TestimonialSection } from "@/components/TestimonialSection";
+import { LandingFunnel } from "@/components/LandingFunnel";
 import { getLatestPosts } from "@/lib/sanity/queries";
 
 export const revalidate = 300;
@@ -19,10 +16,7 @@ export default async function Home() {
         <Header />
         <main>
           <Hero />
-          <HelpSection />
-          <ConfidenceSection />
-          <ProgramSection />
-          <TestimonialSection />
+          <LandingFunnel />
           <BlogSection posts={posts} />
         </main>
         <Footer />
