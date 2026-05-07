@@ -48,7 +48,7 @@ export function Header() {
               {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
             <a className="pill-button header-cta arrow-shift" href="#checkup-form">
-              Ücretsiz Check-Up
+              Check-Up
               <ArrowUpRight size={16} />
             </a>
           </div>

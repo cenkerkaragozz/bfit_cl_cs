@@ -79,14 +79,14 @@ export function Hero() {
               Etiket koymadan, nereden başlayabileceğinizi birlikte görelim.
             </p>
             <p className="mt-4 text-[16px] font-medium leading-8 text-[rgba(36,29,24,0.72)] md:text-lg">
-              45 dakikalık ücretsiz Zihin Check-Up ile çocuğunuzun dikkat,
+              45 dakikalık Zihin Check-Up ile çocuğunuzun dikkat,
               hafıza ve öğrenme becerilerine daha yakından bakın.
             </p>
             <a
               className="arrow-shift mt-7 inline-flex min-h-13 max-w-full items-center justify-center gap-2 rounded-full bg-[#F05A38] px-6 py-4 text-center text-[15px] font-extrabold leading-5 text-white shadow-[0_18px_36px_rgba(240,90,56,0.24)] transition hover:-translate-y-1 hover:bg-[#FF6845] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D94C25] sm:px-7"
               href="#checkup-form"
             >
-              <span>Ücretsiz Zihin Check-Up’ı Alın</span>
+              <span>Zihin Check-Up’ı Alın</span>
               <ArrowUpRight className="shrink-0" size={18} strokeWidth={2.7} />
             </a>
           </div>

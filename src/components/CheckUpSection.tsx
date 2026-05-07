@@ -23,7 +23,7 @@ const steps = [
 ] as const;
 
 const details = [
-  "Ücretsiz görüşme",
+  "Görüşme",
   "16 sayfalık kişisel bilişsel rapor",
   "Tanı, ilaç veya klinik yönlendirme dili yok",
   "Aileniz için anlamlı ilk adımı birlikte konuşuruz",
@@ -50,7 +50,7 @@ export function CheckUpSection() {
             şekilde konuşuruz.
           </p>
           <a className="pill-button arrow-shift mt-8 bg-[#F05A38]" href="#checkup-form">
-            Ücretsiz Check-Up Talebi
+            Check-Up Talebi
             <ArrowUpRight size={16} />
           </a>
         </Reveal>

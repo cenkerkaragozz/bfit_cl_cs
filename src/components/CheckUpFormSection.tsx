@@ -60,15 +60,14 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
       <div className="inner grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
         <Reveal>
           <div className="badge border-[#160A08]/40 bg-white/20 text-[#160A08]">
-            Ücretsiz Check-Up
+            Check-Up
           </div>
           <h2 className="mt-7 max-w-[700px] font-[var(--display)] text-[clamp(44px,7vw,86px)] font-bold leading-[0.94] tracking-normal">
             Çocuğunuz için ilk adımı bugün netleştirin.
           </h2>
           <p className="mt-7 max-w-[560px] text-[17px] font-semibold leading-8 text-[#160A08]/78">
-            Formu bırakın, BrainFit Karşıyaka ekibi ücretsiz Zihin Check-Up için
-            sizi arasın. Paylaştığınız bilgiler yalnızca randevu planlaması için
-            kullanılır.
+            Formu doldurun, BrainFit Karşıyaka ekibi size ulaşsın.
+            Paylaştığınız bilgiler yalnızca randevu planlaması için kullanılır.
           </p>
 
           <motion.div
