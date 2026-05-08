@@ -87,7 +87,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
             className="rounded-[30px] bg-white p-5 shadow-[0_30px_80px_rgba(22,10,8,0.18)] md:p-7"
           >
             <div className="grid gap-4 sm:grid-cols-2">
-              <label className="grid gap-2 text-[13px] font-extrabold uppercase tracking-[0.08em] text-[rgba(36,29,24,0.58)]">
+              <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)]">
                 Adınız Soyadınız
                 <input
                   name="parentName"
@@ -96,7 +96,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
                   placeholder="Adınız"
                 />
               </label>
-              <label className="grid gap-2 text-[13px] font-extrabold uppercase tracking-[0.08em] text-[rgba(36,29,24,0.58)]">
+              <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)]">
                 Telefon Numaranız
                 <input
                   name="phone"
@@ -106,7 +106,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
                   placeholder="05XX XXX XX XX"
                 />
               </label>
-              <label className="grid gap-2 text-[13px] font-extrabold uppercase tracking-[0.08em] text-[rgba(36,29,24,0.58)]">
+              <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)]">
                 Çocuğunuzun Yaşı
                 <input
                   name="childAge"
@@ -116,7 +116,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
                   placeholder="Örn. 10"
                 />
               </label>
-              <label className="grid gap-2 text-[13px] font-extrabold uppercase tracking-[0.08em] text-[rgba(36,29,24,0.58)] sm:col-span-2">
+              <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)] sm:col-span-2">
                 Mesajınız / Notunuz
                 <textarea
                   name="note"

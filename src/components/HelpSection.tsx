@@ -39,12 +39,12 @@ export function HelpSection({ selectedConcern, onSelectConcern }: HelpSectionPro
           <div className="badge border-[#00BBE7] text-[#157B93]">
             Ebeveynlerin Kaygılarını Anlıyoruz
           </div>
-          <h2 className="section-title mt-7 max-w-[720px]">
+          <h2 className="section-title mid-section-title mt-7 max-w-[720px]">
             Evinizde benzer süreçlerden geçiyor olabilirsiniz:
           </h2>
           <blockquote className="relative mt-8 max-w-[680px] rounded-[28px] bg-[#FEF9F5] p-6 shadow-[0_18px_45px_rgba(36,29,24,0.08)] md:p-8">
             <Squiggle className="absolute -right-3 top-4 hidden md:block" color="#FBAE17" />
-            <p className="font-[var(--display)] text-[clamp(34px,6vw,64px)] font-bold italic leading-[1.02] tracking-normal text-[#241D18]">
+            <p className="font-[var(--display)] text-[clamp(28px,4.6vw,46px)] font-bold italic leading-[1.08] tracking-normal text-[#241D18]">
               “Çocuğumun potansiyelinin farkındayım ama neden akademik süreçlerde bu kadar zorlanıyor?”
             </p>
           </blockquote>

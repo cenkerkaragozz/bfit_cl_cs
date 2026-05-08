@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Leaf, QuoteIcon, Reveal } from "@/components/Decorations";
@@ -55,9 +55,6 @@ export function TestimonialSection() {
                 sizes="(max-width: 768px) 90vw, 480px"
                 className="object-cover object-bottom"
               />
-              <div className="absolute left-4 top-4 rounded-full bg-white px-4 py-2 text-[13px] font-extrabold text-[#241D18]">
-                Ekip Fotoğrafı
-              </div>
             </div>
             <div className="flex items-center justify-between gap-4 px-3 pb-2 pt-7">
               <div>
@@ -68,13 +65,6 @@ export function TestimonialSection() {
                   Zihin Check-Up ve Bireysel Gelişim Programları
                 </p>
               </div>
-              <a
-                className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white text-[#241d18] transition hover:rotate-12"
-                href="#checkup-form"
-                aria-label="Check-Up Formunu Doldur"
-              >
-                <ArrowUpRight size={20} />
-              </a>
             </div>
           </article>
         </Reveal>

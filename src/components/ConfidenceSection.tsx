@@ -48,7 +48,7 @@ export function ConfidenceSection() {
         <div className="inner grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
             <div className="badge border-[#8C8480] text-[#8C8480]">Daha Fazla Israr Etmeden Önce</div>
-            <h2 className="mt-7 max-w-[780px] font-[var(--display)] text-[clamp(48px,7.5vw,96px)] font-bold leading-[0.92] tracking-normal text-[#241D18]">
+            <h2 className="mt-7 max-w-[780px] font-[var(--display)] text-[clamp(42px,5.8vw,60px)] font-bold leading-[0.98] tracking-normal text-[#241D18]">
               Yaşananlar bir motivasyon eksikliği veya{" "}
               <span className="relative inline-block">
                 tembellik
@@ -83,7 +83,7 @@ export function ConfidenceSection() {
         <div className="inner grid items-center gap-12 lg:grid-cols-[0.96fr_0.9fr]">
           <Reveal>
             <div className="badge border-white/60 text-[#FBAE17]">Bu Yolculukta Yalnız Değilsiniz</div>
-            <h2 className="display mt-8 max-w-[680px] text-[clamp(46px,7vw,92px)] text-white">
+            <h2 className="display mt-8 max-w-[680px] text-[clamp(42px,5.8vw,60px)] leading-[0.98] text-white">
               Öğrenme, birden fazla bilişsel becerinin uyumudur.
             </h2>
             <p className="mt-8 max-w-[580px] text-[17px] font-medium leading-8 text-white/76">
@@ -144,10 +144,10 @@ export function ConfidenceSection() {
                       />
                     </div>
                     <div className="px-3 pt-6">
-                      <h3 className="font-[var(--display)] text-[34px] leading-none">
+                      <h3 className="font-[var(--display)] text-[34px] leading-none text-gray-900">
                         {card.title}
                       </h3>
-                      <p className="mt-3 max-w-[340px] text-[15px] leading-7 text-[rgba(36,29,24,0.66)]">
+                      <p className="mt-3 max-w-[340px] text-[15px] leading-7 text-gray-600">
                         {card.copy}
                       </p>
                     </div>

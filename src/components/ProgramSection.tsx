@@ -38,7 +38,7 @@ export function ProgramSection() {
       <div className="inner">
         <Reveal className="text-center">
           <div className="badge border-[#00BBE7] text-[#157B93]">Programlar</div>
-          <h2 className="section-title mx-auto mt-7 max-w-[880px]">
+          <h2 className="section-title mid-section-title mx-auto mt-7 max-w-[760px]">
             Yaş grubuna ve bireysel ihtiyaçlara özel program seçenekleri.
           </h2>
           <p className="body-copy mx-auto mt-6 max-w-[650px]">
@@ -74,10 +74,10 @@ export function ProgramSection() {
                 </div>
 
                 <div className="pt-6">
-                  <p className="text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#00BBE7]">
+                  <p className="min-h-[2rem] text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#00BBE7]">
                     {program.label}
                   </p>
-                  <h3 className="mt-3 min-h-[86px] font-[var(--display)] text-[34px] leading-[0.98]">
+                  <h3 className="mt-3 min-h-[6rem] font-[var(--display)] text-[34px] leading-[0.98]">
                     {program.title}
                   </h3>
                   <p className="mt-5 text-[15px] leading-7 text-[rgba(36,29,24,0.66)]">

@@ -75,11 +75,11 @@ export function Hero() {
           </h1>
 
           <div className="mt-9 max-w-[332px] sm:max-w-[560px] md:mt-11">
-            <p className="max-w-full text-[19px] font-extrabold leading-8 text-[#241D18] md:text-[25px] md:leading-9">
-              Tanı koymadan, gelişim yolculuğuna nereden başlayacağımızı birlikte belirleyelim.
+            <p className="max-w-full text-[19px] font-semibold leading-8 text-[#241D18] md:text-[25px] md:leading-9">
+              Gelişim yolculuğuna nereden başlayacağımızı birlikte belirleyelim.
             </p>
             <p className="mt-4 text-[16px] font-medium leading-8 text-[rgba(36,29,24,0.72)] md:text-lg">
-              45 dakikalık Zihin Check-Up ile çocuğunuzun dikkat,
+              Zihin Check-Up ile çocuğunuzun dikkat,
               hafıza ve öğrenme becerilerini bilimsel verilerle analiz edin.
             </p>
             <a
