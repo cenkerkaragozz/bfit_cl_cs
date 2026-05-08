@@ -22,9 +22,9 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "BrainFit | Mental health is wealth",
+  title: "BrainFit Karşıyaka | Zihin Check-Up ve Bilişsel Gelişim",
   description:
-    "BrainFit is an editorial wellness landing page with programs, clinics, treatments, and Sanity-powered mental health articles.",
+    "BrainFit Karşıyaka ile çocukların dikkat, hafıza ve öğrenme becerilerini Zihin Check-Up ve bilişsel gelişim programlarıyla keşfedin.",
 };
 
 export default function RootLayout({
@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="tr"
       className={`${fraunces.variable} ${manrope.variable} ${playfairDisplay.variable}`}
     >
       <body>

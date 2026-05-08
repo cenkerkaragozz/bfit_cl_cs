@@ -13,19 +13,19 @@ export function Footer() {
               className="flex flex-wrap items-center gap-x-9 gap-y-4 text-[14px] font-bold text-white/72"
               aria-label="Footer navigation"
             >
-              <a href="#services">Services</a>
-              <a href="#clinics">Clinics</a>
-              <a href="#treatments">Treatments</a>
+              <a href="#services">Hizmetlerimiz</a>
+              <a href="#clinics">Merkezlerimiz</a>
+              <a href="#treatments">Programlarımız</a>
               <button
                 type="button"
                 className="rounded-full border border-white/20 px-4 py-2 font-extrabold text-white"
               >
-                EN
+                TR
               </button>
               <button
                 type="button"
                 className="grid h-10 w-10 place-items-center rounded-full border border-white/20"
-                aria-label="Open footer menu"
+                aria-label="Alt Menüyü Aç"
               >
                 <Menu size={18} />
               </button>
@@ -33,15 +33,15 @@ export function Footer() {
 
             <div className="mt-20 grid max-w-[520px] grid-cols-2 gap-8 border-t border-white/12 pt-10">
               <div>
-                <p className="font-[var(--display)] text-[64px] leading-none">48k</p>
+                <p className="font-[var(--display)] text-[64px] leading-none">48.000+</p>
                 <p className="mt-3 text-[15px] leading-6 text-white/58">
-                  People enrolled program
+                  Eğitim Alan Katılımcılar
                 </p>
               </div>
               <div>
-                <p className="font-[var(--display)] text-[64px] leading-none">93%</p>
+                <p className="font-[var(--display)] text-[64px] leading-none">%93</p>
                 <p className="mt-3 text-[15px] leading-6 text-white/58">
-                  People get benefitted
+                  Memnuniyet Oranı
                 </p>
               </div>
             </div>
@@ -53,25 +53,25 @@ export function Footer() {
               <span className="text-[28px] font-extrabold">BrainFit</span>
             </div>
             <div className="badge mt-10 border-white/50 text-[var(--yellow)]">
-              Mental health at 30&apos;s
+              30&apos;lu Yaşlarda Zihinsel Sağlık
             </div>
             <h2 className="display mt-7 max-w-[600px] text-[clamp(46px,6vw,84px)]">
-              Gentle mental care in your inbox.
+              Zihinsel gelişim rehberimiz e-posta kutunuzda.
             </h2>
             <form className="mt-9 flex max-w-[520px] items-center gap-3 border-b border-white/24 pb-3">
               <label className="sr-only" htmlFor="newsletter-email">
-                Email address
+                E-posta Adresi
               </label>
               <input
                 id="newsletter-email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder="E-posta adresinizi giriniz"
                 className="min-w-0 flex-1 bg-transparent py-3 text-white placeholder:text-white/48"
               />
               <button
                 type="submit"
                 className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[var(--yellow)] text-[var(--ink)]"
-                aria-label="Subscribe to newsletter"
+                aria-label="Bültene Kaydol"
               >
                 <Send size={18} />
               </button>
@@ -86,17 +86,17 @@ export function Footer() {
                 key={index}
                 href="#"
                 className="grid h-10 w-10 place-items-center rounded-full border border-white/16 text-white"
-                aria-label={`BrainFit social link ${index + 1}`}
+                aria-label={`Sosyal Medya - ${index + 1}`}
               >
                 <Icon size={17} />
               </a>
             ))}
           </div>
-          <p>Copyright 2026 BrainFit. All rights reserved.</p>
+          <p>Tüm Hakları Saklıdır © 2026 BrainFit.</p>
           <div className="flex gap-7">
-            <a href="#">Privacy</a>
+            <a href="#">Gizlilik Politikası</a>
             <a className="inline-flex items-center gap-1" href="#">
-              Sitemap
+              Site Haritası
               <ArrowUpRight size={14} />
             </a>
           </div>

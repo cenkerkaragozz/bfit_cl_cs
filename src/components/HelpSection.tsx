@@ -5,21 +5,21 @@ import { ArrowUpRight, Brain, CheckCircle2, MessageCircleHeart } from "lucide-re
 import { Reveal, Squiggle } from "@/components/Decorations";
 
 const concerns = [
-  "Ödevin başına oturuyor ama başlayamıyor.",
-  "Anlıyor gibi görünüyor, sonra unutuyor.",
-  "Sınavda bildiğini gösteremiyor.",
-  "Çok zeki ama dikkati dağılıyor deniyor.",
+  "Ödevin başına geçmekte zorlanıyor veya sürekli erteliyor.",
+  "Konuyu anladığını söylüyor ama kısa süre sonra bilgiyi hatırlamakta güçlük çekiyor.",
+  "Bilgi sahibi olmasına rağmen sınav anında bu bilgiyi kağıda dökemiyor.",
+  "Potansiyeli yüksek görülmesine rağmen dikkati çok çabuk dağılıyor.",
 ] as const;
 
 const responses: Record<string, string> = {
-  "Ödevin başına oturuyor ama başlayamıyor.":
-    "Bu tablo her zaman isteksizlik anlamına gelmez. Başlamak, dikkati sürdürmek ve planı küçük adımlara bölmek ayrı ayrı desteklenebilen becerilerdir.",
-  "Anlıyor gibi görünüyor, sonra unutuyor.":
-    "Bazen çocuk bilgiyi o anda kavrar, fakat sonradan geri çağırmakta zorlanır. Hafıza ve tekrar ritmini birlikte anlamak iyi bir başlangıçtır.",
-  "Sınavda bildiğini gösteremiyor.":
-    "Bildiklerini doğru anda kullanmak dikkat, hız ve sakin kalabilme ile birlikte çalışır. Önce hangi adımın zorlandığını görmeye çalışırız.",
-  "Çok zeki ama dikkati dağılıyor deniyor.":
-    "Zeka ile dikkati sürdürmek aynı şey değildir. Çocuğunuzun potansiyelini göstermesini zorlaştıran becerileri birlikte fark edebiliriz.",
+  "Ödevin başına geçmekte zorlanıyor veya sürekli erteliyor.":
+    "Bu durum her zaman isteksizlikten kaynaklanmaz. Odaklanma, dikkati sürdürme ve planlama, doğru egzersizlerle geliştirilebilen zihinsel becerilerdir.",
+  "Konuyu anladığını söylüyor ama kısa süre sonra bilgiyi hatırlamakta güçlük çekiyor.":
+    "Bilgiyi kavramak ve o bilgiyi ihtiyaç anında geri çağırmak farklı süreçlerdir. Hafıza kapasitesini ve öğrenme ritmini anlamak gelişimin anahtarıdır.",
+  "Bilgi sahibi olmasına rağmen sınav anında bu bilgiyi kağıda dökemiyor.":
+    "Öğrenilenlerin eyleme dökülmesi; dikkat, işlem hızı ve kaygı yönetimiyle ilişkilidir. Biz, bu zincirin hangi halkasında destek gerektiğini tespit ediyoruz.",
+  "Potansiyeli yüksek görülmesine rağmen dikkati çok çabuk dağılıyor.":
+    "Bilişsel kapasite (zeka) ile dikkati sürdürme becerisi farklı alanlardır. Çocuğunuzun potansiyelini tam yansıtmasını engelleyen zihinsel bariyerleri birlikte aşabiliriz.",
 };
 
 type HelpSectionProps = {
@@ -37,15 +37,15 @@ export function HelpSection({ selectedConcern, onSelectConcern }: HelpSectionPro
       <div className="inner grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr]">
         <Reveal className="relative">
           <div className="badge border-[#00BBE7] text-[#157B93]">
-            İç sesinizi duyuyoruz
+            Ebeveynlerin Kaygılarını Anlıyoruz
           </div>
           <h2 className="section-title mt-7 max-w-[720px]">
-            Evde bunu yaşıyor olabilirsiniz.
+            Evinizde benzer süreçlerden geçiyor olabilirsiniz:
           </h2>
           <blockquote className="relative mt-8 max-w-[680px] rounded-[28px] bg-[#FEF9F5] p-6 shadow-[0_18px_45px_rgba(36,29,24,0.08)] md:p-8">
             <Squiggle className="absolute -right-3 top-4 hidden md:block" color="#FBAE17" />
             <p className="font-[var(--display)] text-[clamp(34px,6vw,64px)] font-bold italic leading-[1.02] tracking-normal text-[#241D18]">
-              “Zeki olduğunu biliyorum. Ama neden bu kadar zorlanıyor?”
+              “Çocuğumun potansiyelinin farkındayım ama neden akademik süreçlerde bu kadar zorlanıyor?”
             </p>
           </blockquote>
         </Reveal>
@@ -61,11 +61,11 @@ export function HelpSection({ selectedConcern, onSelectConcern }: HelpSectionPro
               </div>
               <div>
                 <h3 className="text-[25px] font-extrabold leading-tight text-[#241D18]">
-                  Size en yakın cümleyi seçin.
+                  Çocuğunuzun durumunu en iyi özetleyen ifadeyi seçin.
                 </h3>
                 <p className="mt-2 text-[15px] font-medium leading-7 text-[rgba(36,29,24,0.68)]">
-                  Bu seçim yalnızca formda görünür; aile görüşmesine daha net
-                  bir başlangıç sağlar.
+                  Bu seçim, uzman görüşmemiz için ön bilgi sağlar ve süreci
+                  size özel yapılandırmamıza yardımcı olur.
                 </p>
               </div>
             </div>

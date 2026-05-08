@@ -10,7 +10,7 @@ import { TestimonialSection } from "@/components/TestimonialSection";
 
 export function LandingFunnel() {
   const [selectedConcern, setSelectedConcern] = useState(
-    "Ödevin başına oturuyor ama başlayamıyor.",
+    "Ödevin başına geçmekte zorlanıyor veya sürekli erteliyor.",
   );
 
   return (

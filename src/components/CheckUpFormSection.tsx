@@ -39,12 +39,12 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
 
       setSubmitState("success");
       setMessage(
-        "Talebiniz alındı. BrainFit Karşıyaka ekibi randevu için sizinle iletişime geçecek.",
+        "Talebiniz başarıyla alındı. Uzman ekibimiz en kısa sürede sizinle iletişime geçecektir.",
       );
       event.currentTarget.reset();
     } catch {
       setSubmitState("error");
-      setMessage("Şu anda gönderemedik. Lütfen telefon numaranızı kontrol edip tekrar deneyin.");
+      setMessage("Mesaj gönderilemedi. Lütfen bilgilerinizi kontrol ederek tekrar deneyiniz.");
     }
   }
 
@@ -60,14 +60,14 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
       <div className="inner grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
         <Reveal>
           <div className="badge border-[#160A08]/40 bg-white/20 text-[#160A08]">
-            Check-Up
+            Zihin Check-Up
           </div>
           <h2 className="mt-7 max-w-[700px] font-[var(--display)] text-[clamp(44px,7vw,86px)] font-bold leading-[0.94] tracking-normal">
-            Çocuğunuz için ilk adımı bugün netleştirin.
+            Çocuğunuzun geleceği için ilk adımı bugün atın.
           </h2>
           <p className="mt-7 max-w-[560px] text-[17px] font-semibold leading-8 text-[#160A08]/78">
-            Formu doldurun, BrainFit Karşıyaka ekibi size ulaşsın.
-            Paylaştığınız bilgiler yalnızca randevu planlaması için kullanılır.
+            Formu doldurun, uzman ekibimiz sizinle iletişime geçsin.
+            Bilgileriniz KVKK kapsamında sadece randevu planlaması için saklanır.
           </p>
 
           <motion.div
@@ -97,13 +97,13 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
                 />
               </label>
               <label className="grid gap-2 text-[13px] font-extrabold uppercase tracking-[0.08em] text-[rgba(36,29,24,0.58)]">
-                Telefon
+                Telefon Numaranız
                 <input
                   name="phone"
                   required
                   inputMode="tel"
                   className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18]"
-                  placeholder="05xx xxx xx xx"
+                  placeholder="05XX XXX XX XX"
                 />
               </label>
               <label className="grid gap-2 text-[13px] font-extrabold uppercase tracking-[0.08em] text-[rgba(36,29,24,0.58)]">
@@ -113,15 +113,15 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
                   required
                   inputMode="numeric"
                   className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18]"
-                  placeholder="Örn. 9"
+                  placeholder="Örn. 10"
                 />
               </label>
               <label className="grid gap-2 text-[13px] font-extrabold uppercase tracking-[0.08em] text-[rgba(36,29,24,0.58)] sm:col-span-2">
-                Notunuz
+                Mesajınız / Notunuz
                 <textarea
                   name="note"
                   className="min-h-28 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 py-3 text-[16px] font-bold normal-case tracking-normal text-[#241D18]"
-                  placeholder="Paylaşmak istediğiniz kısa bir not varsa yazabilirsiniz."
+                  placeholder="Eklemek istediğiniz özel bir durum veya sorunuz varsa buraya yazabilirsiniz."
                 />
               </label>
             </div>
@@ -133,7 +133,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
               disabled={submitState === "submitting"}
               className="arrow-shift mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#F05A38] px-6 text-[15px] font-extrabold text-white transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-70"
             >
-              {submitState === "submitting" ? "Gönderiliyor..." : "Beni Arayın"}
+              {submitState === "submitting" ? "Mesajınız İletiliyor..." : "Bilgi Almak İstiyorum"}
               <ArrowUpRight size={18} />
             </button>
 

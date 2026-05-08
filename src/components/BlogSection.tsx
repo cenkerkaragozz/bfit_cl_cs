@@ -16,9 +16,9 @@ const fallbackImages = [
 ];
 
 function formatDate(value?: string) {
-  if (!value) return "Unscheduled";
+  if (!value) return "Planlanmamış";
 
-  return new Intl.DateTimeFormat("en", {
+  return new Intl.DateTimeFormat("tr-TR", {
     month: "short",
     day: "2-digit",
     year: "numeric",
@@ -30,18 +30,18 @@ export function BlogSection({ posts }: { posts: PostCard[] }) {
     <section className="section-pad">
       <div className="inner">
         <Reveal className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
-          <h2 className="section-title max-w-[760px]">The latest from BrainFit</h2>
+          <h2 className="section-title max-w-[760px]">BrainFit’ten Güncel Yazılar</h2>
           <Link className="arrow-shift inline-flex items-center gap-2 font-extrabold" href="/blog">
-            Read All Blog
+            Tüm Yazıları Gör
             <ArrowUpRight size={18} />
           </Link>
         </Reveal>
 
         {posts.length === 0 ? (
           <div className="mt-12 rounded-[18px] border border-dashed border-[var(--line)] bg-[var(--paper)] p-10 text-center">
-            <p className="font-extrabold">No Sanity posts are published yet.</p>
+            <p className="font-extrabold">Henüz yayınlanmış bir içerik bulunmuyor.</p>
             <p className="mt-2 text-[15px] text-[rgba(36,29,24,0.62)]">
-              Add project credentials and publish posts in Studio to populate this section.
+              Yayınlanan içerikler burada görünecektir.
             </p>
           </div>
         ) : (
@@ -57,7 +57,7 @@ export function BlogSection({ posts }: { posts: PostCard[] }) {
                 <Link
                   href={`/blog/${post.slug}`}
                   className="flex h-full flex-col"
-                  aria-label={`Read blog post: ${post.title}`}
+                  aria-label={`Yazıyı Oku: ${post.title}`}
                 >
                   <div className="flex items-center justify-between gap-4 text-[13px] font-extrabold uppercase tracking-[0.08em] text-[rgba(36,29,24,0.62)]">
                     <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
@@ -97,7 +97,7 @@ export function BlogSection({ posts }: { posts: PostCard[] }) {
                       )}
                     </div>
                     <span className="inline-flex rounded-full bg-[var(--cta)] px-5 py-3 text-[13px] font-extrabold text-white">
-                      Read More
+                      Devamını Oku
                     </span>
                   </div>
                 </Link>

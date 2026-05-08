@@ -24,18 +24,18 @@ export async function POST(request: Request) {
       payload = Object.fromEntries(await request.formData());
     }
   } catch {
-    return Response.json({ message: "Geçersiz form verisi." }, { status: 400 });
+    return Response.json({ message: "Lütfen tüm alanları doğru formatta doldurunuz." }, { status: 400 });
   }
 
   const parentName = clean(payload.parentName);
   const phone = clean(payload.phone);
   const childAge = clean(payload.childAge);
-  const concern = clean(payload.concern) || "Seçilmedi";
-  const note = clean(payload.note) || "Not paylaşılmadı";
+  const concern = clean(payload.concern) || "Henüz Seçim Yapılmadı";
+  const note = clean(payload.note) || "Not Eklenmedi";
 
   if (!parentName || !phone || !childAge) {
     return Response.json(
-      { message: "Ad, telefon ve yaş alanları zorunludur." },
+      { message: "Lütfen ad, telefon ve yaş bilgilerini eksiksiz giriniz." },
       { status: 400 },
     );
   }
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
 
   if (!apiKey || !to || !from) {
     return Response.json(
-      { message: "E-posta ayarları henüz yapılandırılmadı." },
+      { message: "Sistem hatası: E-posta servisi şu an aktif değil." },
       { status: 503 },
     );
   }
@@ -59,29 +59,29 @@ export async function POST(request: Request) {
   }).format(new Date());
 
   const text = [
-    "Yeni Zihin Check-Up talebi",
+    "Yeni Zihin Check-Up Başvurusu",
     "",
-    `Ad Soyad: ${parentName}`,
+    `Adı Soyadı: ${parentName}`,
     `Telefon: ${phone}`,
-    `Çocuğun yaşı: ${childAge}`,
-    `Seçilen durum: ${concern}`,
-    `Not: ${note}`,
-    `Tarih: ${timestamp}`,
+    `Çocuğun Yaşı: ${childAge}`,
+    `Belirtilen Durum: ${concern}`,
+    `Veli Notu: ${note}`,
+    `Başvuru Tarihi: ${timestamp}`,
   ].join("\n");
 
   try {
     await resend.emails.send({
       from,
       to,
-      subject: "Yeni Zihin Check-Up Talebi - BrainFit Karşıyaka",
+      subject: "BrainFit Karşıyaka - Yeni Başvuru Bildirimi",
       text,
     });
   } catch {
     return Response.json(
-      { message: "E-posta gönderimi şu anda tamamlanamadı." },
+      { message: "E-posta gönderimi başarısız oldu." },
       { status: 502 },
     );
   }
 
-  return Response.json({ message: "Talep başarıyla gönderildi." });
+  return Response.json({ message: "Başvurunuz tarafımıza ulaştı." });
 }

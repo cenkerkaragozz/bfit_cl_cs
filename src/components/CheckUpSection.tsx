@@ -6,27 +6,27 @@ import { Reveal } from "@/components/Decorations";
 
 const steps = [
   {
-    title: "45 dakika",
-    copy: "Çocuğunuzun dikkat, hafıza ve öğrenme ritmine yakından bakılır.",
+    title: "45 Dakikalık Analiz",
+    copy: "Çocuğunuzun bilişsel profili; dikkat, hafıza ve öğrenme hızı gibi temel alanlarda incelenir.",
     icon: Timer,
   },
   {
-    title: "16 sayfalık rapor",
-    copy: "Güçlü alanlar ve desteklenebilecek beceriler anlaşılır bir dille özetlenir.",
+    title: "16 Sayfalık Analiz Raporu",
+    copy: "Çocuğunuzun güçlü yönleri ve gelişime açık alanları anlaşılır, somut bir raporla size sunulur.",
     icon: FileText,
   },
   {
-    title: "Anlamlı ilk adım",
-    copy: "Aileniz için hangi başlangıcın doğru olabileceği birlikte konuşulur.",
+    title: "Size Özel Yol Haritası",
+    copy: "Elde edilen sonuçlara göre aileniz için en uygun başlangıç noktası uzmanlarımızla birlikte belirlenir.",
     icon: ClipboardCheck,
   },
 ] as const;
 
 const details = [
-  "Görüşme",
-  "16 sayfalık kişisel bilişsel rapor",
-  "Tanı, ilaç veya klinik yönlendirme dili yok",
-  "Aileniz için anlamlı ilk adımı birlikte konuşuruz",
+  "Uzman Görüşmesi",
+  "16 Sayfalık Kapsamlı Bilişsel Analiz Raporu",
+  "Tıbbi Tanı veya İlaç İçermeyen Bilişsel Yaklaşım",
+  "Aileniz ve çocuğunuz için en doğru gelişim yolunu birlikte planlıyoruz.",
 ] as const;
 
 export function CheckUpSection() {
@@ -42,15 +42,15 @@ export function CheckUpSection() {
         <Reveal className="relative">
           <div className="badge border-[#00BBE7] text-[#157B93]">Zihin Check-Up</div>
           <h2 className="section-title mt-7 max-w-[680px]">
-            45 dakika. Daha net bir başlangıç.
+            45 Dakikada Bilimsel Bir Başlangıç
           </h2>
           <p className="body-copy mt-7 max-w-[580px]">
-            Daha fazla baskıdan önce, çocuğunuzun öğrenirken nerede zorlandığını
-            anlamaya çalışırız. Görüşme sonunda tabloyu daha sakin ve anlaşılır
-            şekilde konuşuruz.
+            Çocuğunuza daha fazla yüklenmeden önce, öğrenme süreçlerindeki
+            engelleri tespit ediyoruz. Görüşme sonunda mevcut durumu size somut
+            verilerle sunuyoruz.
           </p>
           <a className="pill-button arrow-shift mt-8 bg-[#F05A38]" href="#checkup-form">
-            Check-Up Talebi
+            Zihin Check-Up Başvurusu
             <ArrowUpRight size={16} />
           </a>
         </Reveal>
@@ -60,11 +60,12 @@ export function CheckUpSection() {
             <div className="grid gap-4 md:grid-cols-[0.72fr_1fr]">
               <div className="rounded-[24px] bg-[#1B4332] p-6 text-white">
                 <p className="text-[86px] font-extrabold leading-none tracking-normal text-[#FBAE17]">
-                  92%
+                  %92
                 </p>
                 <p className="mt-5 text-[16px] font-semibold leading-7 text-white/82">
-                  Katılımcıların büyük çoğunluğu dikkat, hafıza ve öğrenme
-                  becerilerinde gelişim fark ettiğini paylaşıyor.
+                  BrainFit programlarına katılanların büyük çoğunluğu, dikkat
+                  ve öğrenme süreçlerinde kalıcı bir gelişim gözlemlediklerini
+                  belirtiyor.
                 </p>
                 <span className="mt-6 block h-1.5 w-20 rounded-full bg-[#50B748]" />
               </div>

@@ -6,7 +6,23 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Leaf, QuoteIcon, Reveal } from "@/components/Decorations";
 
-const words = ["net", "sakin", "hazır"];
+const testimonials = [
+  {
+    lead: "Zihin Check-Up sonrasında durumu çok daha ",
+    highlight: "net",
+    tail: " gördük.",
+  },
+  {
+    lead: "Görüşmemizin sonrasında içimiz çok daha ",
+    highlight: "rahatladı",
+    tail: ".",
+  },
+  {
+    lead: "BrainFit artık kendimizi daha ",
+    highlight: "hazır",
+    tail: " hissediyoruz.",
+  },
+];
 
 export function TestimonialSection() {
   const [active, setActive] = useState(0);
@@ -16,11 +32,13 @@ export function TestimonialSection() {
     if (reduceMotion) return;
 
     const timer = window.setInterval(() => {
-      setActive((current) => (current + 1) % words.length);
+      setActive((current) => (current + 1) % testimonials.length);
     }, 2500);
 
     return () => window.clearInterval(timer);
   }, [reduceMotion]);
+
+  const testimonial = testimonials[active];
 
   return (
     <section id="clinics" className="relative bg-[#FEF9F5] py-[82px] md:py-[116px]">
@@ -32,28 +50,28 @@ export function TestimonialSection() {
             <div className="relative h-[500px] overflow-hidden rounded-[26px] bg-[#FBAE17]">
               <Image
                 src="/images/doctor-profile.svg"
-                alt="BrainFit Karşıyaka ekibini temsil eden sıcak bir portre illüstrasyonu"
+                alt="BrainFit Karşıyaka Uzman Ekibi Görseli"
                 fill
                 sizes="(max-width: 768px) 90vw, 480px"
                 className="object-cover object-bottom"
               />
               <div className="absolute left-4 top-4 rounded-full bg-white px-4 py-2 text-[13px] font-extrabold text-[#241D18]">
-                Fotoğraf alanı
+                Ekip Fotoğrafı
               </div>
             </div>
             <div className="flex items-center justify-between gap-4 px-3 pb-2 pt-7">
               <div>
                 <h3 className="font-[var(--display)] text-[35px] leading-none">
-                  BrainFit Karşıyaka Ekibi
+                  BrainFit Karşıyaka Uzman Kadrosu
                 </h3>
                 <p className="mt-2 text-[14px] leading-6 text-white/70">
-                  Zihin Check-Up ve bilişsel egzersiz programları
+                  Zihin Check-Up ve Bireysel Gelişim Programları
                 </p>
               </div>
               <a
                 className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white text-[#241d18] transition hover:rotate-12"
                 href="#checkup-form"
-                aria-label="Check-Up formuna git"
+                aria-label="Check-Up Formunu Doldur"
               >
                 <ArrowUpRight size={20} />
               </a>
@@ -65,29 +83,28 @@ export function TestimonialSection() {
           <QuoteIcon className="mb-8" />
           <blockquote>
             <p className="display max-w-[760px] text-[clamp(45px,6.2vw,86px)]">
-              Check-Up sonrası kendimizi daha{" "}
-              <span className="relative inline-grid min-w-[185px] align-baseline sm:min-w-[230px]">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={words[active]}
-                    className="inline-block rounded-full bg-[#FBAE17] px-5 pb-2 text-[var(--ink)]"
-                    initial={reduceMotion ? undefined : { opacity: 0, y: 16, rotate: -2 }}
-                    animate={reduceMotion ? undefined : { opacity: 1, y: 0, rotate: 0 }}
-                    exit={reduceMotion ? undefined : { opacity: 0, y: -12, rotate: 2 }}
-                    transition={{ duration: 0.38 }}
-                  >
-                    {words[active]}
-                  </motion.span>
-                </AnimatePresence>
-              </span>{" "}
-              hissettik.
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={testimonial.highlight}
+                  className="inline-block"
+                  initial={reduceMotion ? undefined : { opacity: 0, y: 16, rotate: -2 }}
+                  animate={reduceMotion ? undefined : { opacity: 1, y: 0, rotate: 0 }}
+                  exit={reduceMotion ? undefined : { opacity: 0, y: -12, rotate: 2 }}
+                  transition={{ duration: 0.38 }}
+                >
+                  {testimonial.lead}
+                  <span className="inline-block rounded-full bg-[#FBAE17] px-5 pb-2 text-[var(--ink)]">
+                    {testimonial.highlight}
+                  </span>
+                  {testimonial.tail}
+                </motion.span>
+              </AnimatePresence>
             </p>
           </blockquote>
 
           <p className="body-copy mt-8 max-w-[600px]">
-            Öğretmeni “dikkati çok dağılıyor” dediğinde ne yapacağımızı
-            bilmiyorduk. Check-Up sonrası tabloyu ilk kez sakin ve anlaşılır
-            şekilde gördük.
+            “Dikkati çok dağılıyor” geri bildirimleri bizi kaygılandırıyordu.
+            Check-Up sayesinde sorunun kaynağını net bir şekilde anlayabildik.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-5">
@@ -100,22 +117,22 @@ export function TestimonialSection() {
               className="rounded-full"
             />
             <div>
-              <p className="font-extrabold">Karşıyaka’dan bir veli</p>
-              <div className="mt-1 flex items-center gap-1 text-[#FBAE17]" aria-label="Google 4.6 puan">
+              <p className="font-extrabold">BrainFit Karşıyaka Velisi</p>
+              <div className="mt-1 flex items-center gap-1 text-[#FBAE17]" aria-label="Google Puanı: 4.6">
                 {Array.from({ length: 5 }).map((_, index) => (
                   <Star key={index} size={16} fill="currentColor" strokeWidth={2.2} />
                 ))}
                 <span className="ml-2 text-[14px] font-extrabold text-[rgba(36,29,24,0.58)]">
-                  Google 4.6/5
+                  Google Müşteri Puanı: 4.6/5
                 </span>
               </div>
             </div>
           </div>
 
           <div className="absolute right-2 top-[50%] hidden flex-col gap-3 md:flex">
-            {words.map((word, index) => (
+            {testimonials.map((item, index) => (
               <span
-                key={word}
+                key={item.highlight}
                 className={`h-10 w-[5px] rounded-full ${
                   index === active ? "bg-[#F05A38]" : "bg-[rgba(36,29,24,0.18)]"
                 }`}

@@ -59,34 +59,34 @@ export function Hero() {
             <span className="grid h-5 w-5 place-items-center rounded-full bg-[#F05A38] text-white" aria-hidden="true">
               <Heart size={12} fill="currentColor" strokeWidth={2.5} />
             </span>
-            Karşıyaka BrainFit
+            BrainFit Karşıyaka
           </div>
 
           <h1 className="mt-5 max-w-[332px] font-[var(--body)] text-[clamp(35px,9vw,48px)] font-extrabold leading-[1.02] tracking-normal text-[#160A08] sm:max-w-[680px] sm:text-[clamp(58px,8.5vw,78px)] lg:text-[clamp(60px,5.25vw,86px)]">
             <span className="block">Çocuğunuzun</span>
             <span className="relative inline-block">
-              öğrenme haritasını
+              öğrenme potansiyelini
               <HeroUnderline
                 animate={!reduceMotion}
                 className="absolute -bottom-5 left-[-6px] h-7 w-[min(100%,330px)] text-[#FBAE17] sm:-bottom-6 sm:w-[360px]"
               />
             </span>
-            <span className="mt-1 block">birlikte çıkaralım.</span>
+            <span className="mt-1 block">birlikte keşfedelim.</span>
           </h1>
 
           <div className="mt-9 max-w-[332px] sm:max-w-[560px] md:mt-11">
             <p className="max-w-full text-[19px] font-extrabold leading-8 text-[#241D18] md:text-[25px] md:leading-9">
-              Etiket koymadan, nereden başlayabileceğinizi birlikte görelim.
+              Tanı koymadan, gelişim yolculuğuna nereden başlayacağımızı birlikte belirleyelim.
             </p>
             <p className="mt-4 text-[16px] font-medium leading-8 text-[rgba(36,29,24,0.72)] md:text-lg">
               45 dakikalık Zihin Check-Up ile çocuğunuzun dikkat,
-              hafıza ve öğrenme becerilerine daha yakından bakın.
+              hafıza ve öğrenme becerilerini bilimsel verilerle analiz edin.
             </p>
             <a
               className="arrow-shift mt-7 inline-flex min-h-13 max-w-full items-center justify-center gap-2 rounded-full bg-[#F05A38] px-6 py-4 text-center text-[15px] font-extrabold leading-5 text-white shadow-[0_18px_36px_rgba(240,90,56,0.24)] transition hover:-translate-y-1 hover:bg-[#FF6845] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D94C25] sm:px-7"
               href="#checkup-form"
             >
-              <span>Zihin Check-Up’ı Alın</span>
+              <span>Zihin Check-Up Randevusu Al</span>
               <ArrowUpRight className="shrink-0" size={18} strokeWidth={2.7} />
             </a>
           </div>
@@ -133,7 +133,7 @@ export function Hero() {
           <div className="absolute inset-x-0 bottom-0 top-8 z-20 overflow-hidden rounded-[34px] bg-transparent shadow-[0_34px_90px_rgba(36,29,24,0.16)] sm:top-6 sm:rounded-[44px] md:rounded-[54px]">
             <Image
               src="/images/hero.png"
-              alt="Gülümseyen bir çocuğun düşünerek yukarı baktığı BrainFit hero görseli"
+              alt="Düşünen ve gülümseyen çocuk görseli - BrainFit Ana Sayfa"
               fill
               priority
               sizes="(max-width: 640px) 94vw, (max-width: 1024px) 82vw, 720px"
@@ -154,8 +154,8 @@ export function Hero() {
               <Sparkles size={18} strokeWidth={2.6} />
             </div>
             <p className="mt-3 text-[17px] font-extrabold leading-7 text-[#241D18] md:text-[19px] md:leading-8">
-              Her çocuğun potansiyeli{" "}
-              <span className="text-[#1B4332]">keşfedilmeyi</span> bekler.
+              Her çocuğun{" "}
+              <span className="text-[#1B4332]">keşfedilmeyi</span> bekleyen eşsiz bir potansiyeli vardır.
             </p>
             <span className="mt-3 block h-1.5 w-16 rounded-full bg-[#A6D96F]" aria-hidden="true" />
           </motion.div>

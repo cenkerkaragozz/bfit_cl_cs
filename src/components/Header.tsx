@@ -6,9 +6,9 @@ import Link from "next/link";
 import { LogoMark } from "@/components/Decorations";
 
 const navItems = [
-  { label: "Programlar", href: "#services" },
+  { label: "Programlarımız", href: "#services" },
   { label: "Zihin Check-Up", href: "#checkup" },
-  { label: "Süreç", href: "#treatments" },
+  { label: "Nasıl Çalışıyoruz?", href: "#treatments" },
   { label: "Hakkımızda", href: "#about" },
   { label: "İletişim", href: "#contact" },
 ];
@@ -40,7 +40,7 @@ export function Header() {
             <button
               className="grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-white"
               type="button"
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-label={isMenuOpen ? "Menüyü Kapat" : "Menüyü Aç"}
               aria-controls="mobile-navigation"
               aria-expanded={isMenuOpen}
               onClick={() => setIsMenuOpen((open) => !open)}
@@ -48,7 +48,7 @@ export function Header() {
               {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
             <a className="pill-button header-cta arrow-shift" href="#checkup-form">
-              Check-Up
+              Yetişkin Programı
               <ArrowUpRight size={16} />
             </a>
           </div>

@@ -7,20 +7,20 @@ import { DrawnUnderline, Reveal, StarBurst, Sunflower } from "@/components/Decor
 
 const cards = [
   {
-    title: "Dikkatini sürdürmek",
-    copy: "Başlamak kadar, başladığı işi küçük adımlarla devam ettirmek de ayrı bir beceridir.",
+    title: "Dikkati Sürdürme",
+    copy: "Bir işe başlamak kadar, o işi dikkat dağılmadan sonuna kadar götürmek de geliştirilebilir bir yetidir.",
     image: "/images/confidence-card-1.svg",
     color: "#91DDF4",
   },
   {
-    title: "Bilgiyi hatırlamak",
-    copy: "Anladığı bilgiyi doğru zamanda geri çağırmak, hafıza ritmi ve tekrar alışkanlığıyla ilişkilidir.",
+    title: "Hafıza ve Geri Çağırma",
+    copy: "Öğrenilen bilginin ihtiyaç duyulduğu anda hatırlanması, hafıza kapasitesi ve doğru tekrar teknikleriyle doğrudan ilişkilidir.",
     image: "/images/confidence-card-2.svg",
     color: "#F9DC7B",
   },
   {
-    title: "Öğrendiğini kullanmak",
-    copy: "Sınavda ya da ödevde bildiğini göstermek; dikkat, hız ve planlama ile birlikte çalışır.",
+    title: "Bilgiyi Uygulama ve Transfer",
+    copy: "Sınav ve ödev performansında bilgiyi doğru kullanmak; dikkat, işlem hızı ve planlama yetisiyle mümkündür.",
     image: "/images/confidence-card-3.svg",
     color: "#C9F58B",
   },
@@ -47,26 +47,26 @@ export function ConfidenceSection() {
       <section id="treatments" className="relative overflow-hidden bg-[#FEF9F5] py-[74px] md:py-[112px]">
         <div className="inner grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
-            <div className="badge border-[#8C8480] text-[#8C8480]">Daha fazla baskıdan önce</div>
+            <div className="badge border-[#8C8480] text-[#8C8480]">Daha Fazla Israr Etmeden Önce</div>
             <h2 className="mt-7 max-w-[780px] font-[var(--display)] text-[clamp(48px,7.5vw,96px)] font-bold leading-[0.92] tracking-normal text-[#241D18]">
-              Bu bir{" "}
+              Yaşananlar bir motivasyon eksikliği veya{" "}
               <span className="relative inline-block">
                 tembellik
                 <DrawnUnderline className="absolute -bottom-5 left-0 w-full" />
               </span>{" "}
-              meselesi olmayabilir.
+              olmayabilir.
             </h2>
           </Reveal>
 
           <Reveal delay={0.1} className="grid gap-5">
             <p className="body-copy">
-              Çocuklar bazen gerçekten ister, dener ve yorulur. Fakat dikkatini
-              sürdürmek, bilgiyi akılda tutmak veya öğrendiğini doğru anda
-              kullanmak zor geldiğinde sonuç çabasıyla aynı görünmeyebilir.
+              Çocuklar bazen tüm güçleriyle dener ve yorulurlar. Ancak
+              odaklanma veya hafıza kapasitesi zorlandığında, harcadıkları çaba
+              aldıkları sonuçla örtüşmeyebilir.
             </p>
             <p className="body-copy">
-              Bu yüzden ilk adım daha çok zorlamak değil, hangi becerinin
-              desteklenmeye ihtiyaç duyduğunu sakin bir şekilde anlamaktır.
+              Bu nedenle çözüm daha çok baskı kurmak değil; hangi zihinsel
+              becerinin desteğe ihtiyaç duyduğunu uzmanlıkla belirlemektir.
             </p>
           </Reveal>
         </div>
@@ -82,25 +82,31 @@ export function ConfidenceSection() {
 
         <div className="inner grid items-center gap-12 lg:grid-cols-[0.96fr_0.9fr]">
           <Reveal>
-            <div className="badge border-white/60 text-[#FBAE17]">Yalnız değilsiniz</div>
+            <div className="badge border-white/60 text-[#FBAE17]">Bu Yolculukta Yalnız Değilsiniz</div>
             <h2 className="display mt-8 max-w-[680px] text-[clamp(46px,7vw,92px)] text-white">
-              Öğrenmek tek bir beceri değildir.
+              Öğrenme, birden fazla bilişsel becerinin uyumudur.
             </h2>
             <p className="mt-8 max-w-[580px] text-[17px] font-medium leading-8 text-white/76">
-              Dikkat, hafıza, işlem ritmi ve planlama birlikte çalışır. Bu
-              alanlardan biri zorlandığında çocuk “biliyor ama yapamıyor” gibi
-              görünebilir.
+              Dikkat, hafıza ve planlama gibi beceriler bir bütün olarak
+              çalışır. Bu alanlardan birindeki zayıflık, çocuğun performansını
+              doğrudan etkiler.
             </p>
           </Reveal>
 
           <Reveal delay={0.14} className="relative">
             <div className="flex items-stretch gap-5">
-              <div className="flex flex-col justify-center gap-3" aria-label="Öğrenme kartları">
+              <div className="flex flex-col justify-center gap-3" aria-label="Bilişsel Gelişim Alanları">
                 {cards.map((item, index) => (
                   <button
                     key={item.title}
                     type="button"
-                    aria-label={`${item.title} kartını göster`}
+                    aria-label={
+                      index === 0
+                        ? "Dikkati Sürdürme Detaylarını Gör"
+                        : index === 1
+                          ? "Hafıza Detaylarını Gör"
+                          : "Uygulama Becerisi Detaylarını Gör"
+                    }
                     onClick={() => setActive(index)}
                     className="relative h-[82px] w-[8px] overflow-hidden rounded-full bg-white/20"
                   >

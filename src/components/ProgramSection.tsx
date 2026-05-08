@@ -7,26 +7,26 @@ import { Reveal } from "@/components/Decorations";
 
 const programs = [
   {
-    title: "İlkokulda dikkat ve öğrenme temeli",
-    label: "Junior",
-    age: "6-12 yaş",
-    copy: "Dikkat, hafıza ve öğrenme alışkanlıklarını oyunlaştırılmış egzersizlerle destekleyen başlangıç programı.",
+    title: "İlkokul Dönemi İçin Bilişsel Temeller",
+    label: "BrainFit Junior",
+    age: "6-12 Yaş Grubu",
+    copy: "Dikkat, hafıza ve öğrenme alışkanlıklarını oyunlaştırılmış egzersizlerle güçlendiren temel gelişim programı.",
     image: "/images/program-peace.svg",
     color: "#00BBE7",
   },
   {
-    title: "Sınav döneminde zihinsel düzen",
-    label: "Scholar",
-    age: "10-18 yaş",
-    copy: "Odaklanma, bilgiyi hatırlama ve çalışma sürekliliğini destekleyen yapılandırılmış egzersiz akışı.",
+    title: "Sınav Dönemi İçin Zihinsel Performans",
+    label: "BrainFit Scholar",
+    age: "10-18 Yaş Grubu",
+    copy: "Odaklanma, bilgiyi geri çağırma ve çalışma disiplinini destekleyen yapılandırılmış zihinsel antrenmanlar.",
     image: "/images/program-positive.svg",
     color: "#50B748",
   },
   {
-    title: "Okuma ve öğrenme yolculuğunda destek",
-    label: "Disleksi Desteği",
-    age: "6-18 yaş",
-    copy: "Okuma, algı ve öğrenme süreçlerine eşlik eden, çocuğunuzun hızına saygılı özel destek programı.",
+    title: "Okuma ve Akademik Süreçlerde Uzman Desteği",
+    label: "Disleksi ve Okuma Desteği",
+    age: "6-18 Yaş Arası",
+    copy: "Okuma, algı ve öğrenme süreçlerini kapsayan, çocuğunuzun kendi öğrenme hızına duyarlı özel destek programı.",
     image: "/images/program-joy.svg",
     color: "#FBAE17",
   },
@@ -39,11 +39,11 @@ export function ProgramSection() {
         <Reveal className="text-center">
           <div className="badge border-[#00BBE7] text-[#157B93]">Programlar</div>
           <h2 className="section-title mx-auto mt-7 max-w-[880px]">
-            Çocuğunuzun yaşına ve ihtiyacına uygun yollar.
+            Yaş grubuna ve bireysel ihtiyaçlara özel program seçenekleri.
           </h2>
           <p className="body-copy mx-auto mt-6 max-w-[650px]">
-            Check-Up sonrasında hangi programın daha anlamlı olabileceğini
-            birlikte değerlendiririz.
+            Analiz sonrası, çocuğunuzun ihtiyacına en uygun programı veriye
+            dayalı olarak seçiyoruz.
           </p>
         </Reveal>
 
@@ -87,7 +87,7 @@ export function ProgramSection() {
                     href="#checkup-form"
                     className="arrow-shift mt-7 inline-flex items-center gap-2 text-[14px] font-extrabold text-[#157B93]"
                   >
-                    Check-Up ile başlayın
+                    Zihin Check-Up Randevusu Alın
                     <ArrowUpRight size={17} />
                   </a>
                 </div>
