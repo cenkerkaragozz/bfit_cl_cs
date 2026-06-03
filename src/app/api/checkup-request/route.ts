@@ -1,9 +1,11 @@
 import { Resend } from "resend";
 
 type CheckUpPayload = {
+  audience?: unknown;
   parentName?: unknown;
   phone?: unknown;
   childAge?: unknown;
+  participantAge?: unknown;
   concern?: unknown;
   note?: unknown;
 };
@@ -27,13 +29,14 @@ export async function POST(request: Request) {
     return Response.json({ message: "Lütfen tüm alanları doğru formatta doldurunuz." }, { status: 400 });
   }
 
+  const audience = clean(payload.audience);
   const parentName = clean(payload.parentName);
   const phone = clean(payload.phone);
-  const childAge = clean(payload.childAge);
+  const participantAge = clean(payload.participantAge) || clean(payload.childAge);
   const concern = clean(payload.concern) || "Henüz Seçim Yapılmadı";
   const note = clean(payload.note) || "Not Eklenmedi";
 
-  if (!parentName || !phone || !childAge) {
+  if (!parentName || !phone || !participantAge) {
     return Response.json(
       { message: "Lütfen ad, telefon ve yaş bilgilerini eksiksiz giriniz." },
       { status: 400 },
@@ -59,13 +62,15 @@ export async function POST(request: Request) {
   }).format(new Date());
 
   const text = [
-    "Yeni Zihin Check-Up Başvurusu",
+    audience === "adults"
+      ? "Yeni Yetişkin Zihin Check-Up Başvurusu"
+      : "Yeni Zihin Check-Up Başvurusu",
     "",
     `Adı Soyadı: ${parentName}`,
     `Telefon: ${phone}`,
-    `Çocuğun Yaşı: ${childAge}`,
+    `${audience === "adults" ? "Katılımcı Yaşı" : "Çocuğun Yaşı"}: ${participantAge}`,
     `Belirtilen Durum: ${concern}`,
-    `Veli Notu: ${note}`,
+    `${audience === "adults" ? "Katılımcı Notu" : "Veli Notu"}: ${note}`,
     `Başvuru Tarihi: ${timestamp}`,
   ].join("\n");
 
@@ -73,7 +78,10 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from,
       to,
-      subject: "BrainFit Karşıyaka - Yeni Başvuru Bildirimi",
+      subject:
+        audience === "adults"
+          ? "BrainFit Karşıyaka - Yeni Yetişkin Başvuru Bildirimi"
+          : "BrainFit Karşıyaka - Yeni Başvuru Bildirimi",
       text,
     });
   } catch {

@@ -5,7 +5,7 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { LogoMark } from "@/components/Decorations";
 
-const navItems = [
+const childNavItems = [
   { label: "Programlarımız", href: "#services" },
   { label: "Zihin Check-Up", href: "#checkup" },
   { label: "Nasıl Çalışıyoruz?", href: "#treatments" },
@@ -13,8 +13,24 @@ const navItems = [
   { label: "İletişim", href: "#contact" },
 ];
 
-export function Header() {
+const adultNavItems = [
+  { label: "Kimler İçin?", href: "#help" },
+  { label: "Zihin Check-Up", href: "#checkup" },
+  { label: "Programlar", href: "#services" },
+  { label: "Deneyimler", href: "#clinics" },
+  { label: "İletişim", href: "#contact" },
+];
+
+type HeaderProps = {
+  audience?: "children" | "adults";
+};
+
+export function Header({ audience = "children" }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navItems = audience === "adults" ? adultNavItems : childNavItems;
+  const cta = audience === "adults"
+    ? { label: "Check-Up Randevusu", href: "#checkup-form" }
+    : { label: "Yetişkin Programı", href: "/yetiskinler" };
 
   return (
     <header className="pointer-events-none sticky top-0 z-50 h-0">
@@ -47,10 +63,10 @@ export function Header() {
             >
               {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
-            <a className="pill-button header-cta arrow-shift" href="#checkup-form">
-              Yetişkin Programı
+            <Link className="pill-button header-cta arrow-shift" href={cta.href}>
+              {cta.label}
               <ArrowUpRight size={16} />
-            </a>
+            </Link>
           </div>
         </nav>
 
