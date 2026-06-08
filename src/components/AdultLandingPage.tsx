@@ -206,154 +206,40 @@ function AdultHero({
   selectedConcern: string;
   onSelectConcern: (concern: string) => void;
 }) {
-  const reduceMotion = useReducedMotion();
-
   return (
-    <section className="relative isolate overflow-hidden bg-[var(--canvas)] pt-[138px] md:pt-[126px] lg:pt-[136px]">
-      <div
-        className="pointer-events-none absolute inset-0 -z-20"
-        aria-hidden="true"
-        style={{
-          background:
-            "radial-gradient(ellipse 72% 72% at 72% 44%, rgba(252,191,72,0.22) 0%, rgba(239,248,253,0.0) 70%), " +
-            "radial-gradient(ellipse 60% 60% at 30% 20%, rgba(245,146,126,0.10) 0%, transparent 65%), " +
-            "linear-gradient(180deg,#FAF9F5 0%,#FEF9F5 58%,#EFF8FD 100%)",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute -right-20 -top-10 -z-10 h-[340px] w-[340px] rounded-full bg-[#FCEA96]/40 blur-[80px] md:h-[480px] md:w-[480px]"
-        aria-hidden="true"
-      />
-
-      <div className="inner grid gap-10 pb-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:pb-20">
-        <div className="max-w-[720px]">
-          <motion.div
-            animate={reduceMotion ? undefined : {
-              boxShadow: [
-                "0 0 0 0px rgba(64,206,238,0.0)",
-                "0 0 0 5px rgba(64,206,238,0.18)",
-                "0 0 0 0px rgba(64,206,238,0.0)",
-              ],
-            }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="badge gap-2 border-[#40CEEE] bg-white/76 text-[#1E99B5] shadow-[0_10px_24px_rgba(36,29,24,0.06)]"
-          >
-            BrainFit Karşıyaka Yetişkin Zihin Check-Up
-          </motion.div>
-
-          <h1 className="mt-6 max-w-[760px] font-[var(--body)] text-[clamp(36px,8.4vw,52px)] font-extrabold leading-[1.04] tracking-normal text-[#160A08] sm:text-[clamp(58px,8.5vw,80px)] lg:text-[clamp(58px,5vw,84px)]">
-            Bilişsel profilinizi anlayın. Odak, hafıza ve zihinsel performansınızı destekleyin.
-          </h1>
-
-          <p className="mt-8 max-w-[640px] text-[18px] font-semibold leading-8 text-[#241D18]/78 md:text-[21px] md:leading-9">
-            45 dakikalık Zihin Check-Up ile dikkat, hafıza, öğrenme ve zihinsel performans profilinizi inceleriz; ardından hedefinize uygun egzersiz yolunu birlikte netleştiririz.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              className="arrow-shift inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-[#F5846E] px-7 py-4 text-center text-[15px] font-extrabold leading-5 text-white shadow-[0_18px_36px_rgba(245,132,110,0.24)] transition hover:-translate-y-1 hover:bg-[#F99F8D]"
-              href="#checkup-form"
-            >
-              Ücretsiz Zihin Check-Up Randevusu Al
-              <ArrowUpRight size={18} strokeWidth={2.7} />
-            </a>
-            <a
-              className="inline-flex min-h-13 items-center justify-center rounded-full border border-[var(--line)] bg-white px-7 py-4 text-[15px] font-extrabold text-[#241D18] transition hover:-translate-y-1 hover:border-[#40CEEE]"
-              href="#checkup"
-            >
-              45 dakikada ne olur?
-            </a>
+    <section className="v4">
+      <div className="inner v4-inner">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
+          <div>
+            <span className="v4-kicker">Bilişsel Performans Desteği</span>
+            <h1 className="v4-h1">Profilinizi anlayın. Hedefinize doğru ilerleyin.</h1>
+            <p className="v4-sub">45 dakikalık Zihin Check-Up ile dikkat, hafıza ve zihinsel performansınızı inceleriz; ardından hedefinize uygun egzersiz yolunu birlikte belirleriz.</p>
+            <div className="v4-ctas">
+              <a href="#checkup-form" className="v4-cta-p arrow-shift">
+                Ücretsiz Check-Up Randevusu Al
+                <ArrowUpRight size={18} strokeWidth={2.7} aria-hidden="true" />
+              </a>
+              <a href="#checkup" className="v4-cta-s">45 dakikada ne olur?</a>
+            </div>
+            <div className="v4-chips">
+              <span className="v4-chip">16 sayfalık rapor</span>
+              <span className="v4-chip">Uzman açıklaması</span>
+              <span className="v4-chip">Tanı veya ilaç içermez</span>
+            </div>
           </div>
-
-          <div className="mt-8 flex flex-wrap gap-2">
-            {[
-              { label: "16 sayfalık rapor", Icon: FileText },
-              { label: "Uzman açıklaması", Icon: ShieldCheck },
-              { label: "Tanı veya ilaç içermez", Icon: XCircle },
-            ].map(({ label, Icon }) => (
-              <span
-                key={label}
-                className="flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-[13px] font-extrabold text-[#241D18] shadow-[0_10px_24px_rgba(36,29,24,0.06)]"
-              >
-                <Icon size={13} strokeWidth={2.5} className="text-[#1E99B5]" />
-                {label}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="relative mx-auto w-full max-w-[720px] lg:mx-0">
-          <div className="absolute -right-3 top-8 h-[82%] w-[70%] rounded-[34px] bg-[#FCBF48]" aria-hidden="true" />
-          <StarBurst color="#FCBF48" className="absolute -right-8 -top-8 z-10 h-16 w-16 opacity-90" />
-          <HeroRing color="#F5846E" className="absolute -bottom-6 -left-6 z-10 h-20 w-20 opacity-70" />
-          <Squiggle color="#40CEEE" className="absolute left-[5%] top-[-18px] z-10 hidden w-28 opacity-60 lg:block" />
-          <div
-            className="relative overflow-hidden rounded-[34px] bg-white p-4 shadow-[0_34px_90px_rgba(36,29,24,0.15)] md:p-5"
-            style={{ transform: "rotate(-1.5deg)" }}
-          >
-            <div className="relative min-h-[500px] overflow-hidden rounded-[28px] bg-[#EFF8FD] md:min-h-[590px]">
-              <Image
-                src="/images/doctor-profile.svg"
-                alt="BrainFit Karşıyaka uzman görüşmesi görseli"
-                fill
-                priority
-                sizes="(max-width: 1024px) 92vw, 650px"
-                className="object-cover object-bottom"
-              />
-              <div className="absolute inset-x-0 bottom-0 h-52 bg-[linear-gradient(0deg,rgba(27,67,50,0.9),rgba(27,67,50,0))]" aria-hidden="true" />
-
-              <div className="absolute left-4 top-4 max-w-[260px] rounded-[22px] bg-white/94 p-4 shadow-[0_18px_40px_rgba(36,29,24,0.12)] backdrop-blur md:left-6 md:top-6 md:p-5">
-                <p className="text-[12px] font-extrabold uppercase tracking-[0.14em] text-[#1E99B5]">
-                  İlk adım
-                </p>
-                <p className="mt-2 text-[32px] font-extrabold leading-none text-[#241D18]">
-                  45 dk
-                </p>
-                <p className="mt-2 text-[13px] font-semibold leading-5 text-[#241D18]/68">
-                  Hedef görüşmesi, profil taraması ve rapor yönlendirmesi
-                </p>
+          <div>
+            <div className="v4-img-inner">
+              <Image src="/images/doctor-profile.svg" alt="BrainFit Karşıyaka uzman görüşmesi" fill priority sizes="(max-width: 1024px) 92vw, 600px" className="object-cover object-bottom" />
+              <div className="v4-img-gradient" aria-hidden="true" />
+              <div className="v4-img-card">
+                <p className="v4-img-card-lbl">İlk adım</p>
+                <p className="v4-img-card-val">45 dk</p>
+                <p className="v4-img-card-copy">Hedef görüşmesi, profil taraması ve rapor yönlendirmesi</p>
               </div>
-
-              <motion.div
-                className="absolute bottom-4 left-4 right-4 rounded-[26px] bg-[#1B4332] p-5 text-white shadow-[0_18px_48px_rgba(22,10,8,0.22)] md:bottom-6 md:left-6 md:right-6 md:p-6"
-                animate={reduceMotion ? undefined : { y: [0, -6, 0] }}
-                transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <p className="text-[13px] font-extrabold uppercase tracking-[0.14em] text-[#FCBF48]">
-                  Sizin hedefiniz
-                </p>
-                <p className="mt-3 text-[22px] font-extrabold leading-tight md:text-[28px]">
-                  {selectedConcern}
-                </p>
-                <div className="mt-5 grid gap-2 sm:grid-cols-2">
-                  {audienceCards.map((item) => (
-                    <button
-                      key={item.concern}
-                      type="button"
-                      onClick={() => onSelectConcern(item.concern)}
-                      className={`rounded-full px-3 py-2 text-left text-[12px] font-extrabold transition ${
-                        selectedConcern === item.concern
-                          ? "bg-[#FCBF48] text-[#241D18]"
-                          : "bg-white/12 text-white hover:bg-white/18"
-                      }`}
-                    >
-                      {item.title}
-                    </button>
-                  ))}
-                </div>
-              </motion.div>
             </div>
           </div>
         </div>
       </div>
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-16 md:h-20"
-        aria-hidden="true"
-        style={{
-          clipPath: "polygon(0 100%, 100% 0%, 100% 100%)",
-          background: "#ffffff",
-        }}
-      />
     </section>
   );
 }
@@ -368,88 +254,115 @@ function AudienceSection({
   const cardAccents = ["#F5846E", "#40CEEE", "#9B66F4", "#6BC862"] as const;
 
   return (
-    <section id="help" className="relative overflow-hidden bg-white py-[74px] md:py-[116px]">
-      <div
-        className="pointer-events-none absolute -right-24 -top-24 h-[480px] w-[480px] rounded-full bg-[#F5927E]/10 blur-[100px]"
-        aria-hidden="true"
-      />
-      <Squiggle
-        color="#F5927E"
-        className="pointer-events-none absolute left-[8%] top-[72px] hidden opacity-30 md:block"
-      />
-
+    <section
+      id="help"
+      className="relative overflow-hidden py-[74px] md:py-[116px]"
+      style={{
+        background:
+          "linear-gradient(90deg, color-mix(in srgb, #EFF8FD 48%, #FFFFFF) 0%, #FFFFFF 62%)",
+      }}
+    >
       <div className="inner">
-        <Reveal className="text-center">
-          <div className="relative inline-block">
-            <div className="badge border-[#6BC862] text-[#1B4332]">Kimler İçin?</div>
-            <Squiggle
-              color="#9B66F4"
-              className="absolute -right-16 -top-3 hidden rotate-[-15deg] opacity-50 md:block"
-            />
+        <Reveal className="grid gap-8 lg:grid-cols-[1fr_0.78fr] lg:items-end">
+          <div>
+            <div className="badge border-[#40CEEE] bg-[#EFF8FD] text-[#1E99B5]">
+              Kimler İçin?
+            </div>
+            <h2 className="mt-7 max-w-[860px] font-[var(--body)] text-[clamp(38px,6vw,74px)] font-extrabold leading-[1.02] text-[#160A08]">
+              Dört yetişkin hedefi. Tek ilk adım: profilinizi anlamak.
+            </h2>
           </div>
-          <h2 className="section-title mid-section-title mx-auto mt-7 max-w-[820px]">
-            Kendinizi hızlıca doğru başlangıç yolunda görün.
-          </h2>
-          <p className="body-copy mx-auto mt-6 max-w-[700px]">
-            Zihin Check-Up, tek bir kalıba sıkıştırılmış bir program değildir. Önce hedefinizi ve profilinizi anlarız, sonra uygun başlangıç yolunu seçeriz.
+          <p className="max-w-[520px] text-[17px] font-semibold leading-8 text-[rgba(36,29,24,0.72)] lg:justify-self-end">
+            Kartınızı seçin. Formdaki hedef notu buna göre güncellenir; uzman
+            görüşmesi daha ilk dakikadan doğru yerden başlar.
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-4">
-          {audienceCards.map((item, index) => {
-            const Icon = item.icon;
-            const active = selectedConcern === item.concern;
-            const accent = cardAccents[index];
+        <div className="mt-12 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+          <Reveal>
+            <div className="grid gap-3">
+              {audienceCards.map((item, index) => {
+                const Icon = item.icon;
+                const active = selectedConcern === item.concern;
+                const accent = cardAccents[index];
 
-            return (
-              <Reveal
-                key={item.title}
-                delay={index * 0.06}
-                className={index % 2 === 1 ? "lg:mt-8" : undefined}
+                return (
+                  <button
+                    key={item.title}
+                    type="button"
+                    onClick={() => onSelectConcern(item.concern)}
+                    className={`group grid gap-4 rounded-[24px] border p-4 text-left transition sm:grid-cols-[auto_1fr_auto] sm:items-center ${
+                      active
+                        ? "border-[#1B4332] bg-[#1B4332] text-white"
+                        : "border-[rgba(36,29,24,0.1)] bg-[#FAF9F5] text-[#241D18] hover:border-[#F5846E]"
+                    }`}
+                  >
+                    <span
+                      className="grid h-13 w-13 place-items-center rounded-full bg-white"
+                      style={{ color: accent }}
+                    >
+                      <Icon size={25} strokeWidth={2.4} />
+                    </span>
+                    <span>
+                      <span className="block text-[22px] font-extrabold leading-tight">
+                        {item.title}
+                      </span>
+                      <span
+                        className={`mt-2 block text-[14px] font-semibold leading-6 ${
+                          active ? "text-white/74" : "text-[rgba(36,29,24,0.68)]"
+                        }`}
+                      >
+                        {item.need}
+                      </span>
+                    </span>
+                    <span
+                      className={`w-fit rounded-full px-4 py-2 text-[12px] font-extrabold ${
+                        active
+                          ? "bg-[#FCBF48] text-[#241D18]"
+                          : "bg-white text-[#1E99B5]"
+                      }`}
+                    >
+                      Seç
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.12}>
+            <aside className="sticky top-28 rounded-[32px] bg-[#F5846E] p-6 text-[#160A08] shadow-[0_28px_70px_rgba(245,132,110,0.22)] md:p-8">
+              <p className="text-[13px] font-extrabold uppercase tracking-[0.12em]">
+                Başlangıç notu
+              </p>
+              <h3 className="mt-5 font-[var(--display)] text-[42px] leading-none">
+                Size göre yol
+              </h3>
+              <p className="mt-5 text-[19px] font-extrabold leading-7">
+                {selectedConcern}
+              </p>
+              <div className="mt-7 grid gap-3">
+                {["Hedef görüşmesi", "Bilişsel profil taraması", "Rapor açıklaması"].map(
+                  (item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-3 rounded-[18px] bg-white/24 p-3"
+                    >
+                      <CheckCircle2 size={18} />
+                      <span className="text-[14px] font-extrabold">{item}</span>
+                    </div>
+                  ),
+                )}
+              </div>
+              <a
+                href="#checkup-form"
+                className="cta-on-coral arrow-shift mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 text-[14px] font-extrabold"
               >
-                <button
-                  type="button"
-                  onClick={() => onSelectConcern(item.concern)}
-                  className={`group/card relative h-full w-full rounded-[24px] border p-5 text-left shadow-[0_18px_42px_rgba(36,29,24,0.07)] transition hover:-translate-y-1 hover:shadow-[0_28px_56px_rgba(36,29,24,0.13)] ${
-                    active ? "bg-[#FEF9F5]" : "border-white bg-white"
-                  }`}
-                  style={{
-                    borderColor: active ? accent : undefined,
-                    boxShadow: active
-                      ? `0 18px 42px rgba(36,29,24,0.07), 0 0 0 1px ${accent}`
-                      : undefined,
-                  }}
-                >
-                  <div
-                    className="grid h-14 w-14 place-items-center rounded-full transition"
-                    style={{
-                      background: active ? accent : `${accent}1A`,
-                      color: active ? "#ffffff" : accent,
-                    }}
-                  >
-                    <Icon size={26} strokeWidth={2.4} />
-                  </div>
-                  <h3 className="mt-6 text-[23px] font-extrabold leading-tight text-[#241D18]">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 text-[14px] font-semibold leading-6 text-[rgba(36,29,24,0.68)]">
-                    {item.need}
-                  </p>
-                  <p
-                    className="mt-5 rounded-full px-4 py-2 text-[12px] font-extrabold"
-                    style={{ background: `${accent}1A`, color: accent }}
-                  >
-                    {item.path}
-                  </p>
-                  <span
-                    className="pointer-events-none absolute bottom-0 left-4 right-4 h-[3px] rounded-full opacity-0 transition-opacity duration-200 group-hover/card:opacity-100"
-                    style={{ background: accent }}
-                    aria-hidden="true"
-                  />
-                </button>
-              </Reveal>
-            );
-          })}
+                Bu hedefle randevu al
+                <ArrowUpRight size={17} />
+              </a>
+            </aside>
+          </Reveal>
         </div>
       </div>
     </section>
