@@ -40,7 +40,7 @@ export function CheckUpSection() {
       />
       <div className="inner grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <Reveal className="relative">
-          <div className="badge border-[#00BBE7] text-[#157B93]">Zihin Check-Up</div>
+          <div className="badge border-[#40CEEE] text-[#1E99B5]">Zihin Check-Up</div>
           <h2 className="section-title mt-7 max-w-[680px]">
             45 Dakikada Bilimsel Bir Başlangıç
           </h2>
@@ -49,7 +49,7 @@ export function CheckUpSection() {
             engelleri tespit ediyoruz. Görüşme sonunda mevcut durumu size somut
             verilerle sunuyoruz.
           </p>
-          <a className="pill-button arrow-shift mt-8 bg-[#F05A38]" href="#checkup-form">
+          <a className="pill-button arrow-shift mt-8 bg-[#F5846E]" href="#checkup-form">
             Zihin Check-Up Başvurusu
             <ArrowUpRight size={16} />
           </a>
@@ -59,7 +59,7 @@ export function CheckUpSection() {
           <div className="relative rounded-[30px] border border-white bg-[#FEF9F5] p-5 shadow-[0_24px_70px_rgba(36,29,24,0.1)] md:p-7">
             <div className="grid gap-4 md:grid-cols-[0.72fr_1fr]">
               <div className="rounded-[24px] bg-[#1B4332] p-6 text-white">
-                <p className="text-[86px] font-extrabold leading-none tracking-normal text-[#FBAE17]">
+                <p className="text-[86px] font-extrabold leading-none tracking-normal text-[#FCBF48]">
                   %92
                 </p>
                 <p className="mt-5 text-[16px] font-semibold leading-7 text-white/82">
@@ -67,7 +67,7 @@ export function CheckUpSection() {
                   ve öğrenme süreçlerinde kalıcı bir gelişim gözlemlediklerini
                   belirtiyor.
                 </p>
-                <span className="mt-6 block h-1.5 w-20 rounded-full bg-[#50B748]" />
+                <span className="mt-6 block h-1.5 w-20 rounded-full bg-[#6BC862]" />
               </div>
 
               <div className="grid gap-3">
@@ -77,7 +77,7 @@ export function CheckUpSection() {
                     className="flex items-start gap-3 rounded-[20px] bg-white p-4 shadow-[0_12px_30px_rgba(36,29,24,0.06)]"
                   >
                     <span
-                      className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#F0F7F2] text-[#50B748]"
+                      className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#F0F7F2] text-[#6BC862]"
                       aria-hidden="true"
                     >
                       <MessageCircle size={14} strokeWidth={2.6} />
@@ -104,7 +104,7 @@ export function CheckUpSection() {
                     transition={{ duration: 0.45, delay: index * 0.08 }}
                   >
                     <div
-                      className="grid h-11 w-11 place-items-center rounded-full bg-[#EFF8FD] text-[#00BBE7]"
+                      className="grid h-11 w-11 place-items-center rounded-full bg-[#EFF8FD] text-[#40CEEE]"
                       aria-hidden="true"
                     >
                       <Icon size={20} strokeWidth={2.5} />

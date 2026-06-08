@@ -51,7 +51,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
   return (
     <section
       id="checkup-form"
-      className="relative overflow-hidden bg-[#F05A38] py-[74px] text-[#160A08] md:py-[116px]"
+      className="relative overflow-hidden bg-[#F5846E] py-[74px] text-[#160A08] md:py-[116px]"
     >
       <div
         className="pointer-events-none absolute right-[-7%] top-[-14%] h-64 w-64 rounded-full border-[34px] border-white/18"
@@ -74,7 +74,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
             layout
             className="mt-8 inline-flex max-w-full items-center gap-3 rounded-full bg-white px-4 py-3 text-[14px] font-extrabold shadow-[0_16px_40px_rgba(22,10,8,0.12)]"
           >
-            <CheckCircle2 size={18} className="shrink-0 text-[#50B748]" />
+            <CheckCircle2 size={18} className="shrink-0 text-[#6BC862]" />
             <span className="truncate">{selectedConcern}</span>
           </motion.div>
         </Reveal>
@@ -131,7 +131,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
             <button
               type="submit"
               disabled={submitState === "submitting"}
-              className="arrow-shift mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#F05A38] px-6 text-[15px] font-extrabold text-white transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-70"
+              className="arrow-shift mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#F5846E] px-6 text-[15px] font-extrabold text-white transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {submitState === "submitting" ? "Mesajınız İletiliyor..." : "Bilgi Almak İstiyorum"}
               <ArrowUpRight size={18} />
@@ -142,7 +142,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
                 className={`mt-4 rounded-[18px] px-4 py-3 text-[14px] font-extrabold leading-6 ${
                   submitState === "success"
                     ? "bg-[#F0F7F2] text-[#1B4332]"
-                    : "bg-[#FFF0D7] text-[#7A3B1C]"
+                    : "bg-[#FFF0D7] text-[#8C5038]"
                 }`}
                 role="status"
               >

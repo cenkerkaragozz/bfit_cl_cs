@@ -19,7 +19,7 @@ import {
   XCircle,
 } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Reveal } from "@/components/Decorations";
+import { Reveal, StarBurst, HeroRing, Squiggle } from "@/components/Decorations";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
@@ -211,15 +211,35 @@ function AdultHero({
   return (
     <section className="relative isolate overflow-hidden bg-[var(--canvas)] pt-[138px] md:pt-[126px] lg:pt-[136px]">
       <div
-        className="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(180deg,#FAF9F5_0%,#FEF9F5_58%,#EFF8FD_100%)]"
+        className="pointer-events-none absolute inset-0 -z-20"
+        aria-hidden="true"
+        style={{
+          background:
+            "radial-gradient(ellipse 72% 72% at 72% 44%, rgba(252,191,72,0.22) 0%, rgba(239,248,253,0.0) 70%), " +
+            "radial-gradient(ellipse 60% 60% at 30% 20%, rgba(245,146,126,0.10) 0%, transparent 65%), " +
+            "linear-gradient(180deg,#FAF9F5 0%,#FEF9F5 58%,#EFF8FD 100%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute -right-20 -top-10 -z-10 h-[340px] w-[340px] rounded-full bg-[#FCEA96]/40 blur-[80px] md:h-[480px] md:w-[480px]"
         aria-hidden="true"
       />
 
       <div className="inner grid gap-10 pb-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:pb-20">
         <div className="max-w-[720px]">
-          <div className="badge gap-2 border-[#00BBE7] bg-white/76 text-[#157B93] shadow-[0_10px_24px_rgba(36,29,24,0.06)]">
+          <motion.div
+            animate={reduceMotion ? undefined : {
+              boxShadow: [
+                "0 0 0 0px rgba(64,206,238,0.0)",
+                "0 0 0 5px rgba(64,206,238,0.18)",
+                "0 0 0 0px rgba(64,206,238,0.0)",
+              ],
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            className="badge gap-2 border-[#40CEEE] bg-white/76 text-[#1E99B5] shadow-[0_10px_24px_rgba(36,29,24,0.06)]"
+          >
             BrainFit Karşıyaka Yetişkin Zihin Check-Up
-          </div>
+          </motion.div>
 
           <h1 className="mt-6 max-w-[760px] font-[var(--body)] text-[clamp(36px,8.4vw,52px)] font-extrabold leading-[1.04] tracking-normal text-[#160A08] sm:text-[clamp(58px,8.5vw,80px)] lg:text-[clamp(58px,5vw,84px)]">
             Bilişsel profilinizi anlayın. Odak, hafıza ve zihinsel performansınızı destekleyin.
@@ -231,14 +251,14 @@ function AdultHero({
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              className="arrow-shift inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-[#F05A38] px-7 py-4 text-center text-[15px] font-extrabold leading-5 text-white shadow-[0_18px_36px_rgba(240,90,56,0.24)] transition hover:-translate-y-1 hover:bg-[#FF6845]"
+              className="arrow-shift inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-[#F5846E] px-7 py-4 text-center text-[15px] font-extrabold leading-5 text-white shadow-[0_18px_36px_rgba(245,132,110,0.24)] transition hover:-translate-y-1 hover:bg-[#F99F8D]"
               href="#checkup-form"
             >
               Ücretsiz Zihin Check-Up Randevusu Al
               <ArrowUpRight size={18} strokeWidth={2.7} />
             </a>
             <a
-              className="inline-flex min-h-13 items-center justify-center rounded-full border border-[var(--line)] bg-white px-7 py-4 text-[15px] font-extrabold text-[#241D18] transition hover:-translate-y-1 hover:border-[#00BBE7]"
+              className="inline-flex min-h-13 items-center justify-center rounded-full border border-[var(--line)] bg-white px-7 py-4 text-[15px] font-extrabold text-[#241D18] transition hover:-translate-y-1 hover:border-[#40CEEE]"
               href="#checkup"
             >
               45 dakikada ne olur?
@@ -246,20 +266,31 @@ function AdultHero({
           </div>
 
           <div className="mt-8 flex flex-wrap gap-2">
-            {["16 sayfalık rapor", "Uzman açıklaması", "Tanı veya ilaç içermez"].map((item) => (
+            {[
+              { label: "16 sayfalık rapor", Icon: FileText },
+              { label: "Uzman açıklaması", Icon: ShieldCheck },
+              { label: "Tanı veya ilaç içermez", Icon: XCircle },
+            ].map(({ label, Icon }) => (
               <span
-                key={item}
-                className="rounded-full bg-white px-4 py-2 text-[13px] font-extrabold text-[#241D18] shadow-[0_10px_24px_rgba(36,29,24,0.06)]"
+                key={label}
+                className="flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-[13px] font-extrabold text-[#241D18] shadow-[0_10px_24px_rgba(36,29,24,0.06)]"
               >
-                {item}
+                <Icon size={13} strokeWidth={2.5} className="text-[#1E99B5]" />
+                {label}
               </span>
             ))}
           </div>
         </div>
 
         <div className="relative mx-auto w-full max-w-[720px] lg:mx-0">
-          <div className="absolute -right-3 top-8 h-[82%] w-[70%] rounded-[34px] bg-[#FBAE17]" aria-hidden="true" />
-          <div className="relative overflow-hidden rounded-[34px] bg-white p-4 shadow-[0_34px_90px_rgba(36,29,24,0.15)] md:p-5">
+          <div className="absolute -right-3 top-8 h-[82%] w-[70%] rounded-[34px] bg-[#FCBF48]" aria-hidden="true" />
+          <StarBurst color="#FCBF48" className="absolute -right-8 -top-8 z-10 h-16 w-16 opacity-90" />
+          <HeroRing color="#F5846E" className="absolute -bottom-6 -left-6 z-10 h-20 w-20 opacity-70" />
+          <Squiggle color="#40CEEE" className="absolute left-[5%] top-[-18px] z-10 hidden w-28 opacity-60 lg:block" />
+          <div
+            className="relative overflow-hidden rounded-[34px] bg-white p-4 shadow-[0_34px_90px_rgba(36,29,24,0.15)] md:p-5"
+            style={{ transform: "rotate(-1.5deg)" }}
+          >
             <div className="relative min-h-[500px] overflow-hidden rounded-[28px] bg-[#EFF8FD] md:min-h-[590px]">
               <Image
                 src="/images/doctor-profile.svg"
@@ -272,7 +303,7 @@ function AdultHero({
               <div className="absolute inset-x-0 bottom-0 h-52 bg-[linear-gradient(0deg,rgba(27,67,50,0.9),rgba(27,67,50,0))]" aria-hidden="true" />
 
               <div className="absolute left-4 top-4 max-w-[260px] rounded-[22px] bg-white/94 p-4 shadow-[0_18px_40px_rgba(36,29,24,0.12)] backdrop-blur md:left-6 md:top-6 md:p-5">
-                <p className="text-[12px] font-extrabold uppercase tracking-[0.14em] text-[#157B93]">
+                <p className="text-[12px] font-extrabold uppercase tracking-[0.14em] text-[#1E99B5]">
                   İlk adım
                 </p>
                 <p className="mt-2 text-[32px] font-extrabold leading-none text-[#241D18]">
@@ -288,7 +319,7 @@ function AdultHero({
                 animate={reduceMotion ? undefined : { y: [0, -6, 0] }}
                 transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
               >
-                <p className="text-[13px] font-extrabold uppercase tracking-[0.14em] text-[#FBAE17]">
+                <p className="text-[13px] font-extrabold uppercase tracking-[0.14em] text-[#FCBF48]">
                   Sizin hedefiniz
                 </p>
                 <p className="mt-3 text-[22px] font-extrabold leading-tight md:text-[28px]">
@@ -302,7 +333,7 @@ function AdultHero({
                       onClick={() => onSelectConcern(item.concern)}
                       className={`rounded-full px-3 py-2 text-left text-[12px] font-extrabold transition ${
                         selectedConcern === item.concern
-                          ? "bg-[#FBAE17] text-[#241D18]"
+                          ? "bg-[#FCBF48] text-[#241D18]"
                           : "bg-white/12 text-white hover:bg-white/18"
                       }`}
                     >
@@ -315,6 +346,14 @@ function AdultHero({
           </div>
         </div>
       </div>
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-16 md:h-20"
+        aria-hidden="true"
+        style={{
+          clipPath: "polygon(0 100%, 100% 0%, 100% 100%)",
+          background: "#ffffff",
+        }}
+      />
     </section>
   );
 }
@@ -326,11 +365,28 @@ function AudienceSection({
   selectedConcern: string;
   onSelectConcern: (concern: string) => void;
 }) {
+  const cardAccents = ["#F5846E", "#40CEEE", "#9B66F4", "#6BC862"] as const;
+
   return (
-    <section id="help" className="bg-white py-[74px] md:py-[116px]">
+    <section id="help" className="relative overflow-hidden bg-white py-[74px] md:py-[116px]">
+      <div
+        className="pointer-events-none absolute -right-24 -top-24 h-[480px] w-[480px] rounded-full bg-[#F5927E]/10 blur-[100px]"
+        aria-hidden="true"
+      />
+      <Squiggle
+        color="#F5927E"
+        className="pointer-events-none absolute left-[8%] top-[72px] hidden opacity-30 md:block"
+      />
+
       <div className="inner">
         <Reveal className="text-center">
-          <div className="badge border-[#50B748] text-[#1B4332]">Kimler İçin?</div>
+          <div className="relative inline-block">
+            <div className="badge border-[#6BC862] text-[#1B4332]">Kimler İçin?</div>
+            <Squiggle
+              color="#9B66F4"
+              className="absolute -right-16 -top-3 hidden rotate-[-15deg] opacity-50 md:block"
+            />
+          </div>
           <h2 className="section-title mid-section-title mx-auto mt-7 max-w-[820px]">
             Kendinizi hızlıca doğru başlangıç yolunda görün.
           </h2>
@@ -343,24 +399,35 @@ function AudienceSection({
           {audienceCards.map((item, index) => {
             const Icon = item.icon;
             const active = selectedConcern === item.concern;
+            const accent = cardAccents[index];
 
             return (
-              <Reveal key={item.title} delay={index * 0.06}>
+              <Reveal
+                key={item.title}
+                delay={index * 0.06}
+                className={index % 2 === 1 ? "lg:mt-8" : undefined}
+              >
                 <button
                   type="button"
                   onClick={() => onSelectConcern(item.concern)}
-                  className={`h-full w-full rounded-[24px] border p-5 text-left shadow-[0_18px_42px_rgba(36,29,24,0.07)] transition hover:-translate-y-1 ${
-                    active
-                      ? "border-[#F05A38] bg-[#FEF9F5]"
-                      : "border-white bg-white hover:border-[#00BBE7]"
+                  className={`group/card relative h-full w-full rounded-[24px] border p-5 text-left shadow-[0_18px_42px_rgba(36,29,24,0.07)] transition hover:-translate-y-1 hover:shadow-[0_28px_56px_rgba(36,29,24,0.13)] ${
+                    active ? "bg-[#FEF9F5]" : "border-white bg-white"
                   }`}
+                  style={{
+                    borderColor: active ? accent : undefined,
+                    boxShadow: active
+                      ? `0 18px 42px rgba(36,29,24,0.07), 0 0 0 1px ${accent}`
+                      : undefined,
+                  }}
                 >
                   <div
-                    className={`grid h-12 w-12 place-items-center rounded-full ${
-                      active ? "bg-[#F05A38] text-white" : "bg-[#EFF8FD] text-[#00BBE7]"
-                    }`}
+                    className="grid h-14 w-14 place-items-center rounded-full transition"
+                    style={{
+                      background: active ? accent : `${accent}1A`,
+                      color: active ? "#ffffff" : accent,
+                    }}
                   >
-                    <Icon size={23} strokeWidth={2.4} />
+                    <Icon size={26} strokeWidth={2.4} />
                   </div>
                   <h3 className="mt-6 text-[23px] font-extrabold leading-tight text-[#241D18]">
                     {item.title}
@@ -368,9 +435,17 @@ function AudienceSection({
                   <p className="mt-4 text-[14px] font-semibold leading-6 text-[rgba(36,29,24,0.68)]">
                     {item.need}
                   </p>
-                  <p className="mt-5 rounded-full bg-[#F0F7F2] px-4 py-2 text-[12px] font-extrabold text-[#1B4332]">
+                  <p
+                    className="mt-5 rounded-full px-4 py-2 text-[12px] font-extrabold"
+                    style={{ background: `${accent}1A`, color: accent }}
+                  >
                     {item.path}
                   </p>
+                  <span
+                    className="pointer-events-none absolute bottom-0 left-4 right-4 h-[3px] rounded-full opacity-0 transition-opacity duration-200 group-hover/card:opacity-100"
+                    style={{ background: accent }}
+                    aria-hidden="true"
+                  />
                 </button>
               </Reveal>
             );
@@ -386,7 +461,7 @@ function CheckupJourneySection() {
     <section id="checkup" className="bg-[#FEF9F5] py-[74px] md:py-[116px]">
       <div className="inner">
         <Reveal className="text-center">
-          <div className="badge border-[#00BBE7] text-[#157B93]">45 Dakikada Ne Olur?</div>
+          <div className="badge border-[#40CEEE] text-[#1E99B5]">45 Dakikada Ne Olur?</div>
           <h2 className="section-title mid-section-title mx-auto mt-7 max-w-[860px]">
             İlk görüşme belirsizliği azaltmak için tasarlanır.
           </h2>
@@ -405,7 +480,7 @@ function CheckupJourneySection() {
                   <span className="absolute right-5 top-5 rounded-full bg-[#F4F1EB] px-3 py-1 text-[12px] font-extrabold text-[#8C8480]">
                     {index + 1}. adım
                   </span>
-                  <div className="grid h-12 w-12 place-items-center rounded-full bg-[#EFF8FD] text-[#00BBE7]">
+                  <div className="grid h-12 w-12 place-items-center rounded-full bg-[#EFF8FD] text-[#40CEEE]">
                     <Icon size={23} strokeWidth={2.4} />
                   </div>
                   <h3 className="mt-8 text-[24px] font-extrabold leading-tight text-[#241D18]">
@@ -429,7 +504,7 @@ function ReportAndMeasurementSection() {
     <section className="bg-white py-[74px] md:py-[116px]">
       <div className="inner grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
         <Reveal>
-          <div className="badge border-[#FBAE17] text-[#7A3B1C]">Raporu Görünür Kılalım</div>
+          <div className="badge border-[#FCBF48] text-[#8C5038]">Raporu Görünür Kılalım</div>
           <h2 className="section-title mid-section-title mt-7 max-w-[760px]">
             Vaadimiz soyut değil: ölçüm, rapor ve kişisel yol haritası.
           </h2>
@@ -440,7 +515,7 @@ function ReportAndMeasurementSection() {
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
             {measurementAreas.map((area) => (
               <div key={area} className="flex items-center gap-3 rounded-[18px] bg-[#FEF9F5] p-4">
-                <CheckCircle2 size={18} className="shrink-0 text-[#50B748]" />
+                <CheckCircle2 size={18} className="shrink-0 text-[#6BC862]" />
                 <span className="text-[15px] font-extrabold text-[#241D18]">{area}</span>
               </div>
             ))}
@@ -452,14 +527,14 @@ function ReportAndMeasurementSection() {
             <div className="rounded-[26px] bg-white p-5 text-[#241D18] md:p-6">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-[13px] font-extrabold uppercase tracking-[0.14em] text-[#157B93]">
+                  <p className="text-[13px] font-extrabold uppercase tracking-[0.14em] text-[#1E99B5]">
                     Örnek rapor görünümü
                   </p>
                   <h3 className="mt-3 font-[var(--display)] text-[42px] leading-none">
                     Bilişsel Profil
                   </h3>
                 </div>
-                <span className="rounded-full bg-[#FFF0D7] px-4 py-2 text-[13px] font-extrabold text-[#7A3B1C]">
+                <span className="rounded-full bg-[#FFF0D7] px-4 py-2 text-[13px] font-extrabold text-[#8C5038]">
                   16 sayfa
                 </span>
               </div>
@@ -474,7 +549,7 @@ function ReportAndMeasurementSection() {
                       </p>
                     </div>
                     <div className="mt-3 h-2 overflow-hidden rounded-full bg-white">
-                      <span className="block h-full w-[68%] rounded-full bg-[#50B748]" />
+                      <span className="block h-full w-[68%] rounded-full bg-[#6BC862]" />
                     </div>
                   </div>
                 ))}
@@ -496,7 +571,7 @@ function ProgramSection() {
     <section id="services" className="bg-[#EFF8FD] py-[74px] md:py-[116px]">
       <div className="inner">
         <Reveal className="text-center">
-          <div className="badge border-[#00BBE7] text-[#157B93]">Programlar</div>
+          <div className="badge border-[#40CEEE] text-[#1E99B5]">Programlar</div>
           <h2 className="section-title mid-section-title mx-auto mt-7 max-w-[760px]">
             Hedefinize göre üç net başlangıç yolu.
           </h2>
@@ -517,7 +592,7 @@ function ProgramSection() {
                   transition={{ duration: 0.2 }}
                 >
                   <div className="flex min-h-[190px] flex-col justify-between rounded-[20px] bg-[#FEF9F5] p-5">
-                    <div className="grid h-14 w-14 place-items-center rounded-full bg-[#EFF8FD] text-[#00BBE7]">
+                    <div className="grid h-14 w-14 place-items-center rounded-full bg-[#EFF8FD] text-[#40CEEE]">
                       <Icon size={27} strokeWidth={2.3} />
                     </div>
                     <span className="mt-8 inline-flex w-fit rounded-full bg-white px-4 py-2 text-[13px] font-extrabold text-[#241D18] shadow-[0_10px_24px_rgba(36,29,24,0.08)]">
@@ -526,7 +601,7 @@ function ProgramSection() {
                   </div>
 
                   <div className="pt-6">
-                    <p className="text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#00BBE7]">
+                    <p className="text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#40CEEE]">
                       {program.label}
                     </p>
                     <h3 className="mt-3 min-h-[5rem] font-[var(--display)] text-[34px] leading-[0.98]">
@@ -535,7 +610,7 @@ function ProgramSection() {
                     <p className="mt-5 text-[15px] leading-7 text-[rgba(36,29,24,0.66)]">
                       {program.copy}
                     </p>
-                    <a href="#checkup-form" className="arrow-shift mt-7 inline-flex items-center gap-2 text-[14px] font-extrabold text-[#157B93]">
+                    <a href="#checkup-form" className="arrow-shift mt-7 inline-flex items-center gap-2 text-[14px] font-extrabold text-[#1E99B5]">
                       Bu yola uygunluğumu öğren
                       <ArrowUpRight size={17} />
                     </a>
@@ -556,14 +631,14 @@ function TrustBoundarySection() {
       <div className="inner grid gap-8 lg:grid-cols-2">
         <Reveal>
           <div className="rounded-[30px] bg-[#F0F7F2] p-6 shadow-[0_18px_42px_rgba(36,29,24,0.07)] md:p-8">
-            <div className="badge border-[#50B748] text-[#1B4332]">Ne yapıyoruz?</div>
+            <div className="badge border-[#6BC862] text-[#1B4332]">Ne yapıyoruz?</div>
             <h2 className="mt-7 font-[var(--display)] text-[clamp(42px,5vw,66px)] leading-[0.96] text-[#241D18]">
               Güven, sınırları net anlatmakla başlar.
             </h2>
             <div className="mt-8 grid gap-3">
               {doItems.map((item) => (
                 <div key={item} className="flex items-start gap-3 rounded-[18px] bg-white p-4">
-                  <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-[#50B748]" />
+                  <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-[#6BC862]" />
                   <p className="text-[15px] font-extrabold leading-6 text-[#241D18]">{item}</p>
                 </div>
               ))}
@@ -580,7 +655,7 @@ function TrustBoundarySection() {
             <div className="mt-8 grid gap-3">
               {dontItems.map((item) => (
                 <div key={item} className="flex items-start gap-3 rounded-[18px] bg-white p-4">
-                  <XCircle size={20} className="mt-0.5 shrink-0 text-[#F05A38]" />
+                  <XCircle size={20} className="mt-0.5 shrink-0 text-[#F5846E]" />
                   <p className="text-[15px] font-extrabold leading-6 text-[#241D18]">{item}</p>
                 </div>
               ))}
@@ -594,7 +669,7 @@ function TrustBoundarySection() {
 
 function EvidenceSection() {
   return (
-    <section className="bg-[#F05A38] py-[54px] text-[#160A08]">
+    <section className="bg-[#F5846E] py-[54px] text-[#160A08]">
       <div className="inner grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {evidenceItems.map((item) => (
           <div key={item.label} className="rounded-[24px] bg-white/18 p-5">
@@ -619,7 +694,7 @@ function TestimonialAndLocalProofSection() {
       <div className="inner grid items-center gap-12 lg:grid-cols-[0.86fr_1fr]">
         <Reveal>
           <article className="rounded-[32px] bg-[#4A332B] p-6 text-white shadow-[0_30px_70px_rgba(36,29,24,0.16)] md:p-7">
-            <div className="relative h-[430px] overflow-hidden rounded-[26px] bg-[#FBAE17]">
+            <div className="relative h-[430px] overflow-hidden rounded-[26px] bg-[#FCBF48]">
               <Image
                 src="/images/doctor-profile.svg"
                 alt="BrainFit Karşıyaka uzman kadrosu görseli"
@@ -656,7 +731,7 @@ function TestimonialAndLocalProofSection() {
             </div>
             <div>
               <p className="font-extrabold">BrainFit Karşıyaka Katılımcısı</p>
-              <div className="mt-1 flex flex-wrap items-center gap-1 text-[#FBAE17]" aria-label="Google Puanı: 4.6">
+              <div className="mt-1 flex flex-wrap items-center gap-1 text-[#FCBF48]" aria-label="Google Puanı: 4.6">
                 {Array.from({ length: 5 }).map((_, index) => (
                   <Star key={index} size={16} fill="currentColor" strokeWidth={2.2} />
                 ))}
@@ -670,7 +745,7 @@ function TestimonialAndLocalProofSection() {
           <div className="mt-10 grid gap-3 sm:grid-cols-2">
             {["Karşıyaka'da yüz yüze merkez", "WhatsApp ile hızlı randevu", "KVKK kapsamında iletişim", "Uzman açıklamalı rapor"].map((item) => (
               <div key={item} className="flex items-center gap-3 rounded-[18px] bg-white p-4">
-                <ShieldCheck size={19} className="shrink-0 text-[#50B748]" />
+                <ShieldCheck size={19} className="shrink-0 text-[#6BC862]" />
                 <p className="text-[14px] font-extrabold text-[#241D18]">{item}</p>
               </div>
             ))}
@@ -686,7 +761,7 @@ function FaqSection() {
     <section className="bg-white py-[74px] md:py-[108px]">
       <div className="inner grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
         <Reveal>
-          <div className="badge border-[#FBAE17] text-[#7A3B1C]">Sık Sorulan Sorular</div>
+          <div className="badge border-[#FCBF48] text-[#8C5038]">Sık Sorulan Sorular</div>
           <h2 className="section-title mid-section-title mt-7 max-w-[680px]">
             Formdan önce aklınızdaki temel soruları netleştirelim.
           </h2>
@@ -753,7 +828,7 @@ function AdultCheckUpFormSection({ selectedConcern }: { selectedConcern: string 
   }
 
   return (
-    <section id="checkup-form" className="relative overflow-hidden bg-[#F05A38] py-[74px] text-[#160A08] md:py-[116px]">
+    <section id="checkup-form" className="relative overflow-hidden bg-[#F5846E] py-[74px] text-[#160A08] md:py-[116px]">
       <div className="inner grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
         <Reveal className="min-w-0">
           <div className="badge border-[#160A08]/40 bg-white/20 text-[#160A08]">Ücretsiz Zihin Check-Up</div>
@@ -765,7 +840,7 @@ function AdultCheckUpFormSection({ selectedConcern }: { selectedConcern: string 
           </p>
 
           <motion.div layout className="mt-8 flex w-full max-w-[590px] items-center gap-3 rounded-full bg-white px-4 py-3 text-[14px] font-extrabold shadow-[0_16px_40px_rgba(22,10,8,0.12)] md:inline-flex md:w-auto">
-            <CheckCircle2 size={18} className="shrink-0 text-[#50B748]" />
+            <CheckCircle2 size={18} className="shrink-0 text-[#6BC862]" />
             <span className="min-w-0 truncate">{selectedConcern}</span>
           </motion.div>
 
@@ -803,13 +878,13 @@ function AdultCheckUpFormSection({ selectedConcern }: { selectedConcern: string 
             <input type="hidden" name="audience" value="adults" />
             <input type="hidden" name="concern" value={selectedConcern} />
 
-            <button type="submit" disabled={submitState === "submitting"} className="arrow-shift mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#F05A38] px-6 text-[15px] font-extrabold text-white transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-70">
+            <button type="submit" disabled={submitState === "submitting"} className="arrow-shift mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#F5846E] px-6 text-[15px] font-extrabold text-white transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-70">
               {submitState === "submitting" ? "Mesajınız İletiliyor..." : "Randevu İçin Beni Arayın"}
               <ArrowUpRight size={18} />
             </button>
 
             {message ? (
-              <p className={`mt-4 rounded-[18px] px-4 py-3 text-[14px] font-extrabold leading-6 ${submitState === "success" ? "bg-[#F0F7F2] text-[#1B4332]" : "bg-[#FFF0D7] text-[#7A3B1C]"}`} role="status">
+              <p className={`mt-4 rounded-[18px] px-4 py-3 text-[14px] font-extrabold leading-6 ${submitState === "success" ? "bg-[#F0F7F2] text-[#1B4332]" : "bg-[#FFF0D7] text-[#8C5038]"}`} role="status">
                 {message}
               </p>
             ) : null}

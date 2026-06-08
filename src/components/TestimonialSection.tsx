@@ -47,7 +47,7 @@ export function TestimonialSection() {
       <div className="inner grid items-center gap-12 lg:grid-cols-[0.84fr_1fr]">
         <Reveal>
           <article className="relative overflow-hidden rounded-[32px] bg-[#4A332B] p-5 text-white shadow-[0_30px_70px_rgba(36,29,24,0.16)] md:p-7">
-            <div className="relative h-[500px] overflow-hidden rounded-[26px] bg-[#FBAE17]">
+            <div className="relative h-[500px] overflow-hidden rounded-[26px] bg-[#FCBF48]">
               <Image
                 src="/images/doctor-profile.svg"
                 alt="BrainFit Karşıyaka Uzman Ekibi Görseli"
@@ -83,7 +83,7 @@ export function TestimonialSection() {
                   transition={{ duration: 0.38 }}
                 >
                   {testimonial.lead}
-                  <span className="inline-block rounded-full bg-[#FBAE17] px-5 pb-2 text-[var(--ink)]">
+                  <span className="inline-block rounded-full bg-[#FCBF48] px-5 pb-2 text-[var(--ink)]">
                     {testimonial.highlight}
                   </span>
                   {testimonial.tail}
@@ -108,7 +108,7 @@ export function TestimonialSection() {
             />
             <div>
               <p className="font-extrabold">BrainFit Karşıyaka Velisi</p>
-              <div className="mt-1 flex items-center gap-1 text-[#FBAE17]" aria-label="Google Puanı: 4.6">
+              <div className="mt-1 flex items-center gap-1 text-[#FCBF48]" aria-label="Google Puanı: 4.6">
                 {Array.from({ length: 5 }).map((_, index) => (
                   <Star key={index} size={16} fill="currentColor" strokeWidth={2.2} />
                 ))}
@@ -124,7 +124,7 @@ export function TestimonialSection() {
               <span
                 key={item.highlight}
                 className={`h-10 w-[5px] rounded-full ${
-                  index === active ? "bg-[#F05A38]" : "bg-[rgba(36,29,24,0.18)]"
+                  index === active ? "bg-[#F5846E]" : "bg-[rgba(36,29,24,0.18)]"
                 }`}
               />
             ))}

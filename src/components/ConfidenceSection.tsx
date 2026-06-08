@@ -10,19 +10,19 @@ const cards = [
     title: "Dikkati Sürdürme",
     copy: "Bir işe başlamak kadar, o işi dikkat dağılmadan sonuna kadar götürmek de geliştirilebilir bir yetidir.",
     image: "/images/confidence-card-1.svg",
-    color: "#91DDF4",
+    color: "#AAE8F6",
   },
   {
     title: "Hafıza ve Geri Çağırma",
     copy: "Öğrenilen bilginin ihtiyaç duyulduğu anda hatırlanması, hafıza kapasitesi ve doğru tekrar teknikleriyle doğrudan ilişkilidir.",
     image: "/images/confidence-card-2.svg",
-    color: "#F9DC7B",
+    color: "#FCEA96",
   },
   {
     title: "Bilgiyi Uygulama ve Transfer",
     copy: "Sınav ve ödev performansında bilgiyi doğru kullanmak; dikkat, işlem hızı ve planlama yetisiyle mümkündür.",
     image: "/images/confidence-card-3.svg",
-    color: "#C9F58B",
+    color: "#D9F8A8",
   },
 ] as const;
 
@@ -73,16 +73,16 @@ export function ConfidenceSection() {
       </section>
 
       <section className="relative overflow-hidden bg-[#1B4332] py-[86px] text-white md:py-[126px]">
-        <StarBurst className="absolute left-[4%] top-[14%] opacity-60" color="#FBAE17" />
+        <StarBurst className="absolute left-[4%] top-[14%] opacity-60" color="#FCBF48" />
         <Sunflower className="absolute bottom-[-22px] left-[48%] hidden opacity-95 md:block" />
         <div
-          className="absolute right-[-32px] top-[42%] h-32 w-32 rounded-full border-[18px] border-[#FBAE17]/70"
+          className="absolute right-[-32px] top-[42%] h-32 w-32 rounded-full border-[18px] border-[#FCBF48]/70"
           aria-hidden="true"
         />
 
         <div className="inner grid items-center gap-12 lg:grid-cols-[0.96fr_0.9fr]">
           <Reveal>
-            <div className="badge border-white/60 text-[#FBAE17]">Bu Yolculukta Yalnız Değilsiniz</div>
+            <div className="badge border-white/60 text-[#FCBF48]">Bu Yolculukta Yalnız Değilsiniz</div>
             <h2 className="display mt-8 max-w-[680px] text-[clamp(42px,5.8vw,60px)] leading-[0.98] text-white">
               Öğrenme, birden fazla bilişsel becerinin uyumudur.
             </h2>
@@ -111,7 +111,7 @@ export function ConfidenceSection() {
                     className="relative h-[82px] w-[8px] overflow-hidden rounded-full bg-white/20"
                   >
                     <motion.span
-                      className="absolute bottom-0 left-0 w-full rounded-full bg-[#FBAE17]"
+                      className="absolute bottom-0 left-0 w-full rounded-full bg-[#FCBF48]"
                       initial={false}
                       animate={{ height: index === active ? "100%" : "20%" }}
                       transition={{ duration: 0.35 }}

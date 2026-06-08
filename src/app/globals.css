@@ -8,11 +8,11 @@
   --muted-brown: #9b745f;
   --cta: #160a08;
   --green: #164c35;
-  --coral: #f4865d;
-  --yellow: #f9dc7b;
-  --lime: #c9f58b;
+  --coral: #f5927e;
+  --yellow: #fcea96;
+  --lime: #d9f8a8;
   --lavender: #9b66f4;
-  --sky: #91ddf4;
+  --sky: #aae8f6;
   --footer: #242424;
   --line: rgba(36, 29, 24, 0.16);
   --body: var(--font-body), Arial, sans-serif;
@@ -90,11 +90,11 @@ img {
   display: inline-flex;
   align-items: center;
   min-height: 32px;
-  border: 1px solid rgba(180, 86, 45, 0.46);
+  border: 1px solid rgba(196, 100, 60, 0.40);
   border-radius: 999px;
   background: #fff4ec;
   padding: 7px 15px;
-  color: #7a3b1c;
+  color: #8c5038;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -126,7 +126,7 @@ img {
 }
 
 .header-cta {
-  background: #f05a38;
+  background: #f5846e;
   color: white;
   flex-shrink: 0;
   min-width: 172px;
@@ -135,7 +135,7 @@ img {
 }
 
 .header-cta:hover {
-  background: #f05a38;
+  background: #f5846e;
 }
 
 .hero-mobile-cta {

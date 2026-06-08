@@ -8,7 +8,7 @@ import { Reveal } from "@/components/Decorations";
 import { SanityImage } from "@/components/SanityImage";
 import type { PostCard } from "@/lib/sanity/queries";
 
-const cardColors = ["#F4E7D9", "#C9F58B", "#F9DC7B"];
+const cardColors = ["#F4E7D9", "#D9F8A8", "#FCEA96"];
 const fallbackImages = [
   "/illustrations/blog-balance.svg",
   "/illustrations/blog-rest.svg",

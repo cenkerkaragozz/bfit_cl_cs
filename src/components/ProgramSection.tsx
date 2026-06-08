@@ -12,7 +12,7 @@ const programs = [
     age: "6-12 Yaş Grubu",
     copy: "Dikkat, hafıza ve öğrenme alışkanlıklarını oyunlaştırılmış egzersizlerle güçlendiren temel gelişim programı.",
     image: "/images/program-peace.svg",
-    color: "#00BBE7",
+    color: "#40CEEE",
   },
   {
     title: "Sınav Dönemi İçin Zihinsel Performans",
@@ -20,7 +20,7 @@ const programs = [
     age: "10-18 Yaş Grubu",
     copy: "Odaklanma, bilgiyi geri çağırma ve çalışma disiplinini destekleyen yapılandırılmış zihinsel antrenmanlar.",
     image: "/images/program-positive.svg",
-    color: "#50B748",
+    color: "#6BC862",
   },
   {
     title: "Okuma ve Akademik Süreçlerde Uzman Desteği",
@@ -28,7 +28,7 @@ const programs = [
     age: "6-18 Yaş Arası",
     copy: "Okuma, algı ve öğrenme süreçlerini kapsayan, çocuğunuzun kendi öğrenme hızına duyarlı özel destek programı.",
     image: "/images/program-joy.svg",
-    color: "#FBAE17",
+    color: "#FCBF48",
   },
 ] as const;
 
@@ -37,7 +37,7 @@ export function ProgramSection() {
     <section id="services" className="bg-[#EFF8FD] py-[74px] md:py-[116px]">
       <div className="inner">
         <Reveal className="text-center">
-          <div className="badge border-[#00BBE7] text-[#157B93]">Programlar</div>
+          <div className="badge border-[#40CEEE] text-[#1E99B5]">Programlar</div>
           <h2 className="section-title mid-section-title mx-auto mt-7 max-w-[760px]">
             Yaş grubuna ve bireysel ihtiyaçlara özel program seçenekleri.
           </h2>
@@ -74,7 +74,7 @@ export function ProgramSection() {
                 </div>
 
                 <div className="pt-6">
-                  <p className="min-h-[2rem] text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#00BBE7]">
+                  <p className="min-h-[2rem] text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#40CEEE]">
                     {program.label}
                   </p>
                   <h3 className="mt-3 min-h-[6rem] font-[var(--display)] text-[34px] leading-[0.98]">
@@ -85,7 +85,7 @@ export function ProgramSection() {
                   </p>
                   <a
                     href="#checkup-form"
-                    className="arrow-shift mt-7 inline-flex items-center gap-2 text-[14px] font-extrabold text-[#157B93]"
+                    className="arrow-shift mt-7 inline-flex items-center gap-2 text-[14px] font-extrabold text-[#1E99B5]"
                   >
                     Zihin Check-Up Randevusu Alın
                     <ArrowUpRight size={17} />

@@ -34,19 +34,19 @@ export function LogoMark({ className = "" }: { className?: string }) {
       viewBox="0 0 38 38"
       aria-hidden="true"
     >
-      <circle cx="19" cy="19" r="18" fill="#F4865D" />
+      <circle cx="19" cy="19" r="18" fill="#F5927E" />
       <path
         d="M19 7.4c1.8 6.1 5.1 9.2 11.3 10.9-6.2 1.9-9.6 5.2-11.2 11.3-1.8-6.1-5.1-9.4-11.2-11.2 6.1-1.8 9.4-5.1 11.1-11Z"
         fill="#160A08"
       />
-      <circle cx="19" cy="19" r="4.4" fill="#F9DC7B" />
+      <circle cx="19" cy="19" r="4.4" fill="#FCEA96" />
     </svg>
   );
 }
 
 export function StarBurst({
   className = "",
-  color = "#F4865D",
+  color = "#F5927E",
   animate = true,
 }: {
   className?: string;
@@ -95,7 +95,7 @@ export function HeroUnderline({
     >
       <motion.path
         d="M3 17c36-5.7 74-9.4 114-8.5 22.8.5 46.9 2.6 70 1.3 21.5-1.2 43-4.8 69-4.8"
-        stroke="#FBAE17"
+        stroke="#FCBF48"
         strokeLinecap="round"
         strokeWidth="4"
         initial={animate ? { pathLength: 0 } : undefined}
@@ -104,7 +104,7 @@ export function HeroUnderline({
       />
       <motion.path
         d="M58 15c10.5-2 23.2-1.5 36.5 0-9.8.4-20.4 1.8-31.5 4.5"
-        stroke="#FBAE17"
+        stroke="#FCBF48"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="4"
@@ -140,7 +140,7 @@ export function HeroLoop({ className = "", color = "#8C5BEF" }) {
 
 export function HeroStrokes({
   className = "",
-  color = "#F4865D",
+  color = "#F5927E",
 }: {
   className?: string;
   color?: string;
@@ -214,7 +214,7 @@ export function HeroWaveBand({ className = "" }: { className?: string }) {
       />
       <path
         d="M0 126c147 32 285 12 425 5 118-6 208 34 326 27 97-6 166-54 251-70 137-25 226 36 438 34v128H0V126Z"
-        fill="#F9DC7B"
+        fill="#FCEA96"
         opacity="0.82"
       />
       <path
@@ -259,7 +259,7 @@ export function HeroPlants({ className = "" }: { className?: string }) {
 
 export function HeroRing({
   className = "",
-  color = "#91DDF4",
+  color = "#AAE8F6",
 }: {
   className?: string;
   color?: string;
@@ -343,7 +343,7 @@ export function DrawnUnderline({
     >
       <motion.path
         d="M6 20c72-18 150-17 229-12 55 3.5 109 6.2 169-2"
-        stroke="#F9DC7B"
+        stroke="#FCEA96"
         strokeLinecap="round"
         strokeWidth="12"
         initial={{ pathLength: 0 }}
@@ -366,7 +366,7 @@ export function QuoteIcon({ className = "" }: { className?: string }) {
     >
       <path
         d="M20.5 5C11.2 8.7 6 15 6 25.3 6 33.7 10.6 39 17.2 39c5.5 0 9.4-3.5 9.4-8.4 0-5.2-3.8-8.3-8.5-8.3-1.3 0-2.5.2-3.5.7.8-5.4 4.4-9.1 10.9-12.2L20.5 5Zm30.2 0C41.4 8.7 36.2 15 36.2 25.3c0 8.4 4.6 13.7 11.2 13.7 5.5 0 9.4-3.5 9.4-8.4 0-5.2-3.8-8.3-8.5-8.3-1.3 0-2.5.2-3.5.7.8-5.4 4.4-9.1 10.9-12.2L50.7 5Z"
-        fill="#F4865D"
+        fill="#F5927E"
       />
     </svg>
   );
@@ -390,21 +390,21 @@ export function Leaf({ className = "" }: { className?: string }) {
       />
       <path
         d="M61 63c18.8 3.3 31.1-6.7 37.7-30.3C75.5 34.6 61.3 44.8 61 63Z"
-        fill="#C9F58B"
+        fill="#D9F8A8"
         stroke="#164C35"
         strokeLinejoin="round"
         strokeWidth="3"
       />
       <path
         d="M42 79.8c-19.1 1.1-31.6-9.3-37-31.2 23.6 1.2 37 11.6 37 31.2Z"
-        fill="#91DDF4"
+        fill="#AAE8F6"
         stroke="#164C35"
         strokeLinejoin="round"
         strokeWidth="3"
       />
       <path
         d="M47.7 48C32.5 39.7 29.2 25.1 37.6 4c19 14.5 22.5 29.5 10.1 44Z"
-        fill="#F9DC7B"
+        fill="#FCEA96"
         stroke="#164C35"
         strokeLinejoin="round"
         strokeWidth="3"
@@ -430,14 +430,14 @@ export function Sunflower({ className = "" }: { className?: string }) {
           cy="37"
           rx="9"
           ry="21"
-          fill="#F9DC7B"
+          fill="#FCEA96"
           transform={`rotate(${index * 30} 62 62)`}
         />
       ))}
-      <circle cx="62" cy="62" r="18" fill="#F4865D" />
+      <circle cx="62" cy="62" r="18" fill="#F5927E" />
       <path
         d="M62 80c-2 12-7.8 23.4-16.5 34M63 80c8.6 10.7 16.6 18.8 29 26"
-        stroke="#C9F58B"
+        stroke="#D9F8A8"
         strokeLinecap="round"
         strokeWidth="5"
       />
