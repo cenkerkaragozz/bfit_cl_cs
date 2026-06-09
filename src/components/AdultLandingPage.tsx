@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect, useRef } from "react";
 import {
   ArrowUpRight,
   BriefcaseBusiness,
@@ -18,7 +18,7 @@ import {
   Timer,
   XCircle,
 } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useInView, animate } from "framer-motion";
 import { Reveal, StarBurst, HeroRing, Squiggle } from "@/components/Decorations";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
@@ -121,22 +121,30 @@ const programs = [
 
 const evidenceItems = [
   {
-    value: "45 dk",
+    num: 45,
+    suffix: " dk",
+    duration: 1.5,
     label: "Zihin Check-Up",
     copy: "İlk adımda mevcut bilişsel profilinizi anlamaya odaklanırız.",
   },
   {
-    value: "16 sayfa",
+    num: 16,
+    suffix: " sayfa",
+    duration: 0.53,
     label: "Kişisel rapor",
     copy: "Sonuçlarınızı güçlü ve gelişime açık alanlarla birlikte okuruz.",
   },
   {
-    value: "1200+",
+    num: 1200,
+    suffix: "+",
+    duration: 2.5,
     label: "Egzersiz havuzu",
     copy: "Egzersizler hedefe, profile ve programa göre yapılandırılır.",
   },
   {
-    value: "20+ yıl",
+    num: 20,
+    suffix: "+ yıl",
+    duration: 0.67,
     label: "Metodoloji deneyimi",
     copy: "Bilişsel gelişim alanında yapılandırılmış bir yaklaşım.",
   },
@@ -589,26 +597,45 @@ function TrustBoundarySection() {
   );
 }
 
+function AnimatedStat({ num, suffix, duration }: { num: number; suffix: string; duration: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (isInView && ref.current) {
+      const controls = animate(0, num, {
+        duration,
+        ease: "easeOut",
+        onUpdate: (v) => {
+          if (ref.current) {
+            ref.current.textContent = Math.round(v).toString() + suffix;
+          }
+        },
+      });
+      return controls.stop;
+    }
+  }, [isInView, num, duration, suffix]);
+
+  return <span ref={ref}>0{suffix}</span>;
+}
+
 function EvidenceSection() {
   return (
-
-    <section className="ev-count-section bg-[#F5846E] py-[54px] text-[#160A08]">
+    <section className="bg-[#F5846E] py-[54px] text-[#160A08]">
       <div className="inner grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {evidenceItems.map((item, i) => {
-          const suffixes = [" dk", " sayfa", "+", "+ yıl"];
-          return (
-            <div key={item.label} className="ev-count-card rounded-[24px] bg-white/18 p-5">
-              <p className="ev-count-num font-[var(--display)] text-[clamp(36px,5vw,56px)] font-bold leading-none" data-suffix={suffixes[i]}>
-                {item.value}
-              </p>
-              <p className="mt-3 text-[15px] font-extrabold">{item.label}</p>
-              <p className="mt-3 text-[13px] font-semibold leading-6 text-[#160A08]/72">{item.copy}</p>
-            </div>
-          );
-        })}
+        {evidenceItems.map((item) => (
+          <div key={item.label} className="rounded-[24px] bg-white/18 p-5">
+            <p className="font-[var(--display)] text-[clamp(36px,5vw,56px)] font-bold leading-none">
+              <AnimatedStat num={item.num} suffix={item.suffix} duration={item.duration} />
+            </p>
+            <p className="mt-3 text-[15px] font-extrabold">{item.label}</p>
+            <p className="mt-3 text-[13px] font-semibold leading-6 text-[#160A08]/72">
+              {item.copy}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
-
   );
 }
 
