@@ -281,7 +281,8 @@ h3 {
 
 @media (max-width: 1023px) {
   .v4 {
-    background-position: 58% center;
+    background-position: center bottom;
+    background-size: auto 100%;
   }
 
   .v4::before {
@@ -291,21 +292,73 @@ h3 {
   }
 
   .v4 .v4-visual-space {
-    min-height: clamp(220px, 46vw, 420px);
+    min-height: clamp(180px, 38vw, 320px);
   }
 }
 
 @media (max-width: 640px) {
   .v4 {
-    background-position: 61% bottom;
+    background-position: 84% 92%;
+    background-size: auto 66%;
   }
 
   .v4 .v4-inner {
-    padding-top: 124px;
+    padding-top: 104px;
+    padding-bottom: 48px;
+  }
+
+  .v4::before {
+    background:
+      linear-gradient(180deg, rgba(250, 249, 245, 0.94) 0%, rgba(250, 249, 245, 0.76) 42%, rgba(250, 249, 245, 0.2) 100%),
+      linear-gradient(90deg, rgba(250, 249, 245, 0.8) 0%, rgba(250, 249, 245, 0.14) 100%);
+  }
+
+  .v4 .v4-kicker {
+    max-width: 32ch;
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .v4 .v4-h1 {
+    font-size: clamp(31px, 9.2vw, 38px);
+    line-height: 1.02;
+    max-width: 15ch;
+    margin-top: 14px;
+  }
+
+  .v4 .v4-sub {
+    font-size: 15px;
+    line-height: 1.62;
+    margin-top: 22px;
+    max-width: 36ch;
+  }
+
+  .v4 .v4-ctas {
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .v4 .v4-cta-p,
+  .v4 .v4-cta-s {
+    width: 100%;
+    min-height: 50px;
+    padding-inline: 18px;
+    font-size: 14px;
+  }
+
+  .v4 .v4-chips {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .v4 .v4-chip {
+    min-height: 36px;
+    padding-inline: 16px;
+    font-size: 12px;
   }
 
   .v4 .v4-visual-space {
-    min-height: 250px;
+    display: none;
   }
 }
 
