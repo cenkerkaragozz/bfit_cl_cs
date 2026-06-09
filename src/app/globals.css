@@ -445,3 +445,51 @@ img {
     display: inline-flex;
   }
 }
+
+/* ── Evidence stats count-up (1500ms, simultaneous) ── */
+@property --ev-count {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes ev-to-45   { to { --ev-count: 45;   } }
+@keyframes ev-to-16   { to { --ev-count: 16;   } }
+@keyframes ev-to-1200 { to { --ev-count: 1200; } }
+@keyframes ev-to-20   { to { --ev-count: 20;   } }
+
+.ev-count-num {
+  color: transparent;
+}
+.ev-count-num::before {
+  counter-reset: ev-c var(--ev-count);
+  content: counter(ev-c);
+  color: #160a08;
+}
+.ev-count-num::after {
+  content: attr(data-suffix);
+  color: #160a08;
+}
+
+.ev-count-card:nth-child(1) .ev-count-num { animation: ev-to-45   1500ms cubic-bezier(0.25, 1, 0.5, 1) both; }
+.ev-count-card:nth-child(2) .ev-count-num { animation: ev-to-16   1500ms cubic-bezier(0.25, 1, 0.5, 1) both; }
+.ev-count-card:nth-child(3) .ev-count-num { animation: ev-to-1200 1500ms cubic-bezier(0.25, 1, 0.5, 1) both; }
+.ev-count-card:nth-child(4) .ev-count-num { animation: ev-to-20   1500ms cubic-bezier(0.25, 1, 0.5, 1) both; }
+
+/* ── Cognitive areas reveal (clip-wipe, 150ms/50ms stagger) ── */
+@keyframes cognitive-area-reveal {
+  from { clip-path: inset(0 100% 0 0 round 18px); opacity: 0.5; }
+  to   { clip-path: inset(0 0 0 0 round 18px);    opacity: 1; }
+}
+
+.cognitive-areas-grid > .cognitive-area-item {
+  animation: cognitive-area-reveal 150ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.cognitive-areas-grid > .cognitive-area-item:nth-child(1) { animation-delay: 0ms; }
+.cognitive-areas-grid > .cognitive-area-item:nth-child(2) { animation-delay: 50ms; }
+.cognitive-areas-grid > .cognitive-area-item:nth-child(3) { animation-delay: 100ms; }
+.cognitive-areas-grid > .cognitive-area-item:nth-child(4) { animation-delay: 150ms; }
+.cognitive-areas-grid > .cognitive-area-item:nth-child(5) { animation-delay: 200ms; }
+.cognitive-areas-grid > .cognitive-area-item:nth-child(6) { animation-delay: 250ms; }
+.cognitive-areas-grid > .cognitive-area-item:nth-child(7) { animation-delay: 300ms; }

@@ -434,9 +434,9 @@ function ReportAndMeasurementSection() {
             Zihin Check-Up sonunda dikkat, hafıza, işlem hızı ve ilgili bilişsel alanlar tek tek ele alınır. Amaç, nereden başlayacağınızı netleştirmektir.
           </p>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+          <div className="cognitive-areas-grid mt-8 grid gap-3 sm:grid-cols-2">
             {measurementAreas.map((area) => (
-              <div key={area} className="flex items-center gap-3 rounded-[18px] bg-[#FEF9F5] p-4">
+              <div key={area} className="cognitive-area-item flex items-center gap-3 rounded-[18px] bg-[#FEF9F5] p-4">
                 <CheckCircle2 size={18} className="shrink-0 text-[#6BC862]" />
                 <span className="text-[15px] font-extrabold text-[#241D18]">{area}</span>
               </div>
@@ -591,21 +591,24 @@ function TrustBoundarySection() {
 
 function EvidenceSection() {
   return (
-    <section className="bg-[#F5846E] py-[54px] text-[#160A08]">
+
+    <section className="ev-count-section bg-[#F5846E] py-[54px] text-[#160A08]">
       <div className="inner grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {evidenceItems.map((item) => (
-          <div key={item.label} className="rounded-[24px] bg-white/18 p-5">
-            <p className="font-[var(--display)] text-[clamp(36px,5vw,56px)] font-bold leading-none">
-              {item.value}
-            </p>
-            <p className="mt-3 text-[15px] font-extrabold">{item.label}</p>
-            <p className="mt-3 text-[13px] font-semibold leading-6 text-[#160A08]/72">
-              {item.copy}
-            </p>
-          </div>
-        ))}
+        {evidenceItems.map((item, i) => {
+          const suffixes = [" dk", " sayfa", "+", "+ yıl"];
+          return (
+            <div key={item.label} className="ev-count-card rounded-[24px] bg-white/18 p-5">
+              <p className="ev-count-num font-[var(--display)] text-[clamp(36px,5vw,56px)] font-bold leading-none" data-suffix={suffixes[i]}>
+                {item.value}
+              </p>
+              <p className="mt-3 text-[15px] font-extrabold">{item.label}</p>
+              <p className="mt-3 text-[13px] font-semibold leading-6 text-[#160A08]/72">{item.copy}</p>
+            </div>
+          );
+        })}
       </div>
     </section>
+
   );
 }
 
