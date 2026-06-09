@@ -510,57 +510,38 @@ function ReportAndMeasurementSection() {
 
 function ProgramSection() {
   return (
-    <section id="services" className="bg-[#EFF8FD] py-[74px] md:py-[116px]">
+    <section id="services" className="pv4">
       <div className="inner">
-        <Reveal className="text-center">
-          <div className="badge border-[#40CEEE] text-[#1E99B5]">Programlar</div>
-          <h2 className="section-title mid-section-title mx-auto mt-7 max-w-[760px]">
-            Hedefinize göre üç net başlangıç yolu.
-          </h2>
-          <p className="body-copy mx-auto mt-6 max-w-[680px]">
-            Program seçimini tahminle değil, Check-Up raporunuz ve uzman görüşmesiyle yaparız.
-          </p>
-        </Reveal>
-
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
-          {programs.map((program, index) => {
-            const Icon = program.icon;
-
-            return (
-              <Reveal key={program.title} delay={index * 0.08}>
-                <motion.article
-                  className="group h-full rounded-[24px] bg-white p-6 shadow-[0_20px_50px_rgba(36,29,24,0.08)]"
-                  whileHover={{ y: -7 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="flex min-h-[190px] flex-col justify-between rounded-[20px] bg-[#FEF9F5] p-5">
-                    <div className="grid h-14 w-14 place-items-center rounded-full bg-[#EFF8FD] text-[#40CEEE]">
-                      <Icon size={27} strokeWidth={2.3} />
-                    </div>
-                    <span className="mt-8 inline-flex w-fit rounded-full bg-white px-4 py-2 text-[13px] font-extrabold text-[#241D18] shadow-[0_10px_24px_rgba(36,29,24,0.08)]">
-                      {program.fit}
-                    </span>
-                  </div>
-
-                  <div className="pt-6">
-                    <p className="text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#40CEEE]">
-                      {program.label}
-                    </p>
-                    <h3 className="mt-3 min-h-[5rem] font-[var(--display)] text-[34px] leading-[0.98]">
-                      {program.title}
-                    </h3>
-                    <p className="mt-5 text-[15px] leading-7 text-[rgba(36,29,24,0.66)]">
-                      {program.copy}
-                    </p>
-                    <a href="#checkup-form" className="arrow-shift mt-7 inline-flex items-center gap-2 text-[14px] font-extrabold text-[#1E99B5]">
-                      Bu yola uygunluğumu öğren
-                      <ArrowUpRight size={17} />
-                    </a>
-                  </div>
-                </motion.article>
-              </Reveal>
-            );
-          })}
+        <div className="pv4-hdr">
+          <span className="pv4-badge">Programlar</span>
+          <h2 className="pv4-h2">Hedefinize göre üç net başlangıç yolu.</h2>
+          <p className="pv4-sub">Program seçimini tahminle değil, Check-Up raporunuz ve uzman görüşmesiyle yaparız.</p>
+        </div>
+        <div className="pv4-stack">
+          <div className="pv4-card pv4-c1">
+            <div className="pv4-dot" />
+            <p className="pv4-id">BrainFit Adult</p>
+            <p className="pv4-ctx">İş ve üniversite yaşamı</p>
+            <h3 className="pv4-title">Günlük tempo için zihinsel netlik</h3>
+            <p className="pv4-copy">Odaklanma, planlama, zihinsel dayanıklılık ve öğrenme kapasitesini günlük ritminize uygun egzersizlerle destekler.</p>
+            <a href="#checkup-form" className="pv4-cta">Bu yola uygunluğumu öğren <ArrowUpRight size={14} aria-hidden="true" /></a>
+          </div>
+          <div className="pv4-card pv4-c2">
+            <div className="pv4-dot" />
+            <p className="pv4-id">BrainFit Performance</p>
+            <p className="pv4-ctx">YKS, KPSS, dil ve mesleki sınavlar</p>
+            <h3 className="pv4-title">Sınav ve kariyer performansı</h3>
+            <p className="pv4-copy">Bilgiyi geri çağırma, dikkati sürdürme ve zaman baskısı altında daha düzenli performans gösterebilme becerilerine odaklanır.</p>
+            <a href="#checkup-form" className="pv4-cta">Bu yola uygunluğumu öğren <ArrowUpRight size={14} aria-hidden="true" /></a>
+          </div>
+          <div className="pv4-card pv4-c3">
+            <div className="pv4-dot" />
+            <p className="pv4-id">BrainFit Senior</p>
+            <p className="pv4-ctx">50+ yetişkinler</p>
+            <h3 className="pv4-title">Aktif yaşam için bilişsel destek</h3>
+            <p className="pv4-copy">Hafıza, görsel algı, beden-zihin uyumu ve zihinsel esnekliği kişisel tempoya duyarlı şekilde destekler.</p>
+            <a href="#checkup-form" className="pv4-cta">Bu yola uygunluğumu öğren <ArrowUpRight size={14} aria-hidden="true" /></a>
+          </div>
         </div>
       </div>
     </section>
