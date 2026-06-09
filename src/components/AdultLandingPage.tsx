@@ -379,34 +379,34 @@ function CheckupJourneySection() {
             </a>
           </div>
           <div className="ckj-steps">
-            <div className="ckj-step">
+            <motion.div className="ckj-step" initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.55, delay: 0, ease: [0.2, 0.8, 0.2, 1] }}>
               <span className="ckj-step-num">01</span>
               <div className="ckj-step-content">
                 <p className="ckj-step-title">Hedef görüşmesi</p>
                 <p className="ckj-step-copy">Neyi desteklememiz gerektiğini, günlük tablonuzu ve hedefinizi netleştiririz.</p>
               </div>
-            </div>
-            <div className="ckj-step">
+            </motion.div>
+            <motion.div className="ckj-step" initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.55, delay: 0.11, ease: [0.2, 0.8, 0.2, 1] }}>
               <span className="ckj-step-num">02</span>
               <div className="ckj-step-content">
                 <p className="ckj-step-title">Bilişsel profil taraması</p>
                 <p className="ckj-step-copy">Dikkat, hafıza, işlem hızı ve muhakeme standart protokollerle ayrı ayrı değerlendirilir.</p>
               </div>
-            </div>
-            <div className="ckj-step">
+            </motion.div>
+            <motion.div className="ckj-step" initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.55, delay: 0.22, ease: [0.2, 0.8, 0.2, 1] }}>
               <span className="ckj-step-num">03</span>
               <div className="ckj-step-content">
                 <p className="ckj-step-title">Rapor değerlendirmesi</p>
                 <p className="ckj-step-copy">16 sayfalık bulgular, güçlü ve desteklenebilir alanlar sade bir dille birlikte okunur.</p>
               </div>
-            </div>
-            <div className="ckj-step">
+            </motion.div>
+            <motion.div className="ckj-step" initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.55, delay: 0.33, ease: [0.2, 0.8, 0.2, 1] }}>
               <span className="ckj-step-num">04</span>
               <div className="ckj-step-content">
                 <p className="ckj-step-title">Kişisel yol haritası</p>
                 <p className="ckj-step-copy">Size uygun programı ve ilk adımı birlikte belirleriz, zorlamadan.</p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -509,39 +509,53 @@ function ReportAndMeasurementSection() {
 }
 
 function ProgramSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const shouldReduce = useReducedMotion();
+
+  const cardAnim = (i: number) =>
+    shouldReduce
+      ? { opacity: 1, transition: { duration: 0 } }
+      : {
+          opacity: isInView ? 1 : 0,
+          transition: { duration: 0.7, delay: i * 0.13, ease: [0.2, 0.8, 0.2, 1] },
+        };
+
   return (
     <section id="services" className="pv4">
       <div className="inner">
-        <div className="pv4-hdr">
-          <span className="pv4-badge">Programlar</span>
-          <h2 className="pv4-h2">Hedefinize göre üç net başlangıç yolu.</h2>
-          <p className="pv4-sub">Program seçimini tahminle değil, Check-Up raporunuz ve uzman görüşmesiyle yaparız.</p>
-        </div>
-        <div className="pv4-stack">
-          <div className="pv4-card pv4-c1">
+        <Reveal>
+          <div className="pv4-hdr">
+            <span className="pv4-badge">Programlar</span>
+            <h2 className="pv4-h2">Hedefinize göre üç net başlangıç yolu.</h2>
+            <p className="pv4-sub">Program seçimini tahminle değil, Check-Up raporunuz ve uzman görüşmesiyle yaparız.</p>
+          </div>
+        </Reveal>
+        <div className="pv4-stack" ref={ref}>
+          <motion.div className="pv4-card pv4-c1" initial={{ opacity: 0 }} animate={cardAnim(0)}>
             <div className="pv4-dot" />
             <p className="pv4-id">BrainFit Adult</p>
             <p className="pv4-ctx">İş ve üniversite yaşamı</p>
             <h3 className="pv4-title">Günlük tempo için zihinsel netlik</h3>
             <p className="pv4-copy">Odaklanma, planlama, zihinsel dayanıklılık ve öğrenme kapasitesini günlük ritminize uygun egzersizlerle destekler.</p>
             <a href="#checkup-form" className="pv4-cta">Bu yola uygunluğumu öğren <ArrowUpRight size={14} aria-hidden="true" /></a>
-          </div>
-          <div className="pv4-card pv4-c2">
+          </motion.div>
+          <motion.div className="pv4-card pv4-c2" initial={{ opacity: 0 }} animate={cardAnim(1)}>
             <div className="pv4-dot" />
             <p className="pv4-id">BrainFit Performance</p>
             <p className="pv4-ctx">YKS, KPSS, dil ve mesleki sınavlar</p>
             <h3 className="pv4-title">Sınav ve kariyer performansı</h3>
             <p className="pv4-copy">Bilgiyi geri çağırma, dikkati sürdürme ve zaman baskısı altında daha düzenli performans gösterebilme becerilerine odaklanır.</p>
             <a href="#checkup-form" className="pv4-cta">Bu yola uygunluğumu öğren <ArrowUpRight size={14} aria-hidden="true" /></a>
-          </div>
-          <div className="pv4-card pv4-c3">
+          </motion.div>
+          <motion.div className="pv4-card pv4-c3" initial={{ opacity: 0 }} animate={cardAnim(2)}>
             <div className="pv4-dot" />
             <p className="pv4-id">BrainFit Senior</p>
             <p className="pv4-ctx">50+ yetişkinler</p>
             <h3 className="pv4-title">Aktif yaşam için bilişsel destek</h3>
             <p className="pv4-copy">Hafıza, görsel algı, beden-zihin uyumu ve zihinsel esnekliği kişisel tempoya duyarlı şekilde destekler.</p>
             <a href="#checkup-form" className="pv4-cta">Bu yola uygunluğumu öğren <ArrowUpRight size={14} aria-hidden="true" /></a>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

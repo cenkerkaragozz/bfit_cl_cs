@@ -550,10 +550,18 @@ section.pv4 { background:#f4f1eb; padding:clamp(76px,8vw,112px) 0; }
 .pv4-h2 { font-family:var(--display); font-size:clamp(36px,4.5vw,58px); font-weight:700; line-height:.97; color:#241d18; text-wrap:balance; }
 .pv4-sub { font-size:15px; line-height:1.72; color:rgba(36,29,24,.48); margin-top:16px; max-width:440px; margin-left:auto; margin-right:auto; }
 .pv4-stack { display:grid; grid-template-columns:repeat(3,1fr); gap:0; padding:20px 0 80px; align-items:start; }
-.pv4-card { border-radius:24px; padding:36px 32px; box-shadow:0 20px 56px rgba(36,29,24,.10); }
+.pv4-card { border-radius:24px; padding:36px 32px; box-shadow:0 20px 56px rgba(36,29,24,.10); transition:box-shadow .22s ease; }
 .pv4-c1 { background:#fff; transform:rotate(-1.5deg) translateY(0px); z-index:3; position:relative; animation:pv4-float1 6s ease-in-out infinite; }
 .pv4-c2 { background:#fff; transform:rotate(0.5deg) translateY(4.8px); z-index:2; position:relative; animation:pv4-float2 7.5s ease-in-out infinite; }
 .pv4-c3 { background:#faf9f5; transform:rotate(-0.8deg) translateY(2px); z-index:1; position:relative; animation:pv4-float3 9s ease-in-out infinite; }
+@media(hover:hover){
+  .pv4-c1:hover { animation-play-state:paused; transform:rotate(-1.5deg) translateY(-7px); box-shadow:0 36px 72px rgba(36,29,24,.16); }
+  .pv4-c2:hover { animation-play-state:paused; transform:rotate(0.5deg) translateY(-1.2px); box-shadow:0 36px 72px rgba(36,29,24,.16); }
+  .pv4-c3:hover { animation-play-state:paused; transform:rotate(-0.8deg) translateY(-5px); box-shadow:0 36px 72px rgba(36,29,24,.16); }
+}
+@media(max-width:900px){
+  .pv4-card:active { transform:scale(0.97); transition:transform .1s ease; }
+}
 .pv4-dot { width:36px; height:4px; border-radius:2px; margin-bottom:26px; }
 .pv4-c1 .pv4-dot { background:#f5927e; }
 .pv4-c2 .pv4-dot { background:#fcbf48; }
