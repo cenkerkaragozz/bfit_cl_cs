@@ -399,28 +399,28 @@ function CheckupJourneySection() {
           <div className="ckj-steps">
             <div className="ckj-step">
               <span className="ckj-step-num">01</span>
-              <div>
+              <div className="ckj-step-content">
                 <p className="ckj-step-title">Hedef görüşmesi</p>
                 <p className="ckj-step-copy">Neyi desteklememiz gerektiğini, günlük tablonuzu ve hedefinizi netleştiririz.</p>
               </div>
             </div>
             <div className="ckj-step">
               <span className="ckj-step-num">02</span>
-              <div>
+              <div className="ckj-step-content">
                 <p className="ckj-step-title">Bilişsel profil taraması</p>
                 <p className="ckj-step-copy">Dikkat, hafıza, işlem hızı ve muhakeme standart protokollerle ayrı ayrı değerlendirilir.</p>
               </div>
             </div>
             <div className="ckj-step">
               <span className="ckj-step-num">03</span>
-              <div>
+              <div className="ckj-step-content">
                 <p className="ckj-step-title">Rapor değerlendirmesi</p>
                 <p className="ckj-step-copy">16 sayfalık bulgular, güçlü ve desteklenebilir alanlar sade bir dille birlikte okunur.</p>
               </div>
             </div>
             <div className="ckj-step">
               <span className="ckj-step-num">04</span>
-              <div>
+              <div className="ckj-step-content">
                 <p className="ckj-step-title">Kişisel yol haritası</p>
                 <p className="ckj-step-copy">Size uygun programı ve ilk adımı birlikte belirleriz, zorlamadan.</p>
               </div>

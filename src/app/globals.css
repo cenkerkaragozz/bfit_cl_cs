@@ -315,12 +315,12 @@ h3 {
 .ckj-sub { font-size: 16px; color: rgba(36,29,24,0.62); line-height: 1.75; margin-top: 20px; max-width: 400px; }
 .ckj-cta { display: inline-flex; align-items: center; gap: 6px; margin-top: 28px; font-size: 14px; font-weight: 800; color: #164c35; text-decoration: none; transition: gap 180ms ease; }
 .ckj-cta:hover { gap: 10px; }
-.ckj-steps { display: flex; flex-direction: column; padding-top: 4px; }
-.ckj-step { display: grid; grid-template-columns: 52px 1fr; gap: 20px; align-items: start; padding: 24px 0; border-top: 1px solid rgba(36,29,24,0.1); }
-.ckj-step:last-child { border-bottom: 1px solid rgba(36,29,24,0.1); }
-.ckj-step-num { font-family: var(--display); font-size: 26px; font-weight: 700; color: #164c35; line-height: 1.15; padding-top: 1px; }
-.ckj-step-title { font-size: 17px; font-weight: 800; color: #241d18; line-height: 1.2; margin: 0; }
-.ckj-step-copy { font-size: 14px; color: rgba(36,29,24,0.62); line-height: 1.72; margin-top: 8px; margin-bottom: 0; }
+.ckj-steps { display: flex; flex-direction: column; gap: 10px; padding-top: 4px; }
+.ckj-step { display: grid; grid-template-columns: 52px 1fr; gap: 18px; align-items: start; background: #f4f1eb; border-radius: 18px; padding: 20px; }
+.ckj-step-num { font-family: var(--display); font-size: 28px; font-weight: 700; color: #164c35; line-height: 1.1; }
+.ckj-step-content { padding-top: 2px; }
+.ckj-step-title { font-size: 17px; font-weight: 800; color: #241d18; line-height: 1.2; margin: 0 0 6px; }
+.ckj-step-copy { font-size: 14px; color: rgba(36,29,24,0.68); line-height: 1.72; margin: 0; }
 
 @media (max-width: 860px) {
   .ckj-layout { grid-template-columns: 1fr; gap: 36px; }

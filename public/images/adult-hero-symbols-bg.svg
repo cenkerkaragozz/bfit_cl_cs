@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1350" viewBox="0 0 2400 1350" role="img" aria-label="BrainFit abstract brand symbol hero background">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#123d2b"/>
+      <stop offset="0.42" stop-color="#164c35"/>
+      <stop offset="1" stop-color="#0f3223"/>
+    </linearGradient>
+    <radialGradient id="warm-focus" cx="74%" cy="42%" r="60%">
+      <stop offset="0" stop-color="#fcbf48" stop-opacity="0.22"/>
+      <stop offset="0.34" stop-color="#f5927e" stop-opacity="0.12"/>
+      <stop offset="0.72" stop-color="#164c35" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cool-focus" cx="82%" cy="68%" r="46%">
+      <stop offset="0" stop-color="#aae8f6" stop-opacity="0.20"/>
+      <stop offset="0.52" stop-color="#9b66f4" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#164c35" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="left-safe" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0e3022" stop-opacity="0.98"/>
+      <stop offset="0.56" stop-color="#123d2b" stop-opacity="0.78"/>
+      <stop offset="1" stop-color="#164c35" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="28" stdDeviation="22" flood-color="#061a12" flood-opacity="0.28"/>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0.98 0 1 0 0 0.74 0 0 1 0 0.28 0 0 0 0.38 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="micro-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/>
+    </pattern>
+    <symbol id="mark-square" viewBox="0 0 120 120">
+      <path d="M0 0h120l-29 29H29v62L0 120Z" fill="#43ad3f"/>
+      <path d="M120 0v120H0l29-29h62V29Z" fill="#777977"/>
+      <path d="M29 29h62v62H29Z" fill="#fff"/>
+      <path d="M91 29 120 0v120H91Z" fill="#6f716f" opacity="0.92"/>
+      <path d="M0 120 29 91H0Z" fill="#33a536" opacity="0.9"/>
+    </symbol>
+    <symbol id="mark-ring" viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="42" fill="none" stroke="#777977" stroke-width="30"/>
+      <path d="M60 18a42 42 0 1 0 0 84" fill="none" stroke="#13afd0" stroke-width="30" stroke-linecap="butt"/>
+      <path d="M60 18a42 42 0 0 1 42 42" fill="none" stroke="#13afd0" stroke-width="30" stroke-linecap="butt"/>
+      <circle cx="60" cy="60" r="25" fill="#fff"/>
+    </symbol>
+    <symbol id="mark-play" viewBox="0 0 120 120">
+      <path d="M18 8 108 60 18 112Z" fill="#f5a823"/>
+      <path d="M108 60 18 112 18 82 64 60Z" fill="#777977"/>
+      <path d="M43 42v36l31-18Z" fill="#fff"/>
+    </symbol>
+    <symbol id="mark-arrow" viewBox="0 0 120 120">
+      <path d="M21 96 83 34l16 16-62 62Z" fill="#777977"/>
+      <path d="M68 20 115 5l-15 47Z" fill="#e8563f"/>
+    </symbol>
+    <symbol id="mark-curve" viewBox="0 0 120 120">
+      <path d="M24 105V82c0-27 22-49 49-49h23" fill="none" stroke="#777977" stroke-width="30" stroke-linecap="butt"/>
+      <path d="M73 33h23V10h24v23c0 26-21 48-48 48H49V57h24c13 0 23-11 23-24Z" fill="#c01886"/>
+    </symbol>
+  </defs>
+
+  <rect width="2400" height="1350" fill="url(#bg)"/>
+  <rect width="2400" height="1350" fill="url(#micro-grid)"/>
+  <rect width="2400" height="1350" fill="url(#warm-focus)"/>
+  <rect width="2400" height="1350" fill="url(#cool-focus)"/>
+
+  <g opacity="0.32" fill="none" stroke-linecap="round">
+    <path d="M740 1000C1030 850 1130 520 1410 420s470 80 660-120" stroke="#aae8f6" stroke-width="5"/>
+    <path d="M820 220c230 210 500 130 730 330 175 152 270 364 570 382" stroke="#d9f8a8" stroke-width="5"/>
+    <path d="M1030 1160c160-250 410-285 590-230 180 54 312-26 460-172" stroke="#fcbf48" stroke-width="4"/>
+  </g>
+
+  <g opacity="0.13" fill="none" stroke="#fff" stroke-width="2">
+    <path d="M1290 206c155 66 271 178 345 319 79 150 103 336 43 522"/>
+    <path d="M1155 313c209 28 357 147 443 304 91 166 90 361-4 547"/>
+    <path d="M1398 122c219 104 367 268 432 472 57 179 38 373-54 552"/>
+  </g>
+
+  <g opacity="0.18" filter="url(#glow)">
+    <use href="#mark-ring" x="1005" y="125" width="270" height="270" transform="rotate(-12 1140 260)"/>
+    <use href="#mark-curve" x="1870" y="710" width="260" height="260" transform="rotate(38 2000 840)"/>
+  </g>
+
+  <g filter="url(#soft-shadow)">
+    <use href="#mark-square" x="1330" y="250" width="250" height="250" transform="rotate(-10 1455 375)"/>
+    <use href="#mark-ring" x="1620" y="130" width="278" height="278" transform="rotate(24 1759 269)"/>
+    <use href="#mark-play" x="1810" y="430" width="245" height="245" transform="rotate(-18 1932 552)"/>
+    <use href="#mark-arrow" x="1450" y="680" width="260" height="260" transform="rotate(6 1580 810)"/>
+    <use href="#mark-curve" x="1865" y="810" width="260" height="260" transform="rotate(-22 1995 940)"/>
+  </g>
+
+  <g opacity="0.44" filter="url(#soft-shadow)">
+    <use href="#mark-play" x="1040" y="790" width="170" height="170" transform="rotate(32 1125 875)"/>
+    <use href="#mark-arrow" x="2130" y="230" width="145" height="145" transform="rotate(-28 2202 302)"/>
+    <use href="#mark-square" x="2080" y="1060" width="150" height="150" transform="rotate(22 2155 1135)"/>
+  </g>
+
+  <g opacity="0.14">
+    <use href="#mark-square" x="610" y="765" width="190" height="190" transform="rotate(16 705 860)"/>
+    <use href="#mark-ring" x="760" y="380" width="160" height="160" transform="rotate(-20 840 460)"/>
+    <use href="#mark-arrow" x="420" y="170" width="150" height="150" transform="rotate(42 495 245)"/>
+  </g>
+
+  <path d="M1080 0c-70 225-81 435-33 631 55 224 197 405 425 544 101 61 217 112 348 153H0V0Z" fill="url(#left-safe)"/>
+  <rect width="850" height="1350" fill="#0f3223" opacity="0.30"/>
+</svg>
