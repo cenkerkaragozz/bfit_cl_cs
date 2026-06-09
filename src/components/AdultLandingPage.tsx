@@ -220,9 +220,12 @@ function AdultHero({
       <div className="inner v4-inner">
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
           <div>
-            <span className="v4-kicker">BrainFit Karşıyaka · Bilişsel Gelişim Merkezi</span>
-            <h1 className="v4-h1">Profilinizi anlayın. Hedefinize doğru ilerleyin.</h1>
-            <p className="v4-sub">Karşıyaka'da yüz yüze hizmet sunan BrainFit'te, 45 dakikalık Zihin Check-Up ile dikkat, hafıza ve zihinsel performansınızı inceleriz; ardından hedefinize uygun egzersiz yolunu birlikte belirleriz.</p>
+            <span className="v4-kicker">
+              <span className="v4-kicker-bar" aria-hidden="true" />
+              BrainFit Karşıyaka · Bilişsel Gelişim Merkezi
+            </span>
+            <h1 className="v4-h1">Bilişsel profilinizi öğrenin. Kişisel egzersiz yolunuza başlayın.</h1>
+            <p className="v4-sub">Karşıyaka'da yüz yüze hizmet sunan BrainFit'te, 45 dakikalık Zihin Check-Up ile dikkati, hafızayı ve zihinsel performansı ölçeriz. 16 sayfalık kişisel raporu uzmanla birlikte okur, ardından üç egzersiz programından hangisinin hedefinize uyduğunu birlikte belirleriz.</p>
             <div className="v4-ctas">
               <a href="#checkup-form" className="v4-cta-p arrow-shift">
                 Ücretsiz Check-Up Randevusu Al

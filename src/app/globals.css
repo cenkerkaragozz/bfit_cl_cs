@@ -164,30 +164,40 @@ h3 {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #fcbf48;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.v4 .v4-kicker-bar {
   display: block;
+  width: 3px;
+  height: 16px;
+  background: #fcbf48;
+  border-radius: 2px;
+  flex-shrink: 0;
 }
 .v4 .v4-h1 {
   font-family: var(--display);
-  font-size: clamp(46px, 6.2vw, 96px);
+  font-size: clamp(36px, 4vw, 58px);
   font-weight: 700;
-  line-height: 0.9;
+  line-height: 0.94;
   color: white;
   text-wrap: balance;
-  max-width: 16ch;
-  margin-top: 16px;
+  max-width: 18ch;
+  margin-top: 8px;
 }
 .v4 .v4-sub {
   font-size: clamp(16px, 1.7vw, 19px);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.6);
   max-width: 50ch;
-  margin-top: 20px;
+  margin-top: 28px;
 }
 .v4 .v4-ctas {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 28px;
+  margin-top: 26px;
 }
 .v4 .v4-cta-p {
   display: inline-flex;
