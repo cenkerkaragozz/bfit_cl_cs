@@ -544,16 +544,16 @@ h3 {
 @keyframes pv4-float2 { 0%,100%{transform:rotate(0.5deg) translateY(4.8px)} 50%{transform:rotate(0.5deg) translateY(3.4px)} }
 @keyframes pv4-float3 { 0%,100%{transform:rotate(-0.8deg) translateY(2px)} 50%{transform:rotate(-0.8deg) translateY(0.8px)} }
 
-section.pv4 { background:#241d18; padding:clamp(76px,8vw,112px) 0; }
+section.pv4 { background:#f4f1eb; padding:clamp(76px,8vw,112px) 0; }
 .pv4-hdr { text-align:center; margin-bottom:64px; }
-.pv4-badge { font-family:var(--body); font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.22); display:block; margin-bottom:18px; }
-.pv4-h2 { font-family:var(--display); font-size:clamp(36px,4.5vw,58px); font-weight:700; line-height:.97; color:#fff; text-wrap:balance; }
-.pv4-sub { font-size:15px; line-height:1.72; color:rgba(255,255,255,.32); margin-top:16px; max-width:440px; margin-left:auto; margin-right:auto; }
+.pv4-badge { font-family:var(--body); font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#164c35; display:block; margin-bottom:18px; }
+.pv4-h2 { font-family:var(--display); font-size:clamp(36px,4.5vw,58px); font-weight:700; line-height:.97; color:#241d18; text-wrap:balance; }
+.pv4-sub { font-size:15px; line-height:1.72; color:rgba(36,29,24,.48); margin-top:16px; max-width:440px; margin-left:auto; margin-right:auto; }
 .pv4-stack { display:grid; grid-template-columns:repeat(3,1fr); gap:0; padding:20px 0 80px; align-items:start; }
-.pv4-card { border-radius:24px; padding:36px 32px; box-shadow:0 32px 80px rgba(0,0,0,.45); }
+.pv4-card { border-radius:24px; padding:36px 32px; box-shadow:0 20px 56px rgba(36,29,24,.10); }
 .pv4-c1 { background:#fff; transform:rotate(-1.5deg) translateY(0px); z-index:3; position:relative; animation:pv4-float1 6s ease-in-out infinite; }
-.pv4-c2 { background:#faf9f5; transform:rotate(0.5deg) translateY(4.8px); z-index:2; position:relative; animation:pv4-float2 7.5s ease-in-out infinite; }
-.pv4-c3 { background:#f4f1eb; transform:rotate(-0.8deg) translateY(2px); z-index:1; position:relative; animation:pv4-float3 9s ease-in-out infinite; }
+.pv4-c2 { background:#fff; transform:rotate(0.5deg) translateY(4.8px); z-index:2; position:relative; animation:pv4-float2 7.5s ease-in-out infinite; }
+.pv4-c3 { background:#faf9f5; transform:rotate(-0.8deg) translateY(2px); z-index:1; position:relative; animation:pv4-float3 9s ease-in-out infinite; }
 .pv4-dot { width:36px; height:4px; border-radius:2px; margin-bottom:26px; }
 .pv4-c1 .pv4-dot { background:#f5927e; }
 .pv4-c2 .pv4-dot { background:#fcbf48; }
