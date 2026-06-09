@@ -18,21 +18,21 @@ colors:
   footer-bg: "#242424"
 typography:
   display:
-    fontFamily: "Fraunces, Georgia, serif"
+    fontFamily: "Titillium Web, Arial, sans-serif"
     fontSize: "clamp(46px, 6.2vw, 96px)"
-    fontWeight: 650
+    fontWeight: 700
     lineHeight: 0.9
     letterSpacing: "0"
   headline:
-    fontFamily: "Fraunces, Georgia, serif"
+    fontFamily: "Titillium Web, Arial, sans-serif"
     fontSize: "clamp(48px, 8vw, 112px)"
-    fontWeight: 650
+    fontWeight: 700
     lineHeight: 0.93
     letterSpacing: "0"
   title:
-    fontFamily: "Fraunces, Georgia, serif"
+    fontFamily: "Titillium Web, Arial, sans-serif"
     fontSize: "clamp(42px, 5.8vw, 60px)"
-    fontWeight: 650
+    fontWeight: 700
     lineHeight: 0.98
   body:
     fontFamily: "Manrope, Arial, sans-serif"
@@ -101,13 +101,13 @@ components:
 
 BrainFit Karşıyaka is a cognitive development center, not a hospital and not a generic wellness brand. The visual language must carry both at once: the clinical credibility of a structured 45-minute assessment and the human warmth of a team that genuinely cares about cognitive growth. Every design decision is tested against this double standard. If a choice reads as sterile hospital, it fails. If it reads as soft wellness-retreat, it also fails.
 
-The palette is drawn from BrainFit's PMS brand library (Vivid Orange 1505, Golden Yellow 7548, Rich Magenta 233, Bright Cyan 299, Fresh Green 361, Charcoal Gray 11) adapted to web density — not desaturated for comfort but specifically tuned so each hue can carry meaning in context without competing against the others at full saturation. The display font (Fraunces, an optically-corrected serif at weight 650) is the authority voice; the body font (Manrope, an extrabold humanist sans) is the practical voice. The two personas never reverse.
+The palette is drawn from BrainFit's PMS brand library (Vivid Orange 1505, Golden Yellow 7548, Rich Magenta 233, Bright Cyan 299, Fresh Green 361, Charcoal Gray 11) adapted to web density — not desaturated for comfort but specifically tuned so each hue can carry meaning in context without competing against the others at full saturation. The display font (Titillium Web, a geometric humanist sans-serif at weight 700) is the authority voice; the body font (Manrope, an extrabold humanist sans) is the practical voice. The two personas never reverse.
 
 The adults page (`/yetiskinler`) runs a second North Star in parallel: "Growth without overwhelm." Where the main page reassures parents, the adults page signals forward momentum without clinical distance. The deep forest green hero section carries this autonomously — darker, denser, more purposeful — while staying within the shared color family. Both pages share the brand palette; they do not share section backgrounds or hero patterns.
 
 **Key Characteristics:**
 - Warm cream canvas with a coral brand accent — never cold white or clinical grey
-- Display serif (Fraunces) for authority, extrabold sans (Manrope) for utility — never mixed within a single content role
+- Display sans-serif (Titillium Web) for authority, extrabold sans (Manrope) for utility — never mixed within a single content role
 - Full-radius pill shapes on all interactive elements — buttons, chips, badges, inputs
 - Soft diffuse warm shadows signal interactivity and containment, not decoration — sections are flat by default
 - Two-audience architecture: parents (coral, warm-organic) and adults (forest green, purposeful-focused) share colors but have distinct hero personalities
@@ -145,20 +145,20 @@ Five expressive hues from BrainFit's PMS library, adapted for web contrast, plus
 
 ## 3. Typography
 
-**Display Font:** Fraunces (with Fraunces Fallback, Georgia, serif)
+**Display Font:** Titillium Web (with Arial, sans-serif)
 **Body Font:** Manrope (with Manrope Fallback, Arial, sans-serif)
 
-**Character:** Fraunces brings optical authority — its wedge serifs and weight 650 give headings a confident, studied gravity. Manrope at weight 800 brings the utility register: concise labels, button copy, and form hints that are legible and unambiguous. The pairing works because they occupy opposite ends of the personality axis: Fraunces is expressive and editorial; Manrope is functional and assertive.
+**Character:** Titillium Web brings structured authority — its geometric construction and weight 700 give headings a confident, purposeful clarity. Manrope at weight 800 brings the utility register: concise labels, button copy, and form hints that are legible and unambiguous. The pairing works because both are humanist sans-serifs occupying distinct weight and optical registers: Titillium Web is architectural and decisive; Manrope is functional and assertive.
 
 ### Hierarchy
-- **Display** (weight 650, `clamp(46px, 6.2vw, 96px)`, line-height 0.9): Hero headlines only. `text-wrap: balance` always applied. Maximum 16ch per line. Used in `AdultHero` h1 and any full-viewport lead headline.
-- **Headline** (weight 650, `clamp(48px, 8vw, 112px)`, line-height 0.93): Section-level headings (`.section-title`). Fraunces. The same weight, a wider ceiling for dedicated impact sections.
-- **Title** (weight 650, `clamp(42px, 5.8vw, 60px)`, line-height 0.98): Mid-section headings (`.mid-section-title`). Fraunces. Tighter ceiling keeps it subordinate to section headlines.
+- **Display** (weight 700, `clamp(46px, 6.2vw, 96px)`, line-height 0.9): Hero headlines only. `text-wrap: balance` always applied. Maximum 16ch per line. Used in `AdultHero` h1 and any full-viewport lead headline.
+- **Headline** (weight 700, `clamp(48px, 8vw, 112px)`, line-height 0.93): Section-level headings (`.section-title`). Titillium Web. The same weight, a wider ceiling for dedicated impact sections.
+- **Title** (weight 700, `clamp(42px, 5.8vw, 60px)`, line-height 0.98): Mid-section headings (`.mid-section-title`). Titillium Web. Tighter ceiling keeps it subordinate to section headlines.
 - **Body** (weight 400, 16–18px, line-height 1.7–1.85): Paragraph copy in Manrope. Max 65ch line length. Prose sections use 18px/1.85 (`.prose-brainfit`); hero subtext and short-form body use `clamp(16px, 1.7vw, 19px)`.
 - **Label** (weight 800, 11–12px, letter-spacing 0.12–0.14em, all-caps): Kicker text, badge copy, card metadata. Always Manrope extrabold. Never applied to body-length copy.
 
 ### Named Rules
-**The Persona Inversion Rule.** Fraunces carries authority (headings, display sizes, card numeric values). Manrope carries utility (body, labels, buttons). They do not swap. A Manrope heading or a Fraunces button label is a violation — it blurs the two voice registers and weakens the entire hierarchy.
+**The Persona Inversion Rule.** Titillium Web carries authority (headings, display sizes, card numeric values). Manrope carries utility (body, labels, buttons). They do not swap. A Manrope heading or a Titillium Web button label is a violation — it blurs the two voice registers and weakens the entire hierarchy.
 
 **The Weight Anchor Rule.** Body Manrope is weight 400 in prose, weight 600–700 in description copy, weight 800 in labels and all interactive copy. The jump from 400 to 800 is the signal; 500 and 600 are transitional only, never used as a primary weight in a visible role.
 
@@ -221,18 +221,18 @@ The adult hero section overrides this rule in a self-contained way: its forest g
 
 ### Audience Goal Card (Signature Component)
 
-A coral-background card (`#F5846E`) inside the main landing page's audience concern section. Contains an audience concern heading in Fraunces, a Manrope description, and a cream CTA button (`.cta-on-coral`). The CTA inside this card must always be `.cta-on-coral` — the espresso pill button and coral primary button both fail contrast against a coral background.
+A coral-background card (`#F5846E`) inside the main landing page's audience concern section. Contains an audience concern heading in Titillium Web, a Manrope description, and a cream CTA button (`.cta-on-coral`). The CTA inside this card must always be `.cta-on-coral` — the espresso pill button and coral primary button both fail contrast against a coral background.
 
 ### Adult Hero Section (Signature Component)
 
-The `.v4` section on `/yetiskinler`. Self-contained namespace: all child classes are prefixed `.v4-*`. Contains: amber kicker label, Fraunces display h1 (white, max 16ch), muted-white subtext, amber primary CTA (`.v4-cta-p`), ghost secondary CTA (`.v4-cta-s`), and feature chips (`.v4-chip`). Right column: full-bleed image card (`.v4-img-inner`) with gradient overlay and a frosted-glass info card (`.v4-img-card`) at bottom. All shadows inside `.v4` are green-tinted or transparent-white. The `.v4-*` namespace must not be applied outside the `.v4` parent.
+The `.v4` section on `/yetiskinler`. Self-contained namespace: all child classes are prefixed `.v4-*`. Contains: amber kicker label, Titillium Web display h1 (white, max 16ch), muted-white subtext, amber primary CTA (`.v4-cta-p`), ghost secondary CTA (`.v4-cta-s`), and feature chips (`.v4-chip`). Right column: full-bleed image card (`.v4-img-inner`) with gradient overlay and a frosted-glass info card (`.v4-img-card`) at bottom. All shadows inside `.v4` are green-tinted or transparent-white. The `.v4-*` namespace must not be applied outside the `.v4` parent.
 
 ## 6. Do's and Don'ts
 
 ### Do:
 - **Do** use `.cta-on-coral` (canvas fill, espresso text) for any CTA inside a coral-background element. The espresso pill button and coral primary button both fail contrast on coral — this is the only safe option.
 - **Do** apply `text-wrap: balance` to all h1–h3 elements to prevent awkward orphan words on the last line.
-- **Do** keep Fraunces strictly at `font-weight: 650` for display use. This optical weight is what the design system is calibrated to; 400 or 700 changes the character.
+- **Do** keep Titillium Web strictly at `font-weight: 700` for display use. This weight is what the design system is calibrated to; lighter weights lose authority.
 - **Do** use warm shadow tinting (`rgba(22,10,8,…)` or `rgba(36,29,24,…)`) not neutral grey. The warmth of shadows is brand character, not an accident.
 - **Do** keep all interactive touch targets at `min-height: 44px` minimum (WCAG 2.5.5). Form inputs use `min-h-13` (~52px); buttons use `min-height: 52px`.
 - **Do** preserve the two audience personas: parents (coral, warm, organic) and adults (forest green, purposeful, focused). They share the palette family; they do not share hero patterns.

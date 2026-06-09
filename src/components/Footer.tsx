@@ -33,13 +33,13 @@ export function Footer() {
 
             <div className="mt-20 grid max-w-[520px] grid-cols-2 gap-8 border-t border-white/12 pt-10">
               <div>
-                <p className="font-[var(--display)] text-[64px] leading-none">48.000+</p>
+                <p className="display text-[64px] leading-none">48.000+</p>
                 <p className="mt-3 text-sm leading-6 text-gray-300">
                   Eğitim Alan Katılımcılar
                 </p>
               </div>
               <div>
-                <p className="font-[var(--display)] text-[64px] leading-none">%93</p>
+                <p className="display text-[64px] leading-none">%93</p>
                 <p className="mt-3 text-sm leading-6 text-gray-300">
                   Memnuniyet Oranı
                 </p>

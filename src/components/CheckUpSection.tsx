@@ -34,10 +34,6 @@ export function CheckUpSection() {
 
   return (
     <section id="checkup" className="relative overflow-hidden bg-white py-[76px] md:py-[118px]">
-      <div
-        className="pointer-events-none absolute left-[-10%] top-[12%] h-72 w-72 rounded-full bg-[#EFF8FD] blur-3xl"
-        aria-hidden="true"
-      />
       <div className="inner grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <Reveal className="relative">
           <div className="badge border-[#40CEEE] text-[#1E99B5]">Zihin Check-Up</div>
@@ -49,17 +45,17 @@ export function CheckUpSection() {
             engelleri tespit ediyoruz. Görüşme sonunda mevcut durumu size somut
             verilerle sunuyoruz.
           </p>
-          <a className="pill-button arrow-shift mt-8 bg-[#F5846E]" href="#checkup-form">
+          <a className="pill-button arrow-shift mt-8" href="#checkup-form">
             Zihin Check-Up Başvurusu
             <ArrowUpRight size={16} />
           </a>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="relative rounded-[30px] border border-white bg-[#FEF9F5] p-5 shadow-[0_24px_70px_rgba(36,29,24,0.1)] md:p-7">
+          <div className="relative rounded-[30px] bg-[#FEF9F5] p-5 shadow-[0_18px_40px_rgba(36,29,24,0.12)] md:p-7">
             <div className="grid gap-4 md:grid-cols-[0.72fr_1fr]">
               <div className="rounded-[24px] bg-[#1B4332] p-6 text-white">
-                <p className="text-[86px] font-extrabold leading-none tracking-normal text-[#FCBF48]">
+                <p className="display text-[86px] leading-none text-[#FCBF48]">
                   %92
                 </p>
                 <p className="mt-5 text-[16px] font-semibold leading-7 text-white/82">
@@ -74,7 +70,7 @@ export function CheckUpSection() {
                 {details.map((detail) => (
                   <div
                     key={detail}
-                    className="flex items-start gap-3 rounded-[20px] bg-white p-4 shadow-[0_12px_30px_rgba(36,29,24,0.06)]"
+                    className="flex items-start gap-3 rounded-[20px] bg-white p-4 shadow-[0_10px_24px_rgba(36,29,24,0.06)]"
                   >
                     <span
                       className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#F0F7F2] text-[#6BC862]"
@@ -97,7 +93,7 @@ export function CheckUpSection() {
                 return (
                   <motion.div
                     key={step.title}
-                    className="relative rounded-[22px] bg-white p-5 shadow-[0_14px_34px_rgba(36,29,24,0.07)]"
+                    className="relative rounded-[22px] bg-white p-5 shadow-[0_10px_24px_rgba(36,29,24,0.06)]"
                     initial={reduceMotion ? undefined : { opacity: 0, y: 18 }}
                     whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope, Playfair_Display } from "next/font/google";
+import { Titillium_Web, Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const titilliumWeb = Titillium_Web({
   subsets: ["latin"],
+  weight: ["400", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
@@ -35,11 +36,14 @@ export default function RootLayout({
   return (
     <html
       lang="tr"
-      className={`${fraunces.variable} ${manrope.variable} ${playfairDisplay.variable}`}
+      className={`${titilliumWeb.variable} ${manrope.variable} ${playfairDisplay.variable}`}
     >
       <body>
         {children}
-      </body>
+      {/* impeccable-live-start */}
+<script src="http://localhost:8400/live.js"></script>
+{/* impeccable-live-end */}
+</body>
     </html>
   );
 }

@@ -44,11 +44,11 @@ export function ConfidenceSection() {
 
   return (
     <>
-      <section id="treatments" className="relative overflow-hidden bg-[#FEF9F5] py-[74px] md:py-[112px]">
+      <section id="treatments" className="relative overflow-hidden bg-[#F4F1EB] py-[74px] md:py-[112px]">
         <div className="inner grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
             <div className="badge border-[#8C8480] text-[#8C8480]">Daha Fazla Israr Etmeden Önce</div>
-            <h2 className="mt-7 max-w-[780px] font-[var(--display)] text-[clamp(42px,5.8vw,60px)] font-bold leading-[0.98] tracking-normal text-[#241D18]">
+            <h2 className="display mt-7 max-w-[780px] text-[clamp(42px,5.8vw,60px)] leading-[0.98] text-[#241D18]">
               Yaşananlar bir motivasyon eksikliği veya{" "}
               <span className="relative inline-block">
                 tembellik
@@ -72,21 +72,17 @@ export function ConfidenceSection() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#1B4332] py-[86px] text-white md:py-[126px]">
+      <section className="relative overflow-hidden bg-[var(--canvas)] py-[86px] md:py-[126px]">
         <StarBurst className="absolute left-[4%] top-[14%] opacity-60" color="#FCBF48" />
         <Sunflower className="absolute bottom-[-22px] left-[48%] hidden opacity-95 md:block" />
-        <div
-          className="absolute right-[-32px] top-[42%] h-32 w-32 rounded-full border-[18px] border-[#FCBF48]/70"
-          aria-hidden="true"
-        />
 
         <div className="inner grid items-center gap-12 lg:grid-cols-[0.96fr_0.9fr]">
           <Reveal>
-            <div className="badge border-white/60 text-[#FCBF48]">Bu Yolculukta Yalnız Değilsiniz</div>
-            <h2 className="display mt-8 max-w-[680px] text-[clamp(42px,5.8vw,60px)] leading-[0.98] text-white">
+            <div className="badge border-[#AAE8F6] bg-white text-[#1E99B5]">Bu Yolculukta Yalnız Değilsiniz</div>
+            <h2 className="display mt-8 max-w-[680px] text-[clamp(42px,5.8vw,60px)] leading-[0.98] text-[#241D18]">
               Öğrenme, birden fazla bilişsel becerinin uyumudur.
             </h2>
-            <p className="mt-8 max-w-[580px] text-[17px] font-medium leading-8 text-white/76">
+            <p className="mt-8 max-w-[580px] text-[17px] font-medium leading-8 text-[rgba(36,29,24,0.72)]">
               Dikkat, hafıza ve planlama gibi beceriler bir bütün olarak
               çalışır. Bu alanlardan birindeki zayıflık, çocuğun performansını
               doğrudan etkiler.
@@ -108,10 +104,10 @@ export function ConfidenceSection() {
                           : "Uygulama Becerisi Detaylarını Gör"
                     }
                     onClick={() => setActive(index)}
-                    className="relative h-[82px] w-[8px] overflow-hidden rounded-full bg-white/20"
+                    className="relative h-[82px] w-[8px] overflow-hidden rounded-full bg-[rgba(36,29,24,0.14)]"
                   >
                     <motion.span
-                      className="absolute bottom-0 left-0 w-full rounded-full bg-[#FCBF48]"
+                      className="absolute bottom-0 left-0 w-full rounded-full bg-[#F5927E]"
                       initial={false}
                       animate={{ height: index === active ? "100%" : "20%" }}
                       transition={{ duration: 0.35 }}
@@ -120,7 +116,7 @@ export function ConfidenceSection() {
                 ))}
               </div>
 
-              <div className="relative min-h-[470px] flex-1 overflow-hidden rounded-[28px] bg-white p-4 text-[var(--ink)] shadow-[0_26px_70px_rgba(0,0,0,0.16)]">
+              <div className="relative min-h-[470px] flex-1 overflow-hidden rounded-[28px] bg-white p-4 text-[var(--ink)] shadow-[0_34px_90px_rgba(36,29,24,0.15)]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={card.title}
@@ -144,10 +140,10 @@ export function ConfidenceSection() {
                       />
                     </div>
                     <div className="px-3 pt-6">
-                      <h3 className="font-[var(--display)] text-[34px] leading-none text-gray-900">
+                      <h3 className="display text-[34px] leading-none text-[#241D18]">
                         {card.title}
                       </h3>
-                      <p className="mt-3 max-w-[340px] text-[15px] leading-7 text-gray-600">
+                      <p className="mt-3 max-w-[340px] text-[15px] leading-7 text-[rgba(36,29,24,0.66)]">
                         {card.copy}
                       </p>
                     </div>

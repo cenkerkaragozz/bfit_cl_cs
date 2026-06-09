@@ -196,10 +196,10 @@ export function AdultLandingPage() {
       <AdultHero selectedConcern={selectedConcern} onSelectConcern={setSelectedConcern} />
       <AudienceSection selectedConcern={selectedConcern} onSelectConcern={setSelectedConcern} />
       <CheckupJourneySection />
+      <OutcomeStrip />
       <ReportAndMeasurementSection />
       <ProgramSection />
-      <TrustBoundarySection />
-      <EvidenceSection />
+      <TrustAndEvidenceSection />
       <TestimonialAndLocalProofSection />
       <FaqSection />
       <AdultCheckUpFormSection selectedConcern={selectedConcern} />
@@ -220,9 +220,9 @@ function AdultHero({
       <div className="inner v4-inner">
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
           <div>
-            <span className="v4-kicker">Bilişsel Performans Desteği</span>
+            <span className="v4-kicker">BrainFit Karşıyaka · Bilişsel Gelişim Merkezi</span>
             <h1 className="v4-h1">Profilinizi anlayın. Hedefinize doğru ilerleyin.</h1>
-            <p className="v4-sub">45 dakikalık Zihin Check-Up ile dikkat, hafıza ve zihinsel performansınızı inceleriz; ardından hedefinize uygun egzersiz yolunu birlikte belirleriz.</p>
+            <p className="v4-sub">Karşıyaka'da yüz yüze hizmet sunan BrainFit'te, 45 dakikalık Zihin Check-Up ile dikkat, hafıza ve zihinsel performansınızı inceleriz; ardından hedefinize uygun egzersiz yolunu birlikte belirleriz.</p>
             <div className="v4-ctas">
               <a href="#checkup-form" className="v4-cta-p arrow-shift">
                 Ücretsiz Check-Up Randevusu Al
@@ -231,8 +231,8 @@ function AdultHero({
               <a href="#checkup" className="v4-cta-s">45 dakikada ne olur?</a>
             </div>
             <div className="v4-chips">
+              <span className="v4-chip">Karşıyaka · Yüz yüze</span>
               <span className="v4-chip">16 sayfalık rapor</span>
-              <span className="v4-chip">Uzman açıklaması</span>
               <span className="v4-chip">Tanı veya ilaç içermez</span>
             </div>
           </div>
@@ -429,6 +429,33 @@ function CheckupJourneySection() {
   );
 }
 
+function OutcomeStrip() {
+  const items = [
+    { label: "Bilişsel profil", detail: "7 alanda kişisel haritanız" },
+    { label: "Kişisel rapor", detail: "16 sayfa, uzmanla birlikte okunur" },
+    { label: "Başlangıç planı", detail: "Hedefinize uygun program önerisi" },
+  ] as const;
+
+  return (
+    <section className="bg-[#F0F7F2] py-8">
+      <div className="inner flex flex-wrap justify-center gap-3">
+        {items.map(({ label, detail }) => (
+          <div
+            key={label}
+            className="flex items-start gap-3 rounded-2xl bg-white px-5 py-4 shadow-[0_2px_14px_rgba(22,76,53,0.08)]"
+          >
+            <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[#6BC862]" />
+            <div>
+              <p className="text-[14px] font-extrabold text-[#241D18]">{label}</p>
+              <p className="mt-0.5 text-[12px] font-semibold text-[#241D18]/60">{detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function ReportAndMeasurementSection() {
   return (
     <section className="bg-white py-[74px] md:py-[116px]">
@@ -555,48 +582,6 @@ function ProgramSection() {
   );
 }
 
-function TrustBoundarySection() {
-  return (
-    <section className="bg-white py-[74px] md:py-[116px]">
-      <div className="inner grid gap-8 lg:grid-cols-2">
-        <Reveal>
-          <div className="rounded-[30px] bg-[#F0F7F2] p-6 shadow-[0_18px_42px_rgba(36,29,24,0.07)] md:p-8">
-            <div className="badge border-[#6BC862] text-[#1B4332]">Ne yapıyoruz?</div>
-            <h2 className="mt-7 font-[var(--display)] text-[clamp(42px,5vw,66px)] leading-[0.96] text-[#241D18]">
-              Güven, sınırları net anlatmakla başlar.
-            </h2>
-            <div className="mt-8 grid gap-3">
-              {doItems.map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-[18px] bg-white p-4">
-                  <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-[#6BC862]" />
-                  <p className="text-[15px] font-extrabold leading-6 text-[#241D18]">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.12}>
-          <div className="rounded-[30px] bg-[#FEF9F5] p-6 shadow-[0_18px_42px_rgba(36,29,24,0.07)] md:p-8">
-            <div className="badge border-[#8C8480] text-[#8C8480]">Ne yapmıyoruz?</div>
-            <h3 className="mt-7 font-[var(--display)] text-[clamp(38px,4.6vw,58px)] leading-[0.98] text-[#241D18]">
-              Tıbbi iddia değil, bilişsel gelişim desteği.
-            </h3>
-            <div className="mt-8 grid gap-3">
-              {dontItems.map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-[18px] bg-white p-4">
-                  <XCircle size={20} className="mt-0.5 shrink-0 text-[#F5846E]" />
-                  <p className="text-[15px] font-extrabold leading-6 text-[#241D18]">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 function AnimatedStat({ num, suffix, duration }: { num: number; suffix: string; duration: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -619,21 +604,61 @@ function AnimatedStat({ num, suffix, duration }: { num: number; suffix: string; 
   return <span ref={ref}>0{suffix}</span>;
 }
 
-function EvidenceSection() {
+function TrustAndEvidenceSection() {
   return (
-    <section className="bg-[#F5846E] py-[54px] text-[#160A08]">
-      <div className="inner grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {evidenceItems.map((item) => (
-          <div key={item.label} className="rounded-[24px] bg-white/18 p-5">
-            <p className="font-[var(--display)] text-[clamp(36px,5vw,56px)] font-bold leading-none">
-              <AnimatedStat num={item.num} suffix={item.suffix} duration={item.duration} />
-            </p>
-            <p className="mt-3 text-[15px] font-extrabold">{item.label}</p>
-            <p className="mt-3 text-[13px] font-semibold leading-6 text-[#160A08]/72">
-              {item.copy}
-            </p>
+    <section className="bg-white py-[74px] md:py-[116px]">
+      <div className="inner">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <Reveal>
+            <div className="rounded-[30px] bg-[#F0F7F2] p-6 shadow-[0_18px_42px_rgba(36,29,24,0.07)] md:p-8">
+              <div className="badge border-[#6BC862] text-[#1B4332]">Ne yapıyoruz?</div>
+              <h2 className="mt-7 font-[var(--display)] text-[clamp(42px,5vw,66px)] leading-[0.96] text-[#241D18]">
+                Güven, sınırları net anlatmakla başlar.
+              </h2>
+              <div className="mt-8 grid gap-3">
+                {doItems.map((item) => (
+                  <div key={item} className="flex items-start gap-3 rounded-[18px] bg-white p-4">
+                    <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-[#6BC862]" />
+                    <p className="text-[15px] font-extrabold leading-6 text-[#241D18]">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.12}>
+            <div className="rounded-[30px] bg-[#FEF9F5] p-6 shadow-[0_18px_42px_rgba(36,29,24,0.07)] md:p-8">
+              <div className="badge border-[#8C8480] text-[#8C8480]">Ne yapmıyoruz?</div>
+              <h3 className="mt-7 font-[var(--display)] text-[clamp(38px,4.6vw,58px)] leading-[0.98] text-[#241D18]">
+                Tıbbi iddia değil, bilişsel gelişim desteği.
+              </h3>
+              <div className="mt-8 grid gap-3">
+                {dontItems.map((item) => (
+                  <div key={item} className="flex items-start gap-3 rounded-[18px] bg-white p-4">
+                    <XCircle size={20} className="mt-0.5 shrink-0 text-[#F5846E]" />
+                    <p className="text-[15px] font-extrabold leading-6 text-[#241D18]">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.08}>
+          <div className="mt-10 grid gap-4 rounded-[30px] bg-[#F5846E] p-6 text-[#160A08] sm:grid-cols-2 lg:grid-cols-4 md:p-8">
+            {evidenceItems.map((item) => (
+              <div key={item.label} className="rounded-[20px] bg-white/18 p-5">
+                <p className="font-[var(--display)] text-[clamp(36px,5vw,56px)] font-bold leading-none">
+                  <AnimatedStat num={item.num} suffix={item.suffix} duration={item.duration} />
+                </p>
+                <p className="mt-3 text-[15px] font-extrabold">{item.label}</p>
+                <p className="mt-3 text-[13px] font-semibold leading-6 text-[#160A08]/72">
+                  {item.copy}
+                </p>
+              </div>
+            ))}
           </div>
-        ))}
+        </Reveal>
       </div>
     </section>
   );
@@ -771,7 +796,7 @@ function AdultCheckUpFormSection({ selectedConcern }: { selectedConcern: string 
       }
 
       setSubmitState("success");
-      setMessage("Talebiniz başarıyla alındı. Uzman ekibimiz en kısa sürede sizinle iletişime geçecektir.");
+      setMessage("Talebiniz alındı. Hafta içi 1-2 saat içinde WhatsApp veya telefon ile arayacağız. İlk görüşme yaklaşık 5 dakika sürer.");
       event.currentTarget.reset();
     } catch {
       setSubmitState("error");
@@ -788,7 +813,7 @@ function AdultCheckUpFormSection({ selectedConcern }: { selectedConcern: string 
             İlk adımı net, düşük riskli ve anlaşılır tutalım.
           </h2>
           <p className="mt-7 max-w-[590px] text-[17px] font-semibold leading-8 text-[#160A08]/78">
-            Bilgilerinizi paylaşın; ekibimiz sizi arayarak ücretsiz Zihin Check-Up randevunuzu planlasın. Bilgileriniz yalnızca randevu iletişimi için kullanılır.
+            Adınızı ve endişenizi bırakın; hafta içi 1-2 saat içinde WhatsApp veya telefonla arayarak ücretsiz Zihin Check-Up randevunuzu planlayalım. İlk görüşme yaklaşık 5 dakika sürer.
           </p>
 
           <motion.div layout className="mt-8 flex w-full max-w-[590px] items-center gap-3 rounded-full bg-white px-4 py-3 text-[14px] font-extrabold shadow-[0_16px_40px_rgba(22,10,8,0.12)] md:inline-flex md:w-auto">

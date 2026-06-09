@@ -29,32 +29,41 @@ type HelpSectionProps = {
 
 export function HelpSection({ selectedConcern, onSelectConcern }: HelpSectionProps) {
   return (
-    <section id="help" className="relative overflow-hidden bg-white py-[74px] md:py-[118px]">
-      <div
-        className="pointer-events-none absolute left-[-6%] top-[18%] h-64 w-64 rounded-full bg-[#FEF9F5] blur-3xl"
-        aria-hidden="true"
-      />
+    <section id="help" className="relative overflow-hidden bg-[var(--canvas)] py-[74px] md:py-[118px]">
       <div className="inner grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr]">
         <Reveal className="relative">
-          <div className="badge border-[#40CEEE] text-[#1E99B5]">
+          <div className="badge border-[#AAE8F6] text-[#1E99B5]">
             Ebeveynlerin Kaygılarını Anlıyoruz
           </div>
           <h2 className="section-title mid-section-title mt-7 max-w-[720px]">
             Evinizde benzer süreçlerden geçiyor olabilirsiniz:
           </h2>
-          <blockquote className="relative mt-8 max-w-[680px] rounded-[28px] bg-[#FEF9F5] p-6 shadow-[0_18px_45px_rgba(36,29,24,0.08)] md:p-8">
+          <blockquote className="relative mt-8 max-w-[680px] rounded-[28px] bg-white p-6 shadow-[0_18px_40px_rgba(36,29,24,0.12)] md:p-8">
             <Squiggle className="absolute -right-3 top-4 hidden md:block" color="#FCBF48" />
-            <p className="font-[var(--display)] text-[clamp(28px,4.6vw,46px)] font-bold italic leading-[1.08] tracking-normal text-[#241D18]">
+            <p className="display text-[clamp(28px,4.6vw,46px)] italic leading-[1.08] text-[#241D18]">
               “Çocuğumun potansiyelinin farkındayım ama neden akademik süreçlerde bu kadar zorlanıyor?”
             </p>
           </blockquote>
+          <div className="mt-6 max-w-[680px] rounded-[28px] bg-[#F5927E] p-6 text-[#160A08] md:p-7">
+            <h3 className="display text-[clamp(30px,4vw,42px)] leading-[0.98]">
+              Kaygıyı somut bir başlangıç noktasına çevirelim.
+            </h3>
+            <p className="mt-4 max-w-[52ch] text-[15px] font-semibold leading-7 text-[#160A08]/78">
+              Seçtiğiniz ifade görüşme öncesi notunuza eklenir; uzmanımız ilk değerlendirmede
+              çocuğunuzun ihtiyacını bu bağlamla birlikte ele alır.
+            </p>
+            <a className="cta-on-coral arrow-shift mt-6 inline-flex min-h-12 items-center gap-2 rounded-full px-5 text-[14px] font-extrabold" href="#checkup-form">
+              Bu hedefle randevu al
+              <ArrowUpRight size={17} strokeWidth={2.6} />
+            </a>
+          </div>
         </Reveal>
 
         <Reveal delay={0.12}>
-          <div className="rounded-[30px] border border-white bg-[#F4F1EB] p-5 shadow-[0_26px_70px_rgba(36,29,24,0.1)] md:p-7">
+          <div className="rounded-[30px] bg-[#F4F1EB] p-5 shadow-[0_18px_40px_rgba(36,29,24,0.12)] md:p-7">
             <div className="flex items-start gap-4">
               <div
-                className="grid h-13 w-13 shrink-0 place-items-center rounded-full bg-white text-[#40CEEE]"
+                className="grid h-13 w-13 shrink-0 place-items-center rounded-full bg-white text-[#1E99B5]"
                 aria-hidden="true"
               >
                 <Brain size={26} strokeWidth={2.4} />
@@ -81,14 +90,14 @@ export function HelpSection({ selectedConcern, onSelectConcern }: HelpSectionPro
                     onClick={() => onSelectConcern(concern)}
                     className={`group flex min-h-16 w-full items-center justify-between gap-4 rounded-[20px] border px-4 py-3 text-left text-[15px] font-extrabold leading-6 transition ${
                       isSelected
-                        ? "border-[#F5846E] bg-white text-[#241D18] shadow-[0_14px_30px_rgba(245,132,110,0.13)]"
-                        : "border-white/80 bg-white/70 text-[rgba(36,29,24,0.74)] hover:-translate-y-0.5 hover:border-[#40CEEE]"
+                        ? "border-[#F5927E] bg-white text-[#241D18] shadow-[0_18px_36px_rgba(245,132,110,0.18)]"
+                        : "border-white/80 bg-white/70 text-[rgba(36,29,24,0.74)] hover:-translate-y-0.5 hover:border-[#AAE8F6]"
                     }`}
                   >
                     <span>{concern}</span>
                     <span
                       className={`grid h-8 w-8 shrink-0 place-items-center rounded-full transition ${
-                        isSelected ? "bg-[#F5846E] text-white" : "bg-[#EFF8FD] text-[#40CEEE]"
+                        isSelected ? "bg-[#F5927E] text-white" : "bg-[#EFF8FD] text-[#1E99B5]"
                       }`}
                       aria-hidden="true"
                     >
@@ -109,7 +118,7 @@ export function HelpSection({ selectedConcern, onSelectConcern }: HelpSectionPro
                 className="mt-6 rounded-[22px] bg-white p-5"
               >
                 <div
-                  className="mb-3 grid h-10 w-10 place-items-center rounded-full bg-[#F0F7F2] text-[#6BC862]"
+                  className="mb-3 grid h-10 w-10 place-items-center rounded-full bg-[#F0F7F2] text-[#164C35]"
                   aria-hidden="true"
                 >
                   <MessageCircleHeart size={20} />

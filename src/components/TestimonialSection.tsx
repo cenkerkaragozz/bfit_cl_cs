@@ -41,12 +41,12 @@ export function TestimonialSection() {
   const testimonial = testimonials[active];
 
   return (
-    <section id="clinics" className="relative bg-[#FEF9F5] py-[82px] md:py-[116px]">
+    <section id="clinics" className="relative bg-[var(--canvas)] py-[82px] md:py-[116px]">
       <span id="about" className="absolute top-0" aria-hidden="true" />
       <Leaf className="absolute right-[4%] top-[8%] hidden md:block" />
       <div className="inner grid items-center gap-12 lg:grid-cols-[0.84fr_1fr]">
         <Reveal>
-          <article className="relative overflow-hidden rounded-[32px] bg-[#4A332B] p-5 text-white shadow-[0_30px_70px_rgba(36,29,24,0.16)] md:p-7">
+          <article className="relative overflow-hidden rounded-[32px] bg-[#241D18] p-5 text-white shadow-[0_34px_90px_rgba(36,29,24,0.15)] md:p-7">
             <div className="relative h-[500px] overflow-hidden rounded-[26px] bg-[#FCBF48]">
               <Image
                 src="/images/doctor-profile.svg"
@@ -58,7 +58,7 @@ export function TestimonialSection() {
             </div>
             <div className="flex items-center justify-between gap-4 px-3 pb-2 pt-7">
               <div>
-                <h3 className="font-[var(--display)] text-[35px] leading-none">
+                <h3 className="display text-[35px] leading-none">
                   BrainFit Karşıyaka Uzman Kadrosu
                 </h3>
                 <p className="mt-2 text-[14px] leading-6 text-white/70">
@@ -124,7 +124,7 @@ export function TestimonialSection() {
               <span
                 key={item.highlight}
                 className={`h-10 w-[5px] rounded-full ${
-                  index === active ? "bg-[#F5846E]" : "bg-[rgba(36,29,24,0.18)]"
+                  index === active ? "bg-[#F5927E]" : "bg-[rgba(36,29,24,0.18)]"
                 }`}
               />
             ))}

@@ -8,7 +8,7 @@ import { Reveal } from "@/components/Decorations";
 import { SanityImage } from "@/components/SanityImage";
 import type { PostCard } from "@/lib/sanity/queries";
 
-const cardColors = ["#F4E7D9", "#D9F8A8", "#FCEA96"];
+const cardColors = ["#F4F1EB", "#D9F8A8", "#FCEA96"];
 const fallbackImages = [
   "/illustrations/blog-balance.svg",
   "/illustrations/blog-rest.svg",
@@ -27,7 +27,7 @@ function formatDate(value?: string) {
 
 export function BlogSection({ posts }: { posts: PostCard[] }) {
   return (
-    <section className="section-pad">
+    <section className="section-pad bg-[var(--canvas)]">
       <div className="inner">
         <Reveal className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
           <h2 className="section-title max-w-[760px]">BrainFit’ten Güncel Yazılar</h2>
@@ -49,7 +49,7 @@ export function BlogSection({ posts }: { posts: PostCard[] }) {
             {posts.map((post, index) => (
               <motion.article
                 key={post._id}
-                className="min-h-[420px] rounded-[18px] p-6 shadow-[0_18px_45px_rgba(36,29,24,0.08)]"
+                className="min-h-[420px] rounded-[28px] p-6 shadow-[0_18px_40px_rgba(36,29,24,0.12)]"
                 style={{ background: cardColors[index % cardColors.length] }}
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.2 }}
@@ -67,7 +67,7 @@ export function BlogSection({ posts }: { posts: PostCard[] }) {
                     </span>
                   </div>
 
-                  <h3 className="mt-8 font-[var(--display)] text-[38px] leading-[0.98]">
+                  <h3 className="display mt-8 text-[38px] leading-[0.98]">
                     {post.title}
                   </h3>
                   <p className="mt-4 line-clamp-3 text-[15px] leading-7 text-[rgba(36,29,24,0.62)]">
@@ -75,7 +75,7 @@ export function BlogSection({ posts }: { posts: PostCard[] }) {
                   </p>
 
                   <div className="mt-auto pt-8">
-                    <div className="relative mb-7 h-[150px] overflow-hidden rounded-[16px] bg-white/50">
+                    <div className="relative mb-7 h-[150px] overflow-hidden rounded-[20px] bg-white/50">
                       {post.cardImage ? (
                         <SanityImage
                           image={post.cardImage}
@@ -96,7 +96,7 @@ export function BlogSection({ posts }: { posts: PostCard[] }) {
                         />
                       )}
                     </div>
-                    <span className="inline-flex rounded-full bg-[var(--cta)] px-5 py-3 text-[13px] font-extrabold text-white">
+                    <span className="inline-flex rounded-full bg-[#160A08] px-5 py-3 text-[13px] font-extrabold text-white">
                       Devamını Oku
                     </span>
                   </div>

@@ -51,18 +51,14 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
   return (
     <section
       id="checkup-form"
-      className="relative overflow-hidden bg-[#F5846E] py-[74px] text-[#160A08] md:py-[116px]"
+      className="relative overflow-hidden bg-[#F5927E] py-[74px] text-[#160A08] md:py-[116px]"
     >
-      <div
-        className="pointer-events-none absolute right-[-7%] top-[-14%] h-64 w-64 rounded-full border-[34px] border-white/18"
-        aria-hidden="true"
-      />
       <div className="inner grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
         <Reveal>
           <div className="badge border-[#160A08]/40 bg-white/20 text-[#160A08]">
             Zihin Check-Up
           </div>
-          <h2 className="mt-7 max-w-[700px] font-[var(--display)] text-[clamp(44px,7vw,86px)] font-bold leading-[0.94] tracking-normal">
+          <h2 className="display mt-7 max-w-[700px] text-[clamp(44px,7vw,86px)] leading-[0.94]">
             Çocuğunuzun geleceği için ilk adımı bugün atın.
           </h2>
           <p className="mt-7 max-w-[560px] text-[17px] font-semibold leading-8 text-[#160A08]/78">
@@ -72,9 +68,9 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
 
           <motion.div
             layout
-            className="mt-8 inline-flex max-w-full items-center gap-3 rounded-full bg-white px-4 py-3 text-[14px] font-extrabold shadow-[0_16px_40px_rgba(22,10,8,0.12)]"
+            className="mt-8 inline-flex max-w-full items-center gap-3 rounded-full bg-white px-4 py-3 text-[14px] font-extrabold shadow-[0_18px_40px_rgba(22,10,8,0.12)]"
           >
-            <CheckCircle2 size={18} className="shrink-0 text-[#6BC862]" />
+            <CheckCircle2 size={18} className="shrink-0 text-[#164C35]" />
             <span className="truncate">{selectedConcern}</span>
           </motion.div>
         </Reveal>
@@ -92,7 +88,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
                 <input
                   name="parentName"
                   required
-                  className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18]"
+                  className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18] placeholder:text-[rgba(36,29,24,0.68)]"
                   placeholder="Adınız"
                 />
               </label>
@@ -102,7 +98,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
                   name="phone"
                   required
                   inputMode="tel"
-                  className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18]"
+                  className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18] placeholder:text-[rgba(36,29,24,0.68)]"
                   placeholder="05XX XXX XX XX"
                 />
               </label>
@@ -112,7 +108,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
                   name="childAge"
                   required
                   inputMode="numeric"
-                  className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18]"
+                  className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18] placeholder:text-[rgba(36,29,24,0.68)]"
                   placeholder="Örn. 10"
                 />
               </label>
@@ -120,7 +116,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
                 Mesajınız / Notunuz
                 <textarea
                   name="note"
-                  className="min-h-28 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 py-3 text-[16px] font-bold normal-case tracking-normal text-[#241D18]"
+                  className="min-h-28 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 py-3 text-[16px] font-bold normal-case tracking-normal text-[#241D18] placeholder:text-[rgba(36,29,24,0.68)]"
                   placeholder="Eklemek istediğiniz özel bir durum veya sorunuz varsa buraya yazabilirsiniz."
                 />
               </label>
@@ -131,7 +127,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
             <button
               type="submit"
               disabled={submitState === "submitting"}
-              className="arrow-shift mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#F5846E] px-6 text-[15px] font-extrabold text-white transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-70"
+              className="arrow-shift mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#F5927E] px-6 text-[15px] font-extrabold text-white shadow-[0_18px_36px_rgba(245,132,110,0.24)] transition hover:-translate-y-1 hover:bg-[#F99F8D] disabled:cursor-not-allowed disabled:opacity-70"
             >
               {submitState === "submitting" ? "Mesajınız İletiliyor..." : "Bilgi Almak İstiyorum"}
               <ArrowUpRight size={18} />
@@ -141,7 +137,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
               <p
                 className={`mt-4 rounded-[18px] px-4 py-3 text-[14px] font-extrabold leading-6 ${
                   submitState === "success"
-                    ? "bg-[#F0F7F2] text-[#1B4332]"
+                    ? "bg-[#F0F7F2] text-[#164C35]"
                     : "bg-[#FFF0D7] text-[#8C5038]"
                 }`}
                 role="status"
