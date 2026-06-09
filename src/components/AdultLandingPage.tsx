@@ -193,7 +193,7 @@ export function AdultLandingPage() {
 
   return (
     <>
-      <AdultHero selectedConcern={selectedConcern} onSelectConcern={setSelectedConcern} />
+      <AdultHero />
       <AudienceSection selectedConcern={selectedConcern} onSelectConcern={setSelectedConcern} />
       <CheckupJourneySection />
       <OutcomeStrip />
@@ -207,25 +207,18 @@ export function AdultLandingPage() {
   );
 }
 
-function AdultHero({
-  selectedConcern,
-  onSelectConcern,
-}: {
-  selectedConcern: string;
-  onSelectConcern: (concern: string) => void;
-}) {
+function AdultHero() {
   return (
-
     <section className="v4">
       <div className="inner v4-inner">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
           <div>
             <span className="v4-kicker">
               <span className="v4-kicker-bar" aria-hidden="true" />
               BrainFit Karşıyaka · Bilişsel Gelişim Merkezi
             </span>
             <h1 className="v4-h1">Bilişsel profilinizi öğrenin. Kişisel egzersiz yolunuza başlayın.</h1>
-            <p className="v4-sub">Karşıyaka'da yüz yüze hizmet sunan BrainFit'te, 45 dakikalık Zihin Check-Up ile dikkati, hafızayı ve zihinsel performansı ölçeriz. 16 sayfalık kişisel raporu uzmanla birlikte okur, ardından üç egzersiz programından hangisinin hedefinize uyduğunu birlikte belirleriz.</p>
+            <p className="v4-sub">Karşıyaka&apos;da yüz yüze hizmet sunan BrainFit&apos;te, 45 dakikalık Zihin Check-Up ile dikkati, hafızayı ve zihinsel performansı ölçeriz. 16 sayfalık kişisel raporu uzmanla birlikte okur, ardından üç egzersiz programından hangisinin hedefinize uyduğunu birlikte belirleriz.</p>
             <div className="v4-ctas">
               <a href="#checkup-form" className="v4-cta-p arrow-shift">
                 Ücretsiz Check-Up Randevusu Al
@@ -239,21 +232,10 @@ function AdultHero({
               <span className="v4-chip">Tanı veya ilaç içermez</span>
             </div>
           </div>
-          <div>
-            <div className="v4-img-inner">
-              <Image src="/images/doctor-profile.svg" alt="BrainFit Karşıyaka uzman görüşmesi" fill priority sizes="(max-width: 1024px) 92vw, 600px" className="object-cover object-bottom" />
-              <div className="v4-img-gradient" aria-hidden="true" />
-              <div className="v4-img-card">
-                <p className="v4-img-card-lbl">İlk adım</p>
-                <p className="v4-img-card-val">45 dk</p>
-                <p className="v4-img-card-copy">Hedef görüşmesi, profil taraması ve rapor yönlendirmesi</p>
-              </div>
-            </div>
-          </div>
+          <div className="v4-visual-space" aria-hidden="true" />
         </div>
       </div>
     </section>
-
   );
 }
 
