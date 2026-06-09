@@ -287,6 +287,27 @@ img {
   margin: 5px 0 0;
 }
 
+/* ── CheckupJourneySection ── */
+.ckj-section { background: #fef9f5; padding: clamp(74px, 8vw, 116px) 0; }
+.ckj-badge { display: inline-flex; align-items: center; min-height: 30px; border: 1px solid rgba(22,76,53,0.3); border-radius: 999px; padding: 6px 15px; color: #164c35; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; background: rgba(22,76,53,0.05); }
+.ckj-layout { display: grid; grid-template-columns: 43fr 57fr; gap: clamp(40px, 6vw, 80px); align-items: start; margin-top: 28px; }
+.ckj-panel { position: sticky; top: 120px; }
+.ckj-h2 { font-family: var(--display); font-size: clamp(36px, 4.2vw, 52px); font-weight: 650; line-height: 0.96; color: #241d18; text-wrap: balance; margin-top: 20px; }
+.ckj-sub { font-size: 16px; color: rgba(36,29,24,0.62); line-height: 1.75; margin-top: 20px; max-width: 400px; }
+.ckj-cta { display: inline-flex; align-items: center; gap: 6px; margin-top: 28px; font-size: 14px; font-weight: 800; color: #164c35; text-decoration: none; transition: gap 180ms ease; }
+.ckj-cta:hover { gap: 10px; }
+.ckj-steps { display: flex; flex-direction: column; padding-top: 4px; }
+.ckj-step { display: grid; grid-template-columns: 52px 1fr; gap: 20px; align-items: start; padding: 24px 0; border-top: 1px solid rgba(36,29,24,0.1); }
+.ckj-step:last-child { border-bottom: 1px solid rgba(36,29,24,0.1); }
+.ckj-step-num { font-family: var(--display); font-size: 26px; font-weight: 650; color: #164c35; line-height: 1.15; padding-top: 1px; }
+.ckj-step-title { font-size: 17px; font-weight: 800; color: #241d18; line-height: 1.2; margin: 0; }
+.ckj-step-copy { font-size: 14px; color: rgba(36,29,24,0.62); line-height: 1.72; margin-top: 8px; margin-bottom: 0; }
+
+@media (max-width: 860px) {
+  .ckj-layout { grid-template-columns: 1fr; gap: 36px; }
+  .ckj-panel { position: static; }
+}
+
 .cta-on-coral {
   background: #faf9f5;
   color: #160a08;

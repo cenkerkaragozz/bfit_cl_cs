@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-09T00:00:00Z",
+  "title": "Design System: BrainFit Karşıyaka",
+  "extensions": {
+    "colorMeta": {
+      "coral": {
+        "role": "primary",
+        "displayName": "Coral Warmth",
+        "canonical": "#f5927e",
+        "pmsReference": "PMS 1505 C (adapted for web)",
+        "tonalRamp": ["#3d0f09", "#6b1a10", "#9c2f1e", "#c9502f", "#f5927e", "#f8b09f", "#fbcfc3", "#fdeee9"]
+      },
+      "forest-green": {
+        "role": "primary",
+        "displayName": "Forest Authority",
+        "canonical": "#164c35",
+        "tonalRamp": ["#061911", "#0d2f1d", "#12402a", "#164c35", "#1e6b4b", "#349165", "#72bea0", "#c8e9db"]
+      },
+      "amber": {
+        "role": "secondary",
+        "displayName": "Amber Energy",
+        "canonical": "#fcbf48",
+        "pmsReference": "PMS 7548 C (adapted for web)",
+        "tonalRamp": ["#3d2d00", "#6b4e00", "#9e7500", "#d4a000", "#fcbf48", "#fdd07a", "#fee2ae", "#fff4de"]
+      },
+      "yellow": {
+        "role": "secondary",
+        "displayName": "Pale Sunshine",
+        "canonical": "#fcea96",
+        "tonalRamp": ["#3d3500", "#6b5e00", "#9e8d00", "#d6bf00", "#fcea96", "#fdf0bb", "#fef7dc", "#fffcf2"]
+      },
+      "sky": {
+        "role": "tertiary",
+        "displayName": "Sky Curiosity",
+        "canonical": "#aae8f6",
+        "pmsReference": "PMS 299 C (adapted for web)",
+        "tonalRamp": ["#003448", "#005a7d", "#0083b5", "#00aad9", "#aae8f6", "#c6eef9", "#ddf5fc", "#f0fbfe"]
+      },
+      "lime": {
+        "role": "tertiary",
+        "displayName": "Lime Growth",
+        "canonical": "#d9f8a8",
+        "pmsReference": "PMS 361 C (adapted for web)",
+        "tonalRamp": ["#1a3d00", "#2f6a00", "#469f00", "#7dd126", "#d9f8a8", "#e5facc", "#f0fce0", "#f8fef2"]
+      },
+      "lavender": {
+        "role": "tertiary",
+        "displayName": "Lavender Focus",
+        "canonical": "#9b66f4",
+        "pmsReference": "PMS 233 C (adapted for web)",
+        "tonalRamp": ["#1e0a48", "#36157d", "#5027b3", "#7345e0", "#9b66f4", "#b98ef7", "#d4b8fa", "#ede3fd"]
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Canvas",
+        "canonical": "#faf9f5",
+        "tonalRamp": ["#1a1916", "#332f28", "#574e42", "#7a6e61", "#a49a8f", "#cfc9c0", "#e8e4de", "#faf9f5"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#241d18",
+        "tonalRamp": ["#0a0806", "#241d18", "#3c3029", "#574540", "#7a645a", "#a08d84", "#ccbdb7", "#f0ebe8"]
+      },
+      "espresso": {
+        "role": "neutral",
+        "displayName": "Espresso",
+        "canonical": "#160a08",
+        "tonalRamp": ["#0a0403", "#160a08", "#2b1712", "#4a2a21", "#6e4236", "#9b6b5f", "#c9a89f", "#f0e5e3"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines only. Max 16ch per line. text-wrap: balance always applied."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section-level headings (.section-title). Large scale, high impact."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Mid-section headings (.mid-section-title). Subordinate to Headline."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraph copy. Max 65ch line length. 16-18px range."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Kicker text, badges, card metadata. Always Manrope extrabold all-caps."
+      }
+    },
+    "shadows": [
+      {
+        "name": "form-card",
+        "value": "0 30px 80px rgba(22,10,8,0.18)",
+        "purpose": "The deepest shadow. Primary action surface only (the white form card inside the coral form section)."
+      },
+      {
+        "name": "section-card",
+        "value": "0 34px 90px rgba(36,29,24,0.15)",
+        "purpose": "Prominent image cards and hero image containers."
+      },
+      {
+        "name": "floating-card",
+        "value": "0 18px 40px rgba(36,29,24,0.12)",
+        "purpose": "Trust chips, stat overlays, and layered content cards."
+      },
+      {
+        "name": "header-ambient",
+        "value": "0 10px 24px rgba(36,29,24,0.06)",
+        "purpose": "The lightest level. Nav pill and inline badge elements."
+      },
+      {
+        "name": "adult-cta-glow",
+        "value": "0 14px 36px rgba(252,191,72,0.3)",
+        "purpose": "Amber-matched glow under the amber CTA button inside forest green context (.v4) only."
+      },
+      {
+        "name": "coral-cta-glow",
+        "value": "0 18px 36px rgba(245,132,110,0.24)",
+        "purpose": "Coral-matched glow under the primary coral CTA button on the main page."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+        "purpose": "Default easing for Reveal and state transitions."
+      },
+      {
+        "name": "ease-snappy",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Path draw animations (HeroUnderline, HeroDottedPath) and quick entrance effects."
+      },
+      {
+        "name": "ease-hover",
+        "value": "ease",
+        "duration": "180ms",
+        "purpose": "Button hover and arrow-shift transitions."
+      },
+      {
+        "name": "reveal-duration",
+        "value": "0.75s",
+        "purpose": "Framer Motion Reveal component duration. opacity 0→1, y 36→0."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (Coral)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA on the children/parents landing page. Coral fill, white text, pill shape.",
+      "html": "<a href=\"#\" class=\"ds-btn-coral\">Ücretsiz Randevu Al <svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a>",
+      "css": ".ds-btn-coral { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 9999px; padding: 0 28px; min-height: 52px; background: #f5927e; color: #ffffff; font-size: 15px; font-weight: 800; font-family: Manrope, Arial, sans-serif; text-decoration: none; border: none; cursor: pointer; box-shadow: 0 18px 36px rgba(245,132,110,0.24); transition: transform 180ms ease, background 180ms ease; } .ds-btn-coral:hover { transform: translateY(-1px); background: #f99f8d; } .ds-btn-coral:hover svg { transform: translateX(4px); } .ds-btn-coral svg { transition: transform 180ms ease; } .ds-btn-coral:focus-visible { outline: 2px solid #f5927e; outline-offset: 4px; }"
+    },
+    {
+      "name": "Primary Button (Amber — Adults)",
+      "kind": "button",
+      "refersTo": "button-adult-cta",
+      "description": "Primary CTA on the adults page. Amber fill, espresso text. Used inside forest green hero only.",
+      "html": "<a href=\"#\" class=\"ds-btn-amber\">Ücretsiz Check-Up Randevusu Al <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a>",
+      "css": ".ds-btn-amber { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 9999px; padding: 0 28px; min-height: 52px; background: #fcbf48; color: #160a08; font-size: 15px; font-weight: 800; font-family: Manrope, Arial, sans-serif; text-decoration: none; border: none; cursor: pointer; box-shadow: 0 14px 36px rgba(252,191,72,0.3); transition: transform 180ms ease, background 180ms ease; } .ds-btn-amber:hover { transform: translateY(-2px); background: #fdd060; } .ds-btn-amber:hover svg { transform: translateX(4px); } .ds-btn-amber svg { transition: transform 180ms ease; } .ds-btn-amber:focus-visible { outline: 2px solid #fcbf48; outline-offset: 4px; }"
+    },
+    {
+      "name": "Ghost Button (Adults)",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary CTA on the adults page. Transparent, ghost border, white text. Inside forest green context only.",
+      "html": "<a href=\"#\" class=\"ds-btn-ghost\">45 dakikada ne olur?</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; padding: 0 28px; min-height: 52px; background: transparent; color: rgba(255,255,255,0.68); font-size: 15px; font-weight: 800; font-family: Manrope, Arial, sans-serif; text-decoration: none; border: 1.5px solid rgba(255,255,255,0.18); cursor: pointer; transition: transform 180ms ease, border-color 180ms ease; } .ds-btn-ghost:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.38); } .ds-btn-ghost:focus-visible { outline: 2px solid rgba(255,255,255,0.5); outline-offset: 4px; }"
+    },
+    {
+      "name": "On-Coral Button",
+      "kind": "button",
+      "refersTo": "button-on-coral",
+      "description": "The only safe CTA button on coral-background cards. Cream fill, espresso text.",
+      "html": "<a href=\"#\" class=\"ds-btn-on-coral\">Bu hedefle randevu al <svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a>",
+      "css": ".ds-btn-on-coral { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 9999px; padding: 0 20px; min-height: 48px; background: #faf9f5; color: #160a08; font-size: 14px; font-weight: 800; font-family: Manrope, Arial, sans-serif; text-decoration: none; border: none; cursor: pointer; transition: transform 180ms ease, background 180ms ease; } .ds-btn-on-coral:hover { background: #ffffff; transform: translateY(-1px); } .ds-btn-on-coral:hover svg { transform: translateX(4px); } .ds-btn-on-coral svg { transition: transform 180ms ease; } .ds-btn-on-coral:focus-visible { outline: 2px solid #faf9f5; outline-offset: 4px; }"
+    },
+    {
+      "name": "Trust Chip (Light Context)",
+      "kind": "chip",
+      "refersTo": "chip-info",
+      "description": "Proof point chip used in hero sections on light backgrounds. White pill, sky-blue icon.",
+      "html": "<span class=\"ds-chip-trust\"><svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#aae8f6\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"/><path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8l6 6v12a2 2 0 0 1-2 2z\"/></svg>16 sayfalık rapor</span>",
+      "css": ".ds-chip-trust { display: inline-flex; align-items: center; gap: 6px; border-radius: 9999px; background: #ffffff; padding: 8px 16px; font-size: 13px; font-weight: 800; font-family: Manrope, Arial, sans-serif; color: #241d18; box-shadow: 0 10px 24px rgba(36,29,24,0.06); }"
+    },
+    {
+      "name": "Forest Chip (Adults Context)",
+      "kind": "chip",
+      "description": "Feature indicator chip used inside the adult hero forest green section.",
+      "html": "<span class=\"ds-chip-forest\">16 sayfalık rapor</span>",
+      "css": ".ds-chip-forest { display: inline-flex; align-items: center; padding: 5px 14px; border-radius: 9999px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); font-size: 12px; font-weight: 700; font-family: Manrope, Arial, sans-serif; color: rgba(255,255,255,0.52); }"
+    },
+    {
+      "name": "Badge",
+      "kind": "chip",
+      "description": "Section tag used at the top of hero and form sections to label the context.",
+      "html": "<div class=\"ds-badge\">BrainFit Karşıyaka Yetişkin Zihin Check-Up</div>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; min-height: 32px; border: 1px solid rgba(196,100,60,0.40); border-radius: 999px; background: #fff4ec; padding: 7px 15px; color: #8c5038; font-size: 11px; font-weight: 800; font-family: Manrope, Arial, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Form Input",
+      "kind": "input",
+      "description": "Standard text input. Warm near-white fill, thin line border, coral focus ring.",
+      "html": "<label class=\"ds-field\">Adınız Soyadınız<input class=\"ds-input\" type=\"text\" placeholder=\"Adınız\" /></label>",
+      "css": ".ds-field { display: grid; gap: 8px; font-size: 12px; font-weight: 800; font-family: Manrope, Arial, sans-serif; letter-spacing: 0; text-transform: none; color: rgba(36,29,24,0.68); } .ds-input { min-height: 52px; border-radius: 18px; border: 1px solid rgba(36,29,24,0.16); background: #FEF9F5; padding: 0 16px; font-size: 16px; font-weight: 700; font-family: Manrope, Arial, sans-serif; color: #241D18; } .ds-input:focus { outline: 2px solid #f5927e; outline-offset: 4px; } .ds-input::placeholder { color: rgba(36,29,24,0.45); font-weight: 700; }"
+    },
+    {
+      "name": "Navigation Pill",
+      "kind": "nav",
+      "description": "Floating pill header navigation with asymmetric border radius.",
+      "html": "<nav class=\"ds-nav\"><div class=\"ds-nav-inner\"><span class=\"ds-nav-logo\">BrainFit</span><div class=\"ds-nav-links\"><a class=\"ds-nav-link\" href=\"#\">Zihin Check-Up</a><a class=\"ds-nav-link\" href=\"#\">Programlar</a><a class=\"ds-nav-link\" href=\"#\">Hakkımızda</a></div><a class=\"ds-nav-cta\" href=\"#\">Randevu Al</a></div></nav>",
+      "css": ".ds-nav { width: 100%; padding: 0 16px; } .ds-nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-radius: 30px 30px 30px 30px / 18px 18px 30px 30px; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); padding: 10px 16px; box-shadow: 0 10px 24px rgba(36,29,24,0.06); } .ds-nav-logo { font-family: Manrope, Arial, sans-serif; font-weight: 800; font-size: 15px; color: #241d18; } .ds-nav-links { display: flex; gap: 4px; } .ds-nav-link { font-family: Manrope, Arial, sans-serif; font-weight: 800; font-size: 14px; color: #241d18; text-decoration: none; padding: 6px 12px; border-radius: 9999px; transition: background 180ms ease; } .ds-nav-link:hover { background: rgba(36,29,24,0.06); } .ds-nav-cta { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; background: #f5846e; color: #ffffff; font-family: Manrope, Arial, sans-serif; font-size: 14px; font-weight: 800; padding: 0 20px; min-height: 40px; min-width: 172px; text-decoration: none; white-space: nowrap; transition: background 180ms ease; } .ds-nav-cta:hover { background: #f5927e; }"
+    },
+    {
+      "name": "Adult Hero Info Card",
+      "kind": "custom",
+      "description": "Frosted glass info card overlaid at the bottom of the adult hero image. Shows a stat label, display value, and supporting copy.",
+      "html": "<div class=\"ds-hero-card\"><p class=\"ds-hero-card-lbl\">İlk adım</p><p class=\"ds-hero-card-val\">45 dk</p><p class=\"ds-hero-card-copy\">Hedef görüşmesi, profil taraması ve rapor yönlendirmesi</p></div>",
+      "css": ".ds-hero-card { background: rgba(22,76,53,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 18px; padding: 18px 20px; border: 1px solid rgba(255,255,255,0.1); max-width: 360px; } .ds-hero-card-lbl { font-size: 10px; font-weight: 800; font-family: Manrope, Arial, sans-serif; letter-spacing: 0.13em; text-transform: uppercase; color: #fcbf48; margin: 0; } .ds-hero-card-val { font-family: Georgia, serif; font-size: 34px; font-weight: 700; line-height: 1; color: white; margin: 5px 0 0; } .ds-hero-card-copy { font-size: 12px; font-weight: 600; font-family: Manrope, Arial, sans-serif; color: rgba(255,255,255,0.55); line-height: 1.5; margin: 5px 0 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Grounded warmth meets scientific trust",
+    "adultNorthStar": "Growth without overwhelm",
+    "overview": "BrainFit Karşıyaka is a cognitive development center, not a hospital and not a generic wellness brand. The visual language must carry both at once: the clinical credibility of a structured 45-minute assessment and the human warmth of a team that genuinely cares about cognitive growth. Every design decision is tested against this double standard. If a choice reads as sterile hospital, it fails. If it reads as soft wellness-retreat, it also fails.\n\nThe palette is drawn from BrainFit's PMS brand library (Vivid Orange 1505, Golden Yellow 7548, Rich Magenta 233, Bright Cyan 299, Fresh Green 361, Charcoal Gray 11) adapted to web density. The display font (Fraunces) is the authority voice; the body font (Manrope) is the practical voice. The two personas never reverse.\n\nThe adults page runs a second North Star in parallel: 'Growth without overwhelm.' Both pages share the palette family; they do not share hero patterns.",
+    "keyCharacteristics": [
+      "Warm cream canvas with a coral brand accent — never cold white or clinical grey",
+      "Display serif (Fraunces) for authority, extrabold sans (Manrope) for utility — never mixed within a single content role",
+      "Full-radius pill shapes on all interactive elements — buttons, chips, badges, inputs",
+      "Soft diffuse warm shadows signal interactivity and containment, not decoration — sections are flat by default",
+      "Two-audience architecture: parents (coral, warm-organic) and adults (forest green, purposeful-focused) share colors but have distinct hero personalities"
+    ],
+    "rules": [
+      {
+        "name": "The Saturation Adaptation Rule",
+        "body": "The PMS brand colors (1505, 7548, 233, 299, 361) are always used at adapted-for-web saturation. Never reach for the full PMS value in a digital context. Preserve hue identity, not saturation intensity.",
+        "section": "colors"
+      },
+      {
+        "name": "The Single Surface Rule",
+        "body": "Coral, forest green, and amber are accent and context colors, not page-level backgrounds. Coral on components only. Forest green on the adult hero section only. Amber as accent text and CTA within forest green contexts only.",
+        "section": "colors"
+      },
+      {
+        "name": "The Persona Inversion Rule",
+        "body": "Fraunces carries authority (headings, display, card numeric values). Manrope carries utility (body, labels, buttons). They do not swap. A Manrope heading or a Fraunces button label is a violation.",
+        "section": "typography"
+      },
+      {
+        "name": "The Weight Anchor Rule",
+        "body": "Body Manrope is weight 400 in prose, weight 600-700 in description copy, weight 800 in labels and all interactive copy. The jump from 400 to 800 is the hierarchy signal.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Sections sit flat on canvas. Shadows appear on contained components (cards, buttons in elevated states, the form container). A section wrapper with a shadow is always wrong.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use .cta-on-coral (canvas fill, espresso text) for any CTA inside a coral-background element.",
+      "Do apply text-wrap: balance to all h1-h3 elements.",
+      "Do keep Fraunces strictly at font-weight: 650 for display use.",
+      "Do use warm shadow tinting (rgba(22,10,8,…) or rgba(36,29,24,…)) not neutral grey.",
+      "Do keep all interactive touch targets at min-height: 44px minimum.",
+      "Do preserve the two audience personas: parents (coral) and adults (forest green).",
+      "Do test muted-brown (#9b745f) at every font size and weight for 4.5:1 contrast.",
+      "Do respect prefers-reduced-motion on all animated elements."
+    ],
+    "donts": [
+      "Don't use sterile hospital aesthetics, cold-white backgrounds, or clinical grey typography stacks.",
+      "Don't use childish edtech visual patterns: pastel-only palettes, emoji-adjacent icon sets.",
+      "Don't use aggressive sales funnel patterns: countdown timers, urgency badges, fear-based copy.",
+      "Don't build sections using repeated identical icon cards (icon + heading + text × 6).",
+      "Don't use exaggerated metrics or vague transformation promises.",
+      "Don't use generic wellness-coach language: 'transform', 'unlock your potential', 'supercharge', 'optimize'.",
+      "Don't use gradient text (background-clip: text + gradient fill).",
+      "Don't use side-stripe border cards (border-left accent as decoration).",
+      "Don't break the .v4-* class namespace by applying adult hero styles outside a .v4 parent.",
+      "Don't make both pages feel identical — they share a palette family, not a pattern."
+    ]
+  }
+}

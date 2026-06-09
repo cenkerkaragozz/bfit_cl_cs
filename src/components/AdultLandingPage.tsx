@@ -207,6 +207,7 @@ function AdultHero({
   onSelectConcern: (concern: string) => void;
 }) {
   return (
+
     <section className="v4">
       <div className="inner v4-inner">
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
@@ -241,6 +242,7 @@ function AdultHero({
         </div>
       </div>
     </section>
+
   );
 }
 
@@ -371,41 +373,48 @@ function AudienceSection({
 
 function CheckupJourneySection() {
   return (
-    <section id="checkup" className="bg-[#FEF9F5] py-[74px] md:py-[116px]">
+    <section id="checkup" className="ckj-section">
       <div className="inner">
-        <Reveal className="text-center">
-          <div className="badge border-[#40CEEE] text-[#1E99B5]">45 Dakikada Ne Olur?</div>
-          <h2 className="section-title mid-section-title mx-auto mt-7 max-w-[860px]">
-            İlk görüşme belirsizliği azaltmak için tasarlanır.
-          </h2>
-          <p className="body-copy mx-auto mt-6 max-w-[720px]">
-            Zihin Check-Up, size uzun bir program satmadan önce mevcut durumu anlamamıza ve size en doğru başlangıç yolunu göstermemize yardımcı olur.
-          </p>
-        </Reveal>
-
-        <div className="mt-14 grid gap-5 lg:grid-cols-4">
-          {checkupSteps.map((step, index) => {
-            const Icon = step.icon;
-
-            return (
-              <Reveal key={step.title} delay={index * 0.07}>
-                <article className="relative h-full rounded-[24px] bg-white p-6 shadow-[0_18px_42px_rgba(36,29,24,0.08)]">
-                  <span className="absolute right-5 top-5 rounded-full bg-[#F4F1EB] px-3 py-1 text-[12px] font-extrabold text-[#8C8480]">
-                    {index + 1}. adım
-                  </span>
-                  <div className="grid h-12 w-12 place-items-center rounded-full bg-[#EFF8FD] text-[#40CEEE]">
-                    <Icon size={23} strokeWidth={2.4} />
-                  </div>
-                  <h3 className="mt-8 text-[24px] font-extrabold leading-tight text-[#241D18]">
-                    {step.title}
-                  </h3>
-                  <p className="mt-4 text-[14px] font-medium leading-7 text-[rgba(36,29,24,0.68)]">
-                    {step.copy}
-                  </p>
-                </article>
-              </Reveal>
-            );
-          })}
+        <span className="ckj-badge">Nasıl İşler</span>
+        <div className="ckj-layout">
+          <div className="ckj-panel">
+            <h2 className="ckj-h2">İlk görüşme, doğru başlangıcı bulmak için tasarlanmıştır.</h2>
+            <p className="ckj-sub">Değerlendirme başlamadan önce süreci, ne ölçeceğimizi ve ne bulacağımızı birlikte konuşuruz.</p>
+            <a href="#checkup-form" className="ckj-cta arrow-shift">
+              Randevu al
+              <ArrowUpRight size={15} strokeWidth={2.5} aria-hidden="true" />
+            </a>
+          </div>
+          <div className="ckj-steps">
+            <div className="ckj-step">
+              <span className="ckj-step-num">01</span>
+              <div>
+                <p className="ckj-step-title">Hedef görüşmesi</p>
+                <p className="ckj-step-copy">Neyi desteklememiz gerektiğini, günlük tablonuzu ve hedefinizi netleştiririz.</p>
+              </div>
+            </div>
+            <div className="ckj-step">
+              <span className="ckj-step-num">02</span>
+              <div>
+                <p className="ckj-step-title">Bilişsel profil taraması</p>
+                <p className="ckj-step-copy">Dikkat, hafıza, işlem hızı ve muhakeme standart protokollerle ayrı ayrı değerlendirilir.</p>
+              </div>
+            </div>
+            <div className="ckj-step">
+              <span className="ckj-step-num">03</span>
+              <div>
+                <p className="ckj-step-title">Rapor değerlendirmesi</p>
+                <p className="ckj-step-copy">16 sayfalık bulgular, güçlü ve desteklenebilir alanlar sade bir dille birlikte okunur.</p>
+              </div>
+            </div>
+            <div className="ckj-step">
+              <span className="ckj-step-num">04</span>
+              <div>
+                <p className="ckj-step-title">Kişisel yol haritası</p>
+                <p className="ckj-step-copy">Size uygun programı ve ilk adımı birlikte belirleriz, zorlamadan.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
