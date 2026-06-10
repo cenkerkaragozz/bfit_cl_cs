@@ -5,13 +5,10 @@ import {
   ArrowUpRight,
   Brain,
   BookOpen,
-  ClipboardCheck,
-  FileText,
   Heart,
   Lightbulb,
   Puzzle,
   Sparkles,
-  Timer,
 } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -40,12 +37,6 @@ const visualDoodles = [
     icon: Lightbulb,
     className: "left-[2%] bottom-[26%] rotate-[-7deg] border-[#FCBF48]/45 text-[#D49210]",
   },
-] as const;
-
-const trustItems = [
-  { label: "45 dakikalık analiz", icon: Timer },
-  { label: "16 sayfalık rapor", icon: FileText },
-  { label: "Kişisel yol haritası", icon: ClipboardCheck },
 ] as const;
 
 export function Hero() {
@@ -94,21 +85,6 @@ export function Hero() {
               <span>Zihin Check-Up Randevusu Al</span>
               <ArrowUpRight className="shrink-0" size={18} strokeWidth={2.7} />
             </a>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {trustItems.map((item) => {
-                const Icon = item.icon;
-
-                return (
-                  <span
-                    key={item.label}
-                    className="inline-flex min-h-10 items-center gap-2 rounded-full bg-white px-4 text-[13px] font-extrabold text-[#241D18] shadow-[0_10px_24px_rgba(36,29,24,0.06)]"
-                  >
-                    <Icon size={14} className="text-[#1E99B5]" strokeWidth={2.5} />
-                    {item.label}
-                  </span>
-                );
-              })}
-            </div>
           </div>
         </div>
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AdultLandingPage } from "@/components/AdultLandingPage";
+import { FloatingCta } from "@/components/FloatingCta";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
@@ -19,6 +20,7 @@ export default function AdultsPage() {
         </main>
         <Footer />
       </div>
+      <FloatingCta />
     </div>
   );
 }

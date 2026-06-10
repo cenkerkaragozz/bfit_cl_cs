@@ -50,22 +50,22 @@ function WaveCard({ row, index }: { row: Row; index: number }) {
     >
       <div className="relative grid grid-cols-1 lg:grid-cols-2">
         {/* Left panel — perception */}
-        <div className="flex flex-col justify-center bg-white p-7 lg:min-h-[280px] lg:p-10 lg:pr-14">
+        <div className="flex flex-col justify-center bg-white p-6 lg:min-h-[220px] lg:p-8 lg:pr-12">
           <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-[rgba(36,29,24,0.36)]">
             Ne Görürsünüz
           </span>
-          <p className="mt-4 text-[clamp(20px,2.4vw,28px)] italic leading-[1.18] text-[#241D18]">
+          <p className="mt-3 text-[clamp(18px,2vw,24px)] italic leading-[1.2] text-[#241D18]">
             "{row.perception}"
           </p>
         </div>
 
         {/* Right panel — truth */}
         <div
-          className="flex flex-col justify-center p-7 lg:min-h-[280px] lg:p-10 lg:pl-14"
+          className="flex flex-col justify-center p-6 lg:min-h-[220px] lg:p-8 lg:pl-12"
           style={{ background: panelBg }}
         >
           <div className="flex items-center gap-3">
-            <span className="h-[3px] w-7 shrink-0 rounded-full" style={{ background: accent }} />
+            <span className="h-[3px] w-6 shrink-0 rounded-full" style={{ background: accent }} />
             <span
               className="text-[10px] font-bold tracking-[0.18em] uppercase"
               style={{ color: accent }}
@@ -73,10 +73,10 @@ function WaveCard({ row, index }: { row: Row; index: number }) {
               Ne Oluyor
             </span>
           </div>
-          <h3 className="display mt-4 text-[clamp(24px,2.8vw,34px)] leading-none text-[#241D18]">
+          <h3 className="display mt-3 text-[clamp(20px,2.4vw,28px)] leading-none text-[#241D18]">
             {row.title}
           </h3>
-          <p className="mt-4 max-w-[400px] text-[15px] leading-[1.72] text-[rgba(36,29,24,0.68)]">
+          <p className="mt-3 max-w-[400px] text-[14px] leading-[1.65] text-[rgba(36,29,24,0.68)]">
             {row.copy}
           </p>
         </div>

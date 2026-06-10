@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { LogoMark } from "@/components/Decorations";
 
 const childNavItems = [
   { label: "Programlarımız", href: "#services" },
@@ -39,9 +39,15 @@ export function Header({ audience = "children" }: HeaderProps) {
           className="main-nav mx-auto flex min-h-[72px] max-w-[1110px] items-center justify-between gap-4 rounded-b-[30px] rounded-t-[18px] bg-white/95 px-5 shadow-[0_18px_50px_rgba(36,29,24,0.08)] backdrop-blur"
           aria-label="Primary navigation"
         >
-          <Link className="flex items-center gap-3 font-extrabold" href="/">
-            <LogoMark className="h-10 w-10 shrink-0" />
-            <span className="text-[20px] tracking-normal">BrainFit</span>
+          <Link className="flex min-w-0 items-center" href="/" aria-label="BrainFit ana sayfa">
+            <Image
+              src="/images/BF_Logo_CMYK.png"
+              alt="BrainFit"
+              width={1377}
+              height={146}
+              className="h-auto w-[146px] shrink-0 sm:w-[186px]"
+              priority
+            />
           </Link>
 
           <div className="hidden items-center gap-6 text-[14px] font-bold text-[rgba(36,29,24,0.76)] lg:flex xl:gap-10">

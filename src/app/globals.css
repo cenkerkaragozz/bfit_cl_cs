@@ -663,4 +663,11 @@ section.pv4 { background:#f4f1eb; padding:clamp(76px,8vw,112px) 0; }
 .pv4-c2 .pv4-cta:hover { color:#c29000; gap:9px; }
 .pv4-c3 .pv4-cta:hover { color:#164c35; gap:9px; }
 @media(max-width:900px){ .pv4-stack{grid-template-columns:1fr;gap:16px;padding:0 0 40px} .pv4-c1,.pv4-c2,.pv4-c3{transform:none;animation:none} }
+
+/* Sabit WhatsApp butonu mobilde footer içeriğini örtmesin */
+@media (max-width: 639px) {
+  footer#contact {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+}
 @media(prefers-reduced-motion:reduce){ .pv4-c1,.pv4-c2,.pv4-c3{animation:none} .pv4-cta{transition:none} }

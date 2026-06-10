@@ -11,6 +11,17 @@ const concerns = [
   "Potansiyeli yüksek görülmesine rağmen dikkati çok çabuk dağılıyor.",
 ] as const;
 
+const innerVoices: Record<string, string> = {
+  "Ödevin başına geçmekte zorlanıyor veya sürekli erteliyor.":
+    "Yapabileceğini biliyorum ama neden bir türlü başlayamıyor?",
+  "Konuyu anladığını söylüyor ama kısa süre sonra bilgiyi hatırlamakta güçlük çekiyor.":
+    "Çalıştığını görüyorum ama öğrendikleri neden kalıcı olmuyor?",
+  "Bilgi sahibi olmasına rağmen sınav anında bu bilgiyi kağıda dökemiyor.":
+    "Evde hepsini biliyor, peki sınavda neden bambaşka biri oluyor?",
+  "Potansiyeli yüksek görülmesine rağmen dikkati çok çabuk dağılıyor.":
+    "Potansiyelini görüyorum ama dikkati neden bu kadar çabuk kayıyor?",
+};
+
 const responses: Record<string, string> = {
   "Ödevin başına geçmekte zorlanıyor veya sürekli erteliyor.":
     "Bu durum her zaman isteksizlikten kaynaklanmaz. Odaklanma, dikkati sürdürme ve planlama, doğru egzersizlerle geliştirilebilen zihinsel becerilerdir.",
@@ -30,28 +41,60 @@ type HelpSectionProps = {
 export function HelpSection({ selectedConcern, onSelectConcern }: HelpSectionProps) {
   return (
     <section id="help" className="relative overflow-hidden bg-[var(--canvas)] py-[74px] md:py-[118px]">
-      <div className="inner grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr]">
-        <Reveal className="relative">
+      <div className="inner grid gap-y-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:gap-x-12 lg:gap-y-0">
+        <Reveal className="order-1 lg:col-start-1 lg:row-start-1">
           <div className="badge border-[#AAE8F6] text-[#1E99B5]">
             Ebeveynlerin Kaygılarını Anlıyoruz
           </div>
           <h2 className="section-title mid-section-title mt-7 max-w-[720px]">
             Evinizde benzer süreçlerden geçiyor olabilirsiniz:
           </h2>
-          <blockquote className="relative mt-8 max-w-[680px] rounded-[28px] bg-white p-6 shadow-[0_18px_40px_rgba(36,29,24,0.12)] md:p-8">
+        </Reveal>
+
+        <Reveal className="order-3 lg:col-start-1 lg:row-start-2 lg:order-none lg:mt-8">
+          <blockquote className="relative max-w-[680px] rounded-[28px] bg-white p-6 shadow-[0_18px_40px_rgba(36,29,24,0.12)] md:p-8">
             <Squiggle className="absolute -right-3 top-4 hidden md:block" color="#FCBF48" />
-            <p className="display text-[clamp(28px,4.6vw,46px)] italic leading-[1.08] text-[#241D18]">
-              “Çocuğumun potansiyelinin farkındayım ama neden akademik süreçlerde bu kadar zorlanıyor?”
-            </p>
+            <span className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#F5927E]">
+              İçinizden geçen soru
+            </span>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={selectedConcern}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.3 }}
+                className="display mt-2 text-[clamp(26px,4.4vw,44px)] italic leading-[1.08] text-[#241D18]"
+              >
+                “{innerVoices[selectedConcern]}”
+              </motion.p>
+            </AnimatePresence>
           </blockquote>
-          <div className="mt-6 max-w-[680px] rounded-[28px] bg-[#F5927E] p-6 text-[#160A08] md:p-7">
+        </Reveal>
+
+        <Reveal className="order-4 lg:col-start-1 lg:row-start-3 lg:order-none lg:mt-6">
+          <div className="max-w-[680px] rounded-[28px] bg-[#F5927E] p-6 text-[#160A08] md:p-7">
             <h3 className="display text-[clamp(30px,4vw,42px)] leading-[0.98]">
               Kaygıyı somut bir başlangıç noktasına çevirelim.
             </h3>
-            <p className="mt-4 max-w-[52ch] text-[15px] font-semibold leading-7 text-[#160A08]/78">
-              Seçtiğiniz ifade görüşme öncesi notunuza eklenir; uzmanımız ilk değerlendirmede
-              çocuğunuzun ihtiyacını bu bağlamla birlikte ele alır.
-            </p>
+            <div className="mt-5 rounded-[20px] bg-white/92 p-4 shadow-[0_10px_24px_rgba(22,10,8,0.12)]">
+              <span className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#1E99B5]">
+                <CheckCircle2 size={13} strokeWidth={2.8} />
+                Görüşme öncesi notunuz
+              </span>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={selectedConcern}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.24 }}
+                  className="mt-2 text-[15px] font-semibold italic leading-6 text-[#241D18]"
+                >
+                  “{selectedConcern}”
+                </motion.p>
+              </AnimatePresence>
+            </div>
             <a className="cta-on-coral arrow-shift mt-6 inline-flex min-h-12 items-center gap-2 rounded-full px-5 text-[14px] font-extrabold" href="#checkup-form">
               Bu hedefle randevu al
               <ArrowUpRight size={17} strokeWidth={2.6} />
@@ -59,7 +102,7 @@ export function HelpSection({ selectedConcern, onSelectConcern }: HelpSectionPro
           </div>
         </Reveal>
 
-        <Reveal delay={0.12}>
+        <Reveal delay={0.12} className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-3 lg:order-none lg:self-center">
           <div className="rounded-[30px] bg-[#F4F1EB] p-5 shadow-[0_18px_40px_rgba(36,29,24,0.12)] md:p-7">
             <div className="flex items-start gap-4">
               <div
@@ -72,10 +115,6 @@ export function HelpSection({ selectedConcern, onSelectConcern }: HelpSectionPro
                 <h3 className="text-[25px] font-extrabold leading-tight text-[#241D18]">
                   Çocuğunuzun durumunu en iyi özetleyen ifadeyi seçin.
                 </h3>
-                <p className="mt-2 text-[15px] font-medium leading-7 text-[rgba(36,29,24,0.68)]">
-                  Bu seçim, uzman görüşmemiz için ön bilgi sağlar ve süreci
-                  size özel yapılandırmamıza yardımcı olur.
-                </p>
               </div>
             </div>
 
