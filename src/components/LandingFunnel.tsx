@@ -19,7 +19,7 @@ export function LandingFunnel() {
       <ConfidenceSection />
       <CheckUpSection />
       <ProgramSection />
-      <TestimonialSection />
+      <TestimonialSection showLocalProofBars />
       <CheckUpFormSection selectedConcern={selectedConcern} />
     </>
   );

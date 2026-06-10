@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { FormEvent, useState, useEffect, useRef } from "react";
 import {
   ArrowUpRight,
@@ -12,14 +11,13 @@ import {
   HeartPulse,
   MapPin,
   MessageCircle,
-  ShieldCheck,
   Sparkles,
-  Star,
   Timer,
   XCircle,
 } from "lucide-react";
 import { motion, useReducedMotion, useInView, animate } from "framer-motion";
-import { Reveal, StarBurst, HeroRing, Squiggle } from "@/components/Decorations";
+import { Reveal } from "@/components/Decorations";
+import { TestimonialSection } from "@/components/TestimonialSection";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
@@ -202,7 +200,7 @@ export function AdultLandingPage() {
       <ReportAndMeasurementSection />
       <ProgramSection />
       <TrustAndEvidenceSection />
-      <TestimonialAndLocalProofSection />
+      <TestimonialSection showLocalProofBars />
       <FaqSection />
       <AdultCheckUpFormSection selectedConcern={selectedConcern} />
     </>
@@ -255,11 +253,7 @@ function AudienceSection({
   return (
     <section
       id="help"
-      className="relative overflow-hidden py-[74px] md:py-[116px]"
-      style={{
-        background:
-          "linear-gradient(90deg, color-mix(in srgb, #EFF8FD 48%, #FFFFFF) 0%, #FFFFFF 62%)",
-      }}
+      className="adult-audience-section relative overflow-hidden py-[74px] md:py-[116px]"
     >
       <div className="inner">
         <Reveal className="grid gap-8 lg:grid-cols-[1fr_0.78fr] lg:items-end">
@@ -431,7 +425,7 @@ function OutcomeStrip() {
         {items.map(({ label, detail }) => (
           <div
             key={label}
-            className="flex items-start gap-3 rounded-2xl bg-white px-5 py-4 shadow-[0_2px_14px_rgba(22,76,53,0.08)]"
+            className="flex w-full max-w-[410px] items-start gap-3 rounded-2xl bg-white px-5 py-4 shadow-[0_2px_14px_rgba(22,76,53,0.08)] sm:w-auto sm:max-w-none"
           >
             <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[#6BC862]" />
             <div>
@@ -446,6 +440,8 @@ function OutcomeStrip() {
 }
 
 function ReportAndMeasurementSection() {
+  const shouldReduce = useReducedMotion();
+
   return (
     <section className="bg-white py-[74px] md:py-[116px]">
       <div className="inner grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
@@ -459,11 +455,22 @@ function ReportAndMeasurementSection() {
           </p>
 
           <div className="cognitive-areas-grid mt-8 grid gap-3 sm:grid-cols-2">
-            {measurementAreas.map((area) => (
-              <div key={area} className="cognitive-area-item flex items-center gap-3 rounded-[18px] bg-[#FEF9F5] p-4">
+            {measurementAreas.map((area, index) => (
+              <motion.div
+                key={area}
+                className="cognitive-area-item flex items-center gap-3 rounded-[18px] bg-[#FEF9F5] p-4"
+                initial={shouldReduce ? false : { opacity: 0, y: 22, scale: 0.96 }}
+                whileInView={shouldReduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.07,
+                  ease: easeOutQuart,
+                }}
+              >
                 <CheckCircle2 size={18} className="shrink-0 text-[#6BC862]" />
                 <span className="text-[15px] font-extrabold text-[#241D18]">{area}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </Reveal>
@@ -639,75 +646,6 @@ function TrustAndEvidenceSection() {
                 <p className="mt-3 text-[13px] font-semibold leading-6 text-[#160A08]/72">
                   {item.copy}
                 </p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-function TestimonialAndLocalProofSection() {
-  return (
-    <section id="clinics" className="bg-[#FEF9F5] py-[82px] md:py-[116px]">
-      <span id="about" className="sr-only">BrainFit Karşıyaka hakkında</span>
-      <div className="inner grid items-center gap-12 lg:grid-cols-[0.86fr_1fr]">
-        <Reveal>
-          <article className="rounded-[32px] bg-[#4A332B] p-6 text-white shadow-[0_30px_70px_rgba(36,29,24,0.16)] md:p-7">
-            <div className="relative h-[430px] overflow-hidden rounded-[26px] bg-[#FCBF48]">
-              <Image
-                src="/images/doctor-profile.svg"
-                alt="BrainFit Karşıyaka uzman kadrosu görseli"
-                fill
-                sizes="(max-width: 768px) 90vw, 480px"
-                className="object-cover object-bottom"
-              />
-            </div>
-            <div className="px-2 pt-7">
-              <h3 className="font-[var(--display)] text-[35px] leading-none">
-                BrainFit Karşıyaka Uzman Kadrosu
-              </h3>
-              <p className="mt-3 text-[14px] leading-6 text-white/70">
-                Zihin Check-Up, rapor açıklaması ve kişisel program yönlendirmesi.
-              </p>
-            </div>
-          </article>
-        </Reveal>
-
-        <Reveal delay={0.12}>
-          <blockquote>
-            <p className="display max-w-[760px] text-[clamp(45px,6.2vw,82px)]">
-              Check-Up sonrasında hangi alanda destek almam gerektiğini çok daha net gördüm.
-            </p>
-          </blockquote>
-
-          <p className="body-copy mt-8 max-w-[620px]">
-            “Yoğun iş temposunda sürekli bölünüyordum. Rapor ve uzman görüşmesi sayesinde sürece daha bilinçli başladım.”
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-5">
-            <div className="grid h-14 w-14 place-items-center rounded-full bg-[#1B4332] font-extrabold text-white">
-              B
-            </div>
-            <div>
-              <p className="font-extrabold">BrainFit Karşıyaka Katılımcısı</p>
-              <div className="mt-1 flex flex-wrap items-center gap-1 text-[#FCBF48]" aria-label="Google Puanı: 4.6">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star key={index} size={16} fill="currentColor" strokeWidth={2.2} />
-                ))}
-                <span className="ml-2 text-[14px] font-extrabold text-[rgba(36,29,24,0.58)]">
-                  Google Müşteri Puanı: 4.6/5
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-10 grid gap-3 sm:grid-cols-2">
-            {["Karşıyaka'da yüz yüze merkez", "WhatsApp ile hızlı randevu", "KVKK kapsamında iletişim", "Uzman açıklamalı rapor"].map((item) => (
-              <div key={item} className="flex items-center gap-3 rounded-[18px] bg-white p-4">
-                <ShieldCheck size={19} className="shrink-0 text-[#6BC862]" />
-                <p className="text-[14px] font-extrabold text-[#241D18]">{item}</p>
               </div>
             ))}
           </div>

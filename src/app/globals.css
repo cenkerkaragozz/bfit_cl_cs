@@ -167,7 +167,7 @@ h3 {
   will-change: opacity, scale, filter;
   animation:
     adult-hero-bg-reveal 1800ms cubic-bezier(0.16, 1, 0.3, 1) forwards,
-    adult-hero-bg-breathe 14500ms ease-in-out 1800ms infinite;
+    adult-hero-bg-breathe 12000ms ease-in-out 1800ms infinite;
 }
 .v4::before {
   content: "";
@@ -421,6 +421,52 @@ h3 {
   }
 }
 
+/* ── Adult audience section ── */
+.adult-audience-section {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, #eff8fd 48%, #ffffff) 0%, #ffffff 62%);
+  isolation: isolate;
+}
+
+.adult-audience-section::before,
+.adult-audience-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.adult-audience-section::before {
+  z-index: 0;
+  background: url("/images/ribbon2.png") center center / cover no-repeat;
+  opacity: 1;
+}
+
+.adult-audience-section::after {
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38) 0%, rgba(250, 249, 245, 0.12) 44%, rgba(255, 255, 255, 0.3) 100%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 46%, rgba(255, 255, 255, 0.18) 100%);
+}
+
+.adult-audience-section > .inner {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .adult-audience-section::before {
+    background-position: 48% center;
+    background-size: auto 112%;
+    opacity: 0.96;
+  }
+
+  .adult-audience-section::after {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.54) 0%, rgba(250, 249, 245, 0.18) 48%, rgba(255, 255, 255, 0.44) 100%);
+  }
+}
+
 /* ── CheckupJourneySection ── */
 .ckj-section { background: #fef9f5; padding: clamp(74px, 8vw, 116px) 0; }
 .ckj-badge { display: inline-flex; align-items: center; min-height: 30px; border: 1px solid rgba(22,76,53,0.3); border-radius: 999px; padding: 6px 15px; color: #164c35; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; background: rgba(22,76,53,0.05); }
@@ -579,26 +625,6 @@ h3 {
   .hero-mobile-cta {
     display: inline-flex;
   }
-}
-
-/* ── Cognitive areas reveal (scroll-triggered fade + rise) ── */
-@keyframes cognitive-area-reveal {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: none; }
-}
-
-.cognitive-areas-grid > .cognitive-area-item {
-  animation: cognitive-area-reveal 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-timeline: view();
-  animation-range: entry 0% entry 40%;
-}
-
-.cognitive-areas-grid > .cognitive-area-item:nth-child(even) {
-  animation-range: entry 4% entry 44%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cognitive-areas-grid > .cognitive-area-item { animation: none; }
 }
 
 /* Programs: Material Library (pv4) */

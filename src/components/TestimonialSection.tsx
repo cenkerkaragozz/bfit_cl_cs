@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Star } from "lucide-react";
+import { ShieldCheck, Star } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Leaf, QuoteIcon, Reveal } from "@/components/Decorations";
@@ -24,7 +24,18 @@ const testimonials = [
   },
 ];
 
-export function TestimonialSection() {
+const localProofItems = [
+  "Karşıyaka'da yüz yüze merkez",
+  "WhatsApp ile hızlı randevu",
+  "KVKK kapsamında iletişim",
+  "Uzman açıklamalı rapor",
+] as const;
+
+export function TestimonialSection({
+  showLocalProofBars = false,
+}: {
+  showLocalProofBars?: boolean;
+}) {
   const [active, setActive] = useState(0);
   const reduceMotion = useReducedMotion();
 
@@ -118,6 +129,17 @@ export function TestimonialSection() {
               </div>
             </div>
           </div>
+
+          {showLocalProofBars ? (
+            <div className="mt-10 grid gap-3 sm:grid-cols-2">
+              {localProofItems.map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-[18px] bg-white p-4">
+                  <ShieldCheck size={19} className="shrink-0 text-[#6BC862]" />
+                  <p className="text-[14px] font-extrabold text-[#241D18]">{item}</p>
+                </div>
+              ))}
+            </div>
+          ) : null}
 
           <div className="absolute right-2 top-[50%] hidden flex-col gap-3 md:flex">
             {testimonials.map((item, index) => (
