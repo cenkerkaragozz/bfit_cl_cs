@@ -188,6 +188,8 @@ const faqs = [
   },
 ] as const;
 
+const easeOutQuart = [0.2, 0.8, 0.2, 1] as const;
+
 export function AdultLandingPage() {
   const [selectedConcern, setSelectedConcern] = useState<string>(audienceCards[0].concern);
 
@@ -218,7 +220,9 @@ function AdultHero() {
               BrainFit Karşıyaka · Bilişsel Gelişim Merkezi
             </span>
             <h1 className="v4-h1">Bilişsel profilinizi öğrenin. Kişisel egzersiz yolunuza başlayın.</h1>
-            <p className="v4-sub">Karşıyaka&apos;da yüz yüze hizmet sunan BrainFit&apos;te, 45 dakikalık Zihin Check-Up ile dikkati, hafızayı ve zihinsel performansı ölçeriz. 16 sayfalık kişisel raporu uzmanla birlikte okur, ardından üç egzersiz programından hangisinin hedefinize uyduğunu birlikte belirleriz.</p>
+            <p className="v4-sub">
+              Karşıyaka&apos;da yüz yüze hizmet sunan BrainFit&apos;te, <mark>45 dakikalık Zihin Check-Up</mark> ile <mark>dikkati, hafızayı ve zihinsel performansı</mark> ölçeriz. <mark>16 sayfalık kişisel raporu</mark> uzmanla birlikte okur, ardından <mark>üç egzersiz programından</mark> hangisinin hedefinize uyduğunu birlikte belirleriz.
+            </p>
             <div className="v4-ctas">
               <a href="#checkup-form" className="v4-cta-p arrow-shift">
                 Ücretsiz Check-Up Randevusu Al
@@ -518,7 +522,7 @@ function ProgramSection() {
       ? { opacity: 1, transition: { duration: 0 } }
       : {
           opacity: isInView ? 1 : 0,
-          transition: { duration: 0.7, delay: i * 0.13, ease: [0.2, 0.8, 0.2, 1] },
+          transition: { duration: 0.7, delay: i * 0.13, ease: easeOutQuart },
         };
 
   return (
