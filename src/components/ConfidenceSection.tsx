@@ -1,159 +1,134 @@
 "use client";
 
-import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { DrawnUnderline, Reveal, StarBurst, Sunflower } from "@/components/Decorations";
+import { motion, useReducedMotion } from "framer-motion";
+import { DrawnUnderline, Reveal } from "@/components/Decorations";
 
-const cards = [
+const rows = [
   {
+    perception: "Ödevden kaçıyor, sürekli erteliyor.",
     title: "Dikkati Sürdürme",
-    copy: "Bir işe başlamak kadar, o işi dikkat dağılmadan sonuna kadar götürmek de geliştirilebilir bir yetidir.",
-    image: "/images/confidence-card-1.svg",
-    color: "#AAE8F6",
+    copy: "Odaklanma ve planlama, doğru egzersizlerle geliştirilebilen bilişsel becerilerdir. Burada isteksizlik değil, kapasite zorlanması var.",
+    accent: "#C4533C",
+    panelBg: "#FEF0EC",
+    waveFlip: false,
   },
   {
+    perception: "Konuyu anladı ama kısa süre sonra unuttu.",
     title: "Hafıza ve Geri Çağırma",
-    copy: "Öğrenilen bilginin ihtiyaç duyulduğu anda hatırlanması, hafıza kapasitesi ve doğru tekrar teknikleriyle doğrudan ilişkilidir.",
-    image: "/images/confidence-card-2.svg",
-    color: "#FCEA96",
+    copy: "Öğrenmek ve ihtiyaç anında hatırlamak farklı süreçlerdir. Hafıza kapasitesi tekrar teknikleriyle doğrudan desteklenebilir.",
+    accent: "#1E99B5",
+    panelBg: "#E8F7FC",
+    waveFlip: true,
   },
   {
-    title: "Bilgiyi Uygulama ve Transfer",
-    copy: "Sınav ve ödev performansında bilgiyi doğru kullanmak; dikkat, işlem hızı ve planlama yetisiyle mümkündür.",
-    image: "/images/confidence-card-3.svg",
-    color: "#D9F8A8",
+    perception: "Biliyor ama sınavda yapamıyor.",
+    title: "Bilgiyi Uygulama",
+    copy: "İşlem hızı ve dikkat baskı altında çökebilir. Bu, bilginin eksikliği değil; uygulamanın konusudur.",
+    accent: "#164C35",
+    panelBg: "#EDF9E2",
+    waveFlip: false,
   },
 ] as const;
 
-export function ConfidenceSection() {
-  const [active, setActive] = useState(0);
+type Row = (typeof rows)[number];
+
+function WaveCard({ row, index }: { row: Row; index: number }) {
   const reduceMotion = useReducedMotion();
+  const { accent, panelBg, waveFlip } = row;
 
-  useEffect(() => {
-    if (reduceMotion) return;
-
-    const timer = window.setInterval(() => {
-      setActive((current) => (current + 1) % cards.length);
-    }, 2800);
-
-    return () => window.clearInterval(timer);
-  }, [reduceMotion]);
-
-  const card = cards[active];
+  const wavePath = waveFlip
+    ? "M30 0 C15 80 45 160 30 240 C15 320 45 380 30 400"
+    : "M30 0 C45 80 15 160 30 240 C45 320 15 380 30 400";
 
   return (
-    <>
-      <section id="treatments" className="relative overflow-hidden bg-[#F4F1EB] py-[74px] md:py-[112px]">
-        <div className="inner grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <Reveal>
-            <div className="badge border-[#8C8480] text-[#8C8480]">Daha Fazla Israr Etmeden Önce</div>
-            <h2 className="display mt-7 max-w-[780px] text-[clamp(42px,5.8vw,60px)] leading-[0.98] text-[#241D18]">
-              Yaşananlar bir motivasyon eksikliği veya{" "}
-              <span className="relative inline-block">
-                tembellik
-                <DrawnUnderline className="absolute -bottom-5 left-0 w-full" />
-              </span>{" "}
-              olmayabilir.
-            </h2>
-          </Reveal>
-
-          <Reveal delay={0.1} className="grid gap-5">
-            <p className="body-copy">
-              Çocuklar bazen tüm güçleriyle dener ve yorulurlar. Ancak
-              odaklanma veya hafıza kapasitesi zorlandığında, harcadıkları çaba
-              aldıkları sonuçla örtüşmeyebilir.
-            </p>
-            <p className="body-copy">
-              Bu nedenle çözüm daha çok baskı kurmak değil; hangi zihinsel
-              becerinin desteğe ihtiyaç duyduğunu uzmanlıkla belirlemektir.
-            </p>
-          </Reveal>
+    <motion.div
+      className="overflow-hidden rounded-[28px] shadow-[0_20px_60px_rgba(36,29,24,0.09)]"
+      initial={reduceMotion ? undefined : { opacity: 0, y: 28 }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.7, delay: index * 0.12, ease: [0.2, 0.8, 0.2, 1] }}
+    >
+      <div className="relative grid grid-cols-1 lg:grid-cols-2">
+        {/* Left panel — perception */}
+        <div className="flex flex-col justify-center bg-white p-7 lg:min-h-[280px] lg:p-10 lg:pr-14">
+          <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-[rgba(36,29,24,0.36)]">
+            Ne Görürsünüz
+          </span>
+          <p className="mt-4 text-[clamp(20px,2.4vw,28px)] italic leading-[1.18] text-[#241D18]">
+            "{row.perception}"
+          </p>
         </div>
-      </section>
 
-      <section className="relative overflow-hidden bg-[var(--canvas)] py-[86px] md:py-[126px]">
-        <StarBurst className="absolute left-[4%] top-[14%] opacity-60" color="#FCBF48" />
-        <Sunflower className="absolute bottom-[-22px] left-[48%] hidden opacity-95 md:block" />
-
-        <div className="inner grid items-center gap-12 lg:grid-cols-[0.96fr_0.9fr]">
-          <Reveal>
-            <div className="badge border-[#AAE8F6] bg-white text-[#1E99B5]">Bu Yolculukta Yalnız Değilsiniz</div>
-            <h2 className="display mt-8 max-w-[680px] text-[clamp(42px,5.8vw,60px)] leading-[0.98] text-[#241D18]">
-              Öğrenme, birden fazla bilişsel becerinin uyumudur.
-            </h2>
-            <p className="mt-8 max-w-[580px] text-[17px] font-medium leading-8 text-[rgba(36,29,24,0.72)]">
-              Dikkat, hafıza ve planlama gibi beceriler bir bütün olarak
-              çalışır. Bu alanlardan birindeki zayıflık, çocuğun performansını
-              doğrudan etkiler.
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.14} className="relative">
-            <div className="flex items-stretch gap-5">
-              <div className="flex flex-col justify-center gap-3" aria-label="Bilişsel Gelişim Alanları">
-                {cards.map((item, index) => (
-                  <button
-                    key={item.title}
-                    type="button"
-                    aria-label={
-                      index === 0
-                        ? "Dikkati Sürdürme Detaylarını Gör"
-                        : index === 1
-                          ? "Hafıza Detaylarını Gör"
-                          : "Uygulama Becerisi Detaylarını Gör"
-                    }
-                    onClick={() => setActive(index)}
-                    className="relative h-[82px] w-[8px] overflow-hidden rounded-full bg-[rgba(36,29,24,0.14)]"
-                  >
-                    <motion.span
-                      className="absolute bottom-0 left-0 w-full rounded-full bg-[#F5927E]"
-                      initial={false}
-                      animate={{ height: index === active ? "100%" : "20%" }}
-                      transition={{ duration: 0.35 }}
-                    />
-                  </button>
-                ))}
-              </div>
-
-              <div className="relative min-h-[470px] flex-1 overflow-hidden rounded-[28px] bg-white p-4 text-[var(--ink)] shadow-[0_34px_90px_rgba(36,29,24,0.15)]">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={card.title}
-                    initial={reduceMotion ? undefined : { opacity: 0, scale: 0.96 }}
-                    animate={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
-                    exit={reduceMotion ? undefined : { opacity: 0, scale: 1.03 }}
-                    transition={{ duration: 0.45 }}
-                    className="h-full"
-                  >
-                    <div
-                      className="relative h-[325px] overflow-hidden rounded-[22px]"
-                      style={{ background: card.color }}
-                    >
-                      <Image
-                        src={card.image}
-                        alt=""
-                        aria-hidden="true"
-                        fill
-                        sizes="(max-width: 768px) 80vw, 430px"
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="px-3 pt-6">
-                      <h3 className="display text-[34px] leading-none text-[#241D18]">
-                        {card.title}
-                      </h3>
-                      <p className="mt-3 max-w-[340px] text-[15px] leading-7 text-[rgba(36,29,24,0.66)]">
-                        {card.copy}
-                      </p>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
-          </Reveal>
+        {/* Right panel — truth */}
+        <div
+          className="flex flex-col justify-center p-7 lg:min-h-[280px] lg:p-10 lg:pl-14"
+          style={{ background: panelBg }}
+        >
+          <div className="flex items-center gap-3">
+            <span className="h-[3px] w-7 shrink-0 rounded-full" style={{ background: accent }} />
+            <span
+              className="text-[10px] font-bold tracking-[0.18em] uppercase"
+              style={{ color: accent }}
+            >
+              Ne Oluyor
+            </span>
+          </div>
+          <h3 className="display mt-4 text-[clamp(24px,2.8vw,34px)] leading-none text-[#241D18]">
+            {row.title}
+          </h3>
+          <p className="mt-4 max-w-[400px] text-[15px] leading-[1.72] text-[rgba(36,29,24,0.68)]">
+            {row.copy}
+          </p>
         </div>
-      </section>
-    </>
+
+        {/* Wave divider — desktop only */}
+        <svg
+          className="pointer-events-none absolute top-0 hidden h-full lg:block"
+          style={{ left: "calc(50% - 30px)", width: 60 }}
+          viewBox="0 0 60 400"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path d={`${wavePath} L0 400 L0 0 Z`} fill="white" />
+          <path d={`${wavePath} L60 400 L60 0 Z`} fill={panelBg} />
+        </svg>
+      </div>
+    </motion.div>
+  );
+}
+
+export function ConfidenceSection() {
+  return (
+    <section
+      id="treatments"
+      className="relative overflow-hidden bg-[#F4F1EB] py-[86px] md:py-[126px]"
+    >
+      <div className="inner">
+        <Reveal>
+          <div className="badge border-[#8C8480] text-[#8C8480]">
+            Daha Fazla Israr Etmeden Önce
+          </div>
+          <h2 className="display mt-7 max-w-[780px] text-[clamp(42px,5.8vw,60px)] leading-[0.98] text-[#241D18]">
+            Yaşananlar bir motivasyon eksikliği veya{" "}
+            <span className="relative inline-block">
+              tembellik
+              <DrawnUnderline className="absolute -bottom-5 left-0 w-full" />
+            </span>{" "}
+            olmayabilir.
+          </h2>
+          <p className="body-copy mt-7 max-w-[560px]">
+            Çocuklar bazen tüm güçleriyle dener ve yorulurlar. Ancak bilişsel
+            kapasite zorlandığında, harcadıkları çaba aldıkları sonuçla
+            örtüşmeyebilir.
+          </p>
+        </Reveal>
+
+        <div className="mt-12 flex flex-col gap-5 md:mt-16">
+          {rows.map((row, index) => (
+            <WaveCard key={row.title} row={row} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
