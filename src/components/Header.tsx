@@ -69,7 +69,7 @@ export function Header({ audience = "children" }: HeaderProps) {
             >
               {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
-            <Link className="pill-button header-cta arrow-shift" href={cta.href}>
+            <Link className={`pill-button arrow-shift ${audience === "adults" ? "header-cta-amber" : "header-cta"}`} href={cta.href}>
               {cta.label}
               <ArrowUpRight size={16} />
             </Link>

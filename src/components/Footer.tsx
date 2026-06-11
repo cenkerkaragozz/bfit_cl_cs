@@ -60,7 +60,7 @@ export function Footer() {
             <div className="badge mt-10 border-white/50 text-[var(--yellow)]">
               30&apos;lu Yaşlarda Zihinsel Sağlık
             </div>
-            <h2 className="display mt-7 max-w-[600px] text-[clamp(46px,6vw,84px)]">
+            <h2 className="display mt-7 max-w-[600px] text-[clamp(44px,5.5vw,76px)]">
               Zihinsel gelişim rehberimiz e-posta kutunuzda.
             </h2>
             <form className="mt-9 flex max-w-[520px] items-center gap-3 border-b border-white/24 pb-3">

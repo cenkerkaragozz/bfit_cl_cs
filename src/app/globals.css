@@ -8,7 +8,7 @@
   --muted-brown: #9b745f;
   --cta: #160a08;
   --green: #164c35;
-  --coral: #f5927e;
+  --coral: #ff6720;
   --yellow: #fcea96;
   --lime: #d9f8a8;
   --lavender: #9b66f4;
@@ -38,6 +38,10 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a.text-white {
+  color: white;
 }
 
 button,
@@ -121,7 +125,7 @@ h3 {
   font-size: 14px;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 18px 36px rgba(245, 132, 110, 0.24);
+  box-shadow: 0 18px 36px rgba(255, 103, 32, 0.28);
   transition:
     transform 180ms ease,
     background 180ms ease;
@@ -129,11 +133,11 @@ h3 {
 
 .pill-button:hover {
   transform: translateY(-1px);
-  background: #f99f8d;
+  background: #ff7a33;
 }
 
 .header-cta {
-  background: #f5846e;
+  background: #ff6720;
   color: white;
   flex-shrink: 0;
   min-height: 44px;
@@ -144,7 +148,22 @@ h3 {
 }
 
 .header-cta:hover {
-  background: #f99f8d;
+  background: #ff7a33;
+}
+
+.header-cta-amber {
+  background: #fcbf48;
+  color: #160a08;
+  flex-shrink: 0;
+  min-height: 44px;
+  min-width: 172px;
+  padding-inline: 16px;
+  white-space: nowrap;
+  box-shadow: none;
+}
+
+.header-cta-amber:hover {
+  background: #fdd060;
 }
 
 /* ── AdultHero ── */
@@ -199,13 +218,13 @@ h3 {
   display: block;
   width: 3px;
   height: 16px;
-  background: #f5927e;
+  background: #ff6720;
   border-radius: 2px;
   flex-shrink: 0;
 }
 .v4 .v4-h1 {
   font-family: var(--display);
-  font-size: clamp(36px, 4vw, 58px);
+  font-size: clamp(40px, 5vw, 68px);
   font-weight: 700;
   line-height: 0.94;
   color: #160a08;
@@ -243,16 +262,16 @@ h3 {
   min-height: 52px;
   font-size: 15px;
   font-weight: 800;
-  background: #f5927e;
-  color: white;
+  background: #fcbf48;
+  color: #160a08;
   border: none;
   cursor: pointer;
-  box-shadow: 0 18px 36px rgba(245, 132, 110, 0.24);
+  box-shadow: 0 18px 36px rgba(252, 191, 72, 0.32);
   transition: transform 180ms ease, background 180ms ease;
 }
 .v4 .v4-cta-p:hover {
   transform: translateY(-2px);
-  background: #f99f8d;
+  background: #fdd060;
 }
 .v4 .v4-cta-s {
   display: inline-flex;
@@ -263,17 +282,15 @@ h3 {
   min-height: 52px;
   font-size: 15px;
   font-weight: 800;
-  color: #241d18;
-  border: 1.5px solid rgba(36, 29, 24, 0.18);
-  background: rgba(255, 255, 255, 0.64);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  color: #164c35;
+  border: 1.5px solid rgba(22, 76, 53, 0.32);
+  background: rgba(22, 76, 53, 0.07);
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 .v4 .v4-cta-s:hover {
   transform: translateY(-2px);
-  border-color: rgba(36, 29, 24, 0.32);
-  background: rgba(255, 255, 255, 0.86);
+  border-color: rgba(22, 76, 53, 0.52);
+  background: rgba(22, 76, 53, 0.13);
 }
 .v4 .v4-chips {
   display: flex;
@@ -379,7 +396,7 @@ h3 {
   }
 
   .v4 .v4-h1 {
-    font-size: clamp(31px, 9.2vw, 38px);
+    font-size: clamp(34px, 9.5vw, 44px);
     line-height: 1.02;
     max-width: 15ch;
     margin-top: 14px;
@@ -490,6 +507,7 @@ h3 {
 .cta-on-coral {
   background: #faf9f5;
   color: #160a08;
+  min-height: 52px;
   box-shadow: none;
   transition: transform 180ms ease, background 180ms ease;
 }
@@ -531,14 +549,14 @@ h3 {
 .section-title {
   color: var(--ink);
   font-family: var(--display);
-  font-size: clamp(48px, 8vw, 112px);
+  font-size: clamp(46px, 7vw, 88px);
   font-weight: 700;
   letter-spacing: 0;
   line-height: 0.93;
 }
 
 .mid-section-title {
-  font-size: clamp(42px, 5.8vw, 60px);
+  font-size: clamp(40px, 5.2vw, 60px);
   line-height: 0.98;
 }
 
@@ -647,8 +665,8 @@ h3 {
 section.pv4 { background:var(--paper); padding:clamp(76px,8vw,112px) 0; }
 .pv4-hdr { text-align:center; margin-bottom:64px; }
 .pv4-badge { font-family:var(--body); font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#164c35; display:block; margin-bottom:18px; }
-.pv4-h2 { font-family:var(--display); font-size:clamp(36px,4.5vw,58px); font-weight:700; line-height:.97; color:#241d18; text-wrap:balance; }
-.pv4-sub { font-size:15px; line-height:1.72; color:rgba(36,29,24,.48); margin-top:16px; max-width:440px; margin-left:auto; margin-right:auto; }
+.pv4-h2 { font-family:var(--display); font-size:clamp(36px,4.5vw,54px); font-weight:700; line-height:.97; color:#241d18; text-wrap:balance; }
+.pv4-sub { font-size:16px; line-height:1.72; color:rgba(36,29,24,.48); margin-top:16px; max-width:440px; margin-left:auto; margin-right:auto; }
 .pv4-stack { display:grid; grid-template-columns:repeat(3,1fr); gap:0; padding:20px 0 80px; align-items:start; }
 .pv4-card { border-radius:24px; padding:36px 32px; box-shadow:0 20px 56px rgba(36,29,24,.10); transition:box-shadow .22s ease; }
 .pv4-c1 { background:#fff; transform:rotate(-1.5deg) translateY(0px); z-index:3; position:relative; animation:pv4-float1 6s ease-in-out infinite; }
@@ -663,15 +681,15 @@ section.pv4 { background:var(--paper); padding:clamp(76px,8vw,112px) 0; }
   .pv4-card:active { transform:scale(0.97); transition:transform .1s ease; }
 }
 .pv4-dot { width:36px; height:4px; border-radius:2px; margin-bottom:26px; }
-.pv4-c1 .pv4-dot { background:#f5927e; }
+.pv4-c1 .pv4-dot { background:#ff6720; }
 .pv4-c2 .pv4-dot { background:#fcbf48; }
 .pv4-c3 .pv4-dot { background:#d9f8a8; }
 .pv4-id { font-family:var(--body); font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:rgba(36,29,24,.3); margin-bottom:6px; }
 .pv4-ctx { font-size:12px; font-weight:600; color:rgba(36,29,24,.28); margin-bottom:16px; }
 .pv4-title { font-family:var(--display); font-size:clamp(18px,2vw,28px); font-weight:700; line-height:1; color:#241d18; text-wrap:balance; margin-bottom:14px; }
 .pv4-copy { font-size:14px; line-height:1.72; color:rgba(36,29,24,.5); }
-.pv4-cta { display:inline-flex; align-items:center; gap:5px; margin-top:20px; font-size:13px; font-weight:800; color:rgba(36,29,24,.42); text-decoration:none; transition:gap .18s, color .18s; }
-.pv4-c1 .pv4-cta:hover { color:#f5927e; gap:9px; }
+.pv4-cta { display:inline-flex; align-items:center; gap:5px; margin-top:20px; font-size:13px; font-weight:800; color:#164c35; text-decoration:none; transition:gap .18s, color .18s; }
+.pv4-c1 .pv4-cta:hover { color:#ff6720; gap:9px; }
 .pv4-c2 .pv4-cta:hover { color:#c29000; gap:9px; }
 .pv4-c3 .pv4-cta:hover { color:#164c35; gap:9px; }
 @media(max-width:900px){ .pv4-stack{grid-template-columns:1fr;gap:16px;padding:0 0 40px} .pv4-c1,.pv4-c2,.pv4-c3{transform:none;animation:none} }

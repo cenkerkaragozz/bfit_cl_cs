@@ -246,7 +246,7 @@ function AudienceSection({
             <div className="badge border-[#40CEEE] bg-[#EFF8FD] text-[#1E99B5]">
               Kimler İçin?
             </div>
-            <h2 className="mt-7 max-w-[860px] font-[var(--body)] text-[clamp(38px,6vw,74px)] font-extrabold leading-[1.02] text-[#160A08]">
+            <h2 className="mt-7 max-w-[860px] font-[var(--display)] text-[clamp(40px,5.2vw,64px)] font-bold leading-[0.98] text-[#160A08]">
               Dört yetişkin hedefi. Tek ilk adım: profilinizi anlamak.
             </h2>
           </div>
@@ -510,7 +510,7 @@ function TrustAndEvidenceSection() {
           <Reveal>
             <div className="rounded-[30px] bg-[#F0F7F2] p-6 shadow-[0_18px_42px_rgba(36,29,24,0.07)] md:p-8">
               <div className="badge border-[#6BC862] text-[#1B4332]">Ne yapıyoruz?</div>
-              <h2 className="mt-7 font-[var(--display)] text-[clamp(42px,5vw,66px)] leading-[0.96] text-[#241D18]">
+              <h2 className="mt-7 font-[var(--display)] text-[clamp(40px,5vw,62px)] leading-[0.96] text-[#241D18]">
                 Güven, sınırları net anlatmakla başlar.
               </h2>
               <div className="mt-8 grid gap-3">
@@ -527,7 +527,7 @@ function TrustAndEvidenceSection() {
           <Reveal delay={0.12}>
             <div className="rounded-[30px] bg-[#FEF9F5] p-6 shadow-[0_18px_42px_rgba(36,29,24,0.07)] md:p-8">
               <div className="badge border-[#8C8480] text-[#8C8480]">Ne yapmıyoruz?</div>
-              <h3 className="mt-7 font-[var(--display)] text-[clamp(38px,4.6vw,58px)] leading-[0.98] text-[#241D18]">
+              <h3 className="mt-7 font-[var(--display)] text-[clamp(36px,4.5vw,54px)] leading-[0.98] text-[#241D18]">
                 Tıbbi iddia değil, bilişsel gelişim desteği.
               </h3>
               <div className="mt-8 grid gap-3">
@@ -639,7 +639,7 @@ function AdultCheckUpFormSection({ selectedConcern }: { selectedConcern: string 
         <div className="section-cta-surface grid gap-10 rounded-[32px] px-5 py-8 sm:px-7 md:rounded-[40px] md:p-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
           <Reveal className="min-w-0">
             <div className="badge border-[#160A08]/40 bg-white/20 text-[#160A08]">Ücretsiz Zihin Check-Up</div>
-            <h2 className="mt-7 max-w-full font-[var(--display)] text-[clamp(36px,9vw,86px)] font-bold leading-[0.96] tracking-normal md:max-w-[700px]">
+            <h2 className="mt-7 max-w-full font-[var(--display)] text-[clamp(42px,5.5vw,76px)] font-bold leading-[0.96] tracking-normal md:max-w-[700px]">
               İlk adımı net, düşük riskli ve anlaşılır tutalım.
             </h2>
             <p className="mt-7 max-w-[590px] text-[17px] font-semibold leading-8 text-[#160A08]/78">
@@ -685,7 +685,7 @@ function AdultCheckUpFormSection({ selectedConcern }: { selectedConcern: string 
               <input type="hidden" name="audience" value="adults" />
               <input type="hidden" name="concern" value={selectedConcern} />
 
-              <button type="submit" disabled={submitState === "submitting"} className="arrow-shift mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#F5846E] px-6 text-[15px] font-extrabold text-white transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-70">
+              <button type="submit" disabled={submitState === "submitting"} className="arrow-shift mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#FCBF48] px-6 text-[15px] font-extrabold text-[#160A08] shadow-[0_18px_36px_rgba(252,191,72,0.28)] transition hover:-translate-y-1 hover:bg-[#FDD060] disabled:cursor-not-allowed disabled:opacity-70">
                 {submitState === "submitting" ? "Mesajınız İletiliyor..." : "Randevu İçin Beni Arayın"}
                 <ArrowUpRight size={18} />
               </button>

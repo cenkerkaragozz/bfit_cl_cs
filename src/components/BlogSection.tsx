@@ -96,7 +96,7 @@ export function BlogSection({ posts }: { posts: PostCard[] }) {
                         />
                       )}
                     </div>
-                    <span className="inline-flex rounded-full bg-[#160A08] px-5 py-3 text-[13px] font-extrabold text-white">
+                    <span className="inline-flex rounded-full bg-[#164C35] px-5 py-3 text-[13px] font-extrabold text-white">
                       Devamını Oku
                     </span>
                   </div>

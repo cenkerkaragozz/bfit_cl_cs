@@ -83,7 +83,7 @@ export function TestimonialSection({
         <Reveal delay={0.12} className="relative">
           <QuoteIcon className="mb-8" />
           <blockquote>
-            <p className="display max-w-[760px] text-[clamp(45px,6.2vw,86px)]">
+            <p className="display max-w-[760px] text-[clamp(44px,5.8vw,78px)]">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={testimonial.highlight}

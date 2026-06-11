@@ -72,7 +72,7 @@ export function ReportAndMeasurementSection({
                   <p className="text-[13px] font-extrabold uppercase tracking-[0.14em] text-[#1E99B5]">
                     Örnek rapor görünümü
                   </p>
-                  <h3 className="mt-3 font-[var(--display)] text-[42px] leading-none">
+                  <h3 className="mt-3 font-[var(--display)] text-[clamp(32px,3.5vw,42px)] leading-none">
                     Bilişsel Profil
                   </h3>
                 </div>

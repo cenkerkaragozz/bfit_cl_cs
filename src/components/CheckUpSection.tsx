@@ -39,7 +39,7 @@ export function CheckUpSection() {
           <div className="badge border-[#40CEEE] text-[#1E99B5]">Zihin Check-Up</div>
           <h2
             className="section-title mt-7 max-w-[620px]"
-            style={{ fontSize: "clamp(44px, 5.2vw, 68px)" }}
+            style={{ fontSize: "clamp(42px, 5.2vw, 64px)" }}
           >
             45 Dakikada Bilimsel Bir Başlangıç
           </h2>

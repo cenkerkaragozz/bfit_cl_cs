@@ -59,7 +59,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
             <div className="badge border-[#160A08]/40 bg-white/20 text-[#160A08]">
               Zihin Check-Up
             </div>
-            <h2 className="display mt-6 max-w-full text-[38px] leading-[0.98] sm:text-[48px] md:mt-7 md:max-w-[700px] md:text-[clamp(44px,7vw,86px)] md:leading-[0.94]">
+            <h2 className="display mt-6 max-w-[700px] text-[clamp(40px,5.5vw,72px)] leading-[0.94] md:mt-7">
               Çocuğunuzun geleceği için ilk adımı bugün atın.
             </h2>
             <p className="mt-6 max-w-[560px] text-[16px] font-semibold leading-7 text-[#160A08]/78 md:mt-7 md:text-[17px] md:leading-8">

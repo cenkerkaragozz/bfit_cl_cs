@@ -22,7 +22,7 @@ import {
 const visualDoodles = [
   {
     icon: Brain,
-    className: "left-[7%] top-[8%] rotate-[-9deg] border-[#F5927E]/35 text-[#E06850]",
+    className: "left-[7%] top-[8%] rotate-[-9deg] border-[#FF6720]/35 text-[#E06850]",
   },
   {
     icon: Puzzle,
@@ -51,13 +51,13 @@ export function Hero() {
       <div className="inner relative z-10 grid gap-10 pb-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:pb-16 xl:grid-cols-[0.86fr_1.14fr]">
         <div className="relative z-20 max-w-[340px] pb-0 sm:max-w-[680px] lg:pb-8">
           <div className="badge gap-2 border-[#E06850] bg-white/70 text-[#C4533C] shadow-[0_10px_24px_rgba(36,29,24,0.06)] backdrop-blur">
-            <span className="grid h-5 w-5 place-items-center rounded-full bg-[#F5927E] text-white" aria-hidden="true">
+            <span className="grid h-5 w-5 place-items-center rounded-full bg-[#FF6720] text-white" aria-hidden="true">
               <Brain size={12} fill="currentColor" strokeWidth={2.5} />
             </span>
             Bilişsel Gelişim · Karşıyaka
           </div>
 
-          <h1 className="display mt-5 max-w-[16ch] text-[clamp(42px,5.4vw,62px)] text-[#160A08]">
+          <h1 className="display mt-5 max-w-[16ch] text-[clamp(44px,5.5vw,72px)] text-[#160A08]">
             <span className="block">Çocuğunuzun</span>
             <span className="relative inline-block">
               öğrenme profilini
@@ -77,7 +77,7 @@ export function Hero() {
               Zihin Check-Up, çocuğunuzun bilişsel profilini 45 dakikada bilimsel verilerle ortaya koyar.
             </p>
             <a
-              className="arrow-shift mt-7 inline-flex min-h-13 max-w-full items-center justify-center gap-2 rounded-full bg-[#F5927E] px-6 py-4 text-center text-[15px] font-extrabold leading-5 text-white shadow-[0_18px_36px_rgba(245,132,110,0.24)] transition hover:-translate-y-1 hover:bg-[#F99F8D] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F5927E] sm:px-7"
+              className="arrow-shift mt-7 inline-flex min-h-13 max-w-full items-center justify-center gap-2 rounded-full bg-[#FF6720] px-6 py-4 text-center text-[15px] font-extrabold leading-5 text-white shadow-[0_18px_36px_rgba(255,103,32,0.28)] transition hover:-translate-y-1 hover:bg-[#FF7A33] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF6720] sm:px-7"
               href="#checkup-form"
             >
               <span>Zihin Check-Up Randevusu Al</span>
@@ -91,7 +91,7 @@ export function Hero() {
             animate={!reduceMotion}
             className="absolute right-[-10%] top-[38%] z-30 hidden h-[170px] w-[52%] rotate-[65deg] text-[#9B745F] opacity-45 md:block"
           />
-          <HeroStrokes className="absolute left-[9%] top-[2%] z-40 hidden h-12 w-12 text-[#F5927E] sm:block" />
+          <HeroStrokes className="absolute left-[9%] top-[2%] z-40 hidden h-12 w-12 text-[#FF6720] sm:block" />
           <Squiggle className="absolute left-[10%] top-[31%] z-40 hidden h-8 w-24 md:block" color="#8EC456" />
           <StarBurst
             animate={!reduceMotion}
@@ -99,7 +99,7 @@ export function Hero() {
             color="#FCBF48"
           />
           <HeroRing className="absolute left-[6%] top-[58%] z-40 h-4 w-4" color="#77C8F7" />
-          <HeroRing className="absolute right-[6%] bottom-[16%] z-40 hidden h-5 w-5 md:block" color="#F5927E" />
+          <HeroRing className="absolute right-[6%] bottom-[16%] z-40 hidden h-5 w-5 md:block" color="#FF6720" />
 
           {visualDoodles.map((item) => {
             const Icon = item.icon;
