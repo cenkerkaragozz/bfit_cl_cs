@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { LandingFunnel } from "@/components/LandingFunnel";
+import { BrainFitSection } from "@/components/BrainFitSection";
 import { TrustBar } from "@/components/TrustBar";
 import { getLatestPosts } from "@/lib/sanity/queries";
 
@@ -19,6 +20,7 @@ export default async function Home() {
         <main>
           <Hero />
           <TrustBar />
+          <BrainFitSection />
           <LandingFunnel />
           <BlogSection posts={posts} />
         </main>

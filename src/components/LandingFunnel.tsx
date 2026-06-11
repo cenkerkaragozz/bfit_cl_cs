@@ -6,6 +6,7 @@ import { CheckUpSection } from "@/components/CheckUpSection";
 import { ConfidenceSection } from "@/components/ConfidenceSection";
 import { HelpSection } from "@/components/HelpSection";
 import { ProgramSection } from "@/components/ProgramSection";
+import { ReportAndMeasurementSection } from "@/components/ReportAndMeasurementSection";
 import { TestimonialSection } from "@/components/TestimonialSection";
 
 export function LandingFunnel() {
@@ -18,6 +19,7 @@ export function LandingFunnel() {
       <HelpSection selectedConcern={selectedConcern} onSelectConcern={setSelectedConcern} />
       <ConfidenceSection />
       <CheckUpSection />
+      <ReportAndMeasurementSection surface="white" />
       <ProgramSection />
       <TestimonialSection showLocalProofBars />
       <CheckUpFormSection selectedConcern={selectedConcern} />

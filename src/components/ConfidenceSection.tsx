@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { DrawnUnderline, Reveal } from "@/components/Decorations";
 
@@ -7,7 +8,15 @@ const rows = [
   {
     perception: "Ödevden kaçıyor, sürekli erteliyor.",
     title: "Dikkati Sürdürme",
-    copy: "Odaklanma ve planlama, doğru egzersizlerle geliştirilebilen bilişsel becerilerdir. Burada isteksizlik değil, kapasite zorlanması var.",
+    copy: (
+      <>
+        Odaklanma ve planlama,{" "}
+        <strong className="font-bold text-[#C4533C]">doğru egzersizlerle geliştirilebilen</strong>{" "}
+        bilişsel becerilerdir. Burada{" "}
+        <strong className="font-bold text-[#241D18]">isteksizlik değil</strong>,{" "}
+        <em className="not-italic font-semibold text-[#241D18]">kapasite zorlanması</em> var.
+      </>
+    ),
     accent: "#C4533C",
     panelBg: "#FEF0EC",
     waveFlip: false,
@@ -15,7 +24,14 @@ const rows = [
   {
     perception: "Konuyu anladı ama kısa süre sonra unuttu.",
     title: "Hafıza ve Geri Çağırma",
-    copy: "Öğrenmek ve ihtiyaç anında hatırlamak farklı süreçlerdir. Hafıza kapasitesi tekrar teknikleriyle doğrudan desteklenebilir.",
+    copy: (
+      <>
+        Öğrenmek ve ihtiyaç anında hatırlamak{" "}
+        <strong className="font-bold text-[#241D18]">farklı süreçlerdir</strong>. Hafıza kapasitesi{" "}
+        <strong className="font-bold text-[#1E99B5]">tekrar teknikleriyle</strong> doğrudan
+        desteklenebilir.
+      </>
+    ),
     accent: "#1E99B5",
     panelBg: "#E8F7FC",
     waveFlip: true,
@@ -23,14 +39,28 @@ const rows = [
   {
     perception: "Biliyor ama sınavda yapamıyor.",
     title: "Bilgiyi Uygulama",
-    copy: "İşlem hızı ve dikkat baskı altında çökebilir. Bu, bilginin eksikliği değil; uygulamanın konusudur.",
+    copy: (
+      <>
+        İşlem hızı ve dikkat{" "}
+        <strong className="font-bold text-[#164C35]">baskı altında çökebilir</strong>. Bu,{" "}
+        <strong className="font-bold text-[#241D18]">bilginin eksikliği değil</strong>;{" "}
+        <em className="not-italic font-semibold text-[#164C35]">uygulamanın konusudur</em>.
+      </>
+    ),
     accent: "#164C35",
     panelBg: "#EDF9E2",
     waveFlip: false,
   },
-] as const;
+];
 
-type Row = (typeof rows)[number];
+type Row = {
+  perception: string;
+  title: string;
+  copy: ReactNode;
+  accent: string;
+  panelBg: string;
+  waveFlip: boolean;
+};
 
 function WaveCard({ row, index }: { row: Row; index: number }) {
   const reduceMotion = useReducedMotion();
@@ -55,7 +85,7 @@ function WaveCard({ row, index }: { row: Row; index: number }) {
             Ne Görürsünüz
           </span>
           <p className="mt-3 text-[clamp(18px,2vw,24px)] italic leading-[1.2] text-[#241D18]">
-            "{row.perception}"
+            &ldquo;{row.perception}&rdquo;
           </p>
         </div>
 
@@ -101,7 +131,7 @@ export function ConfidenceSection() {
   return (
     <section
       id="treatments"
-      className="relative overflow-hidden bg-[#F4F1EB] py-[86px] md:py-[126px]"
+      className="section-surface-alt relative overflow-hidden py-[86px] md:py-[126px]"
     >
       <div className="inner">
         <Reveal>

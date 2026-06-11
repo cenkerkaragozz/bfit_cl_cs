@@ -52,7 +52,7 @@ export function TestimonialSection({
   const testimonial = testimonials[active];
 
   return (
-    <section id="clinics" className="relative bg-[var(--canvas)] py-[82px] md:py-[116px]">
+    <section id="clinics" className="section-surface relative py-[82px] md:py-[116px]">
       <span id="about" className="absolute top-0" aria-hidden="true" />
       <Leaf className="absolute right-[4%] top-[8%] hidden md:block" />
       <div className="inner grid items-center gap-12 lg:grid-cols-[0.84fr_1fr]">

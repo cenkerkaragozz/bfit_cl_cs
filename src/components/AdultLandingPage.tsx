@@ -17,6 +17,8 @@ import {
 } from "lucide-react";
 import { motion, useReducedMotion, useInView, animate } from "framer-motion";
 import { Reveal } from "@/components/Decorations";
+import { BrainFitSection } from "@/components/BrainFitSection";
+import { ReportAndMeasurementSection } from "@/components/ReportAndMeasurementSection";
 import { TestimonialSection } from "@/components/TestimonialSection";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
@@ -73,24 +75,6 @@ const checkupSteps = [
     copy: "Adult, Performance veya Senior programlarından hangisinin uygun olduğunu birlikte belirleriz.",
     icon: ClipboardCheck,
   },
-] as const;
-
-const reportRows = [
-  { label: "Dikkat ve odak", value: "Güçlü alan" },
-  { label: "Hafıza ve geri çağırma", value: "Desteklenebilir" },
-  { label: "İşlem hızı", value: "Takip önerilir" },
-  { label: "Görsel/işitsel işlemleme", value: "Profilde incelenir" },
-  { label: "Önerilen yol", value: "Kişisel egzersiz planı" },
-] as const;
-
-const measurementAreas = [
-  "Dikkat",
-  "Hafıza",
-  "İşitsel işlemleme",
-  "Görsel algı",
-  "Sosyal-duygusal uyum",
-  "Psikomotor beceriler",
-  "Algı ve muhakeme",
 ] as const;
 
 const programs = [
@@ -195,9 +179,10 @@ export function AdultLandingPage() {
     <>
       <AdultHero />
       <AudienceSection selectedConcern={selectedConcern} onSelectConcern={setSelectedConcern} />
+      <BrainFitSection />
       <CheckupJourneySection />
       <OutcomeStrip />
-      <ReportAndMeasurementSection />
+      <ReportAndMeasurementSection surface="white" />
       <ProgramSection />
       <TrustAndEvidenceSection />
       <TestimonialSection showLocalProofBars />
@@ -253,7 +238,7 @@ function AudienceSection({
   return (
     <section
       id="help"
-      className="adult-audience-section relative overflow-hidden py-[74px] md:py-[116px]"
+      className="adult-audience-section section-surface relative overflow-hidden py-[74px] md:py-[116px]"
     >
       <div className="inner">
         <Reveal className="grid gap-8 lg:grid-cols-[1fr_0.78fr] lg:items-end">
@@ -420,100 +405,22 @@ function OutcomeStrip() {
   ] as const;
 
   return (
-    <section className="bg-[#F0F7F2] py-8">
-      <div className="inner flex flex-wrap justify-center gap-3">
-        {items.map(({ label, detail }) => (
-          <div
-            key={label}
-            className="flex w-full max-w-[410px] items-start gap-3 rounded-2xl bg-white px-5 py-4 shadow-[0_2px_14px_rgba(22,76,53,0.08)] sm:w-auto sm:max-w-none"
-          >
-            <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[#6BC862]" />
-            <div>
-              <p className="text-[14px] font-extrabold text-[#241D18]">{label}</p>
-              <p className="mt-0.5 text-[12px] font-semibold text-[#241D18]/60">{detail}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function ReportAndMeasurementSection() {
-  const shouldReduce = useReducedMotion();
-
-  return (
-    <section className="bg-white py-[74px] md:py-[116px]">
-      <div className="inner grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-        <Reveal>
-          <div className="badge border-[#FCBF48] text-[#8C5038]">Raporu Görünür Kılalım</div>
-          <h2 className="section-title mid-section-title mt-7 max-w-[760px]">
-            Vaadimiz soyut değil: ölçüm, rapor ve kişisel yol haritası.
-          </h2>
-          <p className="body-copy mt-6 max-w-[620px]">
-            Zihin Check-Up sonunda dikkat, hafıza, işlem hızı ve ilgili bilişsel alanlar tek tek ele alınır. Amaç, nereden başlayacağınızı netleştirmektir.
-          </p>
-
-          <div className="cognitive-areas-grid mt-8 grid gap-3 sm:grid-cols-2">
-            {measurementAreas.map((area, index) => (
-              <motion.div
-                key={area}
-                className="cognitive-area-item flex items-center gap-3 rounded-[18px] bg-[#FEF9F5] p-4"
-                initial={shouldReduce ? false : { opacity: 0, y: 22, scale: 0.96 }}
-                whileInView={shouldReduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.07,
-                  ease: easeOutQuart,
-                }}
-              >
-                <CheckCircle2 size={18} className="shrink-0 text-[#6BC862]" />
-                <span className="text-[15px] font-extrabold text-[#241D18]">{area}</span>
-              </motion.div>
-            ))}
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.12}>
-          <div className="rounded-[32px] bg-[#1B4332] p-5 text-white shadow-[0_26px_70px_rgba(36,29,24,0.16)] md:p-7">
-            <div className="rounded-[26px] bg-white p-5 text-[#241D18] md:p-6">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-[13px] font-extrabold uppercase tracking-[0.14em] text-[#1E99B5]">
-                    Örnek rapor görünümü
-                  </p>
-                  <h3 className="mt-3 font-[var(--display)] text-[42px] leading-none">
-                    Bilişsel Profil
-                  </h3>
-                </div>
-                <span className="rounded-full bg-[#FFF0D7] px-4 py-2 text-[13px] font-extrabold text-[#8C5038]">
-                  16 sayfa
-                </span>
-              </div>
-
-              <div className="mt-8 grid gap-3">
-                {reportRows.map((row) => (
-                  <div key={row.label} className="rounded-[18px] bg-[#FEF9F5] p-4">
-                    <div className="flex items-center justify-between gap-4">
-                      <p className="text-[14px] font-extrabold text-[#241D18]">{row.label}</p>
-                      <p className="text-right text-[13px] font-bold text-[rgba(36,29,24,0.58)]">
-                        {row.value}
-                      </p>
-                    </div>
-                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-white">
-                      <span className="block h-full w-[68%] rounded-full bg-[#6BC862]" />
-                    </div>
-                  </div>
-                ))}
+    <section className="section-surface py-8">
+      <div className="inner">
+        <div className="grid gap-3 rounded-[28px] bg-[#F0F7F2] p-3 md:grid-cols-3 md:p-4">
+          {items.map(({ label, detail }) => (
+            <div
+              key={label}
+              className="flex h-full w-full items-start gap-3 rounded-2xl bg-white px-5 py-4 shadow-[0_2px_14px_rgba(22,76,53,0.08)]"
+            >
+              <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[#6BC862]" />
+              <div>
+                <p className="text-[14px] font-extrabold text-[#241D18]">{label}</p>
+                <p className="mt-0.5 text-[12px] font-semibold text-[#241D18]/60">{detail}</p>
               </div>
             </div>
-
-            <p className="mt-6 text-[16px] font-semibold leading-8 text-white/78">
-              Bu görünüm gerçek veri içermez. Ama ziyaretçinin alacağı çıktıyı somutlaştırır: profil, yorum ve önerilen başlangıç yolu.
-            </p>
-          </div>
-        </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -534,41 +441,41 @@ function ProgramSection() {
 
   return (
     <section id="services" className="pv4">
-      <div className="inner">
-        <Reveal>
-          <div className="pv4-hdr">
-            <span className="pv4-badge">Programlar</span>
-            <h2 className="pv4-h2">Hedefinize göre üç net başlangıç yolu.</h2>
-            <p className="pv4-sub">Program seçimini tahminle değil, Check-Up raporunuz ve uzman görüşmesiyle yaparız.</p>
+          <div className="inner">
+            <Reveal>
+              <div className="pv4-hdr">
+                <span className="pv4-badge">Programlar</span>
+                <h2 className="pv4-h2">Hedefinize göre üç net başlangıç yolu.</h2>
+                <p className="pv4-sub">Program seçimini tahminle değil, Check-Up raporunuz ve uzman görüşmesiyle yaparız.</p>
+              </div>
+            </Reveal>
+            <div className="pv4-stack" ref={ref}>
+              <motion.div className="pv4-card pv4-c1" initial={{ opacity: 0 }} animate={cardAnim(0)}>
+                <div className="pv4-dot" />
+                <p className="pv4-id">BrainFit Adult</p>
+                <p className="pv4-ctx">İş ve üniversite yaşamı</p>
+                <h3 className="pv4-title">Günlük tempo için zihinsel netlik</h3>
+                <p className="pv4-copy">Odaklanma, planlama, zihinsel dayanıklılık ve öğrenme kapasitesini günlük ritminize uygun egzersizlerle destekler.</p>
+                <a href="#checkup-form" className="pv4-cta">Bu yola uygunluğumu öğren <ArrowUpRight size={14} aria-hidden="true" /></a>
+              </motion.div>
+              <motion.div className="pv4-card pv4-c2" initial={{ opacity: 0 }} animate={cardAnim(1)}>
+                <div className="pv4-dot" />
+                <p className="pv4-id">BrainFit Performance</p>
+                <p className="pv4-ctx">YKS, KPSS, dil ve mesleki sınavlar</p>
+                <h3 className="pv4-title">Sınav ve kariyer performansı</h3>
+                <p className="pv4-copy">Bilgiyi geri çağırma, dikkati sürdürme ve zaman baskısı altında daha düzenli performans gösterebilme becerilerine odaklanır.</p>
+                <a href="#checkup-form" className="pv4-cta">Bu yola uygunluğumu öğren <ArrowUpRight size={14} aria-hidden="true" /></a>
+              </motion.div>
+              <motion.div className="pv4-card pv4-c3" initial={{ opacity: 0 }} animate={cardAnim(2)}>
+                <div className="pv4-dot" />
+                <p className="pv4-id">BrainFit Senior</p>
+                <p className="pv4-ctx">50+ yetişkinler</p>
+                <h3 className="pv4-title">Aktif yaşam için bilişsel destek</h3>
+                <p className="pv4-copy">Hafıza, görsel algı, beden-zihin uyumu ve zihinsel esnekliği kişisel tempoya duyarlı şekilde destekler.</p>
+                <a href="#checkup-form" className="pv4-cta">Bu yola uygunluğumu öğren <ArrowUpRight size={14} aria-hidden="true" /></a>
+              </motion.div>
+            </div>
           </div>
-        </Reveal>
-        <div className="pv4-stack" ref={ref}>
-          <motion.div className="pv4-card pv4-c1" initial={{ opacity: 0 }} animate={cardAnim(0)}>
-            <div className="pv4-dot" />
-            <p className="pv4-id">BrainFit Adult</p>
-            <p className="pv4-ctx">İş ve üniversite yaşamı</p>
-            <h3 className="pv4-title">Günlük tempo için zihinsel netlik</h3>
-            <p className="pv4-copy">Odaklanma, planlama, zihinsel dayanıklılık ve öğrenme kapasitesini günlük ritminize uygun egzersizlerle destekler.</p>
-            <a href="#checkup-form" className="pv4-cta">Bu yola uygunluğumu öğren <ArrowUpRight size={14} aria-hidden="true" /></a>
-          </motion.div>
-          <motion.div className="pv4-card pv4-c2" initial={{ opacity: 0 }} animate={cardAnim(1)}>
-            <div className="pv4-dot" />
-            <p className="pv4-id">BrainFit Performance</p>
-            <p className="pv4-ctx">YKS, KPSS, dil ve mesleki sınavlar</p>
-            <h3 className="pv4-title">Sınav ve kariyer performansı</h3>
-            <p className="pv4-copy">Bilgiyi geri çağırma, dikkati sürdürme ve zaman baskısı altında daha düzenli performans gösterebilme becerilerine odaklanır.</p>
-            <a href="#checkup-form" className="pv4-cta">Bu yola uygunluğumu öğren <ArrowUpRight size={14} aria-hidden="true" /></a>
-          </motion.div>
-          <motion.div className="pv4-card pv4-c3" initial={{ opacity: 0 }} animate={cardAnim(2)}>
-            <div className="pv4-dot" />
-            <p className="pv4-id">BrainFit Senior</p>
-            <p className="pv4-ctx">50+ yetişkinler</p>
-            <h3 className="pv4-title">Aktif yaşam için bilişsel destek</h3>
-            <p className="pv4-copy">Hafıza, görsel algı, beden-zihin uyumu ve zihinsel esnekliği kişisel tempoya duyarlı şekilde destekler.</p>
-            <a href="#checkup-form" className="pv4-cta">Bu yola uygunluğumu öğren <ArrowUpRight size={14} aria-hidden="true" /></a>
-          </motion.div>
-        </div>
-      </div>
     </section>
   );
 }
@@ -597,7 +504,7 @@ function AnimatedStat({ num, suffix, duration }: { num: number; suffix: string; 
 
 function TrustAndEvidenceSection() {
   return (
-    <section className="bg-white py-[74px] md:py-[116px]">
+    <section className="section-surface py-[74px] md:py-[116px]">
       <div className="inner">
         <div className="grid gap-8 lg:grid-cols-2">
           <Reveal>
@@ -657,7 +564,7 @@ function TrustAndEvidenceSection() {
 
 function FaqSection() {
   return (
-    <section className="bg-white py-[74px] md:py-[108px]">
+    <section className="section-surface py-[74px] md:py-[108px]">
       <div className="inner grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
         <Reveal>
           <div className="badge border-[#FCBF48] text-[#8C5038]">Sık Sorulan Sorular</div>
@@ -727,73 +634,75 @@ function AdultCheckUpFormSection({ selectedConcern }: { selectedConcern: string 
   }
 
   return (
-    <section id="checkup-form" className="relative overflow-hidden bg-[#F5846E] py-[74px] text-[#160A08] md:py-[116px]">
-      <div className="inner grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-        <Reveal className="min-w-0">
-          <div className="badge border-[#160A08]/40 bg-white/20 text-[#160A08]">Ücretsiz Zihin Check-Up</div>
-          <h2 className="mt-7 max-w-full font-[var(--display)] text-[clamp(36px,9vw,86px)] font-bold leading-[0.96] tracking-normal md:max-w-[700px]">
-            İlk adımı net, düşük riskli ve anlaşılır tutalım.
-          </h2>
-          <p className="mt-7 max-w-[590px] text-[17px] font-semibold leading-8 text-[#160A08]/78">
-            Adınızı ve endişenizi bırakın; hafta içi 1-2 saat içinde WhatsApp veya telefonla arayarak ücretsiz Zihin Check-Up randevunuzu planlayalım. İlk görüşme yaklaşık 5 dakika sürer.
-          </p>
-
-          <motion.div layout className="mt-8 flex w-full max-w-[590px] items-center gap-3 rounded-full bg-white px-4 py-3 text-[14px] font-extrabold shadow-[0_16px_40px_rgba(22,10,8,0.12)] md:inline-flex md:w-auto">
-            <CheckCircle2 size={18} className="shrink-0 text-[#6BC862]" />
-            <span className="min-w-0 truncate">{selectedConcern}</span>
-          </motion.div>
-
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            {["45 dakikalık görüşme", "16 sayfalık rapor", "Uzman açıklaması", "Tanı veya ilaç içermez"].map((item) => (
-              <div key={item} className="flex items-center gap-3 rounded-[18px] bg-white/18 p-4">
-                <CheckCircle2 size={18} className="shrink-0" />
-                <p className="text-[14px] font-extrabold">{item}</p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.12} className="min-w-0">
-          <form onSubmit={handleSubmit} method="post" action="/api/checkup-request" className="rounded-[30px] bg-white p-5 shadow-[0_30px_80px_rgba(22,10,8,0.18)] md:p-7">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)]">
-                Adınız Soyadınız
-                <input name="parentName" required className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18]" placeholder="Adınız" />
-              </label>
-              <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)]">
-                Telefon Numaranız
-                <input name="phone" required inputMode="tel" className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18]" placeholder="05XX XXX XX XX" />
-              </label>
-              <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)]">
-                Yaşınız
-                <input name="participantAge" required inputMode="numeric" className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18]" placeholder="Örn. 34" />
-              </label>
-              <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)] sm:col-span-2">
-                Mesajınız / Hedefiniz
-                <textarea name="note" className="min-h-28 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 py-3 text-[16px] font-bold normal-case tracking-normal text-[#241D18]" placeholder="Odak, hafıza, sınav performansı, iş temposu veya Senior destek hedefinizi yazabilirsiniz." />
-              </label>
-            </div>
-
-            <input type="hidden" name="audience" value="adults" />
-            <input type="hidden" name="concern" value={selectedConcern} />
-
-            <button type="submit" disabled={submitState === "submitting"} className="arrow-shift mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#F5846E] px-6 text-[15px] font-extrabold text-white transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-70">
-              {submitState === "submitting" ? "Mesajınız İletiliyor..." : "Randevu İçin Beni Arayın"}
-              <ArrowUpRight size={18} />
-            </button>
-
-            {message ? (
-              <p className={`mt-4 rounded-[18px] px-4 py-3 text-[14px] font-extrabold leading-6 ${submitState === "success" ? "bg-[#F0F7F2] text-[#1B4332]" : "bg-[#FFF0D7] text-[#8C5038]"}`} role="status">
-                {message}
-              </p>
-            ) : null}
-
-            <p className="mt-4 flex items-start gap-2 text-[12px] font-semibold leading-5 text-[rgba(36,29,24,0.56)]">
-              <MapPin size={15} className="mt-0.5 shrink-0" />
-              BrainFit Karşıyaka ekibi, bu bilgileri yalnızca randevu planlaması için kullanır.
+    <section id="checkup-form" className="section-surface relative overflow-hidden py-[74px] md:py-[116px]">
+      <div className="inner">
+        <div className="section-cta-surface grid gap-10 rounded-[32px] px-5 py-8 sm:px-7 md:rounded-[40px] md:p-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+          <Reveal className="min-w-0">
+            <div className="badge border-[#160A08]/40 bg-white/20 text-[#160A08]">Ücretsiz Zihin Check-Up</div>
+            <h2 className="mt-7 max-w-full font-[var(--display)] text-[clamp(36px,9vw,86px)] font-bold leading-[0.96] tracking-normal md:max-w-[700px]">
+              İlk adımı net, düşük riskli ve anlaşılır tutalım.
+            </h2>
+            <p className="mt-7 max-w-[590px] text-[17px] font-semibold leading-8 text-[#160A08]/78">
+              Adınızı ve endişenizi bırakın; hafta içi 1-2 saat içinde WhatsApp veya telefonla arayarak ücretsiz Zihin Check-Up randevunuzu planlayalım. İlk görüşme yaklaşık 5 dakika sürer.
             </p>
-          </form>
-        </Reveal>
+
+            <motion.div layout className="mt-8 flex w-full max-w-[590px] items-center gap-3 rounded-full bg-white px-4 py-3 text-[14px] font-extrabold shadow-[0_16px_40px_rgba(22,10,8,0.12)] md:inline-flex md:w-auto">
+              <CheckCircle2 size={18} className="shrink-0 text-[#6BC862]" />
+              <span className="min-w-0 truncate">{selectedConcern}</span>
+            </motion.div>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {["45 dakikalık görüşme", "16 sayfalık rapor", "Uzman açıklaması", "Tanı veya ilaç içermez"].map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-[18px] bg-white/18 p-4">
+                  <CheckCircle2 size={18} className="shrink-0" />
+                  <p className="text-[14px] font-extrabold">{item}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.12} className="min-w-0">
+            <form onSubmit={handleSubmit} method="post" action="/api/checkup-request" className="rounded-[30px] bg-white p-5 shadow-[0_30px_80px_rgba(22,10,8,0.18)] md:p-7">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)]">
+                  Adınız Soyadınız
+                  <input name="parentName" required className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18]" placeholder="Adınız" />
+                </label>
+                <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)]">
+                  Telefon Numaranız
+                  <input name="phone" required inputMode="tel" className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18]" placeholder="05XX XXX XX XX" />
+                </label>
+                <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)]">
+                  Yaşınız
+                  <input name="participantAge" required inputMode="numeric" className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18]" placeholder="Örn. 34" />
+                </label>
+                <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)] sm:col-span-2">
+                  Mesajınız / Hedefiniz
+                  <textarea name="note" className="min-h-28 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 py-3 text-[16px] font-bold normal-case tracking-normal text-[#241D18]" placeholder="Odak, hafıza, sınav performansı, iş temposu veya Senior destek hedefinizi yazabilirsiniz." />
+                </label>
+              </div>
+
+              <input type="hidden" name="audience" value="adults" />
+              <input type="hidden" name="concern" value={selectedConcern} />
+
+              <button type="submit" disabled={submitState === "submitting"} className="arrow-shift mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#F5846E] px-6 text-[15px] font-extrabold text-white transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-70">
+                {submitState === "submitting" ? "Mesajınız İletiliyor..." : "Randevu İçin Beni Arayın"}
+                <ArrowUpRight size={18} />
+              </button>
+
+              {message ? (
+                <p className={`mt-4 rounded-[18px] px-4 py-3 text-[14px] font-extrabold leading-6 ${submitState === "success" ? "bg-[#F0F7F2] text-[#1B4332]" : "bg-[#FFF0D7] text-[#8C5038]"}`} role="status">
+                  {message}
+                </p>
+              ) : null}
+
+              <p className="mt-4 flex items-start gap-2 text-[12px] font-semibold leading-5 text-[rgba(36,29,24,0.56)]">
+                <MapPin size={15} className="mt-0.5 shrink-0" />
+                BrainFit Karşıyaka ekibi, bu bilgileri yalnızca randevu planlaması için kullanır.
+              </p>
+            </form>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

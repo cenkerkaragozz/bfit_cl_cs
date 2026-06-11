@@ -27,7 +27,7 @@ function formatDate(value?: string) {
 
 export function BlogSection({ posts }: { posts: PostCard[] }) {
   return (
-    <section className="section-pad bg-[var(--canvas)]">
+    <section className="section-pad section-surface">
       <div className="inner">
         <Reveal className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
           <h2 className="section-title max-w-[760px]">BrainFit’ten Güncel Yazılar</h2>

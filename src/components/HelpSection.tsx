@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Brain, CheckCircle2, MessageCircleHeart } from "lucide-react";
-import { Reveal, Squiggle } from "@/components/Decorations";
+import { Reveal } from "@/components/Decorations";
 
 const concerns = [
   "Ödevin başına geçmekte zorlanıyor veya sürekli erteliyor.",
@@ -40,7 +40,7 @@ type HelpSectionProps = {
 
 export function HelpSection({ selectedConcern, onSelectConcern }: HelpSectionProps) {
   return (
-    <section id="help" className="relative overflow-hidden bg-[var(--canvas)] py-[74px] md:py-[118px]">
+    <section id="help" className="section-surface relative overflow-hidden py-[74px] md:py-[118px]">
       <div className="inner grid gap-y-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:gap-x-12 lg:gap-y-0">
         <Reveal className="order-1 lg:col-start-1 lg:row-start-1">
           <div className="badge border-[#AAE8F6] text-[#1E99B5]">
@@ -53,7 +53,6 @@ export function HelpSection({ selectedConcern, onSelectConcern }: HelpSectionPro
 
         <Reveal className="order-3 lg:col-start-1 lg:row-start-2 lg:order-none lg:mt-8">
           <blockquote className="relative max-w-[680px] rounded-[28px] bg-white p-6 shadow-[0_18px_40px_rgba(36,29,24,0.12)] md:p-8">
-            <Squiggle className="absolute -right-3 top-4 hidden md:block" color="#FCBF48" />
             <span className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#F5927E]">
               İçinizden geçen soru
             </span>

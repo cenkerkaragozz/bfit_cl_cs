@@ -5,7 +5,6 @@ import {
   ArrowUpRight,
   Brain,
   BookOpen,
-  Heart,
   Lightbulb,
   Puzzle,
   Sparkles,
@@ -43,9 +42,9 @@ export function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative isolate overflow-hidden bg-[var(--canvas)] pt-[100px] md:pt-[106px] lg:pt-[112px]">
+    <section className="section-surface relative isolate overflow-hidden pt-[100px] md:pt-[106px] lg:pt-[112px]">
       <div
-        className="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(180deg,#FAF9F5_0%,#FAF9F5_72%,#F4F1EB_100%)]"
+        className="pointer-events-none absolute inset-0 -z-20 bg-[var(--canvas)]"
         aria-hidden="true"
       />
 
@@ -53,15 +52,15 @@ export function Hero() {
         <div className="relative z-20 max-w-[340px] pb-0 sm:max-w-[680px] lg:pb-8">
           <div className="badge gap-2 border-[#E06850] bg-white/70 text-[#C4533C] shadow-[0_10px_24px_rgba(36,29,24,0.06)] backdrop-blur">
             <span className="grid h-5 w-5 place-items-center rounded-full bg-[#F5927E] text-white" aria-hidden="true">
-              <Heart size={12} fill="currentColor" strokeWidth={2.5} />
+              <Brain size={12} fill="currentColor" strokeWidth={2.5} />
             </span>
-            BrainFit Karşıyaka
+            Bilişsel Gelişim · Karşıyaka
           </div>
 
           <h1 className="display mt-5 max-w-[16ch] text-[clamp(42px,5.4vw,62px)] text-[#160A08]">
             <span className="block">Çocuğunuzun</span>
             <span className="relative inline-block">
-              öğrenme potansiyelini
+              öğrenme profilini
               <HeroUnderline
                 animate={!reduceMotion}
                 className="absolute -bottom-5 left-[-6px] h-7 w-[min(100%,330px)] text-[#FCBF48] sm:-bottom-6 sm:w-[360px]"
@@ -72,11 +71,10 @@ export function Hero() {
 
           <div className="mt-6 max-w-[560px] md:mt-7">
             <p className="max-w-full text-[18px] font-semibold leading-8 text-[#241D18] md:text-[22px] md:leading-8">
-              Gelişim yolculuğuna nereden başlayacağımızı birlikte belirleyelim.
+              Dikkat dağınıklığı, hafıza güçlüğü ya da okul performansı — doğru adım için önce doğru soruyu sormak gerekir.
             </p>
             <p className="mt-3 text-[16px] font-medium leading-7 text-[rgba(36,29,24,0.72)] md:text-lg">
-              Zihin Check-Up ile çocuğunuzun dikkat,
-              hafıza ve öğrenme becerilerini bilimsel verilerle analiz edin.
+              Zihin Check-Up, çocuğunuzun bilişsel profilini 45 dakikada bilimsel verilerle ortaya koyar.
             </p>
             <a
               className="arrow-shift mt-7 inline-flex min-h-13 max-w-full items-center justify-center gap-2 rounded-full bg-[#F5927E] px-6 py-4 text-center text-[15px] font-extrabold leading-5 text-white shadow-[0_18px_36px_rgba(245,132,110,0.24)] transition hover:-translate-y-1 hover:bg-[#F99F8D] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F5927E] sm:px-7"

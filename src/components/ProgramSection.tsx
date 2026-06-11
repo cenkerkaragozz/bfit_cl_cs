@@ -34,7 +34,7 @@ const programs = [
 
 export function ProgramSection() {
   return (
-    <section id="services" className="bg-[#F4F1EB] py-[74px] md:py-[116px]">
+    <section id="services" className="section-surface-alt py-[74px] md:py-[116px]">
       <div className="inner">
         <Reveal className="text-center">
           <div className="badge border-[#AAE8F6] text-[#1E99B5]">Programlar</div>
@@ -51,12 +51,16 @@ export function ProgramSection() {
           {programs.map((program, index) => (
             <Reveal key={program.title} delay={index * 0.08}>
               <motion.article
-                className="group h-full overflow-hidden rounded-[28px] bg-white p-5 shadow-[0_18px_40px_rgba(36,29,24,0.12)]"
-                whileHover={{ y: -7 }}
-                transition={{ duration: 0.2 }}
+                className="group h-full overflow-hidden rounded-[28px] bg-white p-5"
+                whileHover={{
+                  y: -8,
+                  boxShadow: `0 32px 64px rgba(36,29,24,0.16), 0 0 0 1.5px ${program.color}80`,
+                }}
+                initial={{ boxShadow: "0 18px 40px rgba(36,29,24,0.12)" }}
+                transition={{ duration: 0.26, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div
-                  className="relative h-[210px] overflow-hidden rounded-[20px]"
+                  className="relative h-[210px] overflow-hidden rounded-[20px] transition-[filter] duration-300 group-hover:[filter:brightness(1.07)_saturate(1.1)]"
                   style={{ background: `${program.color}26` }}
                 >
                   <Image
@@ -66,9 +70,12 @@ export function ProgramSection() {
                     width={520}
                     height={320}
                     sizes="(max-width: 1024px) 90vw, 360px"
-                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                    className="h-full w-full object-cover transition duration-400 group-hover:scale-105"
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-white px-4 py-2 text-[13px] font-extrabold text-[#241D18] shadow-[0_10px_24px_rgba(36,29,24,0.08)]">
+                  <span
+                    className="absolute left-4 top-4 rounded-full bg-white px-4 py-2 text-[13px] font-extrabold text-[#241D18] shadow-[0_10px_24px_rgba(36,29,24,0.08)] transition-transform duration-[220ms] group-hover:scale-[1.07]"
+                    style={{ transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)" }}
+                  >
                     {program.age}
                   </span>
                 </div>
@@ -85,7 +92,7 @@ export function ProgramSection() {
                   </p>
                   <a
                     href="#checkup-form"
-                    className="arrow-shift mt-7 inline-flex items-center gap-2 text-[14px] font-extrabold text-[#1E99B5]"
+                    className="arrow-shift -ml-4 mt-7 inline-flex items-center gap-2 rounded-full px-4 py-2 text-[14px] font-extrabold text-[#1E99B5] transition-[background,padding-right] duration-200 hover:bg-[rgba(30,153,181,0.09)] hover:pr-5"
                   >
                     Zihin Check-Up Randevusu Alın
                     <ArrowUpRight size={17} />

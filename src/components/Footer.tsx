@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowUpRight, Globe2, Menu, MessageCircle, Send, Users } from "lucide-react";
-import { LogoMark } from "@/components/Decorations";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -49,8 +49,13 @@ export function Footer() {
 
           <div className="lg:pl-12">
             <div className="flex items-center gap-3">
-              <LogoMark className="h-12 w-12" />
-              <span className="text-[28px] font-extrabold">BrainFit</span>
+              <Image
+                src="/images/BF_Logo_CMYK.png"
+                alt="BrainFit"
+                width={1377}
+                height={146}
+                className="h-auto w-[210px] sm:w-[250px]"
+              />
             </div>
             <div className="badge mt-10 border-white/50 text-[var(--yellow)]">
               30&apos;lu Yaşlarda Zihinsel Sağlık

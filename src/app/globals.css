@@ -423,8 +423,7 @@ h3 {
 
 /* ── Adult audience section ── */
 .adult-audience-section {
-  background:
-    linear-gradient(90deg, color-mix(in srgb, #eff8fd 48%, #ffffff) 0%, #ffffff 62%);
+  background: var(--canvas);
   isolation: isolate;
 }
 
@@ -439,14 +438,14 @@ h3 {
 .adult-audience-section::before {
   z-index: 0;
   background: url("/images/ribbon2.png") center center / cover no-repeat;
-  opacity: 1;
+  opacity: 0.9;
 }
 
 .adult-audience-section::after {
   z-index: 1;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.38) 0%, rgba(250, 249, 245, 0.12) 44%, rgba(255, 255, 255, 0.3) 100%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 46%, rgba(255, 255, 255, 0.18) 100%);
+    linear-gradient(180deg, rgba(250, 249, 245, 0.48) 0%, rgba(250, 249, 245, 0.14) 44%, rgba(250, 249, 245, 0.5) 100%),
+    linear-gradient(90deg, rgba(250, 249, 245, 0.42) 0%, rgba(250, 249, 245, 0.08) 46%, rgba(250, 249, 245, 0.44) 100%);
 }
 
 .adult-audience-section > .inner {
@@ -458,17 +457,17 @@ h3 {
   .adult-audience-section::before {
     background-position: 48% center;
     background-size: auto 112%;
-    opacity: 0.96;
+    opacity: 0.78;
   }
 
   .adult-audience-section::after {
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.54) 0%, rgba(250, 249, 245, 0.18) 48%, rgba(255, 255, 255, 0.44) 100%);
+      linear-gradient(180deg, rgba(250, 249, 245, 0.62) 0%, rgba(250, 249, 245, 0.2) 48%, rgba(250, 249, 245, 0.64) 100%);
   }
 }
 
 /* ── CheckupJourneySection ── */
-.ckj-section { background: #fef9f5; padding: clamp(74px, 8vw, 116px) 0; }
+.ckj-section { background: var(--canvas); padding: clamp(74px, 8vw, 116px) 0; }
 .ckj-badge { display: inline-flex; align-items: center; min-height: 30px; border: 1px solid rgba(22,76,53,0.3); border-radius: 999px; padding: 6px 15px; color: #164c35; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; background: rgba(22,76,53,0.05); }
 .ckj-layout { display: grid; grid-template-columns: 43fr 57fr; gap: clamp(40px, 6vw, 80px); align-items: start; margin-top: 28px; }
 .ckj-panel { position: sticky; top: 120px; }
@@ -514,6 +513,19 @@ h3 {
 
 .section-pad {
   padding: clamp(76px, 8vw, 126px) 0;
+}
+
+.section-surface {
+  background: var(--canvas);
+}
+
+.section-surface-alt {
+  background: var(--paper);
+}
+
+.section-cta-surface {
+  background: var(--coral);
+  color: var(--cta);
 }
 
 .section-title {
@@ -632,7 +644,7 @@ h3 {
 @keyframes pv4-float2 { 0%,100%{transform:rotate(0.5deg) translateY(4.8px)} 50%{transform:rotate(0.5deg) translateY(3.4px)} }
 @keyframes pv4-float3 { 0%,100%{transform:rotate(-0.8deg) translateY(2px)} 50%{transform:rotate(-0.8deg) translateY(0.8px)} }
 
-section.pv4 { background:#f4f1eb; padding:clamp(76px,8vw,112px) 0; }
+section.pv4 { background:var(--paper); padding:clamp(76px,8vw,112px) 0; }
 .pv4-hdr { text-align:center; margin-bottom:64px; }
 .pv4-badge { font-family:var(--body); font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#164c35; display:block; margin-bottom:18px; }
 .pv4-h2 { font-family:var(--display); font-size:clamp(36px,4.5vw,58px); font-weight:700; line-height:.97; color:#241d18; text-wrap:balance; }

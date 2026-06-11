@@ -33,14 +33,20 @@ export function CheckUpSection() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="checkup" className="relative overflow-hidden bg-white py-[76px] md:py-[118px]">
+    <section id="checkup" className="section-surface relative overflow-hidden py-[76px] md:py-[118px]">
       <div className="inner grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <Reveal className="relative">
           <div className="badge border-[#40CEEE] text-[#1E99B5]">Zihin Check-Up</div>
-          <h2 className="section-title mt-7 max-w-[680px]">
+          <h2
+            className="section-title mt-7 max-w-[620px]"
+            style={{ fontSize: "clamp(44px, 5.2vw, 68px)" }}
+          >
             45 Dakikada Bilimsel Bir Başlangıç
           </h2>
-          <p className="body-copy mt-7 max-w-[580px]">
+          <p
+            className="body-copy mt-6 max-w-[540px]"
+            style={{ fontSize: "clamp(16px, 1.4vw, 18px)", lineHeight: "1.78" }}
+          >
             Çocuğunuza daha fazla yüklenmeden önce, öğrenme süreçlerindeki
             engelleri tespit ediyoruz. Görüşme sonunda mevcut durumu size somut
             verilerle sunuyoruz.

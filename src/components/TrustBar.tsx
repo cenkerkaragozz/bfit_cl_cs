@@ -18,14 +18,14 @@ const items: TrustItem[] = [
   { value: "4.6/5", label: "Google veli puanı", icon: Star, accent: "#D49210" },
   { value: "48.000+", label: "BrainFit ailesi", icon: Users, accent: "#1E99B5" },
   { value: "%93", label: "Memnuniyet oranı", icon: TrendingUp, accent: "#3F9B5E" },
-  { value: "Karşıyaka", label: "Yüz yüze merkez · KVKK", icon: ShieldCheck, accent: "#C4533C" },
+  { value: "Karşıyaka", label: "Yüz yüze merkez", icon: ShieldCheck, accent: "#C4533C" },
 ];
 
 export function TrustBar() {
   return (
     <section
       aria-label="Güven göstergeleri"
-      className="relative z-30 bg-[linear-gradient(180deg,#F4F1EB_0%,#FAF9F5_100%)]"
+      className="section-surface relative z-30"
     >
       <div className="inner py-6 md:py-8">
         <Reveal>
