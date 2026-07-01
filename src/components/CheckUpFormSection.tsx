@@ -74,6 +74,15 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
               <CheckCircle2 size={18} className="shrink-0 text-[#164C35]" />
               <span className="min-w-0 truncate">{selectedConcern}</span>
             </motion.div>
+
+            <div className="mt-7 grid gap-3 sm:grid-cols-2 md:mt-8">
+              {["45 dakikalık görüşme", "16 sayfalık rapor", "Uzman açıklaması", "Tanı veya ilaç içermez"].map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-[18px] bg-white/18 p-4">
+                  <CheckCircle2 size={18} className="shrink-0 text-[#164C35]" />
+                  <p className="text-[14px] font-extrabold text-[#160A08]">{item}</p>
+                </div>
+              ))}
+            </div>
           </Reveal>
 
           <Reveal delay={0.12} className="min-w-0">
@@ -128,7 +137,7 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
               <button
                 type="submit"
                 disabled={submitState === "submitting"}
-                className="arrow-shift mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#F5927E] px-6 text-[15px] font-extrabold text-white shadow-[0_18px_36px_rgba(245,132,110,0.24)] transition hover:-translate-y-1 hover:bg-[#F99F8D] disabled:cursor-not-allowed disabled:opacity-70"
+                className="arrow-shift mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#164C35] px-6 text-[15px] font-extrabold text-white shadow-[0_18px_36px_rgba(22,76,53,0.24)] transition hover:-translate-y-1 hover:bg-[#1E5F44] disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {submitState === "submitting" ? "Mesajınız İletiliyor..." : "Bilgi Almak İstiyorum"}
                 <ArrowUpRight size={18} />

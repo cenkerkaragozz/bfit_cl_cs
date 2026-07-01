@@ -29,8 +29,8 @@ export function Header({ audience = "children" }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = audience === "adults" ? adultNavItems : childNavItems;
   const cta = audience === "adults"
-    ? { label: "Check-Up Randevusu", href: "#checkup-form" }
-    : { label: "Yetişkin Programı", href: "/yetiskinler" };
+    ? { label: "Check-Up Randevusu", shortLabel: "Randevu", href: "#checkup-form" }
+    : { label: "Yetişkin Programı", shortLabel: "Yetişkinler", href: "/yetiskinler" };
 
   return (
     <header className="pointer-events-none sticky top-0 z-50 h-0">
@@ -39,7 +39,7 @@ export function Header({ audience = "children" }: HeaderProps) {
           className="main-nav mx-auto flex min-h-[72px] max-w-[1110px] items-center justify-between gap-4 rounded-b-[30px] rounded-t-[18px] bg-white/95 px-5 shadow-[0_18px_50px_rgba(36,29,24,0.08)] backdrop-blur"
           aria-label="Primary navigation"
         >
-          <Link className="flex min-w-0 items-center" href="/" aria-label="BrainFit ana sayfa">
+          <Link className="header-logo flex min-w-0 items-center" href="/" aria-label="BrainFit ana sayfa">
             <Image
               src="/images/BF_Logo_CMYK.png"
               alt="BrainFit"
@@ -58,9 +58,18 @@ export function Header({ audience = "children" }: HeaderProps) {
             ))}
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="header-actions flex items-center gap-3">
+            <Link
+              className={`pill-button arrow-shift ${audience === "adults" ? "header-cta-amber" : "header-cta !bg-[#E86F5B] !shadow-[0_12px_26px_rgba(232,111,91,0.28)] hover:!bg-[#F5927E]"}`}
+              href={cta.href}
+              aria-label={cta.label}
+            >
+              <span className="header-cta-label-full">{cta.label}</span>
+              <span className="header-cta-label-short">{cta.shortLabel}</span>
+              <ArrowUpRight size={16} />
+            </Link>
             <button
-              className="grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-white"
+              className="grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-white lg:hidden"
               type="button"
               aria-label={isMenuOpen ? "Menüyü Kapat" : "Menüyü Aç"}
               aria-controls="mobile-navigation"
@@ -69,10 +78,6 @@ export function Header({ audience = "children" }: HeaderProps) {
             >
               {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
-            <Link className={`pill-button arrow-shift ${audience === "adults" ? "header-cta-amber" : "header-cta"}`} href={cta.href}>
-              {cta.label}
-              <ArrowUpRight size={16} />
-            </Link>
           </div>
         </nav>
 

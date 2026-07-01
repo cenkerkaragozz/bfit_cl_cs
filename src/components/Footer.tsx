@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Globe2, Menu, MessageCircle, Send, Users } from "lucide-react";
+import { ArrowUpRight, Globe2, MessageCircle, Send, Users } from "lucide-react";
 import Image from "next/image";
 
 export function Footer() {
@@ -16,19 +16,6 @@ export function Footer() {
               <a href="#services">Hizmetlerimiz</a>
               <a href="#clinics">Merkezlerimiz</a>
               <a href="#treatments">Programlarımız</a>
-              <button
-                type="button"
-                className="rounded-full border border-white/20 px-4 py-2 font-extrabold text-white"
-              >
-                TR
-              </button>
-              <button
-                type="button"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/20"
-                aria-label="Alt Menüyü Aç"
-              >
-                <Menu size={18} />
-              </button>
             </nav>
 
             <div className="mt-20 grid max-w-[520px] grid-cols-2 gap-8 border-t border-white/12 pt-10">

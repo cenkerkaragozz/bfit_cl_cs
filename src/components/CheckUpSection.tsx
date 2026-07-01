@@ -51,7 +51,7 @@ export function CheckUpSection() {
             engelleri tespit ediyoruz. Görüşme sonunda mevcut durumu size somut
             verilerle sunuyoruz.
           </p>
-          <a className="pill-button arrow-shift mt-8" href="#checkup-form">
+          <a className="pill-button arrow-shift mt-8 !bg-[#E86F5B] text-white !shadow-[0_18px_36px_rgba(232,111,91,0.28)] hover:!bg-[#F5927E]" href="#checkup-form">
             Zihin Check-Up Başvurusu
             <ArrowUpRight size={16} />
           </a>

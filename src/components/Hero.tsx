@@ -51,7 +51,7 @@ export function Hero() {
       <div className="inner relative z-10 grid gap-10 pb-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:pb-16 xl:grid-cols-[0.86fr_1.14fr]">
         <div className="relative z-20 max-w-[340px] pb-0 sm:max-w-[680px] lg:pb-8">
           <div className="badge gap-2 border-[#E06850] bg-white/70 text-[#C4533C] shadow-[0_10px_24px_rgba(36,29,24,0.06)] backdrop-blur">
-            <span className="grid h-5 w-5 place-items-center rounded-full bg-[#FF6720] text-white" aria-hidden="true">
+            <span className="grid h-5 w-5 place-items-center rounded-full bg-[#F5927E] text-white" aria-hidden="true">
               <Brain size={12} fill="currentColor" strokeWidth={2.5} />
             </span>
             Bilişsel Gelişim · Karşıyaka
@@ -77,7 +77,7 @@ export function Hero() {
               Zihin Check-Up, çocuğunuzun bilişsel profilini 45 dakikada bilimsel verilerle ortaya koyar.
             </p>
             <a
-              className="arrow-shift mt-7 inline-flex min-h-13 max-w-full items-center justify-center gap-2 rounded-full bg-[#FF6720] px-6 py-4 text-center text-[15px] font-extrabold leading-5 text-white shadow-[0_18px_36px_rgba(255,103,32,0.28)] transition hover:-translate-y-1 hover:bg-[#FF7A33] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF6720] sm:px-7"
+              className="arrow-shift mt-7 inline-flex min-h-13 max-w-full items-center justify-center gap-2 rounded-full bg-[#E86F5B] px-6 py-4 text-center text-[15px] font-extrabold leading-5 text-white shadow-[0_18px_36px_rgba(232,111,91,0.28)] transition hover:-translate-y-1 hover:bg-[#F5927E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E86F5B] sm:px-7"
               href="#checkup-form"
             >
               <span>Zihin Check-Up Randevusu Al</span>
