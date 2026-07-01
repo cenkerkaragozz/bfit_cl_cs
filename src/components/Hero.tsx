@@ -131,18 +131,18 @@ export function Hero() {
           </div>
 
           <motion.div
-            className="absolute left-[5%] top-[48%] z-50 max-w-[260px] rounded-[30px] border border-white/80 bg-white/92 p-5 shadow-[0_18px_40px_rgba(36,29,24,0.12)] backdrop-blur md:left-[8%] md:top-[48%] md:max-w-[286px] md:p-6"
+            className="absolute left-[5%] top-[48%] z-50 max-w-[226px] rounded-[24px] border border-white/80 bg-white/92 p-4 shadow-[0_18px_40px_rgba(36,29,24,0.12)] backdrop-blur md:left-[8%] md:top-[48%] md:max-w-[286px] md:rounded-[30px] md:p-6"
             animate={reduceMotion ? undefined : { y: [0, -8, 0] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
           >
-            <div className="grid h-9 w-9 place-items-center rounded-full bg-[#FFF0D7] text-[#E06850]" aria-hidden="true">
-              <Sparkles size={18} strokeWidth={2.6} />
+            <div className="grid h-8 w-8 place-items-center rounded-full bg-[#FFF0D7] text-[#E06850] md:h-9 md:w-9" aria-hidden="true">
+              <Sparkles size={16} strokeWidth={2.6} className="md:size-[18px]" />
             </div>
-            <p className="mt-3 text-[17px] font-extrabold leading-7 text-[#241D18] md:text-[19px] md:leading-8">
+            <p className="mt-2.5 text-[15px] font-extrabold leading-6 text-[#241D18] md:mt-3 md:text-[19px] md:leading-8">
               Her çocuğun{" "}
               <span className="text-[#164C35]">keşfedilmeyi</span> bekleyen eşsiz bir potansiyeli vardır.
             </p>
-            <span className="mt-3 block h-1.5 w-16 rounded-full bg-[#B8E485]" aria-hidden="true" />
+            <span className="mt-2.5 block h-1.5 w-14 rounded-full bg-[#B8E485] md:mt-3 md:w-16" aria-hidden="true" />
           </motion.div>
         </div>
       </div>

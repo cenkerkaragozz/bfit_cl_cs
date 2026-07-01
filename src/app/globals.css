@@ -362,6 +362,10 @@ h3 {
 }
 
 @media (max-width: 1023px) {
+  .header-cta-amber {
+    display: none;
+  }
+
   .v4::after {
     background-position: center bottom;
     background-size: auto 100%;
