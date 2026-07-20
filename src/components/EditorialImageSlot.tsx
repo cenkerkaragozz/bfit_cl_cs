@@ -29,7 +29,9 @@ export function EditorialImageSlot({
     | "C-PHOTO-03"
     | "C-PHOTO-04"
     | "A-PHOTO-01"
-    | "A-PHOTO-02";
+    | "A-PHOTO-02"
+    | "A-PHOTO-03"
+    | "A-PHOTO-04";
   altPlan: string;
   tone: keyof typeof tones;
 }) {

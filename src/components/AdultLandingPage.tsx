@@ -12,7 +12,9 @@ import {
   ChevronDown,
   CircleDot,
   GraduationCap,
+  ListChecks,
   MemoryStick,
+  Sparkles,
   XCircle,
 } from "lucide-react";
 import { CheckUpSection } from "@/components/CheckUpSection";
@@ -50,6 +52,36 @@ const contexts = [
     more: [],
     explanation:
       "Günlük unutkanlıkların ne anlama geldiğini tek bir cümleyle söylemek mümkün değildir. Bilişsel profil, yaşadığınız değişimi daha düzenli biçimde ele almanıza yardımcı olabilir.",
+  },
+  {
+    id: "planning",
+    label: "Günlük planlama",
+    icon: ListChecks,
+    primary: true,
+    main: "Günlük işlerimi planlayıp sırasıyla yürütmek eskisinden zor geliyor.",
+    support: [
+      "Birden fazla adımı olan işlerde sırayı karıştırıyorum.",
+      "Karar vermek ve başladığım işi bitirmek daha uzun sürüyor.",
+    ],
+    more: [
+      "Gün içinde yapacaklarımı toparlamak için daha fazla çaba harcıyorum.",
+    ],
+    explanation:
+      "Planlama, sıralama ve dikkati sürdürme günlük yaşamda farklı bilişsel becerileri birlikte kullanır. Bilişsel profil, zorlandığınız alanları daha düzenli biçimde ele almanıza yardımcı olabilir.",
+  },
+  {
+    id: "active-mind",
+    label: "Zihni aktif tutma",
+    icon: Sparkles,
+    primary: true,
+    main: "Belirgin bir sorunum yok; zihnimi aktif tutmak istiyorum.",
+    support: [
+      "Yaş alırken zihinsel çevikliğimi daha yakından tanımak istiyorum.",
+      "Yeni şeyler öğrenmeye devam etmek istiyorum.",
+    ],
+    more: ["Zihinsel performansımın bugünkü durumunu merak ediyorum."],
+    explanation:
+      "Zihin Check-Up yalnızca belirgin bir zorlanma yaşayanlar için değildir. Mevcut bilişsel profilinizi tanımak ve kişisel egzersiz planınızı buna göre şekillendirmek isteyenler için de bir başlangıç olabilir.",
   },
   {
     id: "learning",
@@ -182,15 +214,46 @@ function AdultContextVisual({ id }: { id: ContextId }) {
     );
   }
 
+  if (id === "planning") {
+    return (
+      <EditorialImageSlot
+        assetId="A-PHOTO-03"
+        tone="coral"
+        altPlan="Aydınlık bir ev ortamında ajandasını düzenleyerek gününü planlayan ileri yaştaki bir yetişkin."
+      />
+    );
+  }
+
+  if (id === "active-mind") {
+    return (
+      <EditorialImageSlot
+        assetId="A-PHOTO-04"
+        tone="forest"
+        altPlan="Günlük yaşamında yeni bir şey öğrenirken meraklı ve aktif görünen ileri yaştaki bir yetişkin."
+      />
+    );
+  }
+
+  const visualCopy =
+    id === "learning"
+      ? {
+          label: "Öğrenme anı",
+          message: "Bilmek ile zamanında kullanmak aynı şey olmayabilir.",
+        }
+      : {
+          label: "Günlük iş akışı",
+          message: "Zihin aynı anda çok fazla şeyi taşımaya çalışıyor olabilir.",
+        };
+
   return (
     <div className="relative min-h-[230px] overflow-hidden rounded-[28px] bg-[#F0F7F2] p-6">
       <div className="absolute -right-8 -top-8 h-36 w-36 rounded-full border-[24px] border-[#D9F8A8]" aria-hidden="true" />
       <div className="relative flex min-h-[180px] flex-col justify-end">
         <p className="text-[11px] font-extrabold uppercase tracking-[0.13em] text-[#164C35]">
-          {id === "learning" ? "Öğrenme anı" : "Günlük iş akışı"}
+          {visualCopy.label}
         </p>
         <p className="display mt-3 max-w-[360px] text-[34px] leading-[1.02] text-[#241D18]">
-          {id === "learning" ? "Bilmek ile zamanında kullanmak aynı şey olmayabilir." : "Zihin aynı anda çok fazla şeyi taşımaya çalışıyor olabilir."}
+          {visualCopy.message}
         </p>
       </div>
     </div>
@@ -214,7 +277,7 @@ function AudienceSection() {
       <div className="inner">
         <div className="max-w-[830px]">
           <div className="badge border-[#FCBF48] bg-[#FFF7E8] text-[#8C5038]">Kendinize kulak verin</div>
-          <h2 className="section-title mt-7">Son zamanlarda siz de bunları yaşıyor musunuz?</h2>
+          <h2 className="section-title mt-7">Zihninizle ilgili neyi daha iyi anlamak istiyorsunuz?</h2>
           <p className="body-copy mt-5 max-w-[680px]">
             Size en yakın gelen başlığa dokunun. Bu seçim bir test değil; yalnızca yaşadıklarınızı daha kolay anlatmanıza yardımcı olur.
           </p>
@@ -234,7 +297,7 @@ function AudienceSection() {
             onClick={() => setOtherOpen((open) => !open)}
             className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[rgba(36,29,24,0.14)] bg-white px-4 text-[13px] font-extrabold text-[#241D18] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#164C35]"
           >
-            Diğer durumlara bakın
+            Sınav ve iş hayatı için
             <ChevronDown className={`transition-transform duration-200 ${otherOpen ? "rotate-180" : ""}`} size={16} aria-hidden="true" />
           </button>
           <AnimatePresence initial={false}>
