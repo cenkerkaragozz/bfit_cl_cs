@@ -386,10 +386,6 @@ li {
 }
 
 @media (max-width: 1023px) {
-  .header-cta-amber {
-    display: none;
-  }
-
   .v4::after {
     background-position: center bottom;
     background-size: auto 100%;
@@ -712,14 +708,18 @@ li {
     gap: 8px;
   }
 
-  .header-cta {
+  .header-cta,
+  .header-cta-amber {
     min-height: 40px;
     min-width: 0;
     gap: 6px;
-    background: var(--coral-action);
-    color: var(--cta);
     padding-inline: 12px;
     font-size: 12px;
+  }
+
+  .header-cta {
+    background: var(--coral-action);
+    color: var(--cta);
     box-shadow: 0 10px 22px rgba(232, 111, 91, 0.24);
   }
 
@@ -727,7 +727,17 @@ li {
     background: var(--coral-action-hover);
   }
 
-  .header-cta svg {
+  .header-cta-amber {
+    background: #fcbf48;
+    color: #160a08;
+  }
+
+  .header-cta-amber:hover {
+    background: #fdd060;
+  }
+
+  .header-cta svg,
+  .header-cta-amber svg {
     width: 14px;
     height: 14px;
   }
