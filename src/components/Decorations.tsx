@@ -383,9 +383,10 @@ export function Leaf({ className = "" }: { className?: string }) {
       aria-hidden="true"
     >
       <path
-        d="M53.5 99C60.7 68.4 76.2 43 99 14"
+        d="M53.5 99C54.5 83.5 54.7 65.8 49 47.5M54.4 79.5C49.2 77.7 44.9 75.5 40 72M53.8 64.8C58.5 61.5 62.5 57.7 66.8 53.5"
         stroke="#164C35"
         strokeLinecap="round"
+        strokeLinejoin="round"
         strokeWidth="4"
       />
       <path

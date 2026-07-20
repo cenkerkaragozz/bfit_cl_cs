@@ -318,7 +318,7 @@ function AudienceSection() {
         <div className="mt-6 flex items-start gap-3 rounded-[22px] bg-[#F0F7F2] p-5 text-[#164C35]">
           <CircleDot className="mt-0.5 shrink-0" size={20} aria-hidden="true" />
           <p className="text-[14px] font-extrabold leading-6">
-            Bu deneyimler tek başına bir tanı anlamına gelmez. Zihin Check-Up tıbbi tanı koymaz; bilişsel profilinizi anlamanıza yardımcı olan bir değerlendirmedir.
+            Bu deneyimler her zaman bir tanıya işaret etmeyebilir. Zihin Check-Up, tıbbi tanı yerine bilişsel profilinizi daha yakından tanımanıza yardımcı olan bir değerlendirme sunar.
           </p>
         </div>
       </div>

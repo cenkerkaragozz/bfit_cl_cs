@@ -108,7 +108,7 @@ function HomeworkFlow() {
     >
       <span
         aria-hidden="true"
-        className="absolute left-10 top-[72px] h-[calc(100%-112px)] w-0.5 bg-[#FCBF48] sm:left-[25%] sm:top-[54px] sm:h-0.5 sm:w-1/2"
+        className="absolute left-10 top-[72px] h-[calc(100%-112px)] w-0.5 bg-[#FCBF48] sm:top-[39px] sm:h-0.5 sm:w-[calc(50%-10px)]"
       />
       {[
         ["01", "Başlamak", "Masaya oturması saatler sürüyor."],
@@ -185,20 +185,7 @@ function BehaviorStrip() {
   );
 }
 
-function ContextVisual({ concernId }: { concernId: ConcernId }) {
-  if (concernId === "exam") {
-    return (
-      <EditorialImageSlot
-        assetId="C-PHOTO-01"
-        tone="coral"
-        altPlan="Evde çalışma masasındaki soruyu çözen bir öğrenci ve onu uzaktan gözlemleyen ebeveyn."
-      />
-    );
-  }
-
-  if (concernId === "homework") return <HomeworkFlow />;
-  if (concernId === "behavior") return <BehaviorStrip />;
-
+function AttentionFlow() {
   return (
     <div className="relative overflow-hidden rounded-[26px] bg-[#EFF8FD] p-6" aria-hidden="true">
       <div className="flex items-center gap-3">
@@ -217,6 +204,48 @@ function ContextVisual({ concernId }: { concernId: ConcernId }) {
         Dikkat bir anda başka yöne kayabiliyor.
       </p>
     </div>
+  );
+}
+
+function ContextDetail({ concernId }: { concernId: ConcernId }) {
+  if (concernId === "homework") return <HomeworkFlow />;
+  if (concernId === "behavior") return <BehaviorStrip />;
+  if (concernId === "attention") return <AttentionFlow />;
+
+  return null;
+}
+
+function ConcernImage({ concernId }: { concernId: ConcernId }) {
+  const imageByConcern = {
+    exam: {
+      assetId: "C-PHOTO-01",
+      tone: "coral",
+      altPlan: "Evde çalışma masasındaki soruyu çözen bir öğrenci ve onu uzaktan gözlemleyen ebeveyn.",
+    },
+    homework: {
+      assetId: "C-PHOTO-02",
+      tone: "amber",
+      altPlan: "Ödevinin başında çalışmaya hazırlanan bir çocuk ve düzenli çalışma masası.",
+    },
+    behavior: {
+      assetId: "C-PHOTO-03",
+      tone: "forest",
+      altPlan: "Okul ortamında öğretmeni ve arkadaşlarıyla etkileşim kuran bir çocuk.",
+    },
+    attention: {
+      assetId: "C-PHOTO-04",
+      tone: "coral",
+      altPlan: "Dikkatini yaptığı etkinlik üzerinde tutmaya çalışan bir çocuk.",
+    },
+  } as const;
+  const image = imageByConcern[concernId];
+
+  return (
+    <EditorialImageSlot
+      assetId={image.assetId}
+      tone={image.tone}
+      altPlan={image.altPlan}
+    />
   );
 }
 
@@ -288,7 +317,7 @@ export function HelpSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={reduceMotion ? undefined : { opacity: 0, y: -6 }}
               transition={{ duration: reduceMotion ? 0 : 0.24, ease: [0.2, 0.8, 0.2, 1] }}
-              className="grid overflow-hidden rounded-[30px] bg-white p-5 shadow-[0_24px_70px_rgba(36,29,24,0.1)] md:p-7 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-9"
+              className="grid overflow-hidden rounded-[30px] bg-white p-5 shadow-[0_24px_70px_rgba(36,29,24,0.1)] md:p-7 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:gap-9"
             >
               <div className="py-2">
                 <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#C4533C]">
@@ -342,10 +371,16 @@ export function HelpSection() {
                 <p className="mt-6 max-w-[680px] border-l-4 border-[#AAE8F6] pl-4 text-[15px] font-semibold leading-7 text-[rgba(36,29,24,0.72)]">
                   {selected.explanation}
                 </p>
+
+                {selected.id !== "exam" ? (
+                  <div className="mt-6">
+                    <ContextDetail concernId={selected.id} />
+                  </div>
+                ) : null}
               </div>
 
               <div className="mt-7 lg:mt-0">
-                <ContextVisual concernId={selected.id} />
+                <ConcernImage concernId={selected.id} />
               </div>
             </motion.article>
           </AnimatePresence>

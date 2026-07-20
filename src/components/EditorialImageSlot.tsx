@@ -23,7 +23,13 @@ export function EditorialImageSlot({
   altPlan,
   tone,
 }: {
-  assetId: "C-PHOTO-01" | "A-PHOTO-01" | "A-PHOTO-02";
+  assetId:
+    | "C-PHOTO-01"
+    | "C-PHOTO-02"
+    | "C-PHOTO-03"
+    | "C-PHOTO-04"
+    | "A-PHOTO-01"
+    | "A-PHOTO-02";
   altPlan: string;
   tone: keyof typeof tones;
 }) {

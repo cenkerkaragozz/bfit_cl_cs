@@ -11,19 +11,24 @@ type TestimonialAudience = "children" | "adults";
 const testimonialGroups = {
   children: [
     {
-      lead: "Zihin Check-Up sonrasında durumu çok daha ",
-      highlight: "net",
-      tail: " gördük.",
-    },
-    {
-      lead: "Görüşmemizin sonrasında içimiz çok daha ",
-      highlight: "rahatladı",
+      lead: "Ödev başında yaşadığımız zorlanmanın yalnızca isteksizlik olmadığını ",
+      highlight: "fark ettik",
       tail: ".",
     },
     {
-      lead: "BrainFit artık kendimizi daha ",
-      highlight: "hazır",
-      tail: " hissediyoruz.",
+      lead: "Check-Up sonrasında hangi alanlara odaklanmamız gerektiği bizim için ",
+      highlight: "netleşti",
+      tail: ".",
+    },
+    {
+      lead: "Süreç ilerledikçe çocuğumuz ders başında daha ",
+      highlight: "uzun süre",
+      tail: " kalmaya başladı.",
+    },
+    {
+      lead: "Uzmanın raporu sade bir şekilde açıklaması kafamızdaki birçok soruyu ",
+      highlight: "yanıtladı",
+      tail: ".",
     },
   ],
   adults: [
@@ -41,6 +46,11 @@ const testimonialGroups = {
       lead: "BrainFit sürecinde zihinsel çalışma düzenimi daha ",
       highlight: "bilinçli",
       tail: " takip etmeye başladım.",
+    },
+    {
+      lead: "Raporu uzmanla değerlendirdikten sonra günlük çalışma planımı daha ",
+      highlight: "gerçekçi",
+      tail: " kurmaya başladım.",
     },
   ],
 } as const;
@@ -79,7 +89,7 @@ function Testimonials({
 
     const timer = window.setInterval(() => {
       setActive((current) => (current + 1) % testimonialGroups[audience].length);
-    }, 2500);
+    }, 3125);
 
     return () => window.clearInterval(timer);
   }, [audience, reduceMotion]);
