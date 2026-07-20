@@ -40,16 +40,16 @@ export function ChildFaqSection() {
       <div className="inner">
         <div className="max-w-[760px]">
           <div className="badge border-[#6BC862] text-[#164C35]">Hizmet kapsamı</div>
-          <h2 className="section-title mt-7">Ne sunduğumuzu açıkça anlatalım.</h2>
+          <h2 className="section-title mt-7">Neler sunduğumuz ve sunmadığımız konusunda şeffafız.</h2>
         </div>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           <div className="rounded-[28px] bg-[#F0F7F2] p-6 md:p-8">
             <h3 className="text-[25px] font-extrabold text-[#164C35]">Ne yapıyoruz?</h3>
             <ul className="mt-6 grid gap-3">
-              {["Çocuğunuzun bilişsel profilini değerlendiriyoruz", "İhtiyaçlarına göre kişisel egzersiz planı oluşturuyoruz"].map((item) => (
-                <li key={item} className="flex items-start gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold leading-6 text-[#241D18]">
-                  <CheckCircle2 className="mt-0.5 shrink-0 text-[#6BC862]" size={19} aria-hidden="true" />
+              {["Bilişsel profil değerlendirmesi", "Kişiye özel egzersiz planı"].map((item) => (
+                <li key={item} className="flex items-center gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold text-[#241D18]">
+                  <CheckCircle2 className="shrink-0 text-[#6BC862]" size={19} aria-hidden="true" />
                   {item}
                 </li>
               ))}
@@ -59,7 +59,7 @@ export function ChildFaqSection() {
           <div className="rounded-[28px] bg-[#FEF9F5] p-6 md:p-8">
             <h3 className="text-[25px] font-extrabold text-[#8C5038]">Ne yapmıyoruz?</h3>
             <ul className="mt-6 grid gap-3">
-              {["Tıbbi tanı koymuyoruz", "İlaç önermiyor veya mevcut tedavinin yerine geçmiyoruz", "Sonuç garantisi vermiyoruz"].map((item) => (
+              {["Tıbbi tanı koymuyoruz", "İlaç önermiyor veya mevcut tedavinin yerine geçmiyoruz"].map((item) => (
                 <li key={item} className="flex items-start gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold leading-6 text-[#241D18]">
                   <XCircle className="mt-0.5 shrink-0 text-[#F5927E]" size={19} aria-hidden="true" />
                   {item}
