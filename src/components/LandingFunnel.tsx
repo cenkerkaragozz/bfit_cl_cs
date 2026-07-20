@@ -1,4 +1,5 @@
 import { CheckUpFormSection } from "@/components/CheckUpFormSection";
+import { CheckUpShowcaseSection } from "@/components/CheckUpShowcaseSection";
 import { CheckUpSection } from "@/components/CheckUpSection";
 import { ConfidenceSection } from "@/components/ConfidenceSection";
 import { HelpSection } from "@/components/HelpSection";
@@ -12,6 +13,7 @@ export function LandingFunnel() {
       <ConfidenceSection />
       <CheckUpSection />
       <ReportAndMeasurementSection surface="white" />
+      <CheckUpShowcaseSection />
       <TestimonialSection />
       <CheckUpFormSection />
     </>

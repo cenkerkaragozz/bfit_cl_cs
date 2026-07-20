@@ -16,10 +16,12 @@ import {
   XCircle,
 } from "lucide-react";
 import { CheckUpSection } from "@/components/CheckUpSection";
+import { CheckUpShowcaseSection } from "@/components/CheckUpShowcaseSection";
 import { ContactActions } from "@/components/ContactActions";
 import { EditorialImageSlot } from "@/components/EditorialImageSlot";
 import { ReportAndMeasurementSection } from "@/components/ReportAndMeasurementSection";
 import { TestimonialSection } from "@/components/TestimonialSection";
+import { TrustBar } from "@/components/TrustBar";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
@@ -112,10 +114,12 @@ export function AdultLandingPage() {
   return (
     <>
       <AdultHero />
+      <TrustBar />
       <AudienceSection />
       <AdultApproachSection />
       <CheckUpSection audience="adults" />
       <ReportAndMeasurementSection surface="white" />
+      <CheckUpShowcaseSection audience="adults" />
       <ScopeAndFaqSection />
       <TestimonialSection audience="adults" />
       <AdultCheckUpFormSection />
