@@ -45,7 +45,7 @@ export function TrustBar() {
                     <Icon size={19} strokeWidth={2.5} style={{ color: item.accent }} aria-hidden="true" />
                     <span className="leading-5">
                       <span className="text-[17px] font-extrabold text-[#241D18]">{item.value}</span>{" "}
-                      <span className="text-[13px] font-bold text-[rgba(36,29,24,0.6)]">{item.label}</span>
+                      <span className="text-[13px] font-bold text-[var(--text-support)]">{item.label}</span>
                     </span>
                   </div>
                 </Fragment>

@@ -104,7 +104,7 @@ function Testimonials({
         <div className="relative mx-auto max-w-[980px]">
           <QuoteIcon className="mb-8" />
           <blockquote>
-            <p className="display max-w-[880px] text-[clamp(44px,7vw,82px)]">
+            <p className="display max-w-[880px] text-[clamp(36px,5vw,64px)] leading-[0.98]">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={`${audience}-${testimonial.highlight}`}

@@ -267,7 +267,7 @@ function AudienceSection() {
             >
               <div>
                 <p className="text-[11px] font-extrabold uppercase tracking-[0.13em] text-[#164C35]">{selected.label}</p>
-                <h3 className="display mt-4 text-[clamp(34px,5vw,56px)] leading-[0.98] text-[#241D18]">“{selected.main}”</h3>
+                <h3 className="mid-section-title mt-4 text-[#241D18]">“{selected.main}”</h3>
                 <ul className="mt-6 grid gap-3">
                   {selected.support.map((quote) => (
                     <li key={quote} className="flex items-start gap-3 text-[15px] font-semibold leading-7 text-[rgba(36,29,24,0.72)]">
@@ -308,7 +308,10 @@ function AudienceSection() {
                   </div>
                 ) : null}
 
-                <p className="mt-6 border-l-4 border-[#D9F8A8] pl-4 text-[15px] font-semibold leading-7 text-[rgba(36,29,24,0.72)]">{selected.explanation}</p>
+                <div className="mt-6 flex items-start gap-3 rounded-[18px] bg-[#F0F7F2] p-4 text-[#164C35]">
+                  <CircleDot className="mt-1 shrink-0" size={18} aria-hidden="true" />
+                  <p className="text-[15px] font-semibold leading-7 text-[#164C35]">{selected.explanation}</p>
+                </div>
               </div>
               <AdultContextVisual id={selected.id} />
             </motion.article>
@@ -365,7 +368,7 @@ function AdultApproachSection() {
       <div className="inner grid gap-8 lg:grid-cols-[1fr_0.86fr] lg:items-center">
         <div>
           <div className="badge border-[#9B66F4] bg-[#F5F0FE] text-[#6A3FD4]">BrainFit nasıl yardımcı olur?</div>
-          <h2 className="section-title mt-7 max-w-[760px] text-[clamp(2.875rem,5.5vw,4.5rem)] leading-[0.96]">
+          <h2 className="section-title mt-7 max-w-[760px]">
             İlk adım,
             <span className="block text-[#164C35]">zihinsel profilinizi</span>
             anlamaktır.
@@ -374,7 +377,7 @@ function AdultApproachSection() {
         <div className="rounded-[28px] bg-white px-6 py-7 shadow-[0_18px_48px_rgba(36,29,24,0.08)] md:px-8 md:py-9">
           <div className="flex items-start gap-4">
             <Brain className="mt-1 shrink-0 text-[#164C35]" size={28} aria-hidden="true" />
-            <h3 className="display max-w-[15ch] text-[clamp(1.75rem,2.4vw,2.25rem)] leading-[1.08] text-[#164C35]">
+            <h3 className="compact-title max-w-[15ch] text-[#164C35]">
               Birlikte bakınca tablo netleşir.
             </h3>
           </div>
@@ -401,7 +404,7 @@ function ScopeAndFaqSection() {
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           <div className="rounded-[28px] bg-[#F0F7F2] p-6 md:p-8">
-            <h3 className="text-[25px] font-extrabold text-[#164C35]">Ne yapıyoruz?</h3>
+            <h3 className="compact-title text-[#164C35]">Ne yapıyoruz?</h3>
             <ul className="mt-6 grid gap-3">
               {["Bilişsel profil değerlendirmesi", "Kişiye özel egzersiz planı"].map((item) => (
                 <li key={item} className="flex items-center gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold text-[#241D18]">
@@ -412,7 +415,7 @@ function ScopeAndFaqSection() {
             </ul>
           </div>
           <div className="rounded-[28px] bg-[#FEF9F5] p-6 md:p-8">
-            <h3 className="text-[25px] font-extrabold text-[#8C5038]">Ne yapmıyoruz?</h3>
+            <h3 className="compact-title text-[#8C5038]">Ne yapmıyoruz?</h3>
             <ul className="mt-6 grid gap-3">
               {["Tıbbi tanı koymuyoruz", "İlaç önermiyor veya mevcut tedavinin yerine geçmiyoruz"].map((item) => (
                 <li key={item} className="flex items-start gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold leading-6 text-[#241D18]">
@@ -427,7 +430,7 @@ function ScopeAndFaqSection() {
         <div className="mt-10 grid gap-7 lg:grid-cols-[0.7fr_1.3fr]">
           <div>
             <p className="text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#8C5038]">Sık sorulanlar</p>
-            <h3 className="display mt-3 text-[42px] leading-[0.98] text-[#241D18]">Aklınızdaki temel sorular.</h3>
+            <h3 className="mid-section-title mt-3 text-[#241D18]">Aklınızdaki temel sorular.</h3>
           </div>
           <div className="grid gap-3">
             {faqs.map((faq) => {
@@ -513,7 +516,7 @@ function AdultCheckUpFormSection() {
         <div className="section-cta-surface grid gap-9 rounded-[34px] px-5 py-8 sm:px-7 md:p-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
           <div>
             <div className="badge border-[#160A08]/35 bg-white/20 text-[#160A08]">İletişime geçin</div>
-            <h2 className="display mt-7 max-w-[650px] text-[clamp(42px,5.5vw,72px)] leading-[0.95] text-[#160A08]">Yaşadığınız durumu birlikte konuşalım.</h2>
+            <h2 className="section-title mt-7 max-w-[650px] !text-[#160A08]">Yaşadığınız durumu birlikte konuşalım.</h2>
             <p className="mt-6 max-w-[560px] text-[16px] font-semibold leading-8 text-[#160A08]/76">
               Aklınızdaki soruyu WhatsApp&apos;tan yazın ya da numaranızı bırakın. Ekibimiz Zihin Check-Up sürecini anlatsın.
             </p>
@@ -529,19 +532,19 @@ function AdultCheckUpFormSection() {
           </div>
 
           <form id="callback-form" onSubmit={handleSubmit} method="post" action="/api/checkup-request" className="scroll-mt-28 rounded-[28px] bg-white p-5 shadow-[0_28px_80px_rgba(22,10,8,0.18)] md:p-7">
-            <h3 className="text-[27px] font-extrabold text-[#241D18]">Sizi arayalım</h3>
-            <p className="mt-2 text-[14px] font-semibold leading-6 text-[rgba(36,29,24,0.6)]">İletişim bilgilerinizi bırakın; ekibimiz sorularınızı yanıtlasın.</p>
+            <h3 className="compact-title text-[#241D18]">Size Ulaşalım</h3>
+            <p className="mt-2 text-[14px] font-semibold leading-6 text-[var(--text-support)]">İletişim bilgilerinizi bırakın; ekibimiz sorularınızı yanıtlasın.</p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <label className="grid gap-2 text-xs font-extrabold text-[rgba(36,29,24,0.68)]">Adınız Soyadınız<input name="parentName" autoComplete="name" required className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold text-[#241D18] outline-none transition duration-200 focus:border-[#164C35] focus:ring-3 focus:ring-[#164C35]/10" placeholder="Adınız soyadınız" /></label>
               <label className="grid gap-2 text-xs font-extrabold text-[rgba(36,29,24,0.68)]">Telefon Numaranız<input name="phone" autoComplete="tel" required inputMode="tel" className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold text-[#241D18] outline-none transition duration-200 focus:border-[#164C35] focus:ring-3 focus:ring-[#164C35]/10" placeholder="05XX XXX XX XX" /></label>
               <label className="grid gap-2 text-xs font-extrabold text-[rgba(36,29,24,0.68)]">Yaşınız<input name="participantAge" required inputMode="numeric" className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold text-[#241D18] outline-none transition duration-200 focus:border-[#164C35] focus:ring-3 focus:ring-[#164C35]/10" placeholder="Örn. 34" /></label>
-              <label className="grid gap-2 text-xs font-extrabold text-[rgba(36,29,24,0.68)] sm:col-span-2">Kısa Notunuz <span className="font-semibold text-[rgba(36,29,24,0.46)]">(isteğe bağlı)</span><textarea name="note" className="min-h-28 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 py-3 text-[16px] font-bold text-[#241D18] outline-none transition duration-200 focus:border-[#164C35] focus:ring-3 focus:ring-[#164C35]/10" placeholder="Odak, hafıza, öğrenme ya da iş temponuzla ilgili eklemek istediğiniz bir ayrıntı varsa yazabilirsiniz." /></label>
+              <label className="grid gap-2 text-xs font-extrabold text-[rgba(36,29,24,0.68)] sm:col-span-2">Kısa Notunuz <span className="font-semibold text-[var(--text-muted)]">(isteğe bağlı)</span><textarea name="note" className="min-h-28 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 py-3 text-[16px] font-bold text-[#241D18] outline-none transition duration-200 focus:border-[#164C35] focus:ring-3 focus:ring-[#164C35]/10" placeholder="Odak, hafıza, öğrenme ya da iş temponuzla ilgili eklemek istediğiniz bir ayrıntı varsa yazabilirsiniz." /></label>
             </div>
             <input type="hidden" name="audience" value="adults" />
             <button type="submit" disabled={submitState === "submitting"} className="mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#164C35] px-6 text-[15px] font-extrabold text-white shadow-[0_16px_34px_rgba(22,76,53,0.24)] transition duration-150 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#164C35] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-65">
-              {submitState === "submitting" ? "İletiliyor..." : "Sizi Arayalım"}<ArrowUpRight size={18} aria-hidden="true" />
+              {submitState === "submitting" ? "İletiliyor..." : "Size Ulaşalım"}<ArrowUpRight size={18} aria-hidden="true" />
             </button>
-            <p data-compliance-status="pending" className="mt-4 text-[11px] font-semibold leading-5 text-[rgba(36,29,24,0.5)]">Aydınlatma ve veri işleme metni yayın öncesinde bu alana eklenecek.</p>
+            <p data-compliance-status="pending" className="mt-4 text-[11px] font-semibold leading-5 text-[var(--text-support)]">Aydınlatma ve veri işleme metni yayın öncesinde bu alana eklenecek.</p>
             {message ? <p className={`mt-4 rounded-[18px] px-4 py-3 text-[14px] font-extrabold leading-6 ${submitState === "success" ? "bg-[#F0F7F2] text-[#164C35]" : "bg-[#FFF0D7] text-[#8C5038]"}`} role="status">{message}</p> : null}
           </form>
         </div>

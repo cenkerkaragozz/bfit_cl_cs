@@ -19,21 +19,21 @@ colors:
 typography:
   display:
     fontFamily: "Titillium Web, Arial, sans-serif"
-    fontSize: "clamp(46px, 6.2vw, 96px)"
+    fontSize: "clamp(42px, 5.6vw, 76px)"
     fontWeight: 700
-    lineHeight: 0.9
+    lineHeight: 0.94
     letterSpacing: "0"
   headline:
     fontFamily: "Titillium Web, Arial, sans-serif"
-    fontSize: "clamp(48px, 8vw, 112px)"
+    fontSize: "clamp(36px, 4.4vw, 60px)"
     fontWeight: 700
-    lineHeight: 0.93
+    lineHeight: 0.96
     letterSpacing: "0"
   title:
     fontFamily: "Titillium Web, Arial, sans-serif"
-    fontSize: "clamp(42px, 5.8vw, 60px)"
+    fontSize: "clamp(32px, 3.7vw, 50px)"
     fontWeight: 700
-    lineHeight: 0.98
+    lineHeight: 1
   body:
     fontFamily: "Manrope, Arial, sans-serif"
     fontSize: "16px"
@@ -58,13 +58,13 @@ spacing:
 components:
   button-primary:
     backgroundColor: "{colors.coral}"
-    textColor: "#ffffff"
+    textColor: "{colors.espresso}"
     rounded: "{rounded.pill}"
     padding: "0 28px"
     height: "52px"
   button-primary-hover:
     backgroundColor: "#f99f8d"
-    textColor: "#ffffff"
+    textColor: "{colors.espresso}"
   button-adult-cta:
     backgroundColor: "{colors.amber}"
     textColor: "{colors.espresso}"
@@ -151,9 +151,10 @@ Five expressive hues from BrainFit's PMS library, adapted for web contrast, plus
 **Character:** Titillium Web brings structured authority — its geometric construction and weight 700 give headings a confident, purposeful clarity. Manrope at weight 800 brings the utility register: concise labels, button copy, and form hints that are legible and unambiguous. The pairing works because both are humanist sans-serifs occupying distinct weight and optical registers: Titillium Web is architectural and decisive; Manrope is functional and assertive.
 
 ### Hierarchy
-- **Display** (weight 700, `clamp(46px, 6.2vw, 96px)`, line-height 0.9): Hero headlines only. `text-wrap: balance` always applied. Maximum 16ch per line. Used in `AdultHero` h1 and any full-viewport lead headline.
-- **Headline** (weight 700, `clamp(48px, 8vw, 112px)`, line-height 0.93): Section-level headings (`.section-title`). Titillium Web. The same weight, a wider ceiling for dedicated impact sections.
-- **Title** (weight 700, `clamp(42px, 5.8vw, 60px)`, line-height 0.98): Mid-section headings (`.mid-section-title`). Titillium Web. Tighter ceiling keeps it subordinate to section headlines.
+- **Display** (weight 700, `clamp(42px, 5.6vw, 76px)`, line-height 0.94): Hero headlines only. `text-wrap: balance` always applied. Maximum 16ch per line. The longer adult hero headline uses a `64px` cap to preserve its measure while remaining above the section tier at every breakpoint.
+- **Headline** (weight 700, `clamp(36px, 4.4vw, 60px)`, line-height 0.96): Section-level headings (`.section-title`). Titillium Web. This tier always remains smaller than the hero display tier at every breakpoint.
+- **Title** (weight 700, `clamp(32px, 3.7vw, 50px)`, line-height 1): Mid-section headings (`.mid-section-title`). Titillium Web. Tighter ceiling keeps it subordinate to section headlines.
+- **Compact title** (weight 700, `clamp(22px, 2.1vw, 28px)`, line-height 1.12): Card, process, form, and detail headings (`.compact-title`). Titillium Web. Manrope never carries semantic h1–h3 roles.
 - **Body** (weight 400, 16–18px, line-height 1.7–1.85): Paragraph copy in Manrope. Max 65ch line length. Prose sections use 18px/1.85 (`.prose-brainfit`); hero subtext and short-form body use `clamp(16px, 1.7vw, 19px)`.
 - **Label** (weight 800, 11–12px, letter-spacing 0.12–0.14em, all-caps): Kicker text, badge copy, card metadata. Always Manrope extrabold. Never applied to body-length copy.
 
@@ -185,7 +186,7 @@ The adult hero section overrides this rule in a self-contained way: its forest g
 ### Buttons
 
 - **Shape:** Full pill (`9999px` radius) on all buttons, without exception.
-- **Primary (main page, coral):** Fill `#f5927e`, text white, `min-height: 52px`, `padding: 0 28px`. Shadow: `0 18px 36px rgba(245,132,110,0.24)`. Hover: `translateY(-1px)`, fill shifts to `#f99f8d`.
+- **Primary (main page, coral):** Fill `#f5927e`, espresso text `#160a08`, `min-height: 52px`, `padding: 0 28px`. Shadow: `0 18px 36px rgba(245,132,110,0.24)`. Hover: `translateY(-1px)`, fill shifts to `#f99f8d`. The dark label keeps the control comfortably above WCAG AA contrast.
 - **Primary (adults page, amber):** Fill `#fcbf48`, text `#160a08`, `min-height: 52px`. Shadow: `0 14px 36px rgba(252,191,72,0.3)`. Hover: `translateY(-2px)`, fill `#fdd060`. Used inside forest green context only.
 - **Ghost (adult secondary):** Transparent fill, `border: 1.5px solid rgba(255,255,255,0.18)`, text `rgba(255,255,255,0.68)`, `min-height: 52px`. Hover: `border-color: rgba(255,255,255,0.38)`. Inside forest green only.
 - **On-Coral:** Fill `#faf9f5` (canvas), text `#160a08`. `min-height: 48px`. Hover: `background: #fff`. Used for CTAs placed inside any coral-background surface. This is the only safe button choice on coral.
@@ -216,7 +217,7 @@ The adult hero section overrides this rule in a self-contained way: its forest g
 - **Style:** Floating pill nav with asymmetric radii (`rounded-b-[30px] rounded-t-[18px]`). Background: `rgba(255,255,255,0.95)` with `backdrop-filter: blur`. Max-width matches `.inner` container.
 - **Logo mark:** SVG circle (coral fill, espresso inner star, yellow center ring) — never altered.
 - **Links:** Manrope extrabold, `color: var(--ink)`. Audience-aware (different copy for children vs adults page).
-- **CTA pill (`.header-cta`):** Coral fill `#f5846e`, white text, pill shape, `min-width: 172px`. Hidden below `640px`.
+- **CTA pill (`.header-cta`):** Coral fill `#f5846e`, espresso text, pill shape, `min-width: 172px`. Hidden below `640px`.
 - **Mobile:** Header CTA hides below 640px; inline `.hero-mobile-cta` in the hero handles CTA on mobile.
 
 ### Audience Goal Card (Signature Component)
@@ -249,5 +250,5 @@ The `.v4` section on `/yetiskinler`. Self-contained namespace: all child classes
 - **Don't** use gradient text (`background-clip: text` + gradient fill). This is an absolute system ban — decorative, never meaningful.
 - **Don't** use side-stripe border cards (`border-left: 4px solid [accent]` as a decoration). Cards in this system use shadow-based depth only.
 - **Don't** break the `.v4-*` class namespace by applying adult hero styles outside a `.v4` parent, or by reusing the forest green background (`#164c35`) as a section background outside the designated adult hero.
-- **Don't** use Playfair Display for body or UI elements. It is loaded in the project but has no current design role — if introduced, restrict to decorative display contexts only and document the decision explicitly.
+- **Don't** add an unassigned third font family. The system intentionally uses only Titillium Web and Manrope; a new decorative face requires a documented role before it is loaded.
 - **Don't** make both pages feel identical. The shared color palette is a family, not a constraint. Parents page should feel warm and reassuring; adults page should feel purposeful and forward-moving.

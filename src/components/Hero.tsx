@@ -57,7 +57,7 @@ export function Hero() {
             Bilişsel Gelişim · Karşıyaka
           </div>
 
-          <h1 className="display mt-5 max-w-[16ch] text-[clamp(44px,5.5vw,72px)] text-[#160A08]">
+          <h1 className="hero-title mt-5 max-w-[16ch] text-[#160A08]">
             <span className="block">Çocuğunuzun</span>
             <span className="relative inline-block">
               öğrenme yolunu
@@ -77,7 +77,7 @@ export function Hero() {
               1 saatlik Zihin Check-Up, güçlü yönleri ve desteklenebilecek becerileri ortaya koyar; sonraki adımı netleştirmeye yardımcı olur.
             </p>
             <a
-              className="arrow-shift mt-7 inline-flex min-h-13 max-w-full items-center justify-center gap-2 rounded-full bg-[#E86F5B] px-6 py-4 text-center text-[15px] font-extrabold leading-5 text-white shadow-[0_18px_36px_rgba(232,111,91,0.28)] transition hover:-translate-y-1 hover:bg-[#F5927E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E86F5B] sm:px-7"
+              className="arrow-shift mt-7 inline-flex min-h-13 max-w-full items-center justify-center gap-2 rounded-full bg-[#E86F5B] px-6 py-4 text-center text-[15px] font-extrabold leading-5 text-[#160A08] shadow-[0_18px_36px_rgba(232,111,91,0.28)] transition hover:-translate-y-1 hover:bg-[#F5927E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E86F5B] sm:px-7"
               href="#checkup-form"
             >
               <span>Zihin Check-Up’ı Konuşalım</span>

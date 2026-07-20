@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Footer } from "@/components/Footer";
@@ -7,10 +8,16 @@ import { getAllPosts } from "@/lib/sanity/queries";
 
 export const revalidate = 300;
 
-function formatDate(value?: string) {
-  if (!value) return "Unscheduled";
+export const metadata: Metadata = {
+  title: "BrainFit Günlüğü | BrainFit Karşıyaka",
+  description:
+    "Bilişsel gelişim, Zihin Check-Up ve günlük yaşama yönelik BrainFit Karşıyaka yazıları.",
+};
 
-  return new Intl.DateTimeFormat("en", {
+function formatDate(value?: string) {
+  if (!value) return "Tarih belirtilmedi";
+
+  return new Intl.DateTimeFormat("tr-TR", {
     month: "long",
     day: "2-digit",
     year: "numeric",
@@ -28,21 +35,21 @@ export default async function BlogPage() {
           <section className="inner pb-20">
             <Link className="inline-flex items-center gap-2 text-[14px] font-extrabold" href="/">
               <ArrowLeft size={16} />
-              Back to home
+              Ana sayfaya dön
             </Link>
             <div className="mt-9 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-              <h1 className="section-title max-w-[720px]">BrainFit journal</h1>
+              <h1 className="hero-title max-w-[720px]">BrainFit Günlüğü</h1>
               <p className="body-copy max-w-[380px]">
-                Published clinical notes, program guidance, and practical mental
-                wellness articles from the BrainFit team.
+                BrainFit ekibinden bilişsel gelişim, program rehberleri ve günlük
+                yaşama yönelik güncel yazılar.
               </p>
             </div>
 
             {posts.length === 0 ? (
               <div className="mt-14 rounded-[18px] border border-dashed border-[var(--line)] bg-[var(--paper)] p-10">
-                <p className="font-extrabold">No published Sanity posts found.</p>
-                <p className="mt-2 text-[15px] text-[rgba(36,29,24,0.62)]">
-                  Add Sanity credentials, open Studio, and publish posts to fill this page.
+                <p className="font-extrabold">Henüz yayınlanmış bir içerik bulunmuyor.</p>
+                <p className="mt-2 text-[15px] text-[var(--text-support)]">
+                  Yeni yazılar yayınlandığında burada görünecek.
                 </p>
               </div>
             ) : (
@@ -52,7 +59,7 @@ export default async function BlogPage() {
                     <Link
                       href={`/blog/${post.slug}`}
                       className="grid gap-6 md:grid-cols-[220px_1fr]"
-                      aria-label={`Read blog post: ${post.title}`}
+                      aria-label={`Yazıyı oku: ${post.title}`}
                     >
                       <SanityImage
                         image={post.cardImage || post.mainImage}
@@ -63,17 +70,17 @@ export default async function BlogPage() {
                         className="h-[220px] w-full rounded-[14px] object-cover"
                       />
                       <div>
-                        <time className="text-[13px] font-extrabold uppercase tracking-[0.08em] text-[rgba(36,29,24,0.58)]">
+                        <time className="text-[13px] font-extrabold uppercase tracking-[0.08em] text-[var(--text-support)]">
                           {formatDate(post.publishedAt)}
                         </time>
-                        <h2 className="mt-4 font-[var(--display)] text-[38px] leading-none">
+                        <h2 className="compact-title mt-4">
                           {post.title}
                         </h2>
                         <p className="mt-4 line-clamp-3 text-[15px] leading-7 text-[rgba(36,29,24,0.64)]">
                           {post.excerpt}
                         </p>
                         <span className="mt-6 inline-flex items-center gap-2 font-extrabold">
-                          Read post
+                          Yazıyı oku
                           <ArrowUpRight size={16} />
                         </span>
                       </div>

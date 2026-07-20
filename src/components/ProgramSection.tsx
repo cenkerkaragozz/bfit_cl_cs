@@ -84,7 +84,7 @@ export function ProgramSection() {
                   <p className="min-h-[2rem] text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#1E99B5]">
                     {program.label}
                   </p>
-                  <h3 className="display mt-3 min-h-[6rem] text-[34px] leading-[0.98]">
+                  <h3 className="compact-title mt-3 min-h-[4rem]">
                     {program.title}
                   </h3>
                   <p className="mt-5 text-[15px] leading-7 text-[rgba(36,29,24,0.66)]">

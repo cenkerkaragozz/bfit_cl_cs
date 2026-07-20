@@ -61,13 +61,13 @@ export function EditorialImageSlot({
             <p className="mt-2 text-[15px] font-extrabold leading-6 text-[#241D18]">
               Görsel alanı
             </p>
-            <p className="mt-1 text-[12px] font-semibold leading-5 text-[rgba(36,29,24,0.58)]">
-              4:5 mobil kadraj · stok veya AI görsel
+            <p className="mt-1 text-[12px] font-semibold leading-5 text-[var(--text-support)]">
+              4:5 mobil kadraj
             </p>
           </div>
         </div>
       </div>
-      <figcaption className="mt-2 text-[11px] font-bold text-[rgba(36,29,24,0.5)]">
+      <figcaption className="mt-2 text-[11px] font-bold text-[var(--text-support)]">
         Temsili görsel · eklenecek
       </figcaption>
     </figure>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Titillium_Web, Manrope, Playfair_Display } from "next/font/google";
+import { Titillium_Web, Manrope } from "next/font/google";
 import "./globals.css";
 
 const titilliumWeb = Titillium_Web({
@@ -12,13 +12,6 @@ const titilliumWeb = Titillium_Web({
 const manrope = Manrope({
   subsets: ["latin", "latin-ext"],
   variable: "--font-body",
-  display: "swap",
-});
-
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin", "latin-ext"],
-  weight: "700",
-  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -36,7 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="tr"
-      className={`${titilliumWeb.variable} ${manrope.variable} ${playfairDisplay.variable}`}
+      className={`${titilliumWeb.variable} ${manrope.variable}`}
     >
       <body>
         {children}

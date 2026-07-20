@@ -63,8 +63,7 @@ export function CheckUpShowcaseSection({
           <div className="badge border-[#E7A988] text-[#8C5038]">Zihin Check-Up</div>
           <h2
             id={titleId}
-            className="section-title mt-7 max-w-[620px]"
-            style={{ fontSize: "clamp(42px, 5.2vw, 64px)" }}
+            className="mid-section-title mt-7 max-w-[620px]"
           >
             1 Saatte Daha Net Bir Başlangıç
           </h2>
@@ -78,10 +77,10 @@ export function CheckUpShowcaseSection({
           </p>
           <div className="hidden md:block">
             <a
-              className="pill-button arrow-shift mt-8 !bg-[#E86F5B] text-white !shadow-[0_18px_36px_rgba(232,111,91,0.28)] hover:!bg-[#F5927E]"
+              className="pill-button arrow-shift mt-8 !bg-[#E86F5B] !text-[#160A08] !shadow-[0_18px_36px_rgba(232,111,91,0.28)] hover:!bg-[#F5927E]"
               href="#checkup-form"
             >
-              Sizi Arayalım
+              Size Ulaşalım
               <ArrowUpRight size={16} aria-hidden="true" />
             </a>
           </div>
@@ -141,7 +140,7 @@ export function CheckUpShowcaseSection({
                     >
                       <Icon size={20} strokeWidth={2.5} />
                     </div>
-                    <h3 className="mt-5 text-[24px] font-extrabold leading-none text-[#241D18]">
+                    <h3 className="compact-title mt-5 text-[#241D18]">
                       {step.title}
                     </h3>
                     <p className="mt-3 text-[14px] font-medium leading-6 text-[rgba(36,29,24,0.68)]">

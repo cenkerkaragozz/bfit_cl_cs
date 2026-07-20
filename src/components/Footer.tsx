@@ -20,7 +20,7 @@ export function Footer() {
               height={146}
               className="h-auto w-[190px] sm:w-[230px]"
             />
-            <h2 className="display mt-8 max-w-[620px] text-[clamp(38px,5vw,64px)] leading-[0.98]">
+            <h2 className="mid-section-title mt-8 max-w-[620px]">
               Sorunuz varsa önce konuşalım.
             </h2>
             <p className="mt-5 max-w-[560px] text-[15px] font-semibold leading-7 text-white/68">
@@ -54,7 +54,6 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col justify-between gap-4 border-t border-white/12 pt-7 text-[12px] font-semibold text-white/48 sm:flex-row sm:items-center">
           <p>Tüm Hakları Saklıdır © 2026 BrainFit.</p>
-          <p>İletişim ve aydınlatma metinleri yayın öncesinde doğrulanacaktır.</p>
         </div>
       </div>
     </footer>

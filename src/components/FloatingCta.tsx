@@ -76,14 +76,14 @@ export function FloatingCta({
                 type="button"
                 onClick={() => setShowBubble(false)}
                 aria-label="Kapat"
-                className="absolute right-2 top-2 grid h-6 w-6 place-items-center rounded-full text-[rgba(36,29,24,0.4)] transition hover:bg-[#F4F1EB] hover:text-[#241D18]"
+                className="absolute right-2 top-2 grid h-6 w-6 place-items-center rounded-full text-[var(--text-muted)] transition hover:bg-[#F4F1EB] hover:text-[#241D18]"
               >
                 <X size={14} strokeWidth={2.6} />
               </button>
               <p className="text-[14px] font-extrabold leading-5 text-[#241D18]">
                 Sorularınız mı var? 👋
               </p>
-              <p className="mt-1 text-[13px] font-medium leading-5 text-[rgba(36,29,24,0.6)]">
+              <p className="mt-1 text-[13px] font-medium leading-5 text-[var(--text-support)]">
                 WhatsApp&apos;tan yazın, uzman ekibimiz yanıtlasın.
               </p>
             </motion.div>

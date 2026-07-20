@@ -45,7 +45,7 @@ export function ChildFaqSection() {
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           <div className="rounded-[28px] bg-[#F0F7F2] p-6 md:p-8">
-            <h3 className="text-[25px] font-extrabold text-[#164C35]">Ne yapıyoruz?</h3>
+            <h3 className="compact-title text-[#164C35]">Ne yapıyoruz?</h3>
             <ul className="mt-6 grid gap-3">
               {["Bilişsel profil değerlendirmesi", "Kişiye özel egzersiz planı"].map((item) => (
                 <li key={item} className="flex items-center gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold text-[#241D18]">
@@ -57,7 +57,7 @@ export function ChildFaqSection() {
           </div>
 
           <div className="rounded-[28px] bg-[#FEF9F5] p-6 md:p-8">
-            <h3 className="text-[25px] font-extrabold text-[#8C5038]">Ne yapmıyoruz?</h3>
+            <h3 className="compact-title text-[#8C5038]">Ne yapmıyoruz?</h3>
             <ul className="mt-6 grid gap-3">
               {["Tıbbi tanı koymuyoruz", "İlaç önermiyor veya mevcut tedavinin yerine geçmiyoruz"].map((item) => (
                 <li key={item} className="flex items-start gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold leading-6 text-[#241D18]">
@@ -72,7 +72,7 @@ export function ChildFaqSection() {
         <div className="mt-10 grid gap-7 lg:grid-cols-[0.7fr_1.3fr]">
           <div className="max-w-[480px]">
             <p className="text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#8C5038]">Sık sorulanlar</p>
-            <h3 className="display mt-3 text-[42px] leading-[0.98] text-[#241D18]">Aklınızdaki temel sorular.</h3>
+            <h3 className="mid-section-title mt-3 text-[#241D18]">Aklınızdaki temel sorular.</h3>
             <p className="mt-5 max-w-[44ch] text-[15px] font-semibold leading-7 text-[rgba(36,29,24,0.72)]">
               Zihin Check-Up süreciyle ilgili ailelerin en çok merak ettiği konuları kısa ve açık biçimde yanıtladık.
             </p>

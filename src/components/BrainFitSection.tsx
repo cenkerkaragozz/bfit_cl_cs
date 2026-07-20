@@ -44,7 +44,7 @@ export function BrainFitSection() {
             <div className="badge border-[#9B66F4] bg-[#F5F0FE] text-[#6A3FD4]">
               BrainFit nedir?
             </div>
-            <h2 className="display mt-7 text-[clamp(36px,5vw,56px)] leading-[0.98] text-[#241D18]">
+            <h2 className="mid-section-title mt-7 text-[#241D18]">
               Beyin değişebilir. 2001&apos;den beri bunu biliyor, ölçüyor ve geliştiriyoruz.
             </h2>
             <p className="body-copy mt-6 max-w-[540px]">
@@ -59,7 +59,7 @@ export function BrainFitSection() {
             <div className="rounded-[28px] bg-[#F4F1EB] p-7 shadow-[0_18px_40px_rgba(36,29,24,0.08)] md:p-9">
               <div className="flex items-center gap-2.5">
                 <Brain size={17} strokeWidth={2.5} className="text-[#9B66F4]" aria-hidden="true" />
-                <span className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[rgba(36,29,24,0.44)]">
+                <span className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[var(--text-support)]">
                   Kuruma dair
                 </span>
               </div>
@@ -84,7 +84,7 @@ export function BrainFitSection() {
                       <p className="mt-2.5 text-[20px] font-extrabold leading-none text-[#241D18]">
                         {c.value}
                       </p>
-                      <p className="mt-1 text-[12px] font-semibold leading-[1.4] text-[rgba(36,29,24,0.56)]">
+                      <p className="mt-1 text-[12px] font-semibold leading-[1.4] text-[var(--text-support)]">
                         {c.label}
                       </p>
                     </motion.div>

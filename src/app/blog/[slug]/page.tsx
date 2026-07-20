@@ -1,7 +1,9 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import type { ComponentProps } from "react";
+import { cache } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -11,6 +13,25 @@ import { getPostBySlug } from "@/lib/sanity/queries";
 export const revalidate = 300;
 
 type PortableTextValue = ComponentProps<typeof PortableText>["value"];
+const getPost = cache(getPostBySlug);
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPost(slug);
+
+  if (!post) {
+    return { title: "Yazı bulunamadı | BrainFit Karşıyaka" };
+  }
+
+  return {
+    title: `${post.title} | BrainFit Karşıyaka`,
+    description: post.excerpt,
+  };
+}
 
 export default async function BlogDetailPage({
   params,
@@ -18,7 +39,7 @@ export default async function BlogDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const post = await getPost(slug);
 
   if (!post) {
     notFound();
@@ -32,9 +53,9 @@ export default async function BlogDetailPage({
           <article className="inner max-w-[980px] pb-24">
             <Link className="inline-flex items-center gap-2 text-[14px] font-extrabold" href="/blog">
               <ArrowLeft size={16} />
-              All blog posts
+              Tüm yazılara dön
             </Link>
-            <h1 className="display mt-10 text-[clamp(58px,8vw,116px)]">
+            <h1 className="editorial-title mt-10">
               {post.title}
             </h1>
             {post.excerpt ? (
@@ -54,7 +75,7 @@ export default async function BlogDetailPage({
               {post.body ? (
                 <PortableText value={post.body as PortableTextValue} />
               ) : (
-                <p>No article body has been added yet.</p>
+                <p>Bu yazının içeriği henüz eklenmemiş.</p>
               )}
             </div>
           </article>

@@ -75,7 +75,7 @@ export function ReportAndMeasurementSection({
           data-asset-id="SH-DIAG-02"
           className="rounded-[32px] bg-[#F4F1EB] p-4 shadow-[0_24px_70px_rgba(36,29,24,0.1)] sm:p-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-center"
         >
-          <p className="mb-2 text-center text-[12px] font-extrabold text-[rgba(36,29,24,0.5)]">
+          <p className="mb-2 text-center text-[12px] font-extrabold text-[var(--text-support)]">
             Bir alana dokunun
           </p>
           <div className="relative mx-auto aspect-square w-full max-w-[430px]">
@@ -111,13 +111,13 @@ export function ReportAndMeasurementSection({
             })}
           </div>
 
-          <p className="mt-4 rounded-[18px] bg-white p-4 text-[12px] font-semibold leading-5 text-[rgba(36,29,24,0.62)]">
+          <p className="mt-4 rounded-[18px] bg-white p-4 text-[12px] font-semibold leading-5 text-[var(--text-support)]">
             Örnek profil görünümüdür. İçerik, yaşa ve uygulanan değerlendirmelere göre değişebilir.
           </p>
         </div>
 
         <div className="rounded-[24px] border border-[rgba(36,29,24,0.08)] bg-[#FEF9F5] p-5 lg:col-start-1 lg:row-start-2 lg:self-start">
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.13em] text-[rgba(36,29,24,0.48)]">
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.13em] text-[var(--text-support)]">
             Seçili alan
           </p>
           <div id="cluster-details" aria-live="polite">
@@ -129,7 +129,7 @@ export function ReportAndMeasurementSection({
                 exit={reduceMotion ? undefined : { opacity: 0, y: -4 }}
                 transition={{ duration: reduceMotion ? 0 : 0.25 }}
               >
-                <h3 className="mt-2 text-[28px] font-extrabold text-[#241D18]">
+                <h3 className="compact-title mt-2 text-[#241D18]">
                   {selected.label}
                 </h3>
                 <ul className="mt-4 grid gap-2 sm:grid-cols-2">

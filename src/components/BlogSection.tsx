@@ -40,7 +40,7 @@ export function BlogSection({ posts }: { posts: PostCard[] }) {
         {posts.length === 0 ? (
           <div className="mt-12 rounded-[18px] border border-dashed border-[var(--line)] bg-[var(--paper)] p-10 text-center">
             <p className="font-extrabold">Henüz yayınlanmış bir içerik bulunmuyor.</p>
-            <p className="mt-2 text-[15px] text-[rgba(36,29,24,0.62)]">
+            <p className="mt-2 text-[15px] text-[var(--text-support)]">
               Yayınlanan içerikler burada görünecektir.
             </p>
           </div>
@@ -59,7 +59,7 @@ export function BlogSection({ posts }: { posts: PostCard[] }) {
                   className="flex h-full flex-col"
                   aria-label={`Yazıyı Oku: ${post.title}`}
                 >
-                  <div className="flex items-center justify-between gap-4 text-[13px] font-extrabold uppercase tracking-[0.08em] text-[rgba(36,29,24,0.62)]">
+                  <div className="flex items-center justify-between gap-4 text-[13px] font-extrabold uppercase tracking-[0.08em] text-[var(--text-support)]">
                     <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
                     <span className="inline-flex items-center gap-1">
                       <MessageCircle size={14} />
@@ -67,10 +67,10 @@ export function BlogSection({ posts }: { posts: PostCard[] }) {
                     </span>
                   </div>
 
-                  <h3 className="display mt-8 text-[38px] leading-[0.98]">
+                  <h3 className="compact-title mt-8">
                     {post.title}
                   </h3>
-                  <p className="mt-4 line-clamp-3 text-[15px] leading-7 text-[rgba(36,29,24,0.62)]">
+                  <p className="mt-4 line-clamp-3 text-[15px] leading-7 text-[var(--text-support)]">
                     {post.excerpt}
                   </p>
 

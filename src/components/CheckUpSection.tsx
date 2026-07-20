@@ -67,7 +67,7 @@ export function CheckUpSection({
                 {String(index + 1).padStart(2, "0")}
               </span>
               <div className="pt-1 lg:pt-6">
-                <h3 className="text-[22px] font-extrabold leading-tight text-[#241D18]">
+                <h3 className="compact-title text-[#241D18]">
                   {step.title}
                 </h3>
                 <p className="mt-2 text-[14px] font-semibold leading-6 text-[rgba(36,29,24,0.66)]">

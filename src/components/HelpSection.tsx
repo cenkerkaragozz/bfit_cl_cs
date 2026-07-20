@@ -119,7 +119,7 @@ function HomeworkFlow() {
             {number}
           </span>
           <div className="sm:mt-4">
-            <h3 className="text-[17px] font-extrabold text-[#241D18]">{title}</h3>
+            <h3 className="text-[18px] font-bold leading-tight text-[#241D18]">{title}</h3>
             <p className="mt-1 text-[13px] font-semibold leading-5 text-[rgba(36,29,24,0.66)]">
               “{quote}”
             </p>
@@ -168,7 +168,7 @@ function BehaviorStrip() {
               >
                 <Icon size={19} aria-hidden="true" />
               </span>
-              <span className={`mt-2 block text-[11px] font-extrabold ${selected ? "text-[#241D18]" : "text-[rgba(36,29,24,0.58)]"}`}>
+              <span className={`mt-2 block text-[11px] font-extrabold ${selected ? "text-[#241D18]" : "text-[var(--text-support)]"}`}>
                 {item.label}
               </span>
             </button>
@@ -323,7 +323,7 @@ export function HelpSection() {
                 <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#C4533C]">
                   {selected.label}
                 </p>
-                <h3 className="display mt-4 max-w-[720px] text-[clamp(34px,5vw,56px)] leading-[0.98] text-[#241D18]">
+                <h3 className="mid-section-title mt-4 max-w-[720px] text-[#241D18]">
                   “{selected.main}”
                 </h3>
                 <ul className="mt-6 grid gap-3">
@@ -368,9 +368,12 @@ export function HelpSection() {
                   </div>
                 ) : null}
 
-                <p className="mt-6 max-w-[680px] border-l-4 border-[#AAE8F6] pl-4 text-[15px] font-semibold leading-7 text-[rgba(36,29,24,0.72)]">
-                  {selected.explanation}
-                </p>
+                <div className="mt-6 flex max-w-[680px] items-start gap-3 rounded-[18px] bg-[#EFF8FD] p-4 text-[#241D18]">
+                  <CircleDot className="mt-1 shrink-0 text-[#1E99B5]" size={18} aria-hidden="true" />
+                  <p className="text-[15px] font-semibold leading-7 text-[var(--text-secondary)]">
+                    {selected.explanation}
+                  </p>
+                </div>
 
                 {selected.id !== "exam" ? (
                   <div className="mt-6">

@@ -5,7 +5,7 @@ export function ConfidenceSection() {
         <div className="grid gap-8 lg:grid-cols-[1fr_0.82fr] lg:items-end">
           <div>
             <div className="badge border-[#F5927E] text-[#C4533C]">Bir adım geri çekilelim</div>
-            <h2 className="display mt-7 max-w-[760px] text-[clamp(2.75rem,6vw,4.25rem)] leading-[0.96] text-[#241D18]">
+            <h2 className="section-title mt-7 max-w-[760px]">
               Her zorlanma <span className="text-[#C4533C]">isteksizlik değildir.</span>
             </h2>
           </div>

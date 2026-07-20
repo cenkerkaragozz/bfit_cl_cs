@@ -45,7 +45,7 @@ export function ContactActions({
         href="#callback-form"
         className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-[#F5927E] px-4 text-center text-[14px] font-extrabold text-[#160A08] shadow-[0_14px_28px_rgba(245,146,126,0.24)] transition duration-150 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C4533C] active:translate-y-0"
       >
-        Sizi Arayalım
+        Size Ulaşalım
         <ArrowUpRight size={17} aria-hidden="true" />
       </a>
     </div>

@@ -9,7 +9,7 @@ const childNavItems = [
   { label: "Yaşadıklarınız", href: "#help" },
   { label: "Zihin Check-Up", href: "#checkup" },
   { label: "Bilişsel Profil", href: "#cognitive-profile" },
-  { label: "Hakkımızda", href: "#about" },
+  { label: "Deneyimler", href: "#experiences" },
   { label: "İletişim", href: "#contact" },
 ];
 
@@ -29,7 +29,7 @@ export function Header({ audience = "children" }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = audience === "adults" ? adultNavItems : childNavItems;
   const cta = audience === "adults"
-    ? { label: "Sizi Arayalım", shortLabel: "Arayalım", href: "#callback-form" }
+    ? { label: "Size Ulaşalım", shortLabel: "Ulaşalım", href: "#callback-form" }
     : { label: "Yetişkinler", shortLabel: "Yetişkinler", href: "/yetiskinler" };
 
   return (
