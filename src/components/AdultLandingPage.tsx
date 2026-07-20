@@ -365,11 +365,20 @@ function AdultApproachSection() {
       <div className="inner grid gap-8 lg:grid-cols-[1fr_0.86fr] lg:items-center">
         <div>
           <div className="badge border-[#9B66F4] bg-[#F5F0FE] text-[#6A3FD4]">BrainFit nasıl yardımcı olur?</div>
-          <h2 className="section-title mt-7 max-w-[760px]">İlk adım, zihinsel profilinizi anlamaktır.</h2>
+          <h2 className="section-title mt-7 max-w-[760px] text-[clamp(2.875rem,5.5vw,4.5rem)] leading-[0.96]">
+            İlk adım,
+            <span className="block text-[#164C35]">zihinsel profilinizi</span>
+            anlamaktır.
+          </h2>
         </div>
-        <div className="rounded-[28px] bg-white p-6 shadow-[0_18px_48px_rgba(36,29,24,0.08)] md:p-8">
-          <Brain className="text-[#164C35]" size={28} aria-hidden="true" />
-          <p className="mt-5 text-[17px] font-semibold leading-8 text-[rgba(36,29,24,0.76)]">
+        <div className="rounded-[28px] bg-white px-6 py-7 shadow-[0_18px_48px_rgba(36,29,24,0.08)] md:px-8 md:py-9">
+          <div className="flex items-start gap-4">
+            <Brain className="mt-1 shrink-0 text-[#164C35]" size={28} aria-hidden="true" />
+            <h3 className="display max-w-[15ch] text-[clamp(1.75rem,2.4vw,2.25rem)] leading-[1.08] text-[#164C35]">
+              Birlikte bakınca tablo netleşir.
+            </h3>
+          </div>
+          <p className="mt-6 max-w-[44ch] text-[1rem] font-normal leading-7 text-[#514236] [text-wrap:pretty]">
             BrainFit; dikkat, hafıza ve zihinsel yorgunluk gibi günlük deneyimleri tek başına yorumlamak yerine bilişsel alanları birlikte ele alır. Amaç, yaşadığınız tabloyu daha anlaşılır hâle getirmektir.
           </p>
         </div>
@@ -386,8 +395,8 @@ function ScopeAndFaqSection() {
     <section className="section-surface py-[72px] md:py-[112px]">
       <div className="inner">
         <div className="max-w-[760px]">
-          <div className="badge border-[#6BC862] text-[#164C35]">Açık ve net</div>
-          <h2 className="section-title mt-7">Ne sunduğumuzu açıkça anlatalım.</h2>
+          <div className="badge border-[#6BC862] text-[#164C35]">Hizmet kapsamı</div>
+          <h2 className="section-title mt-7">Neler sunduğumuz ve sunmadığımız konusunda şeffafız.</h2>
         </div>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
@@ -405,7 +414,7 @@ function ScopeAndFaqSection() {
           <div className="rounded-[28px] bg-[#FEF9F5] p-6 md:p-8">
             <h3 className="text-[25px] font-extrabold text-[#8C5038]">Ne yapmıyoruz?</h3>
             <ul className="mt-6 grid gap-3">
-              {["Tıbbi tanı koymuyoruz", "İlaç önermiyor veya mevcut tedavinin yerine geçmiyoruz", "Sonuç garantisi vermiyoruz"].map((item) => (
+              {["Tıbbi tanı koymuyoruz", "İlaç önermiyor veya mevcut tedavinin yerine geçmiyoruz"].map((item) => (
                 <li key={item} className="flex items-start gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold leading-6 text-[#241D18]">
                   <XCircle className="mt-0.5 shrink-0 text-[#F5927E]" size={19} aria-hidden="true" />
                   {item}

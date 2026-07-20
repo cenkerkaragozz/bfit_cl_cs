@@ -60,27 +60,27 @@ export function Hero() {
           <h1 className="display mt-5 max-w-[16ch] text-[clamp(44px,5.5vw,72px)] text-[#160A08]">
             <span className="block">Çocuğunuzun</span>
             <span className="relative inline-block">
-              öğrenme profilini
+              öğrenme yolunu
               <HeroUnderline
                 animate={!reduceMotion}
                 className="absolute -bottom-5 left-[-6px] h-7 w-[min(100%,330px)] text-[#FCBF48] sm:-bottom-6 sm:w-[360px]"
               />
             </span>
-            <span className="mt-1 block">birlikte keşfedelim.</span>
+            <span className="mt-1 block">anlayalım.</span>
           </h1>
 
           <div className="mt-6 max-w-[560px] md:mt-7">
             <p className="max-w-full text-[18px] font-semibold leading-8 text-[#241D18] md:text-[22px] md:leading-8">
-              Dikkat dağınıklığı, hafıza güçlüğü ya da okul performansı — doğru adım için önce doğru soruyu sormak gerekir.
+              Ödeve başlamakta, dikkatini sürdürmekte ya da bildiğini göstermekte zorlanıyor olabilir. İlk adım, bunun hangi becerilerle ilişkili olabileceğini görmektir.
             </p>
             <p className="mt-3 text-[16px] font-medium leading-7 text-[rgba(36,29,24,0.72)] md:text-lg">
-              Zihin Check-Up, çocuğunuzun bilişsel becerilerini 1 saatlik değerlendirmeyle daha yakından anlamaya yardımcı olur.
+              1 saatlik Zihin Check-Up, güçlü yönleri ve desteklenebilecek becerileri ortaya koyar; sonraki adımı netleştirmeye yardımcı olur.
             </p>
             <a
               className="arrow-shift mt-7 inline-flex min-h-13 max-w-full items-center justify-center gap-2 rounded-full bg-[#E86F5B] px-6 py-4 text-center text-[15px] font-extrabold leading-5 text-white shadow-[0_18px_36px_rgba(232,111,91,0.28)] transition hover:-translate-y-1 hover:bg-[#F5927E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E86F5B] sm:px-7"
               href="#checkup-form"
             >
-              <span>Zihin Check-Up Randevusu Al</span>
+              <span>Zihin Check-Up’ı Konuşalım</span>
               <ArrowUpRight className="shrink-0" size={18} strokeWidth={2.7} />
             </a>
           </div>
@@ -139,8 +139,8 @@ export function Hero() {
               <Sparkles size={16} strokeWidth={2.6} className="md:size-[18px]" />
             </div>
             <p className="mt-2.5 text-[15px] font-extrabold leading-6 text-[#241D18] md:mt-3 md:text-[19px] md:leading-8">
-              Her çocuğun{" "}
-              <span className="text-[#164C35]">keşfedilmeyi</span> bekleyen eşsiz bir potansiyeli vardır.
+              Yaşadığı zorlanma, çocuğunuzun{" "}
+              <span className="text-[#164C35]">yapabildiklerinin tamamını</span> göstermez.
             </p>
             <span className="mt-2.5 block h-1.5 w-14 rounded-full bg-[#B8E485] md:mt-3 md:w-16" aria-hidden="true" />
           </motion.div>
