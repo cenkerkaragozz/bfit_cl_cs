@@ -1,173 +1,362 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, Brain, CheckCircle2, MessageCircleHeart } from "lucide-react";
-import { Reveal } from "@/components/Decorations";
+import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import {
+  ArrowRight,
+  BookOpenCheck,
+  Check,
+  ChevronDown,
+  CircleDot,
+  Eye,
+  Home,
+  School,
+  Users,
+} from "lucide-react";
+import { EditorialImageSlot } from "@/components/EditorialImageSlot";
 
 const concerns = [
-  "Ödevin başına geçmekte zorlanıyor veya sürekli erteliyor.",
-  "Konuyu anladığını söylüyor ama kısa süre sonra bilgiyi hatırlamakta güçlük çekiyor.",
-  "Bilgi sahibi olmasına rağmen sınav anında bu bilgiyi kağıda dökemiyor.",
-  "Potansiyeli yüksek görülmesine rağmen dikkati çok çabuk dağılıyor.",
+  {
+    id: "exam",
+    label: "Sınav anı",
+    icon: BookOpenCheck,
+    main: "Evde hepsini biliyor ama sınavda yapamıyor.",
+    support: [
+      "Çok çalışıyor fakat notlarına yansımıyor.",
+      "Öğretmeni ‘Kapasitesi var ama gösteremiyor’ diyor.",
+    ],
+    more: [
+      "Bildiklerini sınav anında unutuyor.",
+      "Bildiği sorularda dikkatsizlik hatası yapıyor.",
+    ],
+    explanation:
+      "Evde bildiğini sınavda gösterememesi tek bir nedene bağlanamaz. İlk adım, hangi bilişsel becerilerde zorlandığını anlamaktır.",
+  },
+  {
+    id: "homework",
+    label: "Ödeve başlamak",
+    icon: CircleDot,
+    main: "Masaya oturması saatler sürüyor.",
+    support: ["Başlıyor ama birkaç dakika sonra kalkıyor."],
+    more: [],
+    explanation:
+      "Ödev yapmak istemiyor gibi görünebilir. Oysa başlamakta zorlanmakla başladığı işi sürdürmek aynı şey değildir.",
+  },
+  {
+    id: "behavior",
+    label: "Davranış ve uyum",
+    icon: Users,
+    main: "Tepkileri bir anda çok büyüyor.",
+    support: [
+      "Öğretmeni sınıftaki davranışlarıyla ilgili sık sık geri bildirim veriyor.",
+      "Okulda arkadaşlarıyla anlaşmakta zorlanıyor.",
+    ],
+    more: [
+      "Söylediğimiz her şeye karşı çıkıyor.",
+      "Yeni ortamlara uyum sağlaması çok zor oluyor.",
+    ],
+    explanation:
+      "Aynı zorlanma evde, okulda ve arkadaş ilişkilerinde farklı görünebilir. Gözlemleri birlikte değerlendirmek tabloyu daha anlaşılır hâle getirir.",
+  },
+  {
+    id: "attention",
+    label: "Dikkatini sürdürmek",
+    icon: Eye,
+    main: "Öğretmeni derste sık sık hayallere daldığını söylüyor.",
+    support: [
+      "Bir işe başlıyor, hemen başka bir şeye geçiyor.",
+      "En küçük seste bile dikkati dağılıyor.",
+    ],
+    more: [],
+    explanation:
+      "Dikkatin çabuk dağılması her çocukta aynı biçimde yaşanmaz. Ne zaman ve hangi koşullarda ortaya çıktığına birlikte bakmak gerekir.",
+  },
 ] as const;
 
-const innerVoices: Record<string, string> = {
-  "Ödevin başına geçmekte zorlanıyor veya sürekli erteliyor.":
-    "Yapabileceğini biliyorum ama neden bir türlü başlayamıyor?",
-  "Konuyu anladığını söylüyor ama kısa süre sonra bilgiyi hatırlamakta güçlük çekiyor.":
-    "Çalıştığını görüyorum ama öğrendikleri neden kalıcı olmuyor?",
-  "Bilgi sahibi olmasına rağmen sınav anında bu bilgiyi kağıda dökemiyor.":
-    "Evde hepsini biliyor, peki sınavda neden bambaşka biri oluyor?",
-  "Potansiyeli yüksek görülmesine rağmen dikkati çok çabuk dağılıyor.":
-    "Potansiyelini görüyorum ama dikkati neden bu kadar çabuk kayıyor?",
-};
+type ConcernId = (typeof concerns)[number]["id"];
 
-const responses: Record<string, string> = {
-  "Ödevin başına geçmekte zorlanıyor veya sürekli erteliyor.":
-    "Bu durum her zaman isteksizlikten kaynaklanmaz. Odaklanma, dikkati sürdürme ve planlama, doğru egzersizlerle geliştirilebilen zihinsel becerilerdir.",
-  "Konuyu anladığını söylüyor ama kısa süre sonra bilgiyi hatırlamakta güçlük çekiyor.":
-    "Bilgiyi kavramak ve o bilgiyi ihtiyaç anında geri çağırmak farklı süreçlerdir. Hafıza kapasitesini ve öğrenme ritmini anlamak gelişimin anahtarıdır.",
-  "Bilgi sahibi olmasına rağmen sınav anında bu bilgiyi kağıda dökemiyor.":
-    "Öğrenilenlerin eyleme dökülmesi; dikkat, işlem hızı ve kaygı yönetimiyle ilişkilidir. Biz, bu zincirin hangi halkasında destek gerektiğini tespit ediyoruz.",
-  "Potansiyeli yüksek görülmesine rağmen dikkati çok çabuk dağılıyor.":
-    "Bilişsel kapasite (zeka) ile dikkati sürdürme becerisi farklı alanlardır. Çocuğunuzun potansiyelini tam yansıtmasını engelleyen zihinsel bariyerleri birlikte aşabiliriz.",
-};
+const behaviorContexts = [
+  {
+    id: "home",
+    label: "Evde",
+    icon: Home,
+    quote: "Söylediğimiz her şeye karşı çıkıyor.",
+    color: "#F5927E",
+  },
+  {
+    id: "school",
+    label: "Okulda",
+    icon: School,
+    quote: "Öğretmeni sık sık geri bildirim veriyor.",
+    color: "#AAE8F6",
+  },
+  {
+    id: "social",
+    label: "Sosyal hayatta",
+    icon: Users,
+    quote: "Arkadaşlarıyla anlaşmakta zorlanıyor.",
+    color: "#D9F8A8",
+  },
+] as const;
 
-type HelpSectionProps = {
-  selectedConcern: string;
-  onSelectConcern: (concern: string) => void;
-};
-
-export function HelpSection({ selectedConcern, onSelectConcern }: HelpSectionProps) {
+function HomeworkFlow() {
   return (
-    <section id="help" className="section-surface relative overflow-hidden py-[74px] md:py-[118px]">
-      <div className="inner grid gap-y-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:gap-x-12 lg:gap-y-0">
-        <Reveal className="order-1 lg:col-start-1 lg:row-start-1">
-          <div className="badge border-[#AAE8F6] text-[#1E99B5]">
-            Ebeveynlerin Kaygılarını Anlıyoruz
+    <ol
+      data-asset-id="C-DIAG-01"
+      className="relative grid gap-5 rounded-[26px] bg-[#FFF7E8] p-5 sm:grid-cols-2"
+      aria-label="Ödeve başlama ve sürdürme akışı"
+    >
+      <span
+        aria-hidden="true"
+        className="absolute left-10 top-[72px] h-[calc(100%-112px)] w-0.5 bg-[#FCBF48] sm:left-[25%] sm:top-[54px] sm:h-0.5 sm:w-1/2"
+      />
+      {[
+        ["01", "Başlamak", "Masaya oturması saatler sürüyor."],
+        ["02", "Sürdürmek", "Başlıyor ama birkaç dakika sonra kalkıyor."],
+      ].map(([number, title, quote]) => (
+        <li key={title} className="relative z-10 flex gap-4 sm:block">
+          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white text-[12px] font-extrabold text-[#8C5038] shadow-sm">
+            {number}
+          </span>
+          <div className="sm:mt-4">
+            <h3 className="text-[17px] font-extrabold text-[#241D18]">{title}</h3>
+            <p className="mt-1 text-[13px] font-semibold leading-5 text-[rgba(36,29,24,0.66)]">
+              “{quote}”
+            </p>
           </div>
-          <h2 className="section-title mid-section-title mt-7 max-w-[720px]">
-            Evinizde benzer süreçlerden geçiyor olabilirsiniz:
-          </h2>
-        </Reveal>
+        </li>
+      ))}
+    </ol>
+  );
+}
 
-        <Reveal className="order-3 lg:col-start-1 lg:row-start-2 lg:order-none lg:mt-8">
-          <blockquote className="relative max-w-[680px] rounded-[28px] bg-white p-6 shadow-[0_18px_40px_rgba(36,29,24,0.12)] md:p-8">
-            <span className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#F5927E]">
-              İçinizden geçen soru
-            </span>
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={selectedConcern}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.3 }}
-                className="display mt-2 text-[clamp(26px,4.4vw,44px)] italic leading-[1.08] text-[#241D18]"
+function BehaviorStrip() {
+  const [activeContext, setActiveContext] = useState<
+    (typeof behaviorContexts)[number]["id"]
+  >(behaviorContexts[0].id);
+  const active = behaviorContexts.find((item) => item.id === activeContext) ?? behaviorContexts[0];
+
+  return (
+    <div
+      data-asset-id="C-DIAG-02"
+      className="rounded-[26px] bg-[#F4F1EB] p-5"
+    >
+      <div className="relative grid grid-cols-3 gap-2" aria-label="Davranış ve uyum bağlamları">
+        <span
+          aria-hidden="true"
+          className="absolute left-[16%] right-[16%] top-6 h-0.5 bg-[rgba(36,29,24,0.14)]"
+        />
+        {behaviorContexts.map((item) => {
+          const Icon = item.icon;
+          const selected = item.id === activeContext;
+
+          return (
+            <button
+              key={item.id}
+              type="button"
+              aria-expanded={selected}
+              aria-controls="behavior-context-copy"
+              onClick={() => setActiveContext(item.id)}
+              className="relative z-10 min-h-20 rounded-[18px] px-2 py-3 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#164C35]"
+            >
+              <span
+                className="mx-auto grid h-12 w-12 place-items-center rounded-full border-4 border-[#F4F1EB] text-[#241D18] transition-transform duration-200"
+                style={{
+                  backgroundColor: item.color,
+                  transform: selected ? "scale(1.08)" : "scale(1)",
+                }}
               >
-                “{innerVoices[selectedConcern]}”
-              </motion.p>
-            </AnimatePresence>
-          </blockquote>
-        </Reveal>
-
-        <Reveal className="order-4 lg:col-start-1 lg:row-start-3 lg:order-none lg:mt-6">
-          <div className="max-w-[680px] rounded-[28px] bg-[#F5927E] p-6 text-[#160A08] md:p-7">
-            <h3 className="display text-[clamp(30px,4vw,42px)] leading-[0.98]">
-              Kaygıyı somut bir başlangıç noktasına çevirelim.
-            </h3>
-            <div className="mt-5 rounded-[20px] bg-white/92 p-4 shadow-[0_10px_24px_rgba(22,10,8,0.12)]">
-              <span className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#1E99B5]">
-                <CheckCircle2 size={13} strokeWidth={2.8} />
-                Görüşme öncesi notunuz
+                <Icon size={19} aria-hidden="true" />
               </span>
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={selectedConcern}
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.24 }}
-                  className="mt-2 text-[15px] font-semibold italic leading-6 text-[#241D18]"
-                >
-                  “{selectedConcern}”
-                </motion.p>
-              </AnimatePresence>
-            </div>
-            <a className="cta-on-coral arrow-shift mt-6 inline-flex min-h-12 items-center gap-2 rounded-full px-5 text-[14px] font-extrabold" href="#checkup-form">
-              Bu hedefle randevu al
-              <ArrowUpRight size={17} strokeWidth={2.6} />
-            </a>
+              <span className={`mt-2 block text-[11px] font-extrabold ${selected ? "text-[#241D18]" : "text-[rgba(36,29,24,0.58)]"}`}>
+                {item.label}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+      <p
+        id="behavior-context-copy"
+        className="mt-4 rounded-[18px] bg-white p-4 text-[14px] font-extrabold leading-6 text-[#241D18]"
+      >
+        “{active.quote}”
+      </p>
+    </div>
+  );
+}
+
+function ContextVisual({ concernId }: { concernId: ConcernId }) {
+  if (concernId === "exam") {
+    return (
+      <EditorialImageSlot
+        assetId="C-PHOTO-01"
+        tone="coral"
+        altPlan="Evde çalışma masasındaki soruyu çözen bir öğrenci ve onu uzaktan gözlemleyen ebeveyn."
+      />
+    );
+  }
+
+  if (concernId === "homework") return <HomeworkFlow />;
+  if (concernId === "behavior") return <BehaviorStrip />;
+
+  return (
+    <div className="relative overflow-hidden rounded-[26px] bg-[#EFF8FD] p-6" aria-hidden="true">
+      <div className="flex items-center gap-3">
+        {["Bir ses", "Bir düşünce", "Başka bir iş"].map((label, index) => (
+          <div
+            key={label}
+            className="flex-1 rounded-[18px] bg-white p-3 text-center text-[11px] font-extrabold text-[#1E99B5] shadow-sm"
+            style={{ transform: `translateY(${index % 2 === 0 ? 0 : 12}px)` }}
+          >
+            {label}
           </div>
-        </Reveal>
+        ))}
+      </div>
+      <ArrowRight className="mx-auto mt-8 text-[#F5927E]" size={34} />
+      <p className="mt-2 text-center text-[13px] font-extrabold text-[#241D18]">
+        Dikkat bir anda başka yöne kayabiliyor.
+      </p>
+    </div>
+  );
+}
 
-        <Reveal delay={0.12} className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-3 lg:order-none lg:self-center">
-          <div className="rounded-[30px] bg-[#F4F1EB] p-5 shadow-[0_18px_40px_rgba(36,29,24,0.12)] md:p-7">
-            <div className="flex items-start gap-4">
-              <div
-                className="grid h-13 w-13 shrink-0 place-items-center rounded-full bg-white text-[#1E99B5]"
-                aria-hidden="true"
+export function HelpSection() {
+  const [selectedId, setSelectedId] = useState<ConcernId>("exam");
+  const [showMore, setShowMore] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const selected = concerns.find((item) => item.id === selectedId) ?? concerns[0];
+  const moreId = `child-concern-more-${selected.id}`;
+
+  function selectConcern(id: ConcernId) {
+    setSelectedId(id);
+    setShowMore(false);
+  }
+
+  return (
+    <section id="help" className="section-surface relative scroll-mt-28 overflow-hidden py-[72px] md:py-[112px]">
+      <div className="inner">
+        <div className="max-w-[780px]">
+          <div className="badge border-[#F5927E] bg-[#FEF0EC] text-[#C4533C]">
+            Bir başlığa dokunun
+          </div>
+          <h2 className="section-title mt-7">Hangisini gözlemliyorsunuz?</h2>
+          <p className="body-copy mt-5 max-w-[650px]">
+            Çocuğunuzda en sık karşılaştığınız durumu seçin. Aşağıdaki cümlelerden bazıları size de tanıdık gelebilir.
+          </p>
+        </div>
+
+        <div
+          className="mt-9 grid grid-cols-2 gap-3 lg:grid-cols-4"
+          role="tablist"
+          aria-label="Çocuğunuzda gözlemlediğiniz durum"
+        >
+          {concerns.map((concern) => {
+            const Icon = concern.icon;
+            const selectedTab = concern.id === selectedId;
+
+            return (
+              <button
+                key={concern.id}
+                type="button"
+                role="tab"
+                aria-selected={selectedTab}
+                aria-controls="child-concern-panel"
+                onClick={() => selectConcern(concern.id)}
+                className={`group flex min-h-20 items-center justify-between gap-3 rounded-[22px] border px-4 py-3 text-left transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#164C35] ${
+                  selectedTab
+                    ? "border-[#164C35] bg-[#164C35] text-white shadow-[0_16px_36px_rgba(22,76,53,0.18)]"
+                    : "border-[rgba(36,29,24,0.1)] bg-white text-[#241D18] hover:border-[#F5927E]"
+                }`}
               >
-                <Brain size={26} strokeWidth={2.4} />
-              </div>
-              <div>
-                <h3 className="text-[25px] font-extrabold leading-tight text-[#241D18]">
-                  Çocuğunuzun durumunu en iyi özetleyen ifadeyi seçin.
-                </h3>
-              </div>
-            </div>
+                <span className="flex items-center gap-3">
+                  <Icon size={19} className={selectedTab ? "text-[#FCBF48]" : "text-[#C4533C]"} aria-hidden="true" />
+                  <span className="text-[13px] font-extrabold leading-5 sm:text-[14px]">
+                    {concern.label}
+                  </span>
+                </span>
+                {selectedTab ? <Check size={17} aria-hidden="true" /> : <ArrowRight size={16} aria-hidden="true" />}
+              </button>
+            );
+          })}
+        </div>
 
-            <div className="mt-7 grid gap-3">
-              {concerns.map((concern) => {
-                const isSelected = selectedConcern === concern;
-
-                return (
-                  <button
-                    key={concern}
-                    type="button"
-                    onClick={() => onSelectConcern(concern)}
-                    className={`group flex min-h-16 w-full items-center justify-between gap-4 rounded-[20px] border px-4 py-3 text-left text-[15px] font-extrabold leading-6 transition ${
-                      isSelected
-                        ? "border-[#F5927E] bg-white text-[#241D18] shadow-[0_18px_36px_rgba(245,132,110,0.18)]"
-                        : "border-white/80 bg-white/70 text-[rgba(36,29,24,0.74)] hover:-translate-y-0.5 hover:border-[#AAE8F6]"
-                    }`}
-                  >
-                    <span>{concern}</span>
-                    <span
-                      className={`grid h-8 w-8 shrink-0 place-items-center rounded-full transition ${
-                        isSelected ? "bg-[#F5927E] text-white" : "bg-[#EFF8FD] text-[#1E99B5]"
-                      }`}
-                      aria-hidden="true"
-                    >
-                      {isSelected ? <CheckCircle2 size={17} /> : <ArrowUpRight size={16} />}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={selectedConcern}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.28 }}
-                className="mt-6 rounded-[22px] bg-white p-5"
-              >
-                <div
-                  className="mb-3 grid h-10 w-10 place-items-center rounded-full bg-[#F0F7F2] text-[#164C35]"
-                  aria-hidden="true"
-                >
-                  <MessageCircleHeart size={20} />
-                </div>
-                <p className="text-[15px] font-semibold leading-7 text-[rgba(36,29,24,0.72)]">
-                  {responses[selectedConcern]}
+        <div id="child-concern-panel" role="tabpanel" className="mt-6">
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.article
+              key={selected.id}
+              initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduceMotion ? undefined : { opacity: 0, y: -6 }}
+              transition={{ duration: reduceMotion ? 0 : 0.24, ease: [0.2, 0.8, 0.2, 1] }}
+              className="grid overflow-hidden rounded-[30px] bg-white p-5 shadow-[0_24px_70px_rgba(36,29,24,0.1)] md:p-7 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-9"
+            >
+              <div className="py-2">
+                <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#C4533C]">
+                  {selected.label}
                 </p>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </Reveal>
+                <h3 className="display mt-4 max-w-[720px] text-[clamp(34px,5vw,56px)] leading-[0.98] text-[#241D18]">
+                  “{selected.main}”
+                </h3>
+                <ul className="mt-6 grid gap-3">
+                  {selected.support.map((quote) => (
+                    <li key={quote} className="flex items-start gap-3 text-[15px] font-semibold leading-7 text-[rgba(36,29,24,0.72)]">
+                      <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#F5927E]" aria-hidden="true" />
+                      “{quote}”
+                    </li>
+                  ))}
+                </ul>
+
+                {selected.more.length > 0 ? (
+                  <div className="mt-5">
+                    <button
+                      type="button"
+                      aria-expanded={showMore}
+                      aria-controls={moreId}
+                      onClick={() => setShowMore((open) => !open)}
+                      className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[rgba(36,29,24,0.14)] px-4 text-[13px] font-extrabold text-[#241D18] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#164C35]"
+                    >
+                      Bunlar da tanıdık mı?
+                      <ChevronDown className={`transition-transform ${showMore ? "rotate-180" : ""}`} size={16} aria-hidden="true" />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {showMore ? (
+                        <motion.ul
+                          id={moreId}
+                          initial={reduceMotion ? false : { opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={reduceMotion ? undefined : { opacity: 0, height: 0 }}
+                          transition={{ duration: reduceMotion ? 0 : 0.28 }}
+                          className="mt-3 grid gap-2 overflow-hidden rounded-[18px] bg-[#FEF9F5] p-4"
+                        >
+                          {selected.more.map((quote) => (
+                            <li key={quote} className="text-[14px] font-semibold leading-6 text-[rgba(36,29,24,0.68)]">
+                              “{quote}”
+                            </li>
+                          ))}
+                        </motion.ul>
+                      ) : null}
+                    </AnimatePresence>
+                  </div>
+                ) : null}
+
+                <p className="mt-6 max-w-[680px] border-l-4 border-[#AAE8F6] pl-4 text-[15px] font-semibold leading-7 text-[rgba(36,29,24,0.72)]">
+                  {selected.explanation}
+                </p>
+              </div>
+
+              <div className="mt-7 lg:mt-0">
+                <ContextVisual concernId={selected.id} />
+              </div>
+            </motion.article>
+          </AnimatePresence>
+        </div>
+
+        <div className="mt-6 flex items-start gap-3 rounded-[22px] bg-[#F0F7F2] p-5 text-[#164C35]">
+          <CircleDot className="mt-0.5 shrink-0" size={20} aria-hidden="true" />
+          <p className="text-[14px] font-extrabold leading-6">
+            Bu gözlemler tek başına bir tanı anlamına gelmez. Çocuğunuzun hangi alanlarda zorlandığını anlamak için bir başlangıç olabilir.
+          </p>
+        </div>
       </div>
     </section>
   );

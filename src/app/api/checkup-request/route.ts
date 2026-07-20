@@ -6,7 +6,6 @@ type CheckUpPayload = {
   phone?: unknown;
   childAge?: unknown;
   participantAge?: unknown;
-  concern?: unknown;
   note?: unknown;
 };
 
@@ -33,7 +32,6 @@ export async function POST(request: Request) {
   const parentName = clean(payload.parentName);
   const phone = clean(payload.phone);
   const participantAge = clean(payload.participantAge) || clean(payload.childAge);
-  const concern = clean(payload.concern) || "Henüz Seçim Yapılmadı";
   const note = clean(payload.note) || "Not Eklenmedi";
 
   if (!parentName || !phone || !participantAge) {
@@ -69,7 +67,6 @@ export async function POST(request: Request) {
     `Adı Soyadı: ${parentName}`,
     `Telefon: ${phone}`,
     `${audience === "adults" ? "Katılımcı Yaşı" : "Çocuğun Yaşı"}: ${participantAge}`,
-    `Belirtilen Durum: ${concern}`,
     `${audience === "adults" ? "Katılımcı Notu" : "Veli Notu"}: ${note}`,
     `Başvuru Tarihi: ${timestamp}`,
   ].join("\n");

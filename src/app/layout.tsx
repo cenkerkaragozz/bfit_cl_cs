@@ -23,9 +23,9 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "BrainFit Karşıyaka | Zihin Check-Up ve Bilişsel Gelişim",
+  title: "BrainFit Karşıyaka | Çocuklar İçin Zihin Check-Up",
   description:
-    "BrainFit Karşıyaka ile çocukların dikkat, hafıza ve öğrenme becerilerini Zihin Check-Up ve bilişsel gelişim programlarıyla keşfedin.",
+    "BrainFit Karşıyaka'da 1 saatlik Zihin Check-Up ile çocuğunuzun bilişsel profilini anlayın ve kişiye özel egzersiz planı hakkında bilgi alın.",
 };
 
 export default function RootLayout({

@@ -74,7 +74,7 @@ export function Hero() {
               Dikkat dağınıklığı, hafıza güçlüğü ya da okul performansı — doğru adım için önce doğru soruyu sormak gerekir.
             </p>
             <p className="mt-3 text-[16px] font-medium leading-7 text-[rgba(36,29,24,0.72)] md:text-lg">
-              Zihin Check-Up, çocuğunuzun bilişsel profilini 45 dakikada bilimsel verilerle ortaya koyar.
+              Zihin Check-Up, çocuğunuzun bilişsel becerilerini 1 saatlik değerlendirmeyle daha yakından anlamaya yardımcı olur.
             </p>
             <a
               className="arrow-shift mt-7 inline-flex min-h-13 max-w-full items-center justify-center gap-2 rounded-full bg-[#E86F5B] px-6 py-4 text-center text-[15px] font-extrabold leading-5 text-white shadow-[0_18px_36px_rgba(232,111,91,0.28)] transition hover:-translate-y-1 hover:bg-[#F5927E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E86F5B] sm:px-7"

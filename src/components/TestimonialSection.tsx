@@ -1,157 +1,47 @@
-"use client";
-
-import Image from "next/image";
-import { ShieldCheck, Star } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { Leaf, QuoteIcon, Reveal } from "@/components/Decorations";
-
-const testimonials = [
-  {
-    lead: "Zihin Check-Up sonrasında durumu çok daha ",
-    highlight: "net",
-    tail: " gördük.",
-  },
-  {
-    lead: "Görüşmemizin sonrasında içimiz çok daha ",
-    highlight: "rahatladı",
-    tail: ".",
-  },
-  {
-    lead: "BrainFit artık kendimizi daha ",
-    highlight: "hazır",
-    tail: " hissediyoruz.",
-  },
-];
-
-const localProofItems = [
-  "Karşıyaka'da yüz yüze merkez",
-  "WhatsApp ile hızlı randevu",
-  "KVKK kapsamında iletişim",
-  "Uzman açıklamalı rapor",
-] as const;
+import { Quote, ShieldCheck } from "lucide-react";
 
 export function TestimonialSection({
-  showLocalProofBars = false,
+  audience = "children",
 }: {
-  showLocalProofBars?: boolean;
+  audience?: "children" | "adults";
 }) {
-  const [active, setActive] = useState(0);
-  const reduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (reduceMotion) return;
-
-    const timer = window.setInterval(() => {
-      setActive((current) => (current + 1) % testimonials.length);
-    }, 2500);
-
-    return () => window.clearInterval(timer);
-  }, [reduceMotion]);
-
-  const testimonial = testimonials[active];
+  const adult = audience === "adults";
 
   return (
-    <section id="clinics" className="section-surface relative py-[82px] md:py-[116px]">
+    <section id="experiences" className="section-surface-alt relative scroll-mt-28 py-[72px] md:py-[108px]">
       <span id="about" className="absolute top-0" aria-hidden="true" />
-      <Leaf className="absolute right-[4%] top-[8%] hidden md:block" />
-      <div className="inner grid items-center gap-12 lg:grid-cols-[0.84fr_1fr]">
-        <Reveal>
-          <article className="relative overflow-hidden rounded-[32px] bg-[#241D18] p-5 text-white shadow-[0_34px_90px_rgba(36,29,24,0.15)] md:p-7">
-            <div className="relative h-[500px] overflow-hidden rounded-[26px] bg-[#FCBF48]">
-              <Image
-                src="/images/doctor-profile.svg"
-                alt="BrainFit Karşıyaka Uzman Ekibi Görseli"
-                fill
-                sizes="(max-width: 768px) 90vw, 480px"
-                className="object-cover object-bottom"
-              />
-            </div>
-            <div className="flex items-center justify-between gap-4 px-3 pb-2 pt-7">
-              <div>
-                <h3 className="display text-[35px] leading-none">
-                  BrainFit Karşıyaka Uzman Kadrosu
-                </h3>
-                <p className="mt-2 text-[14px] leading-6 text-white/70">
-                  Zihin Check-Up ve Bireysel Gelişim Programları
-                </p>
-              </div>
-            </div>
-          </article>
-        </Reveal>
+      <div className="inner grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+        <div>
+          <div className="badge border-[#FCBF48] text-[#8C5038]">
+            {adult ? "Yetişkin deneyimleri" : "Veli deneyimleri"}
+          </div>
+          <h2 className="section-title mt-7 max-w-[650px]">
+            {adult
+              ? "Süreci yaşayanların kendi cümleleri."
+              : "Benzer kaygıları yaşayan ailelerin kendi cümleleri."}
+          </h2>
+          <p className="body-copy mt-5 max-w-[560px]">
+            Bu alan yalnızca gerçek, izinli ve gerektiğinde anonimleştirilmiş deneyimler için ayrıldı.
+          </p>
+        </div>
 
-        <Reveal delay={0.12} className="relative">
-          <QuoteIcon className="mb-8" />
-          <blockquote>
-            <p className="display max-w-[760px] text-[clamp(44px,5.8vw,78px)]">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={testimonial.highlight}
-                  className="inline-block"
-                  initial={reduceMotion ? undefined : { opacity: 0, y: 16, rotate: -2 }}
-                  animate={reduceMotion ? undefined : { opacity: 1, y: 0, rotate: 0 }}
-                  exit={reduceMotion ? undefined : { opacity: 0, y: -12, rotate: 2 }}
-                  transition={{ duration: 0.38 }}
-                >
-                  {testimonial.lead}
-                  <span className="inline-block rounded-full bg-[#FCBF48] px-5 pb-2 text-[var(--ink)]">
-                    {testimonial.highlight}
-                  </span>
-                  {testimonial.tail}
-                </motion.span>
-              </AnimatePresence>
+        <article
+          data-content-status="awaiting-approved-testimonial"
+          className="relative overflow-hidden rounded-[32px] bg-[#241D18] p-6 text-white shadow-[0_28px_80px_rgba(36,29,24,0.16)] md:p-9"
+        >
+          <Quote className="text-[#FCBF48]" size={40} aria-hidden="true" />
+          <blockquote className="mt-8">
+            <p className="display text-[clamp(36px,5vw,60px)] leading-[1.02] text-white">
+              {adult
+                ? "Gerçek yetişkin deneyimi bu alanda yer alacak."
+                : "Gerçek veli deneyimi bu alanda yer alacak."}
             </p>
           </blockquote>
-
-          <p className="body-copy mt-8 max-w-[600px]">
-            “Dikkati çok dağılıyor” geri bildirimleri bizi kaygılandırıyordu.
-            Check-Up sayesinde sorunun kaynağını net bir şekilde anlayabildik.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-5">
-            <Image
-              src="/images/avatar-mira.svg"
-              alt=""
-              aria-hidden="true"
-              width={58}
-              height={58}
-              className="rounded-full"
-            />
-            <div>
-              <p className="font-extrabold">BrainFit Karşıyaka Velisi</p>
-              <div className="mt-1 flex items-center gap-1 text-[#FCBF48]" aria-label="Google Puanı: 4.6">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star key={index} size={16} fill="currentColor" strokeWidth={2.2} />
-                ))}
-                <span className="ml-2 text-[14px] font-extrabold text-[rgba(36,29,24,0.58)]">
-                  Google Müşteri Puanı: 4.6/5
-                </span>
-              </div>
-            </div>
+          <div className="mt-9 flex items-center gap-3 border-t border-white/14 pt-6 text-[13px] font-bold text-white/68">
+            <ShieldCheck className="shrink-0 text-[#D9F8A8]" size={19} aria-hidden="true" />
+            Yayın öncesinde kullanım izni ve içerik doğrulaması yapılacak.
           </div>
-
-          {showLocalProofBars ? (
-            <div className="mt-10 grid gap-3 sm:grid-cols-2">
-              {localProofItems.map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-[18px] bg-white p-4">
-                  <ShieldCheck size={19} className="shrink-0 text-[#6BC862]" />
-                  <p className="text-[14px] font-extrabold text-[#241D18]">{item}</p>
-                </div>
-              ))}
-            </div>
-          ) : null}
-
-          <div className="absolute right-2 top-[50%] hidden flex-col gap-3 md:flex">
-            {testimonials.map((item, index) => (
-              <span
-                key={item.highlight}
-                className={`h-10 w-[5px] rounded-full ${
-                  index === active ? "bg-[#F5927E]" : "bg-[rgba(36,29,24,0.18)]"
-                }`}
-              />
-            ))}
-          </div>
-        </Reveal>
+        </article>
       </div>
     </section>
   );

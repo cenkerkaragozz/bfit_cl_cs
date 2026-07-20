@@ -2,12 +2,11 @@
 
 import { FormEvent, useState } from "react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
-import { motion } from "framer-motion";
-import { Reveal } from "@/components/Decorations";
+import { ContactActions } from "@/components/ContactActions";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
-export function CheckUpFormSection({ selectedConcern }: { selectedConcern: string }) {
+export function CheckUpFormSection() {
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [message, setMessage] = useState("");
 
@@ -16,13 +15,13 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
     setSubmitState("submitting");
     setMessage("");
 
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     const payload = {
       parentName: String(formData.get("parentName") || ""),
       phone: String(formData.get("phone") || ""),
       childAge: String(formData.get("childAge") || ""),
       note: String(formData.get("note") || ""),
-      concern: selectedConcern,
     };
 
     try {
@@ -33,130 +32,123 @@ export function CheckUpFormSection({ selectedConcern }: { selectedConcern: strin
       });
       const data = (await response.json()) as { message?: string };
 
-      if (!response.ok) {
-        throw new Error(data.message || "Request failed");
-      }
+      if (!response.ok) throw new Error(data.message || "Request failed");
 
       setSubmitState("success");
-      setMessage(
-        "Talebiniz başarıyla alındı. Uzman ekibimiz en kısa sürede sizinle iletişime geçecektir.",
-      );
-      event.currentTarget.reset();
+      setMessage("Talebiniz alındı. Ekibimiz sizinle iletişime geçecek.");
+      form.reset();
     } catch {
       setSubmitState("error");
-      setMessage("Mesaj gönderilemedi. Lütfen bilgilerinizi kontrol ederek tekrar deneyiniz.");
+      setMessage("Mesaj gönderilemedi. Bilgilerinizi kontrol edip yeniden deneyin.");
     }
   }
 
   return (
-    <section
-      id="checkup-form"
-      className="section-surface relative overflow-hidden py-14 md:py-[116px]"
-    >
-      <div className="inner">
-        <div className="section-cta-surface grid gap-8 rounded-[32px] px-5 py-8 sm:px-7 md:gap-10 md:rounded-[40px] md:p-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-          <Reveal className="min-w-0">
-            <div className="badge border-[#160A08]/40 bg-white/20 text-[#160A08]">
-              Zihin Check-Up
+    <section id="contact" className="section-surface relative scroll-mt-28 overflow-hidden py-[72px] md:py-[112px]">
+      <div id="checkup-form" className="inner scroll-mt-28">
+        <div className="section-cta-surface grid gap-9 rounded-[34px] px-5 py-8 sm:px-7 md:p-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+          <div>
+            <div className="badge border-[#160A08]/35 bg-white/20 text-[#160A08]">
+              İletişime geçin
             </div>
-            <h2 className="display mt-6 max-w-[700px] text-[clamp(40px,5.5vw,72px)] leading-[0.94] md:mt-7">
-              Çocuğunuzun geleceği için ilk adımı bugün atın.
+            <h2 className="display mt-7 max-w-[660px] text-[clamp(42px,5.5vw,72px)] leading-[0.95] text-[#160A08]">
+              Önce yaşadığınız durumu konuşalım.
             </h2>
-            <p className="mt-6 max-w-[560px] text-[16px] font-semibold leading-7 text-[#160A08]/78 md:mt-7 md:text-[17px] md:leading-8">
-              Formu doldurun, uzman ekibimiz sizinle iletişime geçsin.
-              Bilgileriniz KVKK kapsamında sadece randevu planlaması için saklanır.
+            <p className="mt-6 max-w-[560px] text-[16px] font-semibold leading-8 text-[#160A08]/76">
+              WhatsApp&apos;tan yazabilir ya da numaranızı bırakabilirsiniz. Ekibimiz sizi dinler, Zihin Check-Up hakkında bilgi verir ve sorularınızı yanıtlar.
             </p>
 
-            <motion.div
-              layout
-              className="mt-7 flex w-full max-w-[560px] items-center gap-3 rounded-full bg-white px-4 py-3 text-[14px] font-extrabold shadow-[0_18px_40px_rgba(22,10,8,0.12)] md:mt-8 md:inline-flex md:w-auto"
-            >
-              <CheckCircle2 size={18} className="shrink-0 text-[#164C35]" />
-              <span className="min-w-0 truncate">{selectedConcern}</span>
-            </motion.div>
+            <ContactActions audience="children" className="mt-7 max-w-[560px]" />
 
-            <div className="mt-7 grid gap-3 sm:grid-cols-2 md:mt-8">
-              {["45 dakikalık görüşme", "16 sayfalık rapor", "Uzman açıklaması", "Tanı veya ilaç içermez"].map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-[18px] bg-white/18 p-4">
-                  <CheckCircle2 size={18} className="shrink-0 text-[#164C35]" />
-                  <p className="text-[14px] font-extrabold text-[#160A08]">{item}</p>
+            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+              {["1 saatlik değerlendirme", "Bilişsel profil", "Kişisel egzersiz planı"].map((item) => (
+                <div key={item} className="flex items-center gap-2 rounded-[18px] bg-white/24 p-3">
+                  <CheckCircle2 size={17} className="shrink-0 text-[#164C35]" aria-hidden="true" />
+                  <p className="text-[12px] font-extrabold leading-5 text-[#160A08]">{item}</p>
                 </div>
               ))}
             </div>
-          </Reveal>
+          </div>
 
-          <Reveal delay={0.12} className="min-w-0">
-            <form
-              onSubmit={handleSubmit}
-              method="post"
-              action="/api/checkup-request"
-              className="rounded-[24px] bg-white p-4 shadow-[0_30px_80px_rgba(22,10,8,0.18)] sm:p-5 md:rounded-[30px] md:p-7"
+          <form
+            id="callback-form"
+            onSubmit={handleSubmit}
+            method="post"
+            action="/api/checkup-request"
+            className="scroll-mt-28 rounded-[28px] bg-white p-5 shadow-[0_28px_80px_rgba(22,10,8,0.18)] md:p-7"
+          >
+            <h3 className="text-[27px] font-extrabold text-[#241D18]">Sizi arayalım</h3>
+            <p className="mt-2 text-[14px] font-semibold leading-6 text-[rgba(36,29,24,0.6)]">
+              İletişim bilgilerinizi bırakın; ekibimiz sorularınızı yanıtlasın.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <label className="grid gap-2 text-xs font-extrabold text-[rgba(36,29,24,0.68)]">
+                Adınız Soyadınız
+                <input
+                  name="parentName"
+                  autoComplete="name"
+                  required
+                  className="min-h-13 w-full rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold text-[#241D18] outline-none transition duration-200 focus:border-[#164C35] focus:ring-3 focus:ring-[#164C35]/10"
+                  placeholder="Adınız soyadınız"
+                />
+              </label>
+              <label className="grid gap-2 text-xs font-extrabold text-[rgba(36,29,24,0.68)]">
+                Telefon Numaranız
+                <input
+                  name="phone"
+                  autoComplete="tel"
+                  required
+                  inputMode="tel"
+                  className="min-h-13 w-full rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold text-[#241D18] outline-none transition duration-200 focus:border-[#164C35] focus:ring-3 focus:ring-[#164C35]/10"
+                  placeholder="05XX XXX XX XX"
+                />
+              </label>
+              <label className="grid gap-2 text-xs font-extrabold text-[rgba(36,29,24,0.68)]">
+                Çocuğunuzun Yaşı
+                <input
+                  name="childAge"
+                  required
+                  inputMode="numeric"
+                  className="min-h-13 w-full rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold text-[#241D18] outline-none transition duration-200 focus:border-[#164C35] focus:ring-3 focus:ring-[#164C35]/10"
+                  placeholder="Örn. 10"
+                />
+              </label>
+              <label className="grid gap-2 text-xs font-extrabold text-[rgba(36,29,24,0.68)] sm:col-span-2">
+                Kısa Notunuz <span className="font-semibold text-[rgba(36,29,24,0.46)]">(isteğe bağlı)</span>
+                <textarea
+                  name="note"
+                  className="min-h-28 w-full rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 py-3 text-[16px] font-bold text-[#241D18] outline-none transition duration-200 focus:border-[#164C35] focus:ring-3 focus:ring-[#164C35]/10"
+                  placeholder="Eklemek istediğiniz bir ayrıntı varsa yazabilirsiniz."
+                />
+              </label>
+            </div>
+
+            <button
+              type="submit"
+              disabled={submitState === "submitting"}
+              className="mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#164C35] px-6 text-[15px] font-extrabold text-white shadow-[0_16px_34px_rgba(22,76,53,0.24)] transition duration-150 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#164C35] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-65"
             >
-              <div className="grid gap-4 sm:grid-cols-2">
-                <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)]">
-                  Adınız Soyadınız
-                  <input
-                    name="parentName"
-                    required
-                    className="min-h-13 w-full min-w-0 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18] placeholder:text-[rgba(36,29,24,0.68)]"
-                    placeholder="Adınız"
-                  />
-                </label>
-                <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)]">
-                  Telefon Numaranız
-                  <input
-                    name="phone"
-                    required
-                    inputMode="tel"
-                    className="min-h-13 w-full min-w-0 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18] placeholder:text-[rgba(36,29,24,0.68)]"
-                    placeholder="05XX XXX XX XX"
-                  />
-                </label>
-                <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)]">
-                  Çocuğunuzun Yaşı
-                  <input
-                    name="childAge"
-                    required
-                    inputMode="numeric"
-                    className="min-h-13 w-full min-w-0 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold normal-case tracking-normal text-[#241D18] placeholder:text-[rgba(36,29,24,0.68)]"
-                    placeholder="Örn. 10"
-                  />
-                </label>
-                <label className="grid gap-2 text-xs font-extrabold tracking-normal text-[rgba(36,29,24,0.68)] sm:col-span-2">
-                  Mesajınız / Notunuz
-                  <textarea
-                    name="note"
-                    className="min-h-28 w-full min-w-0 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 py-3 text-[16px] font-bold normal-case tracking-normal text-[#241D18] placeholder:text-[rgba(36,29,24,0.68)]"
-                    placeholder="Eklemek istediğiniz özel bir durum veya sorunuz varsa buraya yazabilirsiniz."
-                  />
-                </label>
-              </div>
+              {submitState === "submitting" ? "İletiliyor..." : "Sizi Arayalım"}
+              <ArrowUpRight size={18} aria-hidden="true" />
+            </button>
 
-              <input type="hidden" name="concern" value={selectedConcern} />
+            <p data-compliance-status="pending" className="mt-4 text-[11px] font-semibold leading-5 text-[rgba(36,29,24,0.5)]">
+              Aydınlatma ve veri işleme metni yayın öncesinde bu alana eklenecek.
+            </p>
 
-              <button
-                type="submit"
-                disabled={submitState === "submitting"}
-                className="arrow-shift mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#164C35] px-6 text-[15px] font-extrabold text-white shadow-[0_18px_36px_rgba(22,76,53,0.24)] transition hover:-translate-y-1 hover:bg-[#1E5F44] disabled:cursor-not-allowed disabled:opacity-70"
+            {message ? (
+              <p
+                className={`mt-4 rounded-[18px] px-4 py-3 text-[14px] font-extrabold leading-6 ${
+                  submitState === "success"
+                    ? "bg-[#F0F7F2] text-[#164C35]"
+                    : "bg-[#FFF0D7] text-[#8C5038]"
+                }`}
+                role="status"
               >
-                {submitState === "submitting" ? "Mesajınız İletiliyor..." : "Bilgi Almak İstiyorum"}
-                <ArrowUpRight size={18} />
-              </button>
-
-              {message ? (
-                <p
-                  className={`mt-4 rounded-[18px] px-4 py-3 text-[14px] font-extrabold leading-6 ${
-                    submitState === "success"
-                      ? "bg-[#F0F7F2] text-[#164C35]"
-                      : "bg-[#FFF0D7] text-[#8C5038]"
-                  }`}
-                  role="status"
-                >
-                  {message}
-                </p>
-              ) : null}
-            </form>
-          </Reveal>
+                {message}
+              </p>
+            ) : null}
+          </form>
         </div>
       </div>
     </section>

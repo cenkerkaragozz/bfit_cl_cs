@@ -1,128 +1,84 @@
-"use client";
-
-import { ArrowUpRight, ClipboardCheck, FileText, MessageCircle, Timer } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
-import { Reveal } from "@/components/Decorations";
+import { ContactActions } from "@/components/ContactActions";
 
 const steps = [
   {
-    title: "45 Dakikalık Analiz",
-    copy: "Çocuğunuzun bilişsel profili; dikkat, hafıza ve öğrenme hızı gibi temel alanlarda incelenir.",
-    icon: Timer,
+    title: "1 Saatlik Zihin Check-Up",
+    children: "Yaşanan durumu ve bilişsel becerileri birlikte değerlendiririz.",
+    adults: "Yaşadığınız durumu ve bilişsel becerilerinizi birlikte değerlendiririz.",
+    color: "#F5927E",
   },
   {
-    title: "16 Sayfalık Analiz Raporu",
-    copy: "Çocuğunuzun güçlü yönleri ve gelişime açık alanları anlaşılır, somut bir raporla size sunulur.",
-    icon: FileText,
+    title: "Bilişsel Profil",
+    children: "Beş ana alandaki güçlü ve desteklenebilecek beceriler görünür olur.",
+    adults: "Beş ana alandaki güçlü ve desteklenebilecek beceriler görünür olur.",
+    color: "#AAE8F6",
   },
   {
-    title: "Size Özel Yol Haritası",
-    copy: "Elde edilen sonuçlara göre aileniz için en uygun başlangıç noktası uzmanlarımızla birlikte belirlenir.",
-    icon: ClipboardCheck,
+    title: "Kişisel Egzersiz Planı",
+    children: "Egzersiz planı, değerlendirmede ortaya çıkan ihtiyaçlara göre şekillenir.",
+    adults: "Egzersiz planınız, değerlendirmede ortaya çıkan ihtiyaçlara göre şekillenir.",
+    color: "#D9F8A8",
   },
 ] as const;
 
-const details = [
-  "Uzman Görüşmesi",
-  "16 Sayfalık Kapsamlı Bilişsel Analiz Raporu",
-  "Tıbbi Tanı veya İlaç İçermeyen Bilişsel Yaklaşım",
-  "Aileniz ve çocuğunuz için en doğru gelişim yolunu birlikte planlıyoruz.",
-] as const;
-
-export function CheckUpSection() {
-  const reduceMotion = useReducedMotion();
+export function CheckUpSection({
+  audience = "children",
+}: {
+  audience?: "children" | "adults";
+}) {
+  const adult = audience === "adults";
 
   return (
-    <section id="checkup" className="section-surface relative overflow-hidden py-[76px] md:py-[118px]">
-      <div className="inner grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <Reveal className="relative">
-          <div className="badge border-[#40CEEE] text-[#1E99B5]">Zihin Check-Up</div>
-          <h2
-            className="section-title mt-7 max-w-[620px]"
-            style={{ fontSize: "clamp(42px, 5.2vw, 64px)" }}
-          >
-            45 Dakikada Bilimsel Bir Başlangıç
-          </h2>
-          <p
-            className="body-copy mt-6 max-w-[540px]"
-            style={{ fontSize: "clamp(16px, 1.4vw, 18px)", lineHeight: "1.78" }}
-          >
-            Çocuğunuza daha fazla yüklenmeden önce, öğrenme süreçlerindeki
-            engelleri tespit ediyoruz. Görüşme sonunda mevcut durumu size somut
-            verilerle sunuyoruz.
-          </p>
-          <a className="pill-button arrow-shift mt-8 !bg-[#E86F5B] text-white !shadow-[0_18px_36px_rgba(232,111,91,0.28)] hover:!bg-[#F5927E]" href="#checkup-form">
-            Zihin Check-Up Başvurusu
-            <ArrowUpRight size={16} />
-          </a>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <div className="relative rounded-[30px] bg-[#FEF9F5] p-5 shadow-[0_18px_40px_rgba(36,29,24,0.12)] md:p-7">
-            <div className="grid gap-4 md:grid-cols-[0.72fr_1fr]">
-              <div className="rounded-[24px] bg-[#1B4332] p-6 text-white">
-                <p className="display text-[86px] leading-none text-[#FCBF48]">
-                  %92
-                </p>
-                <p className="mt-5 text-[16px] font-semibold leading-7 text-white/82">
-                  BrainFit programlarına katılanların büyük çoğunluğu, dikkat
-                  ve öğrenme süreçlerinde kalıcı bir gelişim gözlemlediklerini
-                  belirtiyor.
-                </p>
-                <span className="mt-6 block h-1.5 w-20 rounded-full bg-[#6BC862]" />
-              </div>
-
-              <div className="grid gap-3">
-                {details.map((detail) => (
-                  <div
-                    key={detail}
-                    className="flex items-start gap-3 rounded-[20px] bg-white p-4 shadow-[0_10px_24px_rgba(36,29,24,0.06)]"
-                  >
-                    <span
-                      className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#F0F7F2] text-[#6BC862]"
-                      aria-hidden="true"
-                    >
-                      <MessageCircle size={14} strokeWidth={2.6} />
-                    </span>
-                    <p className="text-[15px] font-extrabold leading-6 text-[#241D18]">
-                      {detail}
-                    </p>
-                  </div>
-                ))}
-              </div>
+    <section id="checkup" className="section-surface relative scroll-mt-28 overflow-hidden py-[72px] md:py-[112px]">
+      <div className="inner">
+        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+          <div>
+            <div className={`badge ${adult ? "border-[#FCBF48] text-[#8C5038]" : "border-[#40CEEE] text-[#1E99B5]"}`}>
+              {adult ? "Zihin Check-Up" : "İlk adım"}
             </div>
-
-            <div className="mt-5 grid gap-3 md:grid-cols-3">
-              {steps.map((step, index) => {
-                const Icon = step.icon;
-
-                return (
-                  <motion.div
-                    key={step.title}
-                    className="relative rounded-[22px] bg-white p-5 shadow-[0_10px_24px_rgba(36,29,24,0.06)]"
-                    initial={reduceMotion ? undefined : { opacity: 0, y: 18 }}
-                    whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.45, delay: index * 0.08 }}
-                  >
-                    <div
-                      className="grid h-11 w-11 place-items-center rounded-full bg-[#EFF8FD] text-[#40CEEE]"
-                      aria-hidden="true"
-                    >
-                      <Icon size={20} strokeWidth={2.5} />
-                    </div>
-                    <h3 className="mt-5 text-[24px] font-extrabold leading-none text-[#241D18]">
-                      {step.title}
-                    </h3>
-                    <p className="mt-3 text-[14px] font-medium leading-6 text-[rgba(36,29,24,0.68)]">
-                      {step.copy}
-                    </p>
-                  </motion.div>
-                );
-              })}
-            </div>
+            <h2 className="section-title mt-7 max-w-[720px]">
+              {adult ? "Süreç nasıl ilerliyor?" : "Nereden başlayacağınızı birlikte netleştirelim."}
+            </h2>
           </div>
-        </Reveal>
+          <p className="body-copy max-w-[620px] lg:justify-self-end">
+            {adult
+              ? "Neyle karşılaşacağınızı baştan bilmeniz için Zihin Check-Up sürecini üç açık adımda anlatıyoruz."
+              : "BrainFit, bilişsel becerileri değerlendirir ve ortaya çıkan profile göre kişiye özel egzersiz planı oluşturur. Bunun ilk adımı 1 saatlik Zihin Check-Up’tır."}
+          </p>
+        </div>
+
+        <ol
+          data-asset-id="SH-DIAG-01"
+          className="relative mt-10 grid gap-0 overflow-hidden rounded-[30px] bg-white p-5 shadow-[0_24px_70px_rgba(36,29,24,0.09)] md:p-7 lg:grid-cols-3"
+        >
+          <span
+            aria-hidden="true"
+            className="absolute bottom-8 left-[42px] top-8 w-1 rounded-full bg-[#DED8D1] lg:bottom-auto lg:left-[8%] lg:right-[8%] lg:top-[58px] lg:h-1 lg:w-auto"
+          />
+          {steps.map((step, index) => (
+            <li
+              key={step.title}
+              className="relative z-10 grid min-h-[138px] grid-cols-[52px_1fr] gap-4 px-1 py-4 lg:min-h-0 lg:grid-cols-1 lg:px-5 lg:pb-2 lg:pt-0 lg:text-center"
+            >
+              <span
+                className="grid h-12 w-12 place-items-center rounded-full border-[6px] border-white text-[13px] font-extrabold text-[#241D18] shadow-[0_8px_20px_rgba(36,29,24,0.12)] lg:mx-auto"
+                style={{ backgroundColor: step.color }}
+              >
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className="pt-1 lg:pt-6">
+                <h3 className="text-[22px] font-extrabold leading-tight text-[#241D18]">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-[14px] font-semibold leading-6 text-[rgba(36,29,24,0.66)]">
+                  {step[audience]}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <ContactActions audience={audience} className="mx-auto mt-7 max-w-[580px]" />
       </div>
     </section>
   );

@@ -6,18 +6,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 const childNavItems = [
-  { label: "Programlarımız", href: "#services" },
+  { label: "Yaşadıklarınız", href: "#help" },
   { label: "Zihin Check-Up", href: "#checkup" },
-  { label: "Nasıl Çalışıyoruz?", href: "#treatments" },
+  { label: "Bilişsel Profil", href: "#cognitive-profile" },
   { label: "Hakkımızda", href: "#about" },
   { label: "İletişim", href: "#contact" },
 ];
 
 const adultNavItems = [
-  { label: "Kimler İçin?", href: "#help" },
+  { label: "Yaşadıklarınız", href: "#help" },
   { label: "Zihin Check-Up", href: "#checkup" },
-  { label: "Programlar", href: "#services" },
-  { label: "Deneyimler", href: "#clinics" },
+  { label: "Bilişsel Profil", href: "#cognitive-profile" },
+  { label: "Deneyimler", href: "#experiences" },
   { label: "İletişim", href: "#contact" },
 ];
 
@@ -29,8 +29,8 @@ export function Header({ audience = "children" }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = audience === "adults" ? adultNavItems : childNavItems;
   const cta = audience === "adults"
-    ? { label: "Check-Up Randevusu", shortLabel: "Randevu", href: "#checkup-form" }
-    : { label: "Yetişkin Programı", shortLabel: "Yetişkinler", href: "/yetiskinler" };
+    ? { label: "Sizi Arayalım", shortLabel: "Arayalım", href: "#callback-form" }
+    : { label: "Yetişkinler", shortLabel: "Yetişkinler", href: "/yetiskinler" };
 
   return (
     <header className="pointer-events-none sticky top-0 z-50 h-0">
