@@ -26,20 +26,73 @@ const observations = [
   { text: "Yapması gerekenleri sürekli erteliyor.", icon: CalendarClock, color: "#1E99B5" },
 ] as const;
 
+function CoralSpiral() {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      className="pointer-events-none absolute right-[3%] top-[56px] hidden h-16 w-16 text-[#E86F5B] lg:block xl:right-[4%]"
+    >
+      <path
+        d="M8 10c0 9 13 10 13 1 0-7-10-7-10 1 0 11 19 17 26 9 5-6 8-16 3-12-6 7-1 18 13 20"
+        stroke="currentColor"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function AmberStarburst() {
+  return (
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      className="pointer-events-none absolute right-[9%] top-[150px] hidden h-12 w-12 text-[#D49210] lg:block"
+    >
+      <path
+        d="M24 3v12M24 33v12M3 24h12M33 24h12M9 9l8.5 8.5M30.5 30.5 39 39M39 9l-8.5 8.5M17.5 30.5 9 39"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function CyanWave() {
+  return (
+    <svg
+      viewBox="0 0 78 40"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      className="pointer-events-none absolute bottom-[54px] left-[2%] hidden h-10 w-20 text-[#1E99B5] lg:block"
+    >
+      <path
+        d="M3 20c8-12 16 12 24 0s16 12 24 0 16 12 24 0"
+        stroke="currentColor"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export function HelpSection() {
   return (
     <section
       id="help"
       className="section-surface relative scroll-mt-28 overflow-hidden py-[72px] md:py-[112px]"
     >
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[7%] top-[52px] hidden size-24 rounded-full border-2 border-[rgba(30,153,181,0.32)] lg:block"
-      />
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[72px] left-[1.5%] hidden size-3 rounded-full bg-[#8AAE32] lg:block"
-      />
+      <CoralSpiral />
+      <AmberStarburst />
+      <CyanWave />
 
       <div className="inner relative z-10">
         <div className="max-w-[960px]">
