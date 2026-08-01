@@ -26,26 +26,6 @@ const observations = [
   { text: "Yapması gerekenleri sürekli erteliyor.", icon: CalendarClock, color: "#1E99B5" },
 ] as const;
 
-function CoralSpiral() {
-  return (
-    <svg
-      viewBox="0 0 64 64"
-      fill="none"
-      aria-hidden="true"
-      focusable="false"
-      className="pointer-events-none absolute right-[3%] top-[56px] hidden h-16 w-16 text-[#E86F5B] lg:block xl:right-[4%]"
-    >
-      <path
-        d="M8 10c0 9 13 10 13 1 0-7-10-7-10 1 0 11 19 17 26 9 5-6 8-16 3-12-6 7-1 18 13 20"
-        stroke="currentColor"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 function AmberStarburst() {
   return (
     <svg
@@ -65,34 +45,13 @@ function AmberStarburst() {
   );
 }
 
-function CyanWave() {
-  return (
-    <svg
-      viewBox="0 0 78 40"
-      fill="none"
-      aria-hidden="true"
-      focusable="false"
-      className="pointer-events-none absolute bottom-[54px] left-[2%] hidden h-10 w-20 text-[#1E99B5] lg:block"
-    >
-      <path
-        d="M3 20c8-12 16 12 24 0s16 12 24 0 16 12 24 0"
-        stroke="currentColor"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
 export function HelpSection() {
   return (
     <section
       id="help"
       className="section-surface relative scroll-mt-28 overflow-hidden py-[72px] md:py-[112px]"
     >
-      <CoralSpiral />
       <AmberStarburst />
-      <CyanWave />
 
       <div className="inner relative z-10">
         <div className="max-w-[960px]">
