@@ -150,7 +150,7 @@ export function AdultLandingPage() {
       <AudienceSection />
       <AdultApproachSection />
       <CheckUpSection audience="adults" />
-      <ReportAndMeasurementSection surface="white" />
+      <ReportAndMeasurementSection surface="white" audience="adults" />
       <CheckUpShowcaseSection audience="adults" />
       <ScopeAndFaqSection />
       <TestimonialSection audience="adults" />

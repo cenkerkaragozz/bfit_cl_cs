@@ -2,9 +2,18 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Check, ChevronRight } from "lucide-react";
+import {
+  Brain,
+  Check,
+  ChevronRight,
+  Ear,
+  Eye,
+  Heart,
+  HeartHandshake,
+  Target,
+} from "lucide-react";
 
-const clusters = [
+const adultClusters = [
   {
     id: "motor",
     label: "Motor",
@@ -42,16 +51,165 @@ const clusters = [
   },
 ] as const;
 
-type ClusterId = (typeof clusters)[number]["id"];
+const childClusters = [
+  {
+    id: "attention",
+    label: "Dikkat",
+    color: "#E86F5B",
+    icon: Target,
+    position: "left-1/2 top-0 -translate-x-1/2",
+  },
+  {
+    id: "memory",
+    label: "Hafıza",
+    color: "#164C35",
+    icon: Brain,
+    position: "left-0 top-[28%]",
+  },
+  {
+    id: "visual",
+    label: "Görsel Beceriler",
+    color: "#E7A500",
+    icon: Eye,
+    position: "right-0 top-[28%]",
+  },
+  {
+    id: "auditory",
+    label: "İşitsel Beceriler",
+    color: "#2AB3D4",
+    icon: Ear,
+    position: "bottom-0 left-[16%]",
+  },
+  {
+    id: "emotional",
+    label: "Duygusal Düzenleme",
+    color: "#8FC52B",
+    icon: HeartHandshake,
+    position: "bottom-0 right-[16%]",
+  },
+] as const;
 
-export function ReportAndMeasurementSection({
-  surface = "canvas",
+type AdultClusterId = (typeof adultClusters)[number]["id"];
+
+function ChildCognitiveProfileSection({
+  surface,
 }: {
-  surface?: "canvas" | "white";
+  surface: "canvas" | "white";
 }) {
-  const [selectedId, setSelectedId] = useState<ClusterId>("attention");
+  return (
+    <section
+      id="cognitive-profile"
+      aria-labelledby="child-cognitive-profile-title"
+      className={`${surface === "white" ? "bg-white" : "section-surface"} scroll-mt-28 py-[72px] md:py-[112px]`}
+    >
+      <div className="inner grid items-center gap-12 lg:grid-cols-[0.84fr_1.16fr] lg:gap-10 xl:gap-16">
+        <div>
+          <div className="badge !border-[#E86F5B] !bg-[#E86F5B] !text-white">
+            Bilişsel Profil
+          </div>
+          <h2
+            id="child-cognitive-profile-title"
+            className="section-title mt-7 max-w-[620px]"
+          >
+            Çocuğunuzun güçlü yönlerini birlikte görelim.
+          </h2>
+          <p className="body-copy mt-6 max-w-[560px]">
+            Dikkat, hafıza, görsel ve işitsel beceriler ile duygusal
+            düzenlemeyi birlikte değerlendiriyoruz.
+          </p>
+
+          <div className="mt-8 flex max-w-[500px] items-start gap-4 text-[14px] font-semibold leading-6 text-[var(--text-support)]">
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#F5F0FE] text-[#9B66F4]">
+              <Heart size={22} strokeWidth={2.1} aria-hidden="true" />
+            </span>
+            <p className="pt-0.5">
+              Her alan, çocuğunuzun öğrenme biçimini daha iyi anlamamıza
+              yardımcı olur.
+            </p>
+          </div>
+        </div>
+
+        <div
+          data-asset-id="SH-DIAG-02"
+          className="relative mx-auto aspect-[1.15/1] w-full max-w-[620px]"
+          aria-label="Bilişsel profil alanları"
+        >
+          <span
+            aria-hidden="true"
+            className="absolute inset-[15%] rounded-full border-2 border-[#E4DDD3]"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute left-1/2 top-[17%] h-[33%] w-px -translate-x-1/2 bg-[#D9D0C5]"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute left-[18%] top-1/2 h-px w-[32%] bg-[#D9D0C5]"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute right-[18%] top-1/2 h-px w-[32%] bg-[#D9D0C5]"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute bottom-[17%] left-[27%] h-px w-[29%] origin-left -rotate-[42deg] bg-[#D9D0C5]"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute bottom-[17%] right-[27%] h-px w-[29%] origin-right rotate-[42deg] bg-[#D9D0C5]"
+          />
+
+          <div className="absolute left-1/2 top-1/2 z-10 grid h-[clamp(132px,17vw,184px)] w-[clamp(132px,17vw,184px)] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[7px] border-[#F1ECE5] bg-[#241D18] p-4 text-center text-white shadow-[0_20px_45px_rgba(36,29,24,0.18)]">
+            <span className="display text-[clamp(24px,3.2vw,36px)] leading-[0.98]">
+              Bilişsel
+              <br />
+              Profil
+            </span>
+          </div>
+
+          <ul className="contents">
+            {childClusters.map((cluster) => {
+              const Icon = cluster.icon;
+
+              return (
+                <li
+                  key={cluster.id}
+                  className={`absolute ${cluster.position} z-20 grid h-[clamp(106px,14vw,148px)] w-[clamp(106px,14vw,148px)] place-items-center rounded-[48%] border-[3px] bg-white px-3 text-center shadow-[0_12px_28px_rgba(36,29,24,0.1)]`}
+                  style={{ borderColor: cluster.color }}
+                >
+                  <span>
+                    <Icon
+                      className="mx-auto mb-2"
+                      size={36}
+                      strokeWidth={2}
+                      style={{ color: cluster.color }}
+                      aria-hidden="true"
+                    />
+                    <span className="block text-[clamp(12px,1.4vw,16px)] font-extrabold leading-[1.08] text-[#241D18]">
+                      {cluster.label}
+                    </span>
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AdultCognitiveProfileSection({
+  surface,
+}: {
+  surface: "canvas" | "white";
+}) {
+  const [selectedId, setSelectedId] =
+    useState<AdultClusterId>("attention");
   const reduceMotion = useReducedMotion();
-  const selected = clusters.find((cluster) => cluster.id === selectedId) ?? clusters[0];
+  const selected =
+    adultClusters.find((cluster) => cluster.id === selectedId) ??
+    adultClusters[0];
 
   return (
     <section
@@ -89,7 +247,7 @@ export function ReportAndMeasurementSection({
               </span>
             </div>
 
-            {clusters.map((cluster, index) => {
+            {adultClusters.map((cluster, index) => {
               const active = selectedId === cluster.id;
 
               return (
@@ -103,7 +261,17 @@ export function ReportAndMeasurementSection({
                   style={{ backgroundColor: cluster.color }}
                 >
                   <span>
-                    {active ? <Check className="mx-auto mb-1" size={16} aria-hidden="true" /> : <span className="mb-1 block text-[10px] opacity-55">0{index + 1}</span>}
+                    {active ? (
+                      <Check
+                        className="mx-auto mb-1"
+                        size={16}
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <span className="mb-1 block text-[10px] opacity-55">
+                        0{index + 1}
+                      </span>
+                    )}
                     {cluster.label}
                   </span>
                 </button>
@@ -154,4 +322,18 @@ export function ReportAndMeasurementSection({
       </div>
     </section>
   );
+}
+
+export function ReportAndMeasurementSection({
+  surface = "canvas",
+  audience = "children",
+}: {
+  surface?: "canvas" | "white";
+  audience?: "children" | "adults";
+}) {
+  if (audience === "adults") {
+    return <AdultCognitiveProfileSection surface={surface} />;
+  }
+
+  return <ChildCognitiveProfileSection surface={surface} />;
 }
