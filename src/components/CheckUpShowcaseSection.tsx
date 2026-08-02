@@ -121,7 +121,7 @@ function ChildCheckUpShowcaseSection() {
           <div className="relative pt-10">
             <div
               aria-hidden="true"
-              className="absolute right-0 top-0 z-0 h-16 w-[42%] rounded-t-[20px] border border-b-0 border-[#D7C7B9] bg-[#E9DFD2]"
+              className="absolute left-0 top-0 z-0 h-16 w-[42%] rounded-t-[20px] border border-b-0 border-[#D7C7B9] bg-[#E9DFD2]"
             />
             <div className="relative z-10 rounded-[28px] border-2 border-[#D7C7B9] bg-[#FFFDF9] px-5 pb-5 pt-6 shadow-[0_18px_40px_rgba(36,29,24,0.1)] md:px-7 md:pb-7 md:pt-7 xl:px-10 xl:pb-8 xl:pt-8">
               <div className="flex items-center gap-3 border-b border-[rgba(36,29,24,0.12)] pb-5 xl:pb-7">
