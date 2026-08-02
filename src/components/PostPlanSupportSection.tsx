@@ -46,7 +46,7 @@ export function PostPlanSupportSection() {
       <div className="mx-auto grid w-[min(1440px,calc(100%-48px))] max-w-[760px] gap-10 max-md:w-[calc(100%-28px)] md:gap-12 xl:max-w-none xl:grid-cols-[0.98fr_1.02fr] xl:items-center xl:gap-[72px]">
         <Reveal className="relative min-w-0 xl:order-2">
           <div className="badge border-[#E86F5B] bg-[#FEF0EC] text-[#C4533C]">PLAN SONRASI</div>
-          <h2 id={titleId} className="section-title mt-7 max-w-[650px]">
+          <h2 id={titleId} className="section-title mt-7 max-w-[700px] xl:text-[clamp(42px,3.6vw,54px)]">
             Plan hazırlandıktan sonra süreç nasıl devam ediyor?
           </h2>
           <p className="body-copy mt-6 max-w-[60ch]">
@@ -107,11 +107,11 @@ export function PostPlanSupportSection() {
             <div className="relative mx-auto hidden aspect-square w-full max-w-[600px] xl:block">
               <RefreshCw
                 className="absolute left-1/2 top-1/2 h-[88%] w-[88%] -translate-x-1/2 -translate-y-1/2 text-[#164C35]"
-                strokeWidth={1.35}
+                strokeWidth={0.65}
                 aria-hidden="true"
               />
 
-              <div className="absolute left-1/2 top-[2%] flex w-[190px] -translate-x-1/2 flex-col items-center gap-3 text-center">
+              <div className="absolute left-1/2 top-[2%] z-20 flex w-[220px] -translate-x-1/2 flex-col items-center gap-3 rounded-[24px] bg-[#FAF9F5] px-3 py-2 text-center">
                 <span className="grid h-[68px] w-[68px] place-items-center rounded-full border border-[rgba(22,76,53,0.16)] bg-[#F0F7F2] text-[#164C35]">
                   <BrainCircuit size={31} strokeWidth={1.8} aria-hidden="true" />
                 </span>
@@ -120,7 +120,7 @@ export function PostPlanSupportSection() {
                 </span>
               </div>
 
-              <div className="absolute bottom-[5%] left-[3%] flex w-[210px] flex-col items-center gap-3 text-center">
+              <div className="absolute bottom-[5%] left-[3%] z-20 flex w-[210px] flex-col items-center gap-3 rounded-[24px] bg-[#FAF9F5] px-3 py-2 text-center">
                 <span className="grid h-[68px] w-[68px] place-items-center rounded-full border border-[rgba(22,76,53,0.16)] bg-[#F0F7F2] text-[#164C35]">
                   <ChartNoAxesCombined size={31} strokeWidth={1.8} aria-hidden="true" />
                 </span>
@@ -129,7 +129,7 @@ export function PostPlanSupportSection() {
                 </span>
               </div>
 
-              <div className="absolute bottom-[5%] right-[3%] flex w-[210px] flex-col items-center gap-3 text-center">
+              <div className="absolute bottom-[5%] right-[3%] z-20 flex w-[210px] flex-col items-center gap-3 rounded-[24px] bg-[#FAF9F5] px-3 py-2 text-center">
                 <span className="grid h-[68px] w-[68px] place-items-center rounded-full border border-[rgba(22,76,53,0.16)] bg-[#F0F7F2] text-[#164C35]">
                   <ClipboardClock size={31} strokeWidth={1.8} aria-hidden="true" />
                 </span>
@@ -138,7 +138,7 @@ export function PostPlanSupportSection() {
                 </span>
               </div>
 
-              <div className="absolute left-1/2 top-1/2 grid h-[236px] w-[236px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-[rgba(36,29,24,0.12)] bg-[#F4F1EB] px-7 text-center">
+              <div className="absolute left-1/2 top-1/2 grid h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-[rgba(36,29,24,0.12)] bg-[#F4F1EB] px-7 text-center">
                 <div className="flex flex-col items-center gap-4">
                   <HeartPulse size={38} strokeWidth={1.75} className="text-[#E86F5B]" aria-hidden="true" />
                   <span className="max-w-[170px] text-[16px] font-extrabold leading-6 text-[#241D18]">
