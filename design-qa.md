@@ -1,41 +1,34 @@
-# Design QA — Testimonial Flower SVG
+# Design QA — Child Process Section
 
-- Source visual truth: `/var/folders/mr/06sd3f393j967lhn7_h2r9840000gn/T/codex-clipboard-fc4af434-015c-4cd4-8df4-8bb47632fc88.png`
-- Implementation screenshot: `/tmp/brainfit-flower-viewport.jpg`
-- Focused comparison: `/tmp/brainfit-flower-comparison.png`
-- Viewport: 1280 × 720
-- State: `/` page, `#experiences` section, desktop, children testimonial
+- Source visual truth: `/Users/cenkerkaragoz/.codex/generated_images/019fbd12-0085-7940-a3cd-1391a4a67d1a/exec-94072db0-ecd4-42d1-a03c-4abc122b1e95.png`
+- Implementation: `src/components/CheckUpSection.tsx`
+- Decorative assets: `public/images/process/amber-starburst.svg`, `public/images/process/cyan-wave.svg`
+- Intended state: `/` page, `#checkup` section, desktop and responsive child layouts
 
-## Full-view comparison evidence
+## Implemented fidelity surfaces
 
-The rendered testimonial section preserves the existing layout, illustration size, top-right placement, colors, and surrounding typography. The decorative SVG remains visually secondary to the testimonial copy.
+- Hierarchy: coral `ADIM ADIM` badge, large Turkish heading, explanatory line, five process cards, and one centered coral CTA.
+- Process structure: numbered circles overlap each card; a coral connector appears only at the five-column `xl` layout.
+- Card imagery: all five card illustrations use Lucide icons selected for their exact process meaning.
+- Copy: customer-approved Turkish wording is used without translation-style rewriting.
+- Responsive behavior: one, two, three, and five-column layouts are defined; the connector is hidden whenever the cards wrap.
+- Adult safety: the existing adult three-step branch remains the original rendering path and copy.
 
-## Focused region comparison evidence
+## Automated verification
 
-The focused side-by-side comparison confirms that the previous diagonal line extending beyond the right leaf is removed. A near-vertical central stem now connects to the yellow, blue, and green leaves through short rounded branches. No visible gaps or unintended overlaps remain at the rendered 108 × 106 CSS-pixel size.
+- `npm run build`: passed with Next.js 16.2.4.
+- TypeScript compilation: passed.
+- Static page generation: passed.
+- Luna component task: build and focused checks passed.
+- Luna SVG task: `xmllint --noout` and Git whitespace checks passed.
 
-## Required fidelity surfaces
+## Visual comparison status
 
-- Fonts and typography: unchanged.
-- Spacing and layout rhythm: unchanged; illustration dimensions and absolute placement are preserved.
-- Colors and visual tokens: existing forest, sky, lime, and yellow palette is preserved.
-- Image quality and asset fidelity: vector edges remain clean; stroke width and rounded caps are consistent.
-- Copy and content: unchanged.
+The required rendered screenshot and side-by-side visual comparison could not be completed. The in-app Browser's URL security policy previously blocked navigation to the local preview, and the workflow does not permit switching to another browser surface as a workaround. The implementation therefore has no visual pass claim despite the successful build and source-level checks.
 
 ## Findings
 
-No actionable P0, P1, or P2 differences remain for the requested stem correction.
+- No P0 or P1 source-level defects were found.
+- Visual spacing, card height, connector alignment, decoration placement, and typography still require rendered comparison at the selected reference viewport.
 
-## Comparison history
-
-- Earlier finding: the stem continued diagonally above the right leaf, while the left and top leaves appeared detached.
-- Fix: replaced the single diagonal path with a central stem and two connecting branch segments; retained all existing leaf paths.
-- Post-fix evidence: `/tmp/brainfit-flower-comparison.png` shows a connected, upright flower/seedling silhouette.
-
-## Verification
-
-- ESLint passed for `src/components/Decorations.tsx`.
-- Browser console errors and warnings: none.
-- Focused region comparison: passed.
-
-final result: passed
+final result: blocked
