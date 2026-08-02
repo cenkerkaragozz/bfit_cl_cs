@@ -88,15 +88,6 @@ function ChildCheckUpSection() {
           unoptimized
           aria-hidden="true"
         />
-        <Image
-          className="absolute right-0 top-14 h-auto w-auto"
-          src="/images/process/cyan-wave.svg"
-          alt=""
-          width={148}
-          height={64}
-          unoptimized
-          aria-hidden="true"
-        />
       </div>
 
       <div className="inner relative z-10">

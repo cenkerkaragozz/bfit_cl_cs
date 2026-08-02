@@ -2,7 +2,7 @@
 
 - Source visual truth: `/Users/cenkerkaragoz/.codex/generated_images/019fbd12-0085-7940-a3cd-1391a4a67d1a/exec-94072db0-ecd4-42d1-a03c-4abc122b1e95.png`
 - Implementation: `src/components/CheckUpSection.tsx`
-- Decorative assets: `public/images/process/amber-starburst.svg`, `public/images/process/cyan-wave.svg`
+- Decorative asset: `public/images/process/amber-starburst.svg`
 - Intended state: `/` page, `#checkup` section, desktop and responsive child layouts
 
 ## Implemented fidelity surfaces
