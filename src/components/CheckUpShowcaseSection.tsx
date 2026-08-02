@@ -5,8 +5,13 @@ import {
   ArrowUpRight,
   BrainCircuit,
   ClipboardCheck,
+  FileChartColumn,
+  FileText,
   MessageCircle,
+  Target,
+  Trophy,
   Timer,
+  UserRoundCheck,
 } from "lucide-react";
 import { Reveal } from "@/components/Decorations";
 
@@ -44,6 +49,133 @@ const steps = [
   },
 ] as const;
 
+const childShowcaseRows = [
+  {
+    number: "01",
+    title: "Uzman Değerlendirmesi",
+    icon: UserRoundCheck,
+    featured: false,
+  },
+  {
+    number: "02",
+    title: "Bilişsel Yeterlilik Raporu",
+    icon: FileChartColumn,
+    featured: false,
+  },
+  {
+    number: "03",
+    title: "Güçlü Yönlerin Belirlenmesi",
+    icon: Trophy,
+    featured: false,
+  },
+  {
+    number: "04",
+    title: "Desteklenmesi Gereken Alanlar",
+    icon: Target,
+    featured: false,
+  },
+  {
+    number: "05",
+    title: "Kişiye Özel Gelişim Planı",
+    icon: ClipboardCheck,
+    featured: true,
+  },
+] as const;
+
+function ChildCheckUpShowcaseSection() {
+  const titleId = "checkup-showcase-title-children";
+
+  return (
+    <section
+      className="section-surface relative overflow-hidden py-[72px] md:py-[112px]"
+      aria-labelledby={titleId}
+    >
+      <div className="inner grid gap-12 lg:grid-cols-[0.84fr_1.16fr] lg:items-center lg:gap-16">
+        <Reveal className="relative min-w-0">
+          <div className="badge border-[#E86F5B] bg-[#FEF0EC] text-[#C4533C]">
+            DEĞERLENDİRME SONRASI
+          </div>
+          <h2
+            id={titleId}
+            className="mid-section-title mt-7 max-w-[620px] text-[#241D18]"
+          >
+            Değerlendirme Sonunda Neler Sunuyoruz?
+          </h2>
+          <p
+            className="body-copy mt-6 max-w-[560px]"
+            style={{ fontSize: "clamp(16px, 1.4vw, 18px)", lineHeight: "1.78" }}
+          >
+            Çocuğunuzun güçlü yönlerini ve desteklenmesi gereken alanları birlikte
+            görür, ona özel gelişim planını netleştiririz.
+          </p>
+          <a
+            className="pill-button arrow-shift mt-8 min-h-[52px] w-full !bg-[#E86F5B] !text-[#160A08] !shadow-[0_18px_36px_rgba(232,111,91,0.28)] hover:!bg-[#F5927E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E86F5B] sm:w-auto"
+            href="#checkup-form"
+          >
+            Ücretsiz Ön Görüşme Oluştur
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+        </Reveal>
+
+        <Reveal className="relative min-w-0" delay={0.1}>
+          <div className="relative pt-10">
+            <div
+              aria-hidden="true"
+              className="absolute right-0 top-0 z-0 h-16 w-[42%] rounded-t-[20px] border border-b-0 border-[#D7C7B9] bg-[#E9DFD2]"
+            />
+            <div className="relative z-10 rounded-[28px] border-2 border-[#D7C7B9] bg-[#FFFDF9] px-5 pb-5 pt-6 shadow-[0_18px_40px_rgba(36,29,24,0.1)] md:px-7 md:pb-7 md:pt-7">
+              <div className="flex items-center gap-3 border-b border-[rgba(36,29,24,0.12)] pb-5">
+                <span
+                  className="grid h-11 w-11 shrink-0 place-items-center rounded-[12px] bg-[#F0F7F2] text-[#164C35]"
+                  aria-hidden="true"
+                >
+                  <FileText size={22} strokeWidth={2.2} />
+                </span>
+                <div className="flex min-w-0 flex-1 flex-col gap-2" aria-hidden="true">
+                  <span className="h-2 w-32 rounded-full bg-[#D7CEC6]" />
+                  <span className="h-2 w-20 rounded-full bg-[#E5DED7]" />
+                </div>
+              </div>
+
+              <ol className="m-0 mt-2 list-none p-0">
+                {childShowcaseRows.map((row) => {
+                  const Icon = row.icon;
+                  const featured = row.featured === true;
+
+                  return (
+                    <li
+                      key={row.number}
+                      className="flex min-w-0 items-center gap-3 border-b border-[rgba(36,29,24,0.12)] py-4 last:border-b-0"
+                    >
+                      <span
+                        className="w-8 shrink-0 text-[13px] font-extrabold tracking-[0.08em] text-[rgba(36,29,24,0.5)]"
+                        aria-hidden="true"
+                      >
+                        {row.number}
+                      </span>
+                      <span
+                        className={`grid h-11 w-11 shrink-0 place-items-center rounded-full ${featured ? "bg-[#FEF0EC] text-[#E86F5B]" : "bg-[#F0F7F2] text-[#164C35]"}`}
+                        aria-hidden="true"
+                      >
+                        <Icon size={21} strokeWidth={2.25} />
+                      </span>
+                      <span
+                        className={`min-w-0 flex-1 text-[15px] font-extrabold leading-6 ${featured ? "text-[#E86F5B]" : "text-[#241D18]"}`}
+                      >
+                        {row.title}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 export function CheckUpShowcaseSection({
   audience = "children",
 }: {
@@ -51,6 +183,11 @@ export function CheckUpShowcaseSection({
 }) {
   const adult = audience === "adults";
   const reduceMotion = useReducedMotion();
+
+  if (!adult) {
+    return <ChildCheckUpShowcaseSection />;
+  }
+
   const titleId = `checkup-showcase-title-${audience}`;
 
   return (
