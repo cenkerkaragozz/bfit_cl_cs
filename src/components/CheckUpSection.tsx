@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   ArrowUpRight,
   ChartNoAxesColumnIncreasing,
@@ -75,21 +74,6 @@ function ChildCheckUpSection() {
       className="section-surface relative scroll-mt-28 overflow-hidden py-[72px] md:py-[112px]"
       aria-labelledby="child-checkup-title"
     >
-      <div
-        className="pointer-events-none absolute right-5 top-5 hidden h-32 w-64 md:block lg:right-12 lg:top-8 xl:right-20"
-        aria-hidden="true"
-      >
-        <Image
-          className="absolute right-40 top-0 h-auto w-auto"
-          src="/images/process/amber-starburst.svg"
-          alt=""
-          width={88}
-          height={88}
-          unoptimized
-          aria-hidden="true"
-        />
-      </div>
-
       <div className="inner relative z-10">
         <div className="max-w-[900px]">
           <div className="badge !border-[#E86F5B] !bg-[#E86F5B] !text-white">
