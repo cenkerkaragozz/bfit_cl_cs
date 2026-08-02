@@ -90,7 +90,7 @@ function ChildCheckUpShowcaseSection() {
       className="section-surface relative overflow-hidden py-[72px] md:py-[112px]"
       aria-labelledby={titleId}
     >
-      <div className="inner grid gap-12 lg:grid-cols-[0.84fr_1.16fr] lg:items-center lg:gap-16">
+      <div className="mx-auto grid w-[min(1440px,calc(100%-48px))] gap-12 max-md:w-[calc(100%-28px)] lg:grid-cols-[0.84fr_1.16fr] lg:items-center lg:gap-16 xl:gap-[72px]">
         <Reveal className="relative min-w-0">
           <div className="badge border-[#E86F5B] bg-[#FEF0EC] text-[#C4533C]">
             DEĞERLENDİRME SONRASI
@@ -123,10 +123,10 @@ function ChildCheckUpShowcaseSection() {
               aria-hidden="true"
               className="absolute right-0 top-0 z-0 h-16 w-[42%] rounded-t-[20px] border border-b-0 border-[#D7C7B9] bg-[#E9DFD2]"
             />
-            <div className="relative z-10 rounded-[28px] border-2 border-[#D7C7B9] bg-[#FFFDF9] px-5 pb-5 pt-6 shadow-[0_18px_40px_rgba(36,29,24,0.1)] md:px-7 md:pb-7 md:pt-7">
-              <div className="flex items-center gap-3 border-b border-[rgba(36,29,24,0.12)] pb-5">
+            <div className="relative z-10 rounded-[28px] border-2 border-[#D7C7B9] bg-[#FFFDF9] px-5 pb-5 pt-6 shadow-[0_18px_40px_rgba(36,29,24,0.1)] md:px-7 md:pb-7 md:pt-7 xl:px-10 xl:pb-8 xl:pt-8">
+              <div className="flex items-center gap-3 border-b border-[rgba(36,29,24,0.12)] pb-5 xl:pb-7">
                 <span
-                  className="grid h-11 w-11 shrink-0 place-items-center rounded-[12px] bg-[#F0F7F2] text-[#164C35]"
+                  className="grid h-11 w-11 shrink-0 place-items-center rounded-[12px] bg-[#FEF0EC] text-[#E86F5B]"
                   aria-hidden="true"
                 >
                   <FileText size={22} strokeWidth={2.2} />
@@ -145,10 +145,10 @@ function ChildCheckUpShowcaseSection() {
                   return (
                     <li
                       key={row.number}
-                      className="flex min-w-0 items-center gap-3 border-b border-[rgba(36,29,24,0.12)] py-4 last:border-b-0"
+                      className="flex min-w-0 items-center gap-3 border-b border-[rgba(36,29,24,0.12)] py-4 last:border-b-0 xl:py-5"
                     >
                       <span
-                        className="w-8 shrink-0 text-[13px] font-extrabold tracking-[0.08em] text-[rgba(36,29,24,0.5)]"
+                        className="w-8 shrink-0 text-[14px] font-extrabold tracking-[0.08em] text-[#E86F5B]"
                         aria-hidden="true"
                       >
                         {row.number}
