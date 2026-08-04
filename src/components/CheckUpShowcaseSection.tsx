@@ -90,7 +90,7 @@ function ChildCheckUpShowcaseSection() {
       className="section-surface relative overflow-hidden py-[72px] md:py-[112px]"
       aria-labelledby={titleId}
     >
-      <div className="mx-auto grid w-[min(1440px,calc(100%-48px))] gap-12 max-md:w-[calc(100%-28px)] lg:grid-cols-[0.84fr_1.16fr] lg:items-center lg:gap-16 xl:gap-[72px]">
+      <div className="inner grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12 xl:gap-16">
         <Reveal className="relative min-w-0">
           <div className="badge border-[#E86F5B] bg-[#FEF0EC] text-[#C4533C]">
             DEĞERLENDİRME SONRASI
@@ -109,7 +109,7 @@ function ChildCheckUpShowcaseSection() {
             görür, ona özel gelişim planını netleştiririz.
           </p>
           <a
-            className="pill-button arrow-shift mt-8 min-h-[52px] w-full !bg-[#E86F5B] !text-[#160A08] !shadow-[0_18px_36px_rgba(232,111,91,0.28)] hover:!bg-[#F5927E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E86F5B] sm:w-auto"
+            className="arrow-shift mt-7 inline-flex min-h-[44px] items-center gap-2 text-[14px] font-extrabold text-[#164C35] underline decoration-[#E86F5B] decoration-2 underline-offset-4 transition-colors hover:text-[#C4533C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E86F5B]"
             href="#checkup-form"
           >
             Ücretsiz Ön Görüşme Oluştur
@@ -118,26 +118,28 @@ function ChildCheckUpShowcaseSection() {
         </Reveal>
 
         <Reveal className="relative min-w-0" delay={0.1}>
-          <div className="relative pt-10">
+          <div className="relative mx-auto w-full max-w-[620px] pt-8 lg:pt-6 xl:pt-8">
             <div
               aria-hidden="true"
               className="absolute left-0 top-0 z-0 h-16 w-[42%] rounded-t-[20px] border border-b-0 border-[#D7C7B9] bg-[#E9DFD2]"
             />
-            <div className="relative z-10 rounded-[28px] border-2 border-[#D7C7B9] bg-[#FFFDF9] px-5 pb-5 pt-6 shadow-[0_18px_40px_rgba(36,29,24,0.1)] md:px-7 md:pb-7 md:pt-7 xl:px-10 xl:pb-8 xl:pt-8">
-              <div className="flex items-center gap-3 border-b border-[rgba(36,29,24,0.12)] pb-5 xl:pb-7">
+            <div className="relative z-10 w-full rounded-[28px] border-2 border-[#D7C7B9] bg-[#FFFDF9] px-5 pb-5 pt-6 shadow-[0_18px_40px_rgba(36,29,24,0.1)] md:px-6 md:pb-6 md:pt-7 xl:px-7 xl:pb-7 xl:pt-7">
+              <div className="flex items-center gap-3 border-b border-[rgba(36,29,24,0.12)] pb-4 xl:pb-5">
                 <span
-                  className="grid h-11 w-11 shrink-0 place-items-center rounded-[12px] bg-[#FEF0EC] text-[#E86F5B]"
+                  className="grid h-10 w-10 shrink-0 place-items-center rounded-[12px] bg-[#FEF0EC] text-[#E86F5B]"
                   aria-hidden="true"
                 >
-                  <FileText size={22} strokeWidth={2.2} />
+                  <FileText size={20} strokeWidth={2.2} />
                 </span>
-                <div className="flex min-w-0 flex-1 flex-col gap-2" aria-hidden="true">
-                  <span className="h-2 w-32 rounded-full bg-[#D7CEC6]" />
-                  <span className="h-2 w-20 rounded-full bg-[#E5DED7]" />
-                </div>
+                <span className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#8C5038]">
+                  SONUÇ DOSYASI
+                </span>
               </div>
 
-              <ol className="m-0 mt-2 list-none p-0">
+              <ol
+                aria-label="Değerlendirme sonrası sunulan çıktılar"
+                className="m-0 mt-1 list-none p-0"
+              >
                 {childShowcaseRows.map((row) => {
                   const Icon = row.icon;
                   const featured = row.featured === true;
@@ -145,7 +147,7 @@ function ChildCheckUpShowcaseSection() {
                   return (
                     <li
                       key={row.number}
-                      className="flex min-w-0 items-center gap-3 border-b border-[rgba(36,29,24,0.12)] py-4 last:border-b-0 xl:py-5"
+                      className={`flex min-w-0 items-center gap-3 border-b border-[rgba(36,29,24,0.12)] py-3.5 last:border-b-0 xl:py-4 ${featured ? "rounded-[14px] bg-[#FEF0EC] px-3" : ""}`}
                     >
                       <span
                         className="w-8 shrink-0 text-[14px] font-extrabold tracking-[0.08em] text-[#E86F5B]"
@@ -154,10 +156,10 @@ function ChildCheckUpShowcaseSection() {
                         {row.number}
                       </span>
                       <span
-                        className={`grid h-11 w-11 shrink-0 place-items-center rounded-full ${featured ? "bg-[#FEF0EC] text-[#E86F5B]" : "bg-[#F0F7F2] text-[#164C35]"}`}
+                        className={`grid h-10 w-10 shrink-0 place-items-center rounded-full ${featured ? "bg-[#FEF0EC] text-[#E86F5B]" : "bg-[#F0F7F2] text-[#164C35]"}`}
                         aria-hidden="true"
                       >
-                        <Icon size={21} strokeWidth={2.25} />
+                        <Icon size={20} strokeWidth={2.25} />
                       </span>
                       <span
                         className={`min-w-0 flex-1 text-[15px] font-extrabold leading-6 ${featured ? "text-[#E86F5B]" : "text-[#241D18]"}`}

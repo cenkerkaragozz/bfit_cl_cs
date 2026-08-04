@@ -40,14 +40,14 @@ export function ChildFaqSection() {
       <div className="inner">
         <div className="max-w-[760px]">
           <div className="badge border-[#6BC862] text-[#164C35]">Hizmet kapsamı</div>
-          <h2 className="section-title mt-7">Neler sunduğumuz ve sunmadığımız konusunda şeffafız.</h2>
+          <h2 className="section-title mt-7">Çocuğunuz için nasıl bir destek sunuyoruz?</h2>
         </div>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           <div className="rounded-[28px] bg-[#F0F7F2] p-6 md:p-8">
             <h3 className="compact-title text-[#164C35]">Ne yapıyoruz?</h3>
             <ul className="mt-6 grid gap-3">
-              {["Bilişsel profil değerlendirmesi", "Kişiye özel egzersiz planı"].map((item) => (
+              {["Bilişsel Değerlendirme", "Bilişsel Yeterlilik Analizi", "Kişiye Özel Gelişim Planı", "Düzenli Gelişim Takibi"].map((item) => (
                 <li key={item} className="flex items-center gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold text-[#241D18]">
                   <CheckCircle2 className="shrink-0 text-[#6BC862]" size={19} aria-hidden="true" />
                   {item}
