@@ -108,13 +108,6 @@ function ChildCheckUpShowcaseSection() {
             Çocuğunuzun güçlü yönlerini ve desteklenmesi gereken alanları birlikte
             görür, ona özel gelişim planını netleştiririz.
           </p>
-          <a
-            className="arrow-shift mt-7 inline-flex min-h-[44px] items-center gap-2 text-[14px] font-extrabold text-[#164C35] underline decoration-[#E86F5B] decoration-2 underline-offset-4 transition-colors hover:text-[#C4533C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E86F5B]"
-            href="#checkup-form"
-          >
-            Ücretsiz Ön Görüşme Oluştur
-            <ArrowUpRight size={16} aria-hidden="true" />
-          </a>
         </Reveal>
 
         <Reveal className="relative min-w-0" delay={0.1}>

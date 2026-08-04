@@ -5,7 +5,7 @@ export function ConfidenceSection() {
     <section
       id="reframe"
       aria-labelledby="reframe-title"
-      className="section-surface relative scroll-mt-28 overflow-hidden py-10 md:py-[84px]"
+      className="section-surface relative scroll-mt-28 overflow-hidden pb-10 pt-4 md:pb-[84px] md:pt-8"
     >
       <div className="mx-auto w-[min(1440px,calc(100%-48px))]">
         <div className="rounded-[28px] bg-[#F4F1EB] px-5 py-8 sm:px-8 md:rounded-[36px] md:px-12 md:py-14 lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-12 lg:px-14 lg:py-16 xl:px-16">

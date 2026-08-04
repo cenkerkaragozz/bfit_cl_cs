@@ -1,5 +1,4 @@
 import {
-  ArrowUpRight,
   CalendarClock,
   CircleHelp,
   Cloud,
@@ -108,15 +107,6 @@ export function HelpSection() {
           </p>
         </div>
 
-        <div className="flex justify-center">
-          <a
-            href="#checkup-form"
-            className="mt-6 inline-flex min-h-13 items-center gap-2 rounded-full bg-[#E86F5B] px-7 text-[15px] font-extrabold text-[#160A08] shadow-[0_14px_30px_rgba(232,111,91,0.2)] transition duration-150 hover:bg-[#F5927E] motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#160A08] motion-safe:hover:-translate-y-px"
-          >
-            Ön Görüşme Planla
-            <ArrowUpRight aria-hidden="true" size={18} strokeWidth={2.1} />
-          </a>
-        </div>
       </div>
     </section>
   );
