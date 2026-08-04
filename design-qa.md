@@ -60,6 +60,49 @@ final result: passed
 
 ---
 
+# Design QA — AudienceSection / Yetişkin / Varyasyon 1
+
+## Karşılaştırma hedefi
+
+- Kaynak görsel: `artifacts/design-qa/adult-audience/reference-option-1.png`
+- Kaynak piksel boyutu: `1487 × 1058`
+- Uygulama: `src/components/AdultLandingPage.tsx`, `AudienceSection`, `#help`
+- Hedef rota: `/yetiskinler`
+- Planlanan masaüstü viewport: `1440 × 1024` CSS px
+- Planlanan mobil viewport: `390 × 844` CSS px
+- Durum: Seçilen statik üç kartlı düzen uygulandı; yerleşik tarayıcı yerel önizlemeye erişemediği için güncel uygulama ekran görüntüsü üretilemedi.
+
+## Kaynak ve uygulama kapsamı
+
+- Kaynak varyasyonun bilgi hiyerarşisi korundu: üst rozet, başlık, kısa giriş, eşit ağırlıklı üç kart, renk kodlu ikonlar, dört maddelik listeler, açıklama yüzeyleri ve merkezî CTA.
+- Metinler Türkçe doğal akışla düzenlendi; kart başlıkları `Zihinsel yorgunluk`, `Günlük planlama` ve `Zihnimi aktif tutmak istiyorum` olarak sabitlendi.
+- CTA metni `Bunlardan birkaçını ben de yaşıyorum`; hedefi mevcut `#about` bölümü.
+- Masaüstünde üç kolon, küçük ekranlarda tek kolon kullanılacak şekilde responsive yapı kuruldu.
+
+## Statik doğrulama
+
+- `npm run build`: geçti; `/yetiskinler` rotası başarıyla üretildi.
+- `npm run lint`: `0` hata; proje içindeki mevcut `.claude/skills/impeccable/...` dosyalarından gelen ve bu değişiklikle ilgisiz `132` uyarı.
+- `git diff --check`: geçti.
+- Bölüm kapsamındaki yasaklı sağlık dili kontrolü: eşleşme yok.
+- CTA hedefi ve `#about` bağlantısı kaynak kodda doğrulandı.
+
+## Görsel ve etkileşim doğrulama engeli
+
+- Yerleşik uygulama tarayıcısı `terminal.local` adresini çözemedi.
+- `0.0.0.0:4173` üzerinde üretim sunucusu denendi; özel ağ adresine tarayıcı erişimi politika/bağlantı katmanında engellendi.
+- Bu nedenle masaüstü ve mobil uygulama yakalamaları, yan yana karşılaştırma, taşma ölçümü, CTA tıklama testi ve konsol kontrolü tamamlanamadı.
+- Kullanıcının açık izni olmadan bağımsız Playwright CLI/MCP yoluna geçilmedi.
+
+## Bulgular
+
+- Kod, içerik ve derleme açısından açık P0/P1 bulgu yok.
+- Görsel uygunluk ve responsive davranış ekran görüntüsüyle doğrulanamadığı için kabul testi tamamlanmış sayılmıyor.
+
+final result: blocked
+
+---
+
 # Design QA — PostPlanSupportSection / Basamaklı takip düzeni
 
 ## Karşılaştırma hedefi

@@ -3,117 +3,82 @@
 import { FormEvent, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
-  ArrowRight,
   ArrowUpRight,
+  BatteryMedium,
   Brain,
-  BriefcaseBusiness,
-  Check,
+  CalendarDays,
   CheckCircle2,
   ChevronDown,
-  CircleDot,
-  GraduationCap,
-  ListChecks,
-  MemoryStick,
-  Sparkles,
+  Lightbulb,
+  Puzzle,
+  Star,
   XCircle,
 } from "lucide-react";
 import { CheckUpSection } from "@/components/CheckUpSection";
 import { CheckUpShowcaseSection } from "@/components/CheckUpShowcaseSection";
 import { ContactActions } from "@/components/ContactActions";
-import { EditorialImageSlot } from "@/components/EditorialImageSlot";
 import { ReportAndMeasurementSection } from "@/components/ReportAndMeasurementSection";
 import { TestimonialSection } from "@/components/TestimonialSection";
 import { TrustBar } from "@/components/TrustBar";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
-const contexts = [
+const audienceCards = [
   {
     id: "fatigue",
-    label: "Zihinsel yorgunluk",
-    icon: Brain,
-    primary: true,
-    main: "Günün ortasında zihnim kapanmış gibi oluyor.",
-    support: ["Bir işe odaklanıyorum ama aklım sürekli başka yere gidiyor."],
-    more: [
-      "Zihnim eskisi kadar hızlı çalışmıyor gibi hissediyorum.",
-      "Ne yapacağımı biliyorum ama zihinsel olarak başlayamıyorum.",
+    title: "Zihinsel yorgunluk",
+    icon: BatteryMedium,
+    noteIcon: Lightbulb,
+    iconSurface: "bg-[#EAF8FC]",
+    iconColor: "text-[#1787AE]",
+    bulletColor: "bg-[#1787AE]",
+    noteSurface: "bg-[#EFF9FC]",
+    bullets: [
+      "Yorulmaktan çok, dağılmış hissediyorum.",
+      "Sabah daha iyiyim ama gün ilerledikçe aynı verimi sürdüremiyorum.",
+      "Bir işe başlamak için eskisinden daha fazla çaba harcıyorum.",
+      "Zihnimi susturmakta zorlanıyorum.",
     ],
     explanation:
-      "Zihinsel yük gün içinde farklı biçimlerde hissedilebilir. Ne zaman yoğunlaştığını ve günlük düzeninizi nasıl etkilediğini fark etmek iyi bir başlangıçtır.",
-  },
-  {
-    id: "memory",
-    label: "Hafıza",
-    icon: MemoryStick,
-    primary: true,
-    main: "Bir şeyleri eskisinden daha sık unutmaya başladım.",
-    support: ["Bu değişiklik beni tedirgin ediyor."],
-    more: [],
-    explanation:
-      "Günlük unutkanlıkların ne anlama geldiğini tek bir cümleyle söylemek mümkün değildir. Bilişsel profil, yaşadığınız değişimi daha düzenli biçimde ele almanıza yardımcı olabilir.",
+      "Dikkat, bilgiyi işleme ve zihinsel dayanıklılık gün içindeki performansınızı etkileyebilir.",
   },
   {
     id: "planning",
-    label: "Günlük planlama",
-    icon: ListChecks,
-    primary: true,
-    main: "Günlük işlerimi planlayıp sırasıyla yürütmek eskisinden zor geliyor.",
-    support: [
-      "Birden fazla adımı olan işlerde sırayı karıştırıyorum.",
-      "Karar vermek ve başladığım işi bitirmek daha uzun sürüyor.",
-    ],
-    more: [
-      "Gün içinde yapacaklarımı toparlamak için daha fazla çaba harcıyorum.",
+    title: "Günlük planlama",
+    icon: CalendarDays,
+    noteIcon: Puzzle,
+    iconSurface: "bg-[#EDF8EF]",
+    iconColor: "text-[#3E9A55]",
+    bulletColor: "bg-[#55AB5C]",
+    noteSurface: "bg-[#F2F9EA]",
+    bullets: [
+      "Birden fazla işi aynı anda yönetmekte zorlanıyorum.",
+      "Harekete geçmem eskisinden daha uzun sürüyor.",
+      "Nereden başlayacağıma karar vermekte zorlanıyorum.",
+      "Başladığım işi tamamlamak için daha fazla çaba harcıyorum.",
     ],
     explanation:
-      "Planlama, sıralama ve dikkati sürdürme günlük yaşamda farklı bilişsel becerileri birlikte kullanır. Bilişsel profil, zorlandığınız alanları daha düzenli biçimde ele almanıza yardımcı olabilir.",
+      "Günlük hayatı düzenlemek, farklı zihinsel becerilerin birlikte çalışmasını gerektirir.",
   },
   {
     id: "active-mind",
-    label: "Zihni aktif tutma",
-    icon: Sparkles,
-    primary: true,
-    main: "Belirgin bir sorunum yok; zihnimi aktif tutmak istiyorum.",
-    support: [
-      "Yaş alırken zihinsel çevikliğimi daha yakından tanımak istiyorum.",
+    title: "Zihnimi aktif tutmak istiyorum",
+    icon: Brain,
+    noteIcon: Star,
+    iconSurface: "bg-[#FFF6E5]",
+    iconColor: "text-[#ECA82D]",
+    bulletColor: "bg-[#F3AD30]",
+    noteSurface: "bg-[#FFF8E8]",
+    bullets: [
+      "Yaş alırken zihinsel çevikliğimi korumak istiyorum.",
       "Yeni şeyler öğrenmeye devam etmek istiyorum.",
+      "Bugünkü zihinsel performansımı merak ediyorum.",
+      "Zihinsel becerilerimi aktif tutmak istiyorum.",
     ],
-    more: ["Zihinsel performansımın bugünkü durumunu merak ediyorum."],
     explanation:
-      "Zihin Check-Up yalnızca belirgin bir zorlanma yaşayanlar için değildir. Mevcut bilişsel profilinizi tanımak ve kişisel egzersiz planınızı buna göre şekillendirmek isteyenler için de bir başlangıç olabilir.",
-  },
-  {
-    id: "learning",
-    label: "Sınav ve öğrenme",
-    icon: GraduationCap,
-    primary: false,
-    main: "Çalışıyorum ama öğrendiklerim kalıcı olmuyor.",
-    support: [
-      "Soruları biliyorum ama süreyi yetiştiremiyorum.",
-      "Sınav anında zihnim kilitleniyor.",
-    ],
-    more: [],
-    explanation:
-      "Öğrenmek, hatırlamak ve süre içinde uygulamak farklı becerileri birlikte gerektirir. Hangi noktada zorlandığınızı görmek çalışma düzeninizi anlamanıza yardımcı olur.",
-  },
-  {
-    id: "work",
-    label: "İş hayatı",
-    icon: BriefcaseBusiness,
-    primary: false,
-    main: "Toplantıda anlatılanları takip etmekte zorlanıyorum.",
-    support: [
-      "Aynı anda birkaç işi yönetemiyorum.",
-      "Basit kararları vermek bile eskisinden uzun sürüyor.",
-    ],
-    more: [],
-    explanation:
-      "Yoğun iş temposu dikkati, planlamayı ve zihinsel enerjiyi aynı anda zorlayabilir. Yaşadığınız tabloyu anlamak, nereden başlayacağınızı netleştirir.",
+      "Bugünkü performansınızı bilmek, destekleyebileceğiniz becerileri görmenin başlangıcı olabilir.",
   },
 ] as const;
-
-type ContextId = (typeof contexts)[number]["id"];
 
 const faqs = [
   {
@@ -193,235 +158,96 @@ function AdultHero() {
   );
 }
 
-function AdultContextVisual({ id }: { id: ContextId }) {
-  if (id === "fatigue") {
-    return (
-      <EditorialImageSlot
-        assetId="A-PHOTO-01"
-        tone="forest"
-        altPlan="Gün ortasında çalışma masasındaki işlerine kısa bir ara vererek düşüncelerini toparlayan bir yetişkin."
-      />
-    );
-  }
-
-  if (id === "memory") {
-    return (
-      <EditorialImageSlot
-        assetId="A-PHOTO-02"
-        tone="amber"
-        altPlan="Günlük hazırlık sırasında notuna yeniden bakarak kısa süre düşünen bir yetişkin."
-      />
-    );
-  }
-
-  if (id === "planning") {
-    return (
-      <EditorialImageSlot
-        assetId="A-PHOTO-03"
-        tone="coral"
-        altPlan="Aydınlık bir ev ortamında ajandasını düzenleyerek gününü planlayan ileri yaştaki bir yetişkin."
-      />
-    );
-  }
-
-  if (id === "active-mind") {
-    return (
-      <EditorialImageSlot
-        assetId="A-PHOTO-04"
-        tone="forest"
-        altPlan="Günlük yaşamında yeni bir şey öğrenirken meraklı ve aktif görünen ileri yaştaki bir yetişkin."
-      />
-    );
-  }
-
-  const visualCopy =
-    id === "learning"
-      ? {
-          label: "Öğrenme anı",
-          message: "Bilmek ile zamanında kullanmak aynı şey olmayabilir.",
-        }
-      : {
-          label: "Günlük iş akışı",
-          message: "Zihin aynı anda çok fazla şeyi taşımaya çalışıyor olabilir.",
-        };
-
-  return (
-    <div className="relative min-h-[230px] overflow-hidden rounded-[28px] bg-[#F0F7F2] p-6">
-      <div className="absolute -right-8 -top-8 h-36 w-36 rounded-full border-[24px] border-[#D9F8A8]" aria-hidden="true" />
-      <div className="relative flex min-h-[180px] flex-col justify-end">
-        <p className="text-[11px] font-extrabold uppercase tracking-[0.13em] text-[#164C35]">
-          {visualCopy.label}
-        </p>
-        <p className="display mt-3 max-w-[360px] text-[34px] leading-[1.02] text-[#241D18]">
-          {visualCopy.message}
-        </p>
-      </div>
-    </div>
-  );
-}
-
 function AudienceSection() {
-  const [selectedId, setSelectedId] = useState<ContextId>("fatigue");
-  const [otherOpen, setOtherOpen] = useState(false);
-  const [moreOpen, setMoreOpen] = useState(false);
-  const reduceMotion = useReducedMotion();
-  const selected = contexts.find((context) => context.id === selectedId) ?? contexts[0];
-
-  function selectContext(id: ContextId) {
-    setSelectedId(id);
-    setMoreOpen(false);
-  }
-
   return (
-    <section id="help" className="section-surface relative scroll-mt-28 overflow-hidden py-[72px] md:py-[112px]">
+    <section
+      id="help"
+      aria-labelledby="adult-audience-title"
+      className="section-surface relative scroll-mt-28 overflow-hidden py-[72px] md:py-[112px]"
+    >
       <div className="inner">
-        <div className="max-w-[830px]">
-          <div className="badge border-[#FCBF48] bg-[#FFF7E8] text-[#8C5038]">Kendinize kulak verin</div>
-          <h2 className="section-title mt-7">Zihninizle ilgili neyi daha iyi anlamak istiyorsunuz?</h2>
-          <p className="body-copy mt-5 max-w-[680px]">
-            Size en yakın gelen başlığa dokunun. Bu seçim bir test değil; yalnızca yaşadıklarınızı daha kolay anlatmanıza yardımcı olur.
+        <div className="max-w-[820px]">
+          <div className="badge border-[#E7A988] bg-transparent text-[#8C5038]">
+            Son bir yıl
+          </div>
+          <h2
+            id="adult-audience-title"
+            className="section-title mt-7 max-w-[800px] text-[#241D18]"
+          >
+            Son bir yılda zihinsel performansınızda bir değişiklik fark ettiniz mi?
+          </h2>
+          <p className="body-copy mt-5 max-w-[680px] text-[17px]">
+            Aşağıdaki durumlardan bazıları size tanıdık gelebilir.
           </p>
         </div>
 
-        <div className="mt-9 grid grid-cols-2 gap-3" role="tablist" aria-label="Yaşadığınız zihinsel durum">
-          {contexts.filter((context) => context.primary).map((context) => (
-            <ContextButton key={context.id} context={context} selected={selectedId === context.id} onSelect={selectContext} />
-          ))}
-        </div>
+        <div className="mt-10 grid items-stretch gap-5 lg:grid-cols-3 xl:gap-6">
+          {audienceCards.map((card) => {
+            const Icon = card.icon;
+            const NoteIcon = card.noteIcon;
 
-        <div className="mt-3">
-          <button
-            type="button"
-            aria-expanded={otherOpen}
-            aria-controls="adult-other-contexts"
-            onClick={() => setOtherOpen((open) => !open)}
-            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[rgba(36,29,24,0.14)] bg-white px-4 text-[13px] font-extrabold text-[#241D18] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#164C35]"
-          >
-            Sınav ve iş hayatı için
-            <ChevronDown className={`transition-transform duration-200 ${otherOpen ? "rotate-180" : ""}`} size={16} aria-hidden="true" />
-          </button>
-          <AnimatePresence initial={false}>
-            {otherOpen ? (
-              <motion.div
-                id="adult-other-contexts"
-                initial={reduceMotion ? false : { opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={reduceMotion ? undefined : { opacity: 0, height: 0 }}
-                transition={{ duration: reduceMotion ? 0 : 0.28 }}
-                className="mt-3 grid grid-cols-2 gap-3 overflow-hidden"
+            return (
+              <article
+                key={card.id}
+                className="flex h-full min-w-0 flex-col rounded-[30px] bg-white p-6 shadow-[0_18px_44px_rgba(36,29,24,0.08)] sm:p-7 lg:p-6 xl:p-7"
               >
-                {contexts.filter((context) => !context.primary).map((context) => (
-                  <ContextButton key={context.id} context={context} selected={selectedId === context.id} onSelect={selectContext} />
-                ))}
-              </motion.div>
-            ) : null}
-          </AnimatePresence>
-        </div>
+                <span
+                  className={`grid h-14 w-14 shrink-0 place-items-center rounded-full ${card.iconSurface} ${card.iconColor}`}
+                  aria-hidden="true"
+                >
+                  <Icon size={27} strokeWidth={2.1} />
+                </span>
 
-        <div className="mt-6" id="adult-context-panel" role="tabpanel">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.article
-              key={selected.id}
-              initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reduceMotion ? undefined : { opacity: 0, y: -6 }}
-              transition={{ duration: reduceMotion ? 0 : 0.25 }}
-              className="grid gap-8 rounded-[30px] bg-white p-5 shadow-[0_24px_70px_rgba(36,29,24,0.1)] md:p-7 lg:grid-cols-[1.08fr_0.92fr] lg:items-center"
-            >
-              <div>
-                <p className="text-[11px] font-extrabold uppercase tracking-[0.13em] text-[#164C35]">{selected.label}</p>
-                <h3 className="mid-section-title mt-4 text-[#241D18]">“{selected.main}”</h3>
-                <ul className="mt-6 grid gap-3">
-                  {selected.support.map((quote) => (
-                    <li key={quote} className="flex items-start gap-3 text-[15px] font-semibold leading-7 text-[rgba(36,29,24,0.72)]">
-                      <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#FCBF48]" aria-hidden="true" />
-                      “{quote}”
+                <h3 className="compact-title mt-7 text-[#241D18]">
+                  {card.title}
+                </h3>
+
+                <ul className="mt-5 grid gap-3.5">
+                  {card.bullets.map((bullet) => (
+                    <li
+                      key={bullet}
+                      className="flex items-start gap-3 text-[15px] font-semibold leading-6.5 text-[rgba(36,29,24,0.76)]"
+                    >
+                      <span
+                        className={`mt-[9px] h-2 w-2 shrink-0 rounded-full ${card.bulletColor}`}
+                        aria-hidden="true"
+                      />
+                      <span>{bullet}</span>
                     </li>
                   ))}
                 </ul>
 
-                {selected.more.length > 0 ? (
-                  <div className="mt-5">
-                    <button
-                      type="button"
-                      aria-expanded={moreOpen}
-                      aria-controls="adult-context-more"
-                      onClick={() => setMoreOpen((open) => !open)}
-                      className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[rgba(36,29,24,0.14)] px-4 text-[13px] font-extrabold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#164C35]"
-                    >
-                      Bunlar da tanıdık mı?
-                      <ChevronDown className={`transition-transform duration-200 ${moreOpen ? "rotate-180" : ""}`} size={16} aria-hidden="true" />
-                    </button>
-                    <AnimatePresence initial={false}>
-                      {moreOpen ? (
-                        <motion.ul
-                          id="adult-context-more"
-                          initial={reduceMotion ? false : { opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={reduceMotion ? undefined : { opacity: 0, height: 0 }}
-                          transition={{ duration: reduceMotion ? 0 : 0.28 }}
-                          className="mt-3 grid gap-2 overflow-hidden rounded-[18px] bg-[#FEF9F5] p-4"
-                        >
-                          {selected.more.map((quote) => (
-                            <li key={quote} className="text-[14px] font-semibold leading-6 text-[rgba(36,29,24,0.68)]">“{quote}”</li>
-                          ))}
-                        </motion.ul>
-                      ) : null}
-                    </AnimatePresence>
+                <div className="mt-auto pt-7">
+                  <div
+                    className={`flex min-h-[116px] items-start gap-4 rounded-[22px] p-5 ${card.noteSurface}`}
+                  >
+                    <NoteIcon
+                      className={`mt-0.5 shrink-0 ${card.iconColor}`}
+                      size={27}
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    />
+                    <p className="text-[14px] font-semibold leading-6 text-[rgba(36,29,24,0.72)]">
+                      {card.explanation}
+                    </p>
                   </div>
-                ) : null}
-
-                <div className="mt-6 flex items-start gap-3 rounded-[18px] bg-[#F0F7F2] p-4 text-[#164C35]">
-                  <CircleDot className="mt-1 shrink-0" size={18} aria-hidden="true" />
-                  <p className="text-[15px] font-semibold leading-7 text-[#164C35]">{selected.explanation}</p>
                 </div>
-              </div>
-              <AdultContextVisual id={selected.id} />
-            </motion.article>
-          </AnimatePresence>
+              </article>
+            );
+          })}
         </div>
 
-        <div className="mt-6 flex items-start gap-3 rounded-[22px] bg-[#F0F7F2] p-5 text-[#164C35]">
-          <CircleDot className="mt-0.5 shrink-0" size={20} aria-hidden="true" />
-          <p className="text-[14px] font-extrabold leading-6">
-            Bu deneyimler her zaman bir tanıya işaret etmeyebilir. Zihin Check-Up, tıbbi tanı yerine bilişsel profilinizi daha yakından tanımanıza yardımcı olan bir değerlendirme sunar.
-          </p>
+        <div className="mt-9 flex justify-center">
+          <a
+            href="#about"
+            className="pill-button arrow-shift min-h-[54px] w-full max-w-[440px] px-7 text-center text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#164C35] sm:w-auto sm:min-w-[420px]"
+          >
+            Bunlardan birkaçını ben de yaşıyorum
+            <ArrowUpRight size={18} strokeWidth={2.5} aria-hidden="true" />
+          </a>
         </div>
       </div>
     </section>
-  );
-}
-
-function ContextButton({
-  context,
-  selected,
-  onSelect,
-}: {
-  context: (typeof contexts)[number];
-  selected: boolean;
-  onSelect: (id: ContextId) => void;
-}) {
-  const Icon = context.icon;
-
-  return (
-    <button
-      type="button"
-      role="tab"
-      aria-selected={selected}
-      aria-controls="adult-context-panel"
-      onClick={() => onSelect(context.id)}
-      className={`flex min-h-20 items-center justify-between gap-3 rounded-[22px] border px-4 py-3 text-left transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#164C35] ${
-        selected
-          ? "border-[#164C35] bg-[#164C35] text-white shadow-[0_16px_36px_rgba(22,76,53,0.18)]"
-          : "border-[rgba(36,29,24,0.1)] bg-white text-[#241D18] hover:border-[#FCBF48]"
-      }`}
-    >
-      <span className="flex items-center gap-3">
-        <Icon size={19} className={selected ? "text-[#FCBF48]" : "text-[#164C35]"} aria-hidden="true" />
-        <span className="text-[13px] font-extrabold leading-5 sm:text-[14px]">{context.label}</span>
-      </span>
-      {selected ? <Check size={17} aria-hidden="true" /> : <ArrowRight size={16} aria-hidden="true" />}
-    </button>
   );
 }
 
