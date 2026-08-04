@@ -226,3 +226,49 @@ Kaynak ve son uygulama tek bir `3402 × 909` karşılaştırma görselinde yan y
 - [x] Güncel görsel karşılaştırmada P0/P1/P2 bulgu kalmadı.
 
 final result: passed
+
+---
+
+# Design QA — CheckUpSection / Ortak beş adımlı süreç
+
+## Kapsam
+
+- Uygulama: `src/components/CheckUpSection.tsx`, `#checkup`
+- Çocuk rotası: `/`
+- Yetişkin rotası: `/yetiskinler`
+- Amaç: Çocuk sayfasındaki beş adımlı süreci polish edip aynı DOM ve görsel yapı üzerinden yetişkin sayfasında kullanmak.
+- Metin kararı: Çocuk metinleri korunuyor; yetişkin sayfasında yalnızca kişi ifadeleri yetişkine uyarlanıyor.
+
+## Impeccable polish bulguları ve düzeltmeler
+
+1. Kısa ve uzun kart başlıkları farklı yüksekliklerde kaldığı için açıklamalar farklı seviyelerden başlıyordu (P2). Başlıklar mobil dışında büyüyebilen ortak `min-height` satırına alındı; açıklama başlangıçları aynı satır içinde eşitlendi.
+2. Kartlar stroke ve özel gölgeyi birlikte kullanıyordu (P3). Stroke kaldırıldı; tasarım sistemindeki sıcak floating-card gölgesi ve `28px` köşe yarıçapı uygulandı.
+3. İkonlar metne göre büyük kalıyordu (P3). Bütün ikonlar `48px / 2.1` stroke değerinde normalize edildi; kart başlıkları beşli masaüstü düzenine uygun `22px / 1.12` ölçüsüne getirildi.
+4. `640px` genişlikte beşinci kart, `768px` genişlikte son iki kart sola yığılıyordu (P2). Dört ve altı izli ara grid kullanılarak eksik son satırlar optik olarak ortalandı; `xl` genişlikte beşli sıra korundu.
+5. CTA inline-flex olduğu için `mx-auto` ile ortalanmıyordu (P2). CTA gerçek bir `flex justify-center` kapsayıcısına alındı.
+6. Mercan rozet/CTA ve açık renkli adım numaralarında beyaz metin kontrastı yetersizdi (P1). Metin renkleri yüzeye göre espresso veya beyaz olarak ayrıldı.
+
+## Responsive ve hizalama kanıtı
+
+- Test genişlikleri: `390`, `640`, `768`, `1280`, `1440` CSS px.
+- Tüm genişliklerde yatay taşma: `0px`.
+- `640px`: ilk dört kart iki sütunda, beşinci kart merkezde.
+- `768px`: ilk üç kart üst sırada, son iki kart merkezlenmiş alt sırada.
+- `1280px` ve `1440px`: beş kart `228px` genişlikte tek sırada; kart yüksekliği `360px`.
+- Masaüstünde beş açıklamanın başlangıç koordinatı aynı. Tüm gerçek başlıklar ayrılan `min-height` alanına sığıyor; kesilme veya üst üste binme yok.
+- CTA merkez sapması ölçüm yuvarlaması içinde `0.004px`; pratikte tam merkezde.
+
+## Rota ve etkileşim kontrolü
+
+- Her iki rotada `5` süreç kartı ve bölüm içinde tek `Ön Görüşme Planla` CTA'sı bulunuyor.
+- Çocuk rotasındaki mevcut çocuk metni değişmedi.
+- Yetişkin rotasında `çocuğun/çocuğunuz` ifadesi bulunmuyor; aynı beş adımlı yapı yetişkin zamirleriyle kullanılıyor.
+- Her iki CTA tıklaması URL'yi `#checkup-form` hedefine taşıdı; hedef form sayfada tekil olarak bulundu.
+- Tarayıcı konsolu: `0` hata, `0` uyarı.
+- Hedefli ESLint, `git diff --check` ve `npm run build` geçti.
+
+## Bulgular
+
+- P0/P1/P2 seviyesinde açık bulgu kalmadı.
+
+final result: passed
