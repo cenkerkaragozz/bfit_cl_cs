@@ -122,19 +122,16 @@ li {
   text-wrap: balance;
 }
 
-.hero-lead {
-  color: var(--ink);
-  font-size: clamp(18px, 1.8vw, 21px);
-  font-weight: 600;
-  line-height: 1.55;
-  text-wrap: pretty;
+.hero-title-home {
+  font-size: clamp(40px, 4.8vw, 64px);
+  line-height: 0.98;
 }
 
-.hero-support {
-  color: var(--text-secondary);
-  font-size: clamp(16px, 1.4vw, 18px);
-  font-weight: 500;
-  line-height: 1.7;
+.hero-lead {
+  color: var(--ink);
+  font-size: clamp(17px, 1.35vw, 19px);
+  font-weight: 600;
+  line-height: 1.62;
   text-wrap: pretty;
 }
 

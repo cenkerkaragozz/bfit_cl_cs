@@ -57,7 +57,7 @@ export function Hero() {
             Bilişsel Gelişim · Karşıyaka
           </div>
 
-          <h1 className="hero-title mt-5 max-w-[20ch] text-[#160A08]">
+          <h1 className="hero-title hero-title-home mt-5 max-w-[20ch] text-[#160A08]">
             <span className="block">Çocuğunuzun</span>
             <span className="relative inline-block">
               yaşadığı zorluğun nedenini
@@ -71,10 +71,7 @@ export function Hero() {
 
           <div className="mt-6 max-w-[560px] md:mt-7">
             <p className="hero-lead">
-              Bilimsel bir değerlendirmeyle çocuğunuzun güçlü yönlerini ve desteklenmesi gereken alanları birlikte ortaya çıkarıyoruz.
-            </p>
-            <p className="hero-support mt-3">
-              1 saatlik Zihin Check-Up’tan başlayarak, çocuğunuza özel bir gelişim planına uzanan yolu birlikte belirleriz.
+              Bilimsel değerlendirme ve çocuğunuza özel yaklaşımımızla güçlü yönlerini ve desteğe ihtiyaç duyduğu alanları birlikte ortaya çıkarıyoruz.
             </p>
             <a
               className="arrow-shift mt-7 inline-flex min-h-13 max-w-full items-center justify-center gap-2 rounded-full bg-[#E86F5B] px-6 py-4 text-center text-[15px] font-extrabold leading-5 text-[#160A08] shadow-[0_18px_36px_rgba(232,111,91,0.28)] transition hover:-translate-y-1 hover:bg-[#F5927E] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E86F5B] sm:px-7"
