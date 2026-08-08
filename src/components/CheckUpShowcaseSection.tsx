@@ -62,7 +62,7 @@ const adultShowcaseRows = [
   },
   {
     number: "04",
-    title: "Desteklenebilecek Alanlar",
+    title: "Destekleyebileceğiniz Alanlar",
     icon: Target,
     featured: false,
   },

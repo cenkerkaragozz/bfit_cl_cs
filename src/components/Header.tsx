@@ -15,7 +15,7 @@ const childNavItems = [
 
 const adultNavItems = [
   { label: "Yaşadıklarınız", href: "#help" },
-  { label: "Zihin Check-Up", href: "#checkup" },
+  { label: "Değerlendirme", href: "#checkup" },
   { label: "Bilişsel Profil", href: "#cognitive-profile" },
   { label: "Deneyimler", href: "#experiences" },
   { label: "İletişim", href: "#contact" },

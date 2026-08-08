@@ -33,7 +33,7 @@ const testimonialGroups = {
   ],
   adults: [
     {
-      lead: "Zihin Check-Up sonrasında bilişsel profilimi çok daha ",
+      lead: "Değerlendirme sonrasında bilişsel profilimi çok daha ",
       highlight: "net",
       tail: " gördüm.",
     },

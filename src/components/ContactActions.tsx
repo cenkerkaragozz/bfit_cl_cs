@@ -4,7 +4,7 @@ type Audience = "children" | "adults";
 
 const messages: Record<Audience, string> = {
   children: "Merhaba, çocuğum için Zihin Check-Up hakkında bilgi almak istiyorum.",
-  adults: "Merhaba, yetişkin Zihin Check-Up hakkında bilgi almak istiyorum.",
+  adults: "Merhaba, yetişkin bilişsel profil değerlendirmesi hakkında bilgi almak istiyorum.",
 };
 
 export function getWhatsAppHref(audience: Audience) {

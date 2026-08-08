@@ -6,12 +6,10 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ContactActions } from "@/components/ContactActions";
 
 const WHATSAPP_PHONE = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "905555555555";
-const WHATSAPP_MESSAGE =
-  "Merhaba, çocuğum için Zihin Check-Up randevusu almak istiyorum.";
-
-const whatsappHref = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
-  WHATSAPP_MESSAGE,
-)}`;
+const WHATSAPP_MESSAGES = {
+  children: "Merhaba, çocuğum için Zihin Check-Up randevusu almak istiyorum.",
+  adults: "Merhaba, yetişkin bilişsel profil değerlendirmesi hakkında bilgi almak istiyorum.",
+} as const;
 
 // PMS 361 C
 const BRAND = "#43B02A";
@@ -37,6 +35,9 @@ export function FloatingCta({
 }) {
   const reduceMotion = useReducedMotion();
   const [showBubble, setShowBubble] = useState(false);
+  const whatsappHref = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+    WHATSAPP_MESSAGES[audience],
+  )}`;
 
   // Mini sohbet balonunu dikkat çekmek için bir süre sonra göster.
   useEffect(() => {

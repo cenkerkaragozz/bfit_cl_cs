@@ -40,7 +40,7 @@ const audienceCards = [
       "Zihnimi susturmakta zorlanıyorum.",
     ],
     explanation:
-      "Dikkat, bilgiyi işleme ve zihinsel dayanıklılık gün içindeki performansınızı etkileyebilir.",
+      "Zihinsel yorgunluk her zaman yoğun bir gün geçirmek anlamına gelmez. Dikkat ve bilgi işlemeyle ilişkili beceriler de gün içindeki performansınızı etkileyebilir.",
   },
   {
     id: "planning",
@@ -58,7 +58,7 @@ const audienceCards = [
       "Başladığım işi tamamlamak için daha fazla çaba harcıyorum.",
     ],
     explanation:
-      "Günlük hayatı düzenlemek, farklı zihinsel becerilerin birlikte çalışmasını gerektirir.",
+      "Ne yapacağınızı bilmek ile onu tamamlamak aynı şey değildir. Günlük hayatı organize etmek, farklı zihinsel becerilerin birlikte çalışmasını gerektirir.",
   },
   {
     id: "active-mind",
@@ -76,16 +76,16 @@ const audienceCards = [
       "Zihinsel becerilerimi aktif tutmak istiyorum.",
     ],
     explanation:
-      "Bugünkü performansınızı bilmek, destekleyebileceğiniz becerileri görmenin başlangıcı olabilir.",
+      "Bilişsel becerilerinizi tanımak için mutlaka bir zorluk yaşamanız gerekmez. Bugünkü performansınızı bilmek, hangi alanları destekleyebileceğinizi anlamanın başlangıcı olabilir.",
   },
 ] as const;
 
 const faqs = [
   {
     id: "medical",
-    question: "Zihin Check-Up tıbbi bir test mi?",
+    question: "Bu bir sağlık hizmeti mi?",
     answer:
-      "Hayır. Tıbbi tanı veya tedavi amacı taşımaz. Bilişsel becerilerin mevcut durumunu anlamaya yardımcı olan bir değerlendirmedir.",
+      "Hayır. BrainFit bir sağlık kuruluşu değildir. Bilişsel becerilerinizin bugünkü durumunu anlamanıza yardımcı olan bir değerlendirmedir.",
   },
   {
     id: "result",
@@ -95,9 +95,9 @@ const faqs = [
   },
   {
     id: "without-problem",
-    question: "Belirgin bir problemim yoksa başvurabilir miyim?",
+    question: "Belirgin bir zorlanmam yoksa başvurabilir miyim?",
     answer:
-      "Evet. Zihin Check-Up yalnızca bir zorlanma yaşayanlar için değil; dikkatini, öğrenme biçimini veya zihinsel çalışma düzenini daha yakından anlamak isteyenler için de uygundur.",
+      "Evet. Bu değerlendirme yalnızca bir zorlanma yaşayanlar için değil; dikkatini, öğrenme biçimini veya zihinsel çalışma düzenini daha yakından tanımak isteyenler için de uygundur.",
   },
   {
     id: "contact",
@@ -134,20 +134,20 @@ function AdultHero() {
               <span className="v4-kicker-bar" aria-hidden="true" />
               BrainFit Karşıyaka · Bilişsel Gelişim Merkezi
             </span>
-            <h1 className="v4-h1">Bilişsel profilinizi öğrenin. Kişisel egzersiz yolunuza başlayın.</h1>
+            <h1 className="v4-h1">Yorgun olan bedeniniz değilse?</h1>
             <p className="v4-sub">
-              Karşıyaka&apos;da yüz yüze hizmet sunan BrainFit&apos;te, <mark>1 saatlik Zihin Check-Up</mark> ile dikkat, hafıza ve zihinsel performansla ilişkili beceriler birlikte değerlendirilir. <mark>Kişisel bilişsel profiliniz</mark> uzmanla birlikte ele alınır; ihtiyaçlarınıza göre <mark>kişiye özel egzersiz planı</mark> oluşturulur.
+              Gün sonunda tükenen şey bazen enerjiniz değil, zihninizdir. Dikkat, hafıza ve işlem hızı gibi bilişsel becerilerinizi değerlendirerek <mark>bilişsel profilinizi</mark> oluşturuyor; güçlü yönlerinizi ve gelişime açık alanlarınızı birlikte ele alıyoruz.
             </p>
             <div className="v4-ctas">
               <a href="#checkup-form" className="v4-cta-p arrow-shift">
-                Zihin Check-Up Randevusu Al
+                Bilişsel Profilimi Keşfetmek İstiyorum
                 <ArrowUpRight size={18} strokeWidth={2.7} aria-hidden="true" />
               </a>
-              <a href="#checkup" className="v4-cta-s">Zihin Check-Up nasıl işler?</a>
+              <a href="#checkup" className="v4-cta-s">Süreç nasıl ilerliyor?</a>
             </div>
             <div className="v4-chips">
               <span className="v4-chip">Karşıyaka · Yüz yüze</span>
-              <span className="v4-chip">1 saatlik değerlendirme</span>
+              <span className="v4-chip">Bilişsel profil değerlendirmesi</span>
               <span className="v4-chip">Kişisel egzersiz planı</span>
             </div>
           </div>
@@ -168,7 +168,7 @@ function AudienceSection() {
       <div className="inner">
         <div className="max-w-[820px]">
           <div className="badge border-[#E7A988] bg-transparent text-[#8C5038]">
-            Son bir yıl
+            Son 1 yıl
           </div>
           <h2
             id="adult-audience-title"
@@ -271,7 +271,7 @@ function AdultApproachSection() {
             </h3>
           </div>
           <p className="mt-6 max-w-[44ch] text-[1rem] font-normal leading-7 text-[#514236] [text-wrap:pretty]">
-            BrainFit; dikkat, hafıza ve zihinsel yorgunluk gibi günlük deneyimleri tek başına yorumlamak yerine bilişsel alanları birlikte ele alır. Amaç, yaşadığınız tabloyu daha anlaşılır hâle getirmektir.
+            BrainFit; dikkat, hafıza ve zihinsel yorgunluk gibi günlük deneyimleri tek başına yorumlamak yerine bilişsel alanları birlikte ele alır. Amaç, yaşadıklarınızı daha anlaşılır hâle getirmektir.
           </p>
         </div>
       </div>
@@ -306,7 +306,7 @@ function ScopeAndFaqSection() {
           <div className="rounded-[28px] bg-[#FEF9F5] p-6 md:p-8">
             <h3 className="compact-title text-[#8C5038]">Ne yapmıyoruz?</h3>
             <ul className="mt-6 grid gap-3">
-              {["Tıbbi tanı koymuyoruz", "İlaç önermiyor veya mevcut tedavinin yerine geçmiyoruz"].map((item) => (
+              {["Sağlık hizmeti sunmuyoruz", "Doktorunuzun ya da uzmanınızın yerine geçmiyoruz"].map((item) => (
                 <li key={item} className="flex items-start gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold leading-6 text-[#241D18]">
                   <XCircle className="mt-0.5 shrink-0 text-[#F5927E]" size={19} aria-hidden="true" />
                   {item}
@@ -405,9 +405,9 @@ function AdultCheckUpFormSection() {
         <div className="section-cta-surface grid gap-9 rounded-[34px] px-5 py-8 sm:px-7 md:p-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
           <div>
             <div className="badge border-[#160A08]/35 bg-white/20 text-[#160A08]">İletişime geçin</div>
-            <h2 className="section-title mt-7 max-w-[650px] !text-[#160A08]">Yaşadığınız durumu birlikte konuşalım.</h2>
+            <h2 className="section-title mt-7 max-w-[650px] !text-[#160A08]">Zihninizde neyin değiştiğini merak ediyorsanız, önce bugünkü performansınızı tanıyın.</h2>
             <p className="mt-6 max-w-[560px] text-[16px] font-semibold leading-8 text-[#160A08]/76">
-              Aklınızdaki soruyu WhatsApp&apos;tan yazın ya da numaranızı bırakın. Ekibimiz Zihin Check-Up sürecini anlatsın.
+              Daha kolay odaklanmak, günlük hayatı daha iyi organize etmek ya da yaş alırken bilişsel becerilerinizi aktif tutmak... Başlangıç noktası, hangi alanlarda güçlü olduğunuzu bilmektir. BrainFit Karşıyaka&apos;da oluşturulan bilişsel profiliniz doğrultusunda, size özel bir egzersiz planıyla sürecinizi yapılandırıyoruz.
             </p>
             <ContactActions audience="adults" className="mt-7 max-w-[560px]" />
             <div className="mt-7 grid gap-3 sm:grid-cols-3">
@@ -427,7 +427,7 @@ function AdultCheckUpFormSection() {
               <label className="grid gap-2 text-xs font-extrabold text-[rgba(36,29,24,0.68)]">Adınız Soyadınız<input name="parentName" autoComplete="name" required className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold text-[#241D18] outline-none transition duration-200 focus:border-[#164C35] focus:ring-3 focus:ring-[#164C35]/10" placeholder="Adınız soyadınız" /></label>
               <label className="grid gap-2 text-xs font-extrabold text-[rgba(36,29,24,0.68)]">Telefon Numaranız<input name="phone" autoComplete="tel" required inputMode="tel" className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold text-[#241D18] outline-none transition duration-200 focus:border-[#164C35] focus:ring-3 focus:ring-[#164C35]/10" placeholder="05XX XXX XX XX" /></label>
               <label className="grid gap-2 text-xs font-extrabold text-[rgba(36,29,24,0.68)]">Yaşınız<input name="participantAge" required inputMode="numeric" className="min-h-13 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 text-[16px] font-bold text-[#241D18] outline-none transition duration-200 focus:border-[#164C35] focus:ring-3 focus:ring-[#164C35]/10" placeholder="Örn. 34" /></label>
-              <label className="grid gap-2 text-xs font-extrabold text-[rgba(36,29,24,0.68)] sm:col-span-2">Kısa Notunuz <span className="font-semibold text-[var(--text-muted)]">(isteğe bağlı)</span><textarea name="note" className="min-h-28 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 py-3 text-[16px] font-bold text-[#241D18] outline-none transition duration-200 focus:border-[#164C35] focus:ring-3 focus:ring-[#164C35]/10" placeholder="Odak, hafıza, öğrenme ya da iş temponuzla ilgili eklemek istediğiniz bir ayrıntı varsa yazabilirsiniz." /></label>
+              <label className="grid gap-2 text-xs font-extrabold text-[rgba(36,29,24,0.68)] sm:col-span-2">Kısa Notunuz <span className="font-semibold text-[var(--text-muted)]">(isteğe bağlı)</span><textarea name="note" className="min-h-28 rounded-[18px] border border-[var(--line)] bg-[#FEF9F5] px-4 py-3 text-[16px] font-bold text-[#241D18] outline-none transition duration-200 focus:border-[#164C35] focus:ring-3 focus:ring-[#164C35]/10" placeholder="Odak, hafıza, öğrenme ya da günlük temponuzla ilgili eklemek istediğiniz bir ayrıntı varsa yazabilirsiniz." /></label>
             </div>
             <input type="hidden" name="audience" value="adults" />
             <button type="submit" disabled={submitState === "submitting"} className="mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#164C35] px-6 text-[15px] font-extrabold text-white shadow-[0_16px_34px_rgba(22,76,53,0.24)] transition duration-150 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#164C35] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-65">

@@ -7,9 +7,9 @@ import { Header } from "@/components/Header";
 import { getLatestPosts } from "@/lib/sanity/queries";
 
 export const metadata: Metadata = {
-  title: "BrainFit Karşıyaka | Yetişkin Zihin Check-Up",
+  title: "BrainFit Karşıyaka | Yetişkinlerde Bilişsel Profil Değerlendirmesi",
   description:
-    "BrainFit Karşıyaka'da 1 saatlik yetişkin Zihin Check-Up ile bilişsel profilinizi anlayın ve kişiye özel egzersiz planı hakkında bilgi alın.",
+    "BrainFit Karşıyaka'da bilişsel profil değerlendirmesiyle dikkat, hafıza ve zihinsel performansınızı tanıyın; size özel egzersiz planı hakkında bilgi alın.",
 };
 
 export const revalidate = 300;

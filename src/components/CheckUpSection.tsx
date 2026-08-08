@@ -23,7 +23,7 @@ const processSteps = [
     children:
       "Çocuğunuzun farklı bilişsel becerilerine 1 saatlik Zihin Check-Up ile bakıyoruz.",
     adults:
-      "Farklı bilişsel becerilerinize 1 saatlik Zihin Check-Up ile bakıyoruz.",
+      "Farklı bilişsel becerilerinize kapsamlı bir değerlendirmeyle bakıyoruz.",
     icon: ClipboardCheck,
     color: "#164C35",
     numberColor: "#FFFFFF",
@@ -33,7 +33,7 @@ const processSteps = [
     children:
       "Güçlü olduğu ve desteğe ihtiyaç duyduğu alanları birlikte görüyoruz.",
     adults:
-      "Güçlü olduğunuz ve desteğe ihtiyaç duyduğunuz alanları birlikte görüyoruz.",
+      "Güçlü olduğunuz ve destekleyebileceğiniz alanları birlikte görüyoruz.",
     icon: ChartNoAxesColumnIncreasing,
     color: "#FCBF48",
     numberColor: "#160A08",
@@ -53,7 +53,7 @@ const processSteps = [
     children:
       "Ortaya çıkan ihtiyaçlara göre çocuğunuza özel bir plan hazırlıyoruz.",
     adults:
-      "Ortaya çıkan ihtiyaçlara göre size özel bir plan hazırlıyoruz.",
+      "Ortaya çıkan ihtiyaçlara göre size özel bir egzersiz planı hazırlıyoruz.",
     icon: NotebookPen,
     color: "#8AAE32",
     numberColor: "#160A08",
