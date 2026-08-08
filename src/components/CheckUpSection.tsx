@@ -11,7 +11,7 @@ const processSteps = [
   {
     title: "Ön Görüşme",
     children:
-      "Sizi dinliyor, çocuğunuzla ilgili gözlemlerinizi ve sorularınızı konuşuyoruz.",
+      "Sizi dinliyor, gözlemlerinizi ve sorularınızı birlikte konuşuyoruz.",
     adults:
       "Sizi dinliyor, günlük yaşamınıza ilişkin gözlemlerinizi ve sorularınızı konuşuyoruz.",
     icon: MessagesSquare,
@@ -19,9 +19,9 @@ const processSteps = [
     numberColor: "#160A08",
   },
   {
-    title: "Bilişsel Değerlendirme",
+    title: "Bilimsel Değerlendirme",
     children:
-      "Çocuğunuzun farklı bilişsel becerilerine 1 saatlik Zihin Check-Up ile bakıyoruz.",
+      "Çocuğunuzun bilişsel becerilerine 1 saatlik Zihin Check-Up ile bakıyoruz.",
     adults:
       "Farklı bilişsel becerilerinize kapsamlı bir değerlendirmeyle bakıyoruz.",
     icon: ClipboardCheck,
@@ -29,7 +29,7 @@ const processSteps = [
     numberColor: "#FFFFFF",
   },
   {
-    title: "Bilişsel Profil",
+    title: "Bilişsel Profil Analizi",
     children:
       "Güçlü olduğu ve desteğe ihtiyaç duyduğu alanları birlikte görüyoruz.",
     adults:
@@ -39,9 +39,9 @@ const processSteps = [
     numberColor: "#160A08",
   },
   {
-    title: "Sonuç Görüşmesi",
+    title: "Sonuçların Birlikte Değerlendirilmesi",
     children:
-      "Bulguları sade bir dille paylaşıyor ve sorularınızı yanıtlıyoruz.",
+      "Bulguları sizinle birlikte, sade bir dille değerlendiriyoruz.",
     adults:
       "Bulguları sade bir dille paylaşıyor ve sorularınızı yanıtlıyoruz.",
     icon: Presentation,
@@ -141,7 +141,7 @@ export function CheckUpSection({
             href="#checkup-form"
             className="pill-button arrow-shift !min-h-13 !bg-[#E86F5B] !px-9 !text-[#160A08] !shadow-[0_14px_28px_rgba(232,111,91,0.24)] hover:!bg-[#F5927E]"
           >
-            Ön Görüşme Planla
+            Ücretsiz Ön Görüşme Oluştur
             <ArrowUpRight size={20} strokeWidth={2.4} aria-hidden="true" />
           </a>
         </div>

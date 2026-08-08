@@ -14,15 +14,15 @@ const observations = [
   { text: "Sınıfta sık sık dalıp gidiyor.", icon: Cloud, color: "#164C35" },
   { text: "Bildiği sorularda hata yapıyor.", icon: CircleHelp, color: "#E86F5B" },
   { text: "Ödevin başına oturmak istemiyor.", icon: NotebookPen, color: "#8AAE32" },
-  { text: "Yerinde durmakta zorlanıyor.", icon: Footprints, color: "#D49210" },
+  { text: "Sürekli hareket ediyor.", icon: Footprints, color: "#D49210" },
   { text: "Dikkatini uzun süre sürdüremiyor.", icon: TimerOff, color: "#1E99B5" },
   {
-    text: "Öğretmeni sık sık olumsuz geri bildirim veriyor.",
+    text: "Öğretmeninden sık sık olumsuz geri bildirim alıyorsunuz.",
     icon: MessageSquareWarning,
     color: "#164C35",
   },
-  { text: "Arkadaş ilişkilerinde zorlanıyor.", icon: Users, color: "#E86F5B" },
-  { text: "Yapması gerekenleri sürekli erteliyor.", icon: CalendarClock, color: "#1E99B5" },
+  { text: "Arkadaş ilişkilerinde zorlanabiliyor.", icon: Users, color: "#E86F5B" },
+  { text: "Sürekli erteleme davranışı gösteriyor.", icon: CalendarClock, color: "#1E99B5" },
 ] as const;
 
 function AmberStarburst() {

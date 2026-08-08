@@ -9,25 +9,25 @@ const faqs = [
     id: "medical",
     question: "Zihin Check-Up tıbbi bir test mi?",
     answer:
-      "Hayır. Tıbbi tanı veya tedavi amacı taşımaz. Çocuğunuzun bilişsel becerilerinin mevcut durumunu anlamaya yardımcı olan bir değerlendirmedir.",
+      "Hayır. Tıbbi tanı ya da tedavi amacı taşımaz; çocuğunuzun bilişsel becerilerini anlamaya yardımcı bir değerlendirmedir.",
   },
   {
     id: "result",
     question: "Değerlendirme sonunda ne elde ederiz?",
     answer:
-      "Beş ana bilişsel alanı birlikte gösteren kişisel profil ve çocuğunuzun ihtiyaçlarına göre şekillenen egzersiz planı elde edersiniz.",
+      "Çocuğunuzun güçlü yönleri, desteklenmesi gereken alanlar ve bunlara uygun kişiye özel gelişim planı belirlenir.",
   },
   {
     id: "without-problem",
     question: "Belirgin bir sorun yoksa başvurabilir miyiz?",
     answer:
-      "Evet. Zihin Check-Up yalnızca belirgin bir zorlanma yaşayan çocuklar için değil; dikkatini, öğrenme biçimini veya çalışma düzenini daha yakından anlamak isteyen aileler için de uygundur.",
+      "Evet. Zihin Check-Up yalnızca zorlanma yaşayan çocuklar için değil, çocuğunu daha yakından tanımak isteyen tüm aileler için uygundur.",
   },
   {
     id: "contact",
     question: "İlk iletişim nasıl ilerler?",
     answer:
-      "WhatsApp’tan yazabilir ya da formu bırakabilirsiniz. Ekibimiz sizi dinler, süreci açıklar ve sorularınızı yanıtlar.",
+      "WhatsApp’tan yazabilir ya da formu bırakabilirsiniz; ekibimiz sizi arayıp süreci anlatır.",
   },
 ] as const;
 
