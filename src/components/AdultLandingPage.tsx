@@ -1,7 +1,12 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { FormEvent, useRef, useState, type ReactNode } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useInView,
+  useReducedMotion,
+} from "framer-motion";
 import {
   ArrowUpRight,
   BatteryMedium,
@@ -22,6 +27,8 @@ import { TestimonialSection } from "@/components/TestimonialSection";
 import { TrustBar } from "@/components/TrustBar";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
+
+const easeOutExpo: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const audienceCards = [
   {
@@ -279,58 +286,174 @@ function AdultApproachSection() {
   );
 }
 
+function AdultScopePanel({
+  from,
+  delay = 0,
+  className,
+  children,
+}: {
+  from: "left" | "right";
+  delay?: number;
+  className?: string;
+  children: (panelActive: boolean) => ReactNode;
+}) {
+  const reduceMotion = useReducedMotion();
+  const panelRef = useRef<HTMLDivElement>(null);
+  const panelInView = useInView(panelRef, { once: true, margin: "-60px" });
+  const panelActive = !reduceMotion && panelInView;
+
+  return (
+    <motion.div
+      ref={panelRef}
+      className={className}
+      initial={
+        reduceMotion ? false : { opacity: 0, x: from === "left" ? -20 : 20 }
+      }
+      animate={panelActive ? { opacity: 1, x: 0 } : undefined}
+      transition={{ delay, duration: 0.45, ease: easeOutExpo }}
+    >
+      {children(panelActive)}
+    </motion.div>
+  );
+}
+
 function ScopeAndFaqSection() {
   const [openFaq, setOpenFaq] = useState<string>(faqs[0].id);
   const reduceMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  const sectionInView = useInView(sectionRef, { once: true, margin: "-60px" });
+  const sectionActive = !reduceMotion && sectionInView;
+  const faqRef = useRef<HTMLDivElement>(null);
+  const faqInView = useInView(faqRef, { once: true, margin: "-60px" });
+  const faqActive = !reduceMotion && faqInView;
 
   return (
-    <section className="section-surface py-[72px] md:py-[112px]">
+    <section ref={sectionRef} className="section-surface py-[72px] md:py-[112px]">
       <div className="inner">
-        <div className="max-w-[760px]">
+        <motion.div
+          className="max-w-[760px]"
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+          animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+          transition={{ duration: 0.4, ease: easeOutExpo }}
+        >
           <div className="badge border-[#6BC862] text-[#164C35]">Hizmet kapsamı</div>
           <h2 className="section-title mt-7">Neler sunduğumuz ve sunmadığımız konusunda şeffafız.</h2>
-        </div>
+        </motion.div>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
-          <div className="rounded-[28px] bg-[#F0F7F2] p-6 md:p-8">
-            <h3 className="compact-title text-[#164C35]">Ne yapıyoruz?</h3>
-            <ul className="mt-6 grid gap-3">
-              {["Bilişsel profil değerlendirmesi", "Kişiye özel egzersiz planı"].map((item) => (
-                <li key={item} className="flex items-center gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold text-[#241D18]">
-                  <CheckCircle2 className="shrink-0 text-[#6BC862]" size={19} aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="rounded-[28px] bg-[#FEF9F5] p-6 md:p-8">
-            <h3 className="compact-title text-[#8C5038]">Ne yapmıyoruz?</h3>
-            <ul className="mt-6 grid gap-3">
-              {["Sağlık hizmeti sunmuyoruz", "Doktorunuzun ya da uzmanınızın yerine geçmiyoruz"].map((item) => (
-                <li key={item} className="flex items-start gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold leading-6 text-[#241D18]">
-                  <XCircle className="mt-0.5 shrink-0 text-[#F5927E]" size={19} aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <AdultScopePanel
+            from="left"
+            className="rounded-[28px] bg-[#F0F7F2] p-6 md:p-8"
+          >
+            {(panelActive) => (
+              <>
+                <h3 className="compact-title text-[#164C35]">Ne yapıyoruz?</h3>
+                <ul className="mt-6 grid gap-3">
+                  {["Bilişsel profil değerlendirmesi", "Kişiye özel egzersiz planı"].map((item, index) => (
+                    <motion.li
+                      key={item}
+                      className="flex items-center gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold text-[#241D18]"
+                      initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+                      animate={panelActive ? { opacity: 1, y: 0 } : undefined}
+                      transition={{
+                        delay: 0.15 + index * 0.06,
+                        duration: 0.35,
+                        ease: easeOutExpo,
+                      }}
+                    >
+                      <motion.span
+                        className="shrink-0"
+                        initial={reduceMotion ? false : { scale: 0.85 }}
+                        animate={panelActive ? { scale: [0.85, 1.1, 1] } : undefined}
+                        transition={{
+                          delay: 0.3 + index * 0.06,
+                          duration: 0.3,
+                          ease: "easeOut",
+                        }}
+                      >
+                        <CheckCircle2 className="text-[#6BC862]" size={19} aria-hidden="true" />
+                      </motion.span>
+                      {item}
+                    </motion.li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </AdultScopePanel>
+
+          <AdultScopePanel
+            from="right"
+            delay={0.12}
+            className="rounded-[28px] bg-[#FEF9F5] p-6 md:p-8"
+          >
+            {(panelActive) => (
+              <>
+                <h3 className="compact-title text-[#8C5038]">Ne yapmıyoruz?</h3>
+                <ul className="mt-6 grid gap-3">
+                  {["Sağlık hizmeti sunmuyoruz", "Doktorunuzun ya da uzmanınızın yerine geçmiyoruz"].map((item, index) => (
+                    <motion.li
+                      key={item}
+                      className="flex items-start gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold leading-6 text-[#241D18]"
+                      initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+                      animate={panelActive ? { opacity: 1, y: 0 } : undefined}
+                      transition={{
+                        delay: 0.15 + index * 0.06,
+                        duration: 0.35,
+                        ease: easeOutExpo,
+                      }}
+                    >
+                      <motion.span
+                        className="mt-0.5 shrink-0"
+                        initial={reduceMotion ? false : { scale: 0.85 }}
+                        animate={panelActive ? { scale: [0.85, 1.1, 1] } : undefined}
+                        transition={{
+                          delay: 0.3 + index * 0.06,
+                          duration: 0.3,
+                          ease: "easeOut",
+                        }}
+                      >
+                        <XCircle className="text-[#F5927E]" size={19} aria-hidden="true" />
+                      </motion.span>
+                      {item}
+                    </motion.li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </AdultScopePanel>
         </div>
 
-        <div className="mt-10 grid gap-7 lg:grid-cols-[0.7fr_1.3fr]">
-          <div>
+        <div ref={faqRef} className="mt-10 grid gap-7 lg:grid-cols-[0.7fr_1.3fr]">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={faqActive ? { opacity: 1, y: 0 } : undefined}
+            transition={{ duration: 0.4, ease: easeOutExpo }}
+          >
             <p className="text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#8C5038]">Sık sorulanlar</p>
             <h3 className="mid-section-title mt-3 text-[#241D18]">Aklınızdaki temel sorular.</h3>
-          </div>
+          </motion.div>
           <div className="grid gap-3">
-            {faqs.map((faq) => {
+            {faqs.map((faq, index) => {
               const open = openFaq === faq.id;
+              const panelId = `faq-${faq.id}`;
+
               return (
-                <article key={faq.id} className="overflow-hidden rounded-[22px] border border-[rgba(36,29,24,0.08)] bg-white">
+                <motion.article
+                  key={faq.id}
+                  className="overflow-hidden rounded-[22px] border border-[rgba(36,29,24,0.08)] bg-white"
+                  initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                  animate={faqActive ? { opacity: 1, y: 0 } : undefined}
+                  transition={{
+                    delay: 0.15 + index * 0.08,
+                    duration: 0.4,
+                    ease: easeOutExpo,
+                  }}
+                >
                   <h4>
                     <button
                       type="button"
                       aria-expanded={open}
-                      aria-controls={`faq-${faq.id}`}
+                      aria-controls={panelId}
                       onClick={() => setOpenFaq(open ? "" : faq.id)}
                       className="flex min-h-14 w-full items-center justify-between gap-4 px-5 py-4 text-left text-[16px] font-extrabold text-[#241D18] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#164C35]"
                     >
@@ -341,7 +464,7 @@ function ScopeAndFaqSection() {
                   <AnimatePresence initial={false}>
                     {open ? (
                       <motion.div
-                        id={`faq-${faq.id}`}
+                        id={panelId}
                         initial={reduceMotion ? false : { height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={reduceMotion ? undefined : { height: 0, opacity: 0 }}
@@ -352,7 +475,7 @@ function ScopeAndFaqSection() {
                       </motion.div>
                     ) : null}
                   </AnimatePresence>
-                </article>
+                </motion.article>
               );
             })}
           </div>
@@ -365,6 +488,7 @@ function ScopeAndFaqSection() {
 function AdultCheckUpFormSection() {
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [message, setMessage] = useState("");
+  const reduceMotion = useReducedMotion();
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -420,7 +544,7 @@ function AdultCheckUpFormSection() {
             </div>
           </div>
 
-          <form id="callback-form" onSubmit={handleSubmit} method="post" action="/api/checkup-request" className="scroll-mt-28 rounded-[28px] bg-white p-5 shadow-[0_28px_80px_rgba(22,10,8,0.18)] md:p-7">
+          <form id="callback-form" onSubmit={handleSubmit} method="post" action="/api/checkup-request" aria-busy={submitState === "submitting"} className="scroll-mt-28 rounded-[28px] bg-white p-5 shadow-[0_28px_80px_rgba(22,10,8,0.18)] md:p-7">
             <h3 className="compact-title text-[#241D18]">Size Ulaşalım</h3>
             <p className="mt-2 text-[14px] font-semibold leading-6 text-[var(--text-support)]">İletişim bilgilerinizi bırakın; ekibimiz sorularınızı yanıtlasın.</p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -431,10 +555,52 @@ function AdultCheckUpFormSection() {
             </div>
             <input type="hidden" name="audience" value="adults" />
             <button type="submit" disabled={submitState === "submitting"} className="mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#164C35] px-6 text-[15px] font-extrabold text-white shadow-[0_16px_34px_rgba(22,76,53,0.24)] transition duration-150 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#164C35] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-65">
-              {submitState === "submitting" ? "İletiliyor..." : "Size Ulaşalım"}<ArrowUpRight size={18} aria-hidden="true" />
+              {submitState === "submitting" ? (
+                <>
+                  <span
+                    aria-hidden="true"
+                    className="h-4 w-4 shrink-0 animate-spin rounded-full border-2 border-white/40 border-t-white motion-reduce:animate-none"
+                  />
+                  İletiliyor...
+                </>
+              ) : (
+                <>
+                  Size Ulaşalım
+                  <ArrowUpRight size={18} aria-hidden="true" />
+                </>
+              )}
             </button>
             <p data-compliance-status="pending" className="mt-4 text-[11px] font-semibold leading-5 text-[var(--text-support)]">Aydınlatma ve veri işleme metni yayın öncesinde bu alana eklenecek.</p>
-            {message ? <p className={`mt-4 rounded-[18px] px-4 py-3 text-[14px] font-extrabold leading-6 ${submitState === "success" ? "bg-[#F0F7F2] text-[#164C35]" : "bg-[#FFF0D7] text-[#8C5038]"}`} role="status">{message}</p> : null}
+            <AnimatePresence initial={false}>
+              {message ? (
+                <motion.div
+                  key="adult-form-status"
+                  role="status"
+                  aria-live="polite"
+                  className="overflow-hidden"
+                  initial={reduceMotion ? false : { opacity: 0, height: 0 }}
+                  animate={reduceMotion ? undefined : { opacity: 1, height: "auto" }}
+                  exit={reduceMotion ? undefined : { opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3, ease: easeOutExpo }}
+                >
+                  <p
+                    className={`mt-4 flex items-start gap-2 rounded-[18px] px-4 py-3 text-[14px] font-extrabold leading-6 ${submitState === "success" ? "bg-[#F0F7F2] text-[#164C35]" : "bg-[#FFF0D7] text-[#8C5038]"}`}
+                  >
+                    {submitState === "success" ? (
+                      <motion.span
+                        className="mt-0.5 shrink-0"
+                        initial={reduceMotion ? false : { opacity: 0, scale: 0.6 }}
+                        animate={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.12, duration: 0.25, ease: easeOutExpo }}
+                      >
+                        <CheckCircle2 size={18} className="text-[#164C35]" aria-hidden="true" />
+                      </motion.span>
+                    ) : null}
+                    <span>{message}</span>
+                  </p>
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
           </form>
         </div>
       </div>

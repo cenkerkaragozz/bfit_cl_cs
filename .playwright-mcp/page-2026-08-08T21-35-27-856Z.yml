@@ -1,0 +1,297 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - banner:
+        - navigation "Primary navigation" [ref=e5]:
+          - link "BrainFit yetişkinler sayfası" [ref=e6] [cursor=pointer]:
+            - /url: /yetiskinler
+            - img "BrainFit" [ref=e7]
+          - generic [ref=e8]:
+            - link "Yaşadıklarınız" [ref=e9] [cursor=pointer]:
+              - /url: "#help"
+            - link "Değerlendirme" [ref=e10] [cursor=pointer]:
+              - /url: "#checkup"
+            - link "Bilişsel Profil" [ref=e11] [cursor=pointer]:
+              - /url: "#cognitive-profile"
+            - link "Deneyimler" [ref=e12] [cursor=pointer]:
+              - /url: "#experiences"
+            - link "İletişim" [ref=e13] [cursor=pointer]:
+              - /url: "#contact"
+          - group "Kitle seçimi" [ref=e15]:
+            - link "Çocuk" [ref=e16] [cursor=pointer]:
+              - /url: /
+            - generic [ref=e17]: Yetişkinler
+      - main [ref=e18]:
+        - generic [ref=e22]:
+          - generic [ref=e23]: BrainFit Karşıyaka · Bilişsel Gelişim Merkezi
+          - heading "Yorgun olan bedeniniz değilse?" [level=1] [ref=e25]
+          - paragraph [ref=e26]:
+            - text: Gün sonunda tükenen şey bazen enerjiniz değil, zihninizdir. Dikkat, hafıza ve işlem hızı gibi bilişsel becerilerinizi değerlendirerek
+            - mark [ref=e27]: bilişsel profilinizi
+            - text: oluşturuyor; güçlü yönlerinizi ve gelişime açık alanlarınızı birlikte ele alıyoruz.
+          - generic [ref=e28]:
+            - link "Bilişsel Profilimi Keşfetmek İstiyorum" [ref=e29] [cursor=pointer]:
+              - /url: "#checkup-form"
+            - link "Süreç nasıl ilerliyor?" [ref=e33] [cursor=pointer]:
+              - /url: "#checkup"
+          - generic [ref=e34]:
+            - generic [ref=e35]: Karşıyaka · Yüz yüze
+            - generic [ref=e36]: Bilişsel profil değerlendirmesi
+            - generic [ref=e37]: Kişisel egzersiz planı
+        - region "Güven göstergeleri" [ref=e39]:
+          - generic [ref=e42]:
+            - generic [ref=e43]: 4.6/5 Google puanı
+            - generic [ref=e48]: 48.000+ BrainFit ailesi
+            - generic [ref=e56]: "%93 Memnuniyet oranı"
+            - generic [ref=e62]: Karşıyaka Yüz yüze merkez
+        - region [ref=e67]:
+          - generic [ref=e68]:
+            - generic [ref=e69]:
+              - generic [ref=e70]: Son 1 yıl
+              - heading "Son bir yılda zihinsel performansınızda bir değişiklik fark ettiniz mi?" [level=2] [ref=e71]
+              - paragraph [ref=e72]: Aşağıdaki durumlardan bazıları size tanıdık gelebilir.
+            - generic [ref=e73]:
+              - article [ref=e74]:
+                - heading "Zihinsel yorgunluk" [level=3] [ref=e78]
+                - list [ref=e79]:
+                  - listitem [ref=e80]:
+                    - generic [ref=e82]: Yorulmaktan çok, dağılmış hissediyorum.
+                  - listitem [ref=e83]:
+                    - generic [ref=e85]: Sabah daha iyiyim ama gün ilerledikçe aynı verimi sürdüremiyorum.
+                  - listitem [ref=e86]:
+                    - generic [ref=e88]: Bir işe başlamak için eskisinden daha fazla çaba harcıyorum.
+                  - listitem [ref=e89]:
+                    - generic [ref=e91]: Zihnimi susturmakta zorlanıyorum.
+                - paragraph [ref=e96]: Zihinsel yorgunluk her zaman yoğun bir gün geçirmek anlamına gelmez. Dikkat ve bilgi işlemeyle ilişkili beceriler de gün içindeki performansınızı etkileyebilir.
+              - article [ref=e97]:
+                - heading "Günlük planlama" [level=3] [ref=e101]
+                - list [ref=e102]:
+                  - listitem [ref=e103]:
+                    - generic [ref=e105]: Birden fazla işi aynı anda yönetmekte zorlanıyorum.
+                  - listitem [ref=e106]:
+                    - generic [ref=e108]: Harekete geçmem eskisinden daha uzun sürüyor.
+                  - listitem [ref=e109]:
+                    - generic [ref=e111]: Nereden başlayacağıma karar vermekte zorlanıyorum.
+                  - listitem [ref=e112]:
+                    - generic [ref=e114]: Başladığım işi tamamlamak için daha fazla çaba harcıyorum.
+                - paragraph [ref=e119]: Ne yapacağınızı bilmek ile onu tamamlamak aynı şey değildir. Günlük hayatı organize etmek, farklı zihinsel becerilerin birlikte çalışmasını gerektirir.
+              - article [ref=e120]:
+                - heading "Zihnimi aktif tutmak istiyorum" [level=3] [ref=e130]
+                - list [ref=e131]:
+                  - listitem [ref=e132]:
+                    - generic [ref=e134]: Yaş alırken zihinsel çevikliğimi korumak istiyorum.
+                  - listitem [ref=e135]:
+                    - generic [ref=e137]: Yeni şeyler öğrenmeye devam etmek istiyorum.
+                  - listitem [ref=e138]:
+                    - generic [ref=e140]: Bugünkü zihinsel performansımı merak ediyorum.
+                  - listitem [ref=e141]:
+                    - generic [ref=e143]: Zihinsel becerilerimi aktif tutmak istiyorum.
+                - paragraph [ref=e148]: Bilişsel becerilerinizi tanımak için mutlaka bir zorluk yaşamanız gerekmez. Bugünkü performansınızı bilmek, hangi alanları destekleyebileceğinizi anlamanın başlangıcı olabilir.
+            - link "Bunlardan birkaçını ben de yaşıyorum" [ref=e150] [cursor=pointer]:
+              - /url: "#about"
+        - generic [ref=e155]:
+          - generic [ref=e156]:
+            - generic [ref=e157]: BrainFit nasıl yardımcı olur?
+            - heading "İlk adım, zihinsel profilinizi anlamaktır." [level=2] [ref=e158]:
+              - text: İlk adım,
+              - generic [ref=e159]: zihinsel profilinizi
+              - text: anlamaktır.
+          - generic [ref=e160]:
+            - heading "Birlikte bakınca tablo netleşir." [level=3] [ref=e170]
+            - paragraph [ref=e171]: BrainFit; dikkat, hafıza ve zihinsel yorgunluk gibi günlük deneyimleri tek başına yorumlamak yerine bilişsel alanları birlikte ele alır. Amaç, yaşadıklarınızı daha anlaşılır hâle getirmektir.
+        - region [ref=e172]:
+          - generic [ref=e173]:
+            - generic [ref=e174]:
+              - generic [ref=e175]: ADIM ADIM
+              - heading "Süreç nasıl ilerliyor?" [level=2] [ref=e176]
+              - paragraph [ref=e177]: Ne olacağını baştan bilmeniz için süreci beş açık adımda anlatıyoruz.
+            - list [ref=e179]:
+              - listitem [ref=e180]:
+                - article [ref=e181]:
+                  - generic [ref=e182]: "01"
+                  - heading "Ön Görüşme" [level=3] [ref=e187]
+                  - paragraph [ref=e188]: Sizi dinliyor, günlük yaşamınıza ilişkin gözlemlerinizi ve sorularınızı konuşuyoruz.
+              - listitem [ref=e189]:
+                - article [ref=e190]:
+                  - generic [ref=e191]: "02"
+                  - heading "Bilimsel Değerlendirme" [level=3] [ref=e197]
+                  - paragraph [ref=e198]: Farklı bilişsel becerilerinize kapsamlı bir değerlendirmeyle bakıyoruz.
+              - listitem [ref=e199]:
+                - article [ref=e200]:
+                  - generic [ref=e201]: "03"
+                  - heading "Bilişsel Profil Analizi" [level=3] [ref=e204]
+                  - paragraph [ref=e205]: Güçlü olduğunuz ve destekleyebileceğiniz alanları birlikte görüyoruz.
+              - listitem [ref=e206]:
+                - article [ref=e207]:
+                  - generic [ref=e208]: "04"
+                  - heading "Sonuçların Birlikte Değerlendirilmesi" [level=3] [ref=e213]
+                  - paragraph [ref=e214]: Bulguları sade bir dille paylaşıyor ve sorularınızı yanıtlıyoruz.
+              - listitem [ref=e215]:
+                - article [ref=e216]:
+                  - generic [ref=e217]: "05"
+                  - heading "Kişiye Özel Gelişim Planı" [level=3] [ref=e222]
+                  - paragraph [ref=e223]: Ortaya çıkan ihtiyaçlara göre size özel bir egzersiz planı hazırlıyoruz.
+            - link "Ücretsiz Ön Görüşme Oluştur" [ref=e225] [cursor=pointer]:
+              - /url: "#checkup-form"
+        - region [ref=e229]:
+          - generic [ref=e230]:
+            - generic [ref=e231]:
+              - generic [ref=e232]: Bilişsel Profil
+              - heading "Zihinsel performansınıza tek bir beceriden bakmıyoruz." [level=2] [ref=e233]
+              - paragraph [ref=e234]: Dikkat, hafıza, görsel ve işitsel beceriler ile duygusal düzenlemeyi birlikte değerlendiriyoruz. Bilişsel profiliniz, zihinsel performansınıza daha bütüncül bakmamıza yardımcı olur.
+              - paragraph [ref=e239]: Her alan, zihinsel performansınızı daha iyi anlamamız için önemli bir parça sunar.
+            - generic "Bilişsel profil alanları" [ref=e240]:
+              - generic [ref=e247]: BilişselProfil
+              - list [ref=e250]:
+                - listitem [ref=e251]:
+                  - generic [ref=e252]: Dikkat
+                - listitem [ref=e259]:
+                  - generic [ref=e260]: Hafıza
+                - listitem [ref=e271]:
+                  - generic [ref=e272]: Görsel Beceriler
+                - listitem [ref=e278]:
+                  - generic [ref=e279]: İşitsel Beceriler
+                - listitem [ref=e285]:
+                  - generic [ref=e286]: Duygusal Düzenleme
+        - region [ref=e291]:
+          - generic [ref=e292]:
+            - generic [ref=e293]:
+              - generic [ref=e294]: DEĞERLENDİRME SONRASI
+              - heading "Değerlendirme Sonunda Neler Sunuyoruz?" [level=2] [ref=e295]
+              - paragraph [ref=e296]: Güçlü yönlerinizi ve destekleyebileceğiniz alanları birlikte görür, size özel egzersiz planını netleştiririz.
+            - generic [ref=e300]:
+              - generic [ref=e301]: SONUÇ DOSYASI
+              - list "Değerlendirme sonrası sunulan çıktılar" [ref=e307]:
+                - listitem [ref=e308]:
+                  - generic [ref=e309]: "01"
+                  - generic [ref=e315]: Uzman Değerlendirmesi
+                - listitem [ref=e316]:
+                  - generic [ref=e317]: "02"
+                  - generic [ref=e322]: Bilişsel Profil
+                - listitem [ref=e323]:
+                  - generic [ref=e324]: "03"
+                  - generic [ref=e332]: Güçlü Yönlerin Belirlenmesi
+                - listitem [ref=e333]:
+                  - generic [ref=e334]: "04"
+                  - generic [ref=e340]: Destekleyebileceğiniz Alanlar
+                - listitem [ref=e341]:
+                  - generic [ref=e342]: "05"
+                  - generic [ref=e348]: Kişiye Özel Egzersiz Planı
+        - generic [ref=e350]:
+          - generic [ref=e351]:
+            - generic [ref=e352]: Hizmet kapsamı
+            - heading "Neler sunduğumuz ve sunmadığımız konusunda şeffafız." [level=2] [ref=e353]
+          - generic [ref=e354]:
+            - generic [ref=e355]:
+              - heading "Ne yapıyoruz?" [level=3] [ref=e356]
+              - list [ref=e357]:
+                - listitem [ref=e358]: Bilişsel profil değerlendirmesi
+                - listitem [ref=e363]: Kişiye özel egzersiz planı
+            - generic [ref=e368]:
+              - heading "Ne yapmıyoruz?" [level=3] [ref=e369]
+              - list [ref=e370]:
+                - listitem [ref=e371]: Sağlık hizmeti sunmuyoruz
+                - listitem [ref=e377]: Doktorunuzun ya da uzmanınızın yerine geçmiyoruz
+          - generic [ref=e383]:
+            - generic [ref=e384]:
+              - paragraph [ref=e385]: Sık sorulanlar
+              - heading "Aklınızdaki temel sorular." [level=3] [ref=e386]
+            - generic [ref=e387]:
+              - article [ref=e388]:
+                - heading [level=4] [ref=e389]:
+                  - button "Bu bir sağlık hizmeti mi?" [expanded] [ref=e390]
+                - paragraph [ref=e394]: Hayır. BrainFit bir sağlık kuruluşu değildir. Bilişsel becerilerinizin bugünkü durumunu anlamanıza yardımcı olan bir değerlendirmedir.
+              - article [ref=e395]:
+                - heading [level=4] [ref=e396]:
+                  - button "Değerlendirme sonunda ne elde ederim?" [ref=e397]
+              - article [ref=e400]:
+                - heading [level=4] [ref=e401]:
+                  - button "Belirgin bir zorlanmam yoksa başvurabilir miyim?" [ref=e402]
+              - article [ref=e405]:
+                - heading [level=4] [ref=e406]:
+                  - button "İlk iletişim nasıl ilerler?" [ref=e407]
+        - generic [ref=e417]:
+          - blockquote [ref=e420]:
+            - paragraph [ref=e421]:
+              - generic [ref=e422]:
+                - text: Değerlendirme sonrasında bilişsel profilimi çok daha
+                - generic [ref=e423]: net
+                - text: gördüm.
+          - generic [ref=e426]:
+            - paragraph [ref=e427]: BrainFit Katılımcısı
+            - 'generic "Google Puanı: 4.6/5" [ref=e428]'
+          - generic [ref=e440]:
+            - paragraph [ref=e445]: Karşıyaka'da yüz yüze merkez
+            - paragraph [ref=e450]: WhatsApp ile hızlı randevu
+            - paragraph [ref=e455]: KVKK kapsamında iletişim
+            - paragraph [ref=e460]: Uzman açıklamalı rapor
+        - generic [ref=e468]:
+          - generic [ref=e469]:
+            - generic [ref=e470]: İletişime geçin
+            - heading "Zihninizde neyin değiştiğini merak ediyorsanız, önce bugünkü performansınızı tanıyın." [level=2] [ref=e471]
+            - paragraph [ref=e472]: Daha kolay odaklanmak, günlük hayatı daha iyi organize etmek ya da yaş alırken bilişsel becerilerinizi aktif tutmak... Başlangıç noktası, hangi alanlarda güçlü olduğunuzu bilmektir. BrainFit Karşıyaka'da oluşturulan bilişsel profiliniz doğrultusunda, size özel bir egzersiz planıyla sürecinizi yapılandırıyoruz.
+            - generic [ref=e473]:
+              - link "WhatsApp iletişim bilgisi yayın öncesinde eklenecek" [disabled] [ref=e474] [cursor=pointer]:
+                - /url: "#contact"
+                - text: WhatsApp'tan Yaz
+              - link "Size Ulaşalım" [ref=e477] [cursor=pointer]:
+                - /url: "#callback-form"
+            - generic [ref=e481]:
+              - paragraph [ref=e486]: 1 saatlik değerlendirme
+              - paragraph [ref=e491]: Bilişsel profil
+              - paragraph [ref=e496]: Kişisel egzersiz planı
+          - generic [ref=e497]:
+            - heading "Size Ulaşalım" [level=3] [ref=e498]
+            - paragraph [ref=e499]: İletişim bilgilerinizi bırakın; ekibimiz sorularınızı yanıtlasın.
+            - generic [ref=e500]:
+              - generic [ref=e501]:
+                - text: Adınız Soyadınız
+                - textbox "Adınız Soyadınız" [ref=e502]:
+                  - /placeholder: Adınız soyadınız
+              - generic [ref=e503]:
+                - text: Telefon Numaranız
+                - textbox "Telefon Numaranız" [ref=e504]:
+                  - /placeholder: 05XX XXX XX XX
+              - generic [ref=e505]:
+                - text: Yaşınız
+                - textbox "Yaşınız" [ref=e506]:
+                  - /placeholder: Örn. 34
+              - generic [ref=e507]:
+                - text: Kısa Notunuz
+                - generic [ref=e508]: (isteğe bağlı)
+                - textbox "Kısa Notunuz (isteğe bağlı)" [ref=e509]:
+                  - /placeholder: Odak, hafıza, öğrenme ya da günlük temponuzla ilgili eklemek istediğiniz bir ayrıntı varsa yazabilirsiniz.
+            - button "Size Ulaşalım" [ref=e510]
+            - paragraph [ref=e514]: Aydınlatma ve veri işleme metni yayın öncesinde bu alana eklenecek.
+        - generic [ref=e516]:
+          - generic [ref=e517]:
+            - heading "BrainFit’ten Güncel Yazılar" [level=2] [ref=e518]
+            - link "Tüm Yazıları Gör" [ref=e519] [cursor=pointer]:
+              - /url: /blog
+          - generic [ref=e523]:
+            - paragraph [ref=e524]: Henüz yayınlanmış bir içerik bulunmuyor.
+            - paragraph [ref=e525]: Yayınlanan içerikler burada görünecektir.
+      - contentinfo [ref=e526]:
+        - generic [ref=e527]:
+          - generic [ref=e528]:
+            - generic [ref=e529]:
+              - img "BrainFit" [ref=e530]
+              - heading "Sorunuz varsa önce konuşalım." [level=2] [ref=e531]
+              - paragraph [ref=e532]: Çocuklar ve yetişkinler için Zihin Check-Up süreci hakkında bilgi almak üzere iletişim bölümündeki iki seçenekten birini kullanabilirsiniz.
+            - generic [ref=e533]:
+              - generic [ref=e534]: BrainFit Karşıyaka · İzmir
+              - navigation "Alt bilgi bağlantıları" [ref=e539]:
+                - link "Çocuklar" [ref=e540] [cursor=pointer]:
+                  - /url: /
+                - link "Yetişkinler" [ref=e541] [cursor=pointer]:
+                  - /url: /yetiskinler
+                - link "Zihin Check-Up" [ref=e542] [cursor=pointer]:
+                  - /url: "#checkup"
+                - link "Bilişsel Profil" [ref=e543] [cursor=pointer]:
+                  - /url: "#cognitive-profile"
+          - paragraph [ref=e545]: Tüm Hakları Saklıdır © 2026 BrainFit.
+    - link "WhatsApp ile yazın" [ref=e547] [cursor=pointer]:
+      - /url: https://wa.me/905555555555?text=Merhaba%2C%20yeti%C5%9Fkin%20bili%C5%9Fsel%20profil%20de%C4%9Ferlendirmesi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.
+      - generic: WhatsApp'tan Yazın
+  - button "Open Next.js Dev Tools" [ref=e557] [cursor=pointer]
+  - alert [ref=e564]
