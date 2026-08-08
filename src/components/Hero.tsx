@@ -70,10 +70,10 @@ export function Hero() {
           </h1>
 
           <div className="mt-6 max-w-[560px] md:mt-7">
-            <p className="max-w-full text-[18px] font-semibold leading-8 text-[#241D18] md:text-[22px] md:leading-8">
+            <p className="hero-lead">
               Bilimsel bir değerlendirmeyle çocuğunuzun güçlü yönlerini ve desteklenmesi gereken alanları birlikte ortaya çıkarıyoruz.
             </p>
-            <p className="mt-3 text-[16px] font-medium leading-7 text-[rgba(36,29,24,0.72)] md:text-lg">
+            <p className="hero-support mt-3">
               1 saatlik Zihin Check-Up’tan başlayarak, çocuğunuza özel bir gelişim planına uzanan yolu birlikte belirleriz.
             </p>
             <a

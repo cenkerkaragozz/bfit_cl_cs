@@ -36,7 +36,7 @@ export function ChildFaqSection() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="faq" className="section-surface scroll-mt-28 py-[72px] md:py-[112px]">
+    <section id="faq" className="section-pad section-surface scroll-mt-28">
       <div className="inner">
         <div className="max-w-[760px]">
           <div className="badge border-[#6BC862] text-[#164C35]">Hizmet kapsamı</div>

@@ -5,7 +5,7 @@ export function ConfidenceSection() {
     <section
       id="reframe"
       aria-labelledby="reframe-title"
-      className="section-surface relative scroll-mt-28 overflow-hidden pb-10 pt-4 md:pb-[84px] md:pt-8"
+      className="section-surface relative scroll-mt-28 overflow-hidden py-10 md:py-[84px]"
     >
       <div className="mx-auto w-[min(1440px,calc(100%-48px))]">
         <div className="rounded-[28px] bg-[#F4F1EB] px-5 py-8 sm:px-8 md:rounded-[36px] md:px-12 md:py-14 lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-12 lg:px-14 lg:py-16 xl:px-16">
@@ -16,7 +16,7 @@ export function ConfidenceSection() {
 
             <h2
               id="reframe-title"
-              className="mt-5 max-w-[760px] font-[family-name:var(--display)] text-[clamp(2.25rem,3.3vw,2.85rem)] font-bold leading-[0.98] tracking-[-0.01em] text-[#241D18] md:mt-7"
+              className="section-title mt-7 max-w-[760px]"
             >
               <span className="block">Tek başınıza</span>
               anlamlandırmak zorunda değilsiniz.

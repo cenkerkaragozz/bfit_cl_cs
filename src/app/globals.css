@@ -122,6 +122,22 @@ li {
   text-wrap: balance;
 }
 
+.hero-lead {
+  color: var(--ink);
+  font-size: clamp(18px, 1.8vw, 21px);
+  font-weight: 600;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.hero-support {
+  color: var(--text-secondary);
+  font-size: clamp(16px, 1.4vw, 18px);
+  font-weight: 500;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
 .badge {
   display: inline-flex;
   align-items: center;
@@ -609,8 +625,16 @@ li {
   text-wrap: balance;
 }
 
+.editorial-quote {
+  font-family: var(--display);
+  font-size: clamp(36px, 4.6vw, 54px);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.02;
+}
+
 .body-copy {
-  max-width: 70ch;
+  max-width: 65ch;
   color: var(--text-secondary);
   font-size: 16px;
   line-height: 1.72;

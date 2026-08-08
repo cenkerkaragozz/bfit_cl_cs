@@ -48,7 +48,7 @@ export function HelpSection() {
   return (
     <section
       id="help"
-      className="section-surface relative scroll-mt-28 overflow-hidden py-[72px] md:py-[112px]"
+      className="section-pad section-surface relative scroll-mt-28 overflow-hidden"
     >
       <AmberStarburst />
 

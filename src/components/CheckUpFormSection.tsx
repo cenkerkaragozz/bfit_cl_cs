@@ -44,7 +44,7 @@ export function CheckUpFormSection() {
   }
 
   return (
-    <section id="contact" className="section-surface relative scroll-mt-28 overflow-hidden py-[72px] md:py-[112px]">
+    <section id="contact" className="section-pad section-surface relative scroll-mt-28 overflow-hidden">
       <div id="checkup-form" className="inner scroll-mt-28">
         <div className="section-cta-surface grid gap-9 rounded-[34px] px-5 py-8 sm:px-7 md:p-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
           <div>

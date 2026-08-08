@@ -79,7 +79,7 @@ function ChildCheckUpShowcaseSection() {
 
   return (
     <section
-      className="section-surface relative overflow-hidden py-[72px] md:py-[112px]"
+      className="section-pad section-surface relative overflow-hidden"
       aria-labelledby={titleId}
     >
       <div className="inner grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12 xl:gap-16">
@@ -89,14 +89,11 @@ function ChildCheckUpShowcaseSection() {
           </div>
           <h2
             id={titleId}
-            className="mid-section-title mt-7 max-w-[620px] text-[#241D18]"
+            className="section-title mt-7 max-w-[620px]"
           >
             Değerlendirme Sonunda Neler Sunuyoruz?
           </h2>
-          <p
-            className="body-copy mt-6 max-w-[560px]"
-            style={{ fontSize: "clamp(16px, 1.4vw, 18px)", lineHeight: "1.78" }}
-          >
+          <p className="body-copy mt-5 max-w-[560px]">
             Çocuğunuzun güçlü yönlerini ve desteklenmesi gereken alanları birlikte
             görür, ona özel gelişim planını netleştiririz.
           </p>

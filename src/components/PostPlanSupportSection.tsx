@@ -42,16 +42,16 @@ const centerMessage = "Çocuğunuzun gelişimi sürekli takipte.";
 export function PostPlanSupportSection() {
   return (
     <section
-      className="section-surface relative overflow-hidden py-[72px] md:py-[112px]"
+      className="section-pad section-surface relative overflow-hidden"
       aria-labelledby={titleId}
     >
       <div className="inner grid gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:items-center lg:gap-12 xl:gap-14">
         <Reveal className="relative min-w-0 xl:order-2">
           <div className="badge border-[#E86F5B] bg-[#FEF0EC] text-[#C4533C]">PLAN SONRASI</div>
-          <h2 id={titleId} className="mid-section-title mt-7 max-w-[560px]">
+          <h2 id={titleId} className="section-title mt-7 max-w-[560px]">
             Plan hazırlandıktan sonra süreç nasıl devam ediyor?
           </h2>
-          <p className="body-copy mt-6 max-w-[560px]">
+          <p className="body-copy mt-5 max-w-[560px]">
             Değerlendirmede ortaya çıkan ihtiyaçlara göre hazırlanan plan, çocuğunuzun gelişimi doğrultusunda takip edilir.
           </p>
 

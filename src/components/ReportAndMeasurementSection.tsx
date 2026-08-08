@@ -115,7 +115,7 @@ function ChildCognitiveProfileSection({
           >
             Çocuğunuzun güçlü yönlerini birlikte görelim.
           </h2>
-          <p className="body-copy mt-6 max-w-[560px]">
+          <p className="body-copy mt-5 max-w-[560px]">
             Dikkat, hafıza, görsel ve işitsel beceriler ile duygusal
             düzenlemeyi birlikte değerlendiriyoruz.
           </p>

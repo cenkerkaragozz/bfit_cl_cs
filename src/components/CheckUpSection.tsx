@@ -68,7 +68,7 @@ export function CheckUpSection({
   return (
     <section
       id="checkup"
-      className="section-surface relative scroll-mt-28 overflow-hidden py-[72px] md:py-[112px]"
+      className="section-pad section-surface relative scroll-mt-28 overflow-hidden"
       aria-labelledby="checkup-process-title"
     >
       <div className="inner relative z-10">
