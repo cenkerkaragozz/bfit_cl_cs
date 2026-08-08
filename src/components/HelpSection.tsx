@@ -17,7 +17,7 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 const easeOutExpo: [number, number, number, number] = [0.16, 1, 0.3, 1];
 // Capped so a card that enters late on mobile never feels delayed, while
 // simultaneously visible cards on desktop still cascade in reading order.
-const cardDelay = (i: number) => Math.min(i, 3) * 0.045;
+const cardDelay = (i: number) => Math.min(i, 3) * 0.05;
 
 const observations = [
   { text: "Sınıfta sık sık dalıp gidiyor.", icon: Cloud, color: "#164C35" },
@@ -34,17 +34,14 @@ const observations = [
   { text: "Sürekli erteleme davranışı gösteriyor.", icon: CalendarClock, color: "#1E99B5" },
 ] as const;
 
-function AmberStarburst({ active }: { active: boolean }) {
+function AmberStarburst() {
   return (
-    <motion.svg
+    <svg
       viewBox="0 0 48 48"
       fill="none"
       aria-hidden="true"
       focusable="false"
       className="pointer-events-none absolute right-[9%] top-[150px] hidden h-12 w-12 text-[#D49210] lg:block"
-      initial={false}
-      animate={active ? { rotate: [0, 7, 0] } : undefined}
-      transition={{ duration: 0.55, ease: easeOutExpo }}
     >
       <path
         d="M24 3v12M24 33v12M3 24h12M33 24h12M9 9l8.5 8.5M30.5 30.5 39 39M39 9l-8.5 8.5M17.5 30.5 9 39"
@@ -52,7 +49,7 @@ function AmberStarburst({ active }: { active: boolean }) {
         strokeWidth="3"
         strokeLinecap="round"
       />
-    </motion.svg>
+    </svg>
   );
 }
 
@@ -68,14 +65,14 @@ export function HelpSection() {
       id="help"
       className="section-pad section-surface relative scroll-mt-28 overflow-hidden"
     >
-      <AmberStarburst active={active} />
+      <AmberStarburst />
 
       <div className="inner relative z-10">
         <motion.div
           className="max-w-[960px]"
-          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           animate={active ? { opacity: 1, y: 0 } : undefined}
-          transition={{ duration: 0.45, ease: easeOutExpo }}
+          transition={{ duration: 0.42, ease: easeOutExpo }}
         >
           <div className="badge border-[#E86F5B] bg-[#FEF0EC] text-[#C4533C]">
             SİZE TANIDIK GELİYOR MU?
@@ -99,14 +96,14 @@ export function HelpSection() {
             return (
               <motion.li
                 key={observation.text}
-                className="group flex min-h-[164px] flex-col rounded-[26px] border border-[rgba(36,29,24,0.07)] bg-white px-5 py-5 shadow-[0_18px_42px_rgba(36,29,24,0.08)] transition-[border-color] duration-200 hover:border-[rgba(36,29,24,0.16)] motion-reduce:transition-none lg:min-h-[184px] lg:px-6 lg:py-6"
+                className="group flex min-h-[164px] flex-col rounded-[26px] border border-[rgba(36,29,24,0.07)] bg-white px-5 py-5 shadow-[0_18px_42px_rgba(36,29,24,0.12)] transition-[border-color] duration-200 hover:border-[rgba(36,29,24,0.16)] motion-reduce:transition-none lg:min-h-[184px] lg:px-6 lg:py-6"
                 initial={
                   reduceMotion
                     ? false
                     : {
                         opacity: 0,
-                        y: 14,
-                        boxShadow: "0 10px 26px rgba(36,29,24,0.03)",
+                        y: 12,
+                        boxShadow: "0 10px 26px rgba(36,29,24,0.04)",
                       }
                 }
                 whileInView={
@@ -115,27 +112,31 @@ export function HelpSection() {
                     : {
                         opacity: 1,
                         y: 0,
-                        boxShadow: "0 18px 42px rgba(36,29,24,0.08)",
+                        boxShadow: "0 18px 42px rgba(36,29,24,0.12)",
                       }
                 }
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ delay, duration: 0.45, ease: easeOutExpo }}
+                transition={{ delay, duration: 0.4, ease: easeOutExpo }}
                 whileHover={
                   reduceMotion
                     ? undefined
-                    : { y: -2, transition: { duration: 0.18, ease: "easeOut" } }
+                    : {
+                        y: -2,
+                        boxShadow: "0 22px 48px rgba(36,29,24,0.14)",
+                        transition: { duration: 0.2, ease: "easeOut" },
+                      }
                 }
               >
                 <motion.span
                   className="inline-block"
-                  initial={reduceMotion ? false : { scale: 0.9, opacity: 0.5 }}
+                  initial={reduceMotion ? false : { scale: 0.9, opacity: 0.7 }}
                   whileInView={
                     reduceMotion ? undefined : { scale: 1, opacity: 1 }
                   }
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{
-                    delay: delay + 0.05,
-                    duration: 0.35,
+                    delay: delay + 0.06,
+                    duration: 0.3,
                     ease: easeOutExpo,
                   }}
                 >
@@ -157,18 +158,10 @@ export function HelpSection() {
 
         <motion.div
           className="mt-7 flex w-full flex-col items-start gap-3 rounded-[22px] bg-[#F0F7F2] p-4 text-[#164C35] sm:flex-row sm:items-center sm:justify-center sm:gap-4 sm:p-5"
-          initial={
-            reduceMotion
-              ? false
-              : { opacity: 0, clipPath: "inset(0% 100% 0% 0%)" }
-          }
-          whileInView={
-            reduceMotion
-              ? undefined
-              : { opacity: 1, clipPath: "inset(0% 0% 0% 0%)" }
-          }
+          initial={reduceMotion ? false : { opacity: 0, y: 6 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ delay: 0.15, duration: 0.45, ease: easeOutExpo }}
+          transition={{ delay: 0.1, duration: 0.4, ease: easeOutExpo }}
         >
           <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[#164C35]">
             <Heart

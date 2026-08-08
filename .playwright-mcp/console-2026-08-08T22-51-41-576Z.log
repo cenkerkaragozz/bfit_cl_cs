@@ -1,0 +1,1065 @@
+[     347ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[     408ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[    2809ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[    2821ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   33185ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   33198ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   33217ms] [WARNING] You have Reduced Motion enabled on your device. Animations may not appear as expected.. For more information and steps for solving, visit https://motion.dev/troubleshooting/reduced-motion-disabled @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   33369ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/?rm=1#help" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <Home>
+                    <div className="site-matte">
+                      <div className="page-shell">
+                        <Header>
+                        <main>
+                          ...
+                            <div className="inner rela...">
+                              ...
+                                <svg className="absolute -..." width="260" height="28" viewBox="0 0 260 28" fill="none" ...>
+                                  <motion.path d="M3 17c36-5..." stroke="#FCBF48" strokeLinecap="round" strokeWidth="4" ...>
+                                    <path
+                                      d="M3 17c36-5.7 74-9.4 114-8.5 22.8.5 46.9 2.6 70 1.3 21.5-1.2 43-4.8 69-4.8"
+                                      stroke="#FCBF48"
+                                      strokeLinecap="round"
+                                      strokeWidth="4"
+                                      style={{}}
+                                      ref={function useMotionRef.useCallback}
+-                                     pathLength="1"
+-                                     stroke-dashoffset="0"
+-                                     stroke-dasharray="0 1"
+                                    >
+                                  <motion.path d="M58 15c10...." stroke="#FCBF48" strokeLinecap="round" ...>
+                                    <path
+                                      d="M58 15c10.5-2 23.2-1.5 36.5 0-9.8.4-20.4 1.8-31.5 4.5"
+                                      stroke="#FCBF48"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth="4"
+                                      style={{}}
+                                      ref={function useMotionRef.useCallback}
+-                                     pathLength="1"
+-                                     stroke-dashoffset="0"
+-                                     stroke-dasharray="0 1"
+                                    >
+                              ...
+                                <svg className="absolute r..." width="620" height="150" viewBox="0 0 620 150" fill="none" ...>
+                                  <motion.path d="M7 116c102..." stroke="#8C5BEF" strokeDasharray="9 17" ...>
+                                    <path
+                                      d="M7 116c102-39 214 20 309 1 88-17.5 65-92 142-109 50-11 91 14 155-2"
+                                      stroke="#8C5BEF"
++                                     strokeDasharray="9 17"
+-                                     strokeDasharray="0 1"
+                                      strokeLinecap="round"
+                                      strokeWidth="3"
+                                      style={{}}
+                                      ref={function useMotionRef.useCallback}
+-                                     opacity="0.35"
+-                                     pathLength="1"
+-                                     stroke-dashoffset="0"
+                                    >
+                          <TrustBar>
+                          <LandingFunnel>
+                            ...
+                              <div className="inner rela...">
+                                <motion.div className="max-w-[960px]" initial={false} animate={undefined} ...>
+                                  <div
+                                    className="max-w-[960px]"
+                                    style={{
+-                                     opacity: "0"
+-                                     filter: "blur(8px)"
+-                                     transform: "translateY(28px)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                                <ul className="mt-9 grid ..." aria-label="Tanıdık ge...">
+                                  <motion.li className="group flex..." variants={{...}} whileHover={undefined} ...>
+                                    <li
+                                      className="group flex min-h-[164px] flex-col rounded-[26px] border border-[rgba(..."
+                                      style={{
+-                                       opacity: "0"
+-                                       box-shadow: "rgba(36, 29, 24, 0.02) 0px 4px 12px"
+-                                       transform: "translateY(24px) scale(0.96) rotate(-1.5deg)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                      <motion.span className="inline-block" variants={{hover:{...}}} initial={false} ...>
+                                        <span
+                                          className="inline-block"
+                                          style={{
+-                                           opacity: "0.4"
+-                                           transform: "scale(0.6) rotate(-10deg)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                      ...
+                                  <motion.li className="group flex..." variants={{...}} whileHover={undefined} ...>
+                                    <li
+                                      className="group flex min-h-[164px] flex-col rounded-[26px] border border-[rgba(..."
+                                      style={{
+-                                       opacity: "0"
+-                                       box-shadow: "rgba(36, 29, 24, 0.02) 0px 4px 12px"
+-                                       transform: "translateY(24px) scale(0.96) rotate(1.5deg)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                      <motion.span className="inline-block" variants={{hover:{...}}} initial={false} ...>
+                                        <span
+                                          className="inline-block"
+                                          style={{
+-                                           opacity: "0.4"
+-                                           transform: "scale(0.6) rotate(10deg)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                      ...
+                                  <motion.li className="group flex..." variants={{...}} whileHover={undefined} ...>
+                                    <li
+                                      className="group flex min-h-[164px] flex-col rounded-[26px] border border-[rgba(..."
+                                      style={{
+-                                       opacity: "0"
+-                                       box-shadow: "rgba(36, 29, 24, 0.02) 0px 4px 12px"
+-                                       transform: "translateY(24px) scale(0.96) rotate(-1.5deg)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                      <motion.span className="inline-block" variants={{hover:{...}}} initial={false} ...>
+                                        <span
+                                          className="inline-block"
+                                          style={{
+-                                           opacity: "0.4"
+-                                           transform: "scale(0.6) rotate(-10deg)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                      ...
+                                  <motion.li className="group flex..." variants={{...}} whileHover={undefined} ...>
+                                    <li
+                                      className="group flex min-h-[164px] flex-col rounded-[26px] border border-[rgba(..."
+                                      style={{
+-                                       opacity: "0"
+-                                       box-shadow: "rgba(36, 29, 24, 0.02) 0px 4px 12px"
+-                                       transform: "translateY(24px) scale(0.96) rotate(1.5deg)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                      <motion.span className="inline-block" variants={{hover:{...}}} initial={false} ...>
+                                        <span
+                                          className="inline-block"
+                                          style={{
+-                                           opacity: "0.4"
+-                                           transform: "scale(0.6) rotate(10deg)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                      ...
+                                  <motion.li className="group flex..." variants={{...}} whileHover={undefined} ...>
+                                    <li
+                                      className="group flex min-h-[164px] flex-col rounded-[26px] border border-[rgba(..."
+                                      style={{
+-                                       opacity: "0"
+-                                       box-shadow: "rgba(36, 29, 24, 0.02) 0px 4px 12px"
+-                                       transform: "translateY(24px) scale(0.96) rotate(-1.5deg)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                      <motion.span className="inline-block" variants={{hover:{...}}} initial={false} ...>
+                                        <span
+                                          className="inline-block"
+                                          style={{
+-                                           opacity: "0.4"
+-                                           transform: "scale(0.6) rotate(-10deg)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                      ...
+                                  <motion.li className="group flex..." variants={{...}} whileHover={undefined} ...>
+                                    <li
+                                      className="group flex min-h-[164px] flex-col rounded-[26px] border border-[rgba(..."
+                                      style={{
+-                                       opacity: "0"
+-                                       box-shadow: "rgba(36, 29, 24, 0.02) 0px 4px 12px"
+-                                       transform: "translateY(24px) scale(0.96) rotate(1.5deg)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                      <motion.span className="inline-block" variants={{hover:{...}}} initial={false} ...>
+                                        <span
+                                          className="inline-block"
+                                          style={{
+-                                           opacity: "0.4"
+-                                           transform: "scale(0.6) rotate(10deg)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                      ...
+                                  <motion.li className="group flex..." variants={{...}} whileHover={undefined} ...>
+                                    <li
+                                      className="group flex min-h-[164px] flex-col rounded-[26px] border border-[rgba(..."
+                                      style={{
+-                                       opacity: "0"
+-                                       box-shadow: "rgba(36, 29, 24, 0.02) 0px 4px 12px"
+-                                       transform: "translateY(24px) scale(0.96) rotate(-1.5deg)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                      <motion.span className="inline-block" variants={{hover:{...}}} initial={false} ...>
+                                        <span
+                                          className="inline-block"
+                                          style={{
+-                                           opacity: "0.4"
+-                                           transform: "scale(0.6) rotate(-10deg)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                      ...
+                                  <motion.li className="group flex..." variants={{...}} whileHover={undefined} ...>
+                                    <li
+                                      className="group flex min-h-[164px] flex-col rounded-[26px] border border-[rgba(..."
+                                      style={{
+-                                       opacity: "0"
+-                                       box-shadow: "rgba(36, 29, 24, 0.02) 0px 4px 12px"
+-                                       transform: "translateY(24px) scale(0.96) rotate(1.5deg)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                      <motion.span className="inline-block" variants={{hover:{...}}} initial={false} ...>
+                                        <span
+                                          className="inline-block"
+                                          style={{
+-                                           opacity: "0.4"
+-                                           transform: "scale(0.6) rotate(10deg)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                      ...
+                                <motion.div className="mt-7 flex ..." initial={false} whileInView={undefined} ...>
+                                  <div
+                                    className="mt-7 flex w-full flex-col items-start gap-3 rounded-[22px] bg-[#F0F7F2]..."
+                                    style={{
+-                                     opacity: "0"
+-                                     clip-path: "inset(0% 100% 0% 0%)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                                    <span className="grid size-...">
+                                      <motion.span initial={false} whileInView={undefined} viewport={{once:true, ...}} ...>
+                                        <span
++                                         style={{}}
+-                                         style={{transform:"none"}}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                    ...
+                            ...
+                              <div className="rounded-[2...">
+                                <motion.div initial={false} animate={undefined} transition={{duration:0.5, ...}}>
+                                  <div
+                                    style={{
+-                                     opacity: "0"
+-                                     transform: "translateX(-24px)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                                <motion.div className="relative m..." initial={false} animate={undefined} ...>
+                                  <div
+                                    className="relative mt-8 pt-5 md:mt-10 md:pt-7 lg:mt-0 lg:py-1 lg:pl-10 xl:pl-12"
+                                    style={{
+-                                     opacity: "0"
+-                                     transform: "translateX(24px)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                                    <motion.span aria-hidden="true" className="absolute l..." style={{...}} ...>
+                                      <span
+                                        aria-hidden="true"
+                                        className="absolute left-0 top-0 h-[2px] w-full rounded-full bg-[#E86F5B] lg:h..."
++                                       style={{transformOrigin:"left"}}
+-                                       style={{transform-origin:"left center",transform:"scaleX(0)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    <motion.span aria-hidden="true" className="absolute l..." style={{...}} ...>
+                                      <span
+                                        aria-hidden="true"
+                                        className="absolute left-0 top-0 hidden h-full w-[2px] rounded-full bg-[#E86F5..."
++                                       style={{transformOrigin:"top"}}
+-                                       style={{transform-origin:"center top",transform:"scaleY(0)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    <p>
+                                    <ul className="mt-6 text-...">
+                                      <motion.li className="pb-2 sm:pr..." initial={false} animate={undefined} ...>
+                                        <li
+                                          className="pb-2 sm:pr-4 sm:pb-0"
+                                          style={{
+-                                           opacity: "0"
+-                                           transform: "translateY(10px)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
++                                         Sizi dinleriz
+                                      <motion.li className="border-t b..." initial={false} animate={undefined} ...>
+                                        <li
+                                          className="border-t border-[rgba(36,29,24,0.16)] py-2 sm:border-l sm:border-..."
+                                          style={{
+-                                           opacity: "0"
+-                                           transform: "translateY(10px)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
++                                         Birlikte değerlendiririz
+                                      <motion.li className="border-t b..." initial={false} animate={undefined} ...>
+                                        <li
+                                          className="border-t border-[rgba(36,29,24,0.16)] pt-2 sm:border-l sm:border-..."
+                                          style={{
+-                                           opacity: "0"
+-                                           transform: "translateY(10px)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
++                                         Sonraki adımı netleştiririz
+                                    <motion.div className="mt-6 w-ful..." initial={false} animate={undefined} ...>
+                                      <div
+                                        className="mt-6 w-full sm:inline-block sm:w-auto md:mt-8 lg:w-full"
+                                        style={{
+-                                         opacity: "0"
+-                                         transform: "translateY(10px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                            ...
+                              <div ref={{current:null}} className="relative m...">
+                                <div aria-hidden="true" className="pointer-ev...">
+                                  <motion.span className="absolute t..." style={{left:"calc...", ...}} initial={false} ...>
+                                    <span
+                                      className="absolute top-0 h-full rounded-full bg-[#E86F5B]"
+                                      style={{
++                                       left: "calc(10% - 0.5rem)"
+-                                       left: "calc(10% - 0.5rem)"
++                                       width: "calc(20% + 0.25rem)"
+-                                       width: "calc(20% + 0.25rem)"
++                                       transformOrigin: "left"
+-                                       transform-origin: "left center"
+-                                       transform: "scaleX(0)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                  <motion.span className="absolute t..." style={{left:"calc...", ...}} initial={false} ...>
+                                    <span
+                                      className="absolute top-0 h-full rounded-full bg-[#E86F5B]"
+                                      style={{
++                                       left: "calc(30% - 0.25rem)"
+-                                       left: "calc(30% - 0.25rem)"
++                                       width: "calc(20% + 0.25rem)"
+-                                       width: "calc(20% + 0.25rem)"
++                                       transformOrigin: "left"
+-                                       transform-origin: "left center"
+-                                       transform: "scaleX(0)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                  <motion.span className="absolute t..." style={{left:"calc...", ...}} initial={false} ...>
+                                    <span
+                                      className="absolute top-0 h-full rounded-full bg-[#E86F5B]"
+                                      style={{
++                                       left: "calc(50% )"
+-                                       left: "calc(50%)"
++                                       width: "calc(20% + 0.25rem)"
+-                                       width: "calc(20% + 0.25rem)"
++                                       transformOrigin: "left"
+-                                       transform-origin: "left center"
+-                                       transform: "scaleX(0)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                  <motion.span className="absolute t..." style={{left:"calc...", ...}} initial={false} ...>
+                                    <span
+                                      className="absolute top-0 h-full rounded-full bg-[#E86F5B]"
+                                      style={{
++                                       left: "calc(70% + 0.25rem)"
+-                                       left: "calc(70% + 0.25rem)"
++                                       width: "calc(20% + 0.25rem)"
+-                                       width: "calc(20% + 0.25rem)"
++                                       transformOrigin: "left"
+-                                       transform-origin: "left center"
+-                                       transform: "scaleX(0)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                <ol className="relative m...">
+                                  <li className={"relative..."}>
+                                    <motion.span aria-hidden="true" className="pointer-ev..." style={{...}} ...>
+                                      <span
+                                        aria-hidden="true"
+                                        className="pointer-events-none absolute -left-[18px] -bottom-8 top-0 z-10 w-[3..."
++                                       style={{transformOrigin:"top"}}
+-                                       style={{transform-origin:"center top",transform:"scaleY(0)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    <motion.span aria-hidden="true" className="pointer-ev..." style={{...}} ...>
+                                      <span
+                                        aria-hidden="true"
+                                        className="pointer-events-none absolute -left-[18px] top-0 z-10 h-[3px] w-[cal..."
++                                       style={{transformOrigin:"left"}}
+-                                       style={{transform-origin:"left center",transform:"scaleX(0)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    ...
+                                  <li className={"relative..."}>
+                                    <motion.span aria-hidden="true" className="pointer-ev..." style={{...}} ...>
+                                      <span
+                                        aria-hidden="true"
+                                        className="pointer-events-none absolute -left-[18px] -bottom-8 top-0 z-10 w-[3..."
++                                       style={{transformOrigin:"top"}}
+-                                       style={{transform-origin:"center top",transform:"scaleY(0)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    <motion.span aria-hidden="true" className="pointer-ev..." style={{...}} ...>
+                                      <span
+                                        aria-hidden="true"
+                                        className="pointer-events-none absolute -left-[18px] top-0 z-10 h-[3px] w-[cal..."
++                                       style={{transformOrigin:"left"}}
+-                                       style={{transform-origin:"left center",transform:"scaleX(0)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    ...
+                                  <li className={"relative..."}>
+                                    <motion.span aria-hidden="true" className="pointer-ev..." style={{...}} ...>
+                                      <span
+                                        aria-hidden="true"
+                                        className="pointer-events-none absolute -left-[18px] -bottom-8 top-0 z-10 w-[3..."
++                                       style={{transformOrigin:"top"}}
+-                                       style={{transform-origin:"center top",transform:"scaleY(0)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    <motion.span aria-hidden="true" className="pointer-ev..." style={{...}} ...>
+                                      <span
+                                        aria-hidden="true"
+                                        className="pointer-events-none absolute -left-[18px] top-0 z-10 h-[3px] w-[cal..."
++                                       style={{transformOrigin:"left"}}
+-                                       style={{transform-origin:"left center",transform:"scaleX(0)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    ...
+                                  <li className="relative p...">
+                                    <motion.span aria-hidden="true" className="pointer-ev..." style={{...}} ...>
+                                      <span
+                                        aria-hidden="true"
+                                        className="pointer-events-none absolute -left-[18px] -bottom-8 top-0 z-10 w-[3..."
++                                       style={{transformOrigin:"top"}}
+-                                       style={{transform-origin:"center top",transform:"scaleY(0)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    <motion.span aria-hidden="true" className="pointer-ev..." style={{...}} ...>
+                                      <span
+                                        aria-hidden="true"
+                                        className="pointer-events-none absolute -left-[18px] top-0 z-10 h-[3px] w-[cal..."
++                                       style={{transformOrigin:"left"}}
+-                                       style={{transform-origin:"left center",transform:"scaleX(0)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    ...
+                                  <li className="relative p...">
+                                    <motion.span aria-hidden="true" className="pointer-ev..." style={{...}} ...>
+                                      <span
+                                        aria-hidden="true"
+                                        className="pointer-events-none absolute -left-[18px] top-0 z-10 h-[3px] w-[cal..."
++                                       style={{transformOrigin:"left"}}
+-                                       style={{transform-origin:"left center",transform:"scaleX(0)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    ...
+                            ...
+                              <div className="inner grid...">
+                                <div>
+                                <div data-asset-id="SH-DIAG-02..." className="rounded-[2..." aria-label="Bilişsel p...">
+                                  <motion.div className="flex min-h..." initial={false} whileInView={undefined} ...>
+                                    <div
+                                      className="flex min-h-[84px] items-center justify-between gap-5 rounded-[22px] b..."
++                                     style={{}}
+-                                     style={{opacity:"0"}}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                  <ul className="mt-3 overf...">
+                                    <motion.li className="flex min-h..." initial={false} whileInView={undefined} ...>
+                                      <li
+                                        className="flex min-h-[68px] items-center gap-4 py-3 border-b border-[rgba(36,..."
+                                        style={{
+-                                         opacity: "0"
+-                                         transform: "translateY(10px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    <motion.li className="flex min-h..." initial={false} whileInView={undefined} ...>
+                                      <li
+                                        className="flex min-h-[68px] items-center gap-4 py-3 border-b border-[rgba(36,..."
+                                        style={{
+-                                         opacity: "0"
+-                                         transform: "translateY(10px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    <motion.li className="flex min-h..." initial={false} whileInView={undefined} ...>
+                                      <li
+                                        className="flex min-h-[68px] items-center gap-4 py-3 border-b border-[rgba(36,..."
+                                        style={{
+-                                         opacity: "0"
+-                                         transform: "translateY(10px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    <motion.li className="flex min-h..." initial={false} whileInView={undefined} ...>
+                                      <li
+                                        className="flex min-h-[68px] items-center gap-4 py-3 border-b border-[rgba(36,..."
+                                        style={{
+-                                         opacity: "0"
+-                                         transform: "translateY(10px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    <motion.li className={"flex min..."} initial={false} whileInView={undefined} ...>
+                                      <li
+                                        className={"flex min-h-[68px] items-center gap-4 py-3 "}
+                                        style={{
+-                                         opacity: "0"
+-                                         transform: "translateY(10px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                <div data-asset-id="SH-DIAG-02" className="relative m..." aria-label="Bilişsel p...">
+                                  <motion.span aria-hidden="true" className="absolute l..." initial={false} ...>
+                                    <span
+                                      aria-hidden="true"
+                                      className="absolute left-1/2 top-1/2 aspect-square w-[63%] -translate-x-1/2 -tra..."
++                                     style={{}}
+-                                     style={{opacity:"0"}}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                  <span aria-hidden="true" className="absolute l...">
+                                    <motion.span aria-hidden="true" className="block h-fu..." style={{...}} ...>
+                                      <span
+                                        aria-hidden="true"
+                                        className="block h-full w-full bg-[#D9D0C5]"
++                                       style={{transformOrigin:"bottom"}}
+-                                       style={{transform-origin:"center bottom",transform:"scaleY(0)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                  <motion.span aria-hidden="true" className="absolute l..." style={{...}} initial={false} ...>
+                                    <span
+                                      aria-hidden="true"
+                                      className="absolute left-[18.5%] top-1/2 h-px w-[31.5%] bg-[#D9D0C5]"
++                                     style={{transformOrigin:"right"}}
+-                                     style={{transform-origin:"right center",transform:"scaleX(0)"}}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                  <motion.span aria-hidden="true" className="absolute l..." style={{...}} initial={false} ...>
+                                    <span
+                                      aria-hidden="true"
+                                      className="absolute left-1/2 top-1/2 h-px w-[31.5%] bg-[#D9D0C5]"
++                                     style={{transformOrigin:"left"}}
+-                                     style={{transform-origin:"left center",transform:"scaleX(0)"}}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                  <span aria-hidden="true" className="absolute l...">
+                                    <motion.span aria-hidden="true" className="block h-fu..." style={{...}} ...>
+                                      <span
+                                        aria-hidden="true"
+                                        className="block h-full w-full bg-[#D9D0C5]"
++                                       style={{transformOrigin:"left"}}
+-                                       style={{transform-origin:"left center",transform:"scaleX(0)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                  <span aria-hidden="true" className="absolute l...">
+                                    <motion.span aria-hidden="true" className="block h-fu..." style={{...}} ...>
+                                      <span
+                                        aria-hidden="true"
+                                        className="block h-full w-full bg-[#D9D0C5]"
++                                       style={{transformOrigin:"left"}}
+-                                       style={{transform-origin:"left center",transform:"scaleX(0)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                  <div className="absolute l...">
+                                    <motion.div className="grid h-ful..." initial={false} whileInView={undefined} ...>
+                                      <div
+                                        className="grid h-full w-full place-items-center rounded-full border-[7px] bor..."
++                                       style={{}}
+-                                       style={{opacity:"0",transform:"scale(0.9)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                  <ul className="contents">
+                                    <li className="absolute l...">
+                                      <motion.div className="grid h-ful..." style={{...}} initial={false} ...>
+                                        <div
+                                          className="grid h-full w-full place-items-center rounded-full border-[3px] b..."
+                                          style={{
++                                           borderColor: "#E86F5B"
+-                                           border-top-color: "rgb(232, 111, 91)"
+-                                           border-right-color: "rgb(232, 111, 91)"
+-                                           border-bottom-color: "rgb(232, 111, 91)"
+-                                           border-left-color: "rgb(232, 111, 91)"
+-                                           opacity: "0"
+-                                           transform: "scale(0.86)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                    <li className="absolute l...">
+                                      <motion.div className="grid h-ful..." style={{...}} initial={false} ...>
+                                        <div
+                                          className="grid h-full w-full place-items-center rounded-full border-[3px] b..."
+                                          style={{
++                                           borderColor: "#164C35"
+-                                           border-top-color: "rgb(22, 76, 53)"
+-                                           border-right-color: "rgb(22, 76, 53)"
+-                                           border-bottom-color: "rgb(22, 76, 53)"
+-                                           border-left-color: "rgb(22, 76, 53)"
+-                                           opacity: "0"
+-                                           transform: "scale(0.86)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                    <li className="absolute l...">
+                                      <motion.div className="grid h-ful..." style={{...}} initial={false} ...>
+                                        <div
+                                          className="grid h-full w-full place-items-center rounded-full border-[3px] b..."
+                                          style={{
++                                           borderColor: "#E7A500"
+-                                           border-top-color: "rgb(231, 165, 0)"
+-                                           border-right-color: "rgb(231, 165, 0)"
+-                                           border-bottom-color: "rgb(231, 165, 0)"
+-                                           border-left-color: "rgb(231, 165, 0)"
+-                                           opacity: "0"
+-                                           transform: "scale(0.86)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                    <li className="absolute l...">
+                                      <motion.div className="grid h-ful..." style={{...}} initial={false} ...>
+                                        <div
+                                          className="grid h-full w-full place-items-center rounded-full border-[3px] b..."
+                                          style={{
++                                           borderColor: "#2AB3D4"
+-                                           border-top-color: "rgb(42, 179, 212)"
+-                                           border-right-color: "rgb(42, 179, 212)"
+-                                           border-bottom-color: "rgb(42, 179, 212)"
+-                                           border-left-color: "rgb(42, 179, 212)"
+-                                           opacity: "0"
+-                                           transform: "scale(0.86)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                    <li className="absolute l...">
+                                      <motion.div className="grid h-ful..." style={{...}} initial={false} ...>
+                                        <div
+                                          className="grid h-full w-full place-items-center rounded-full border-[3px] b..."
+                                          style={{
++                                           borderColor: "#8FC52B"
+-                                           border-top-color: "rgb(143, 197, 43)"
+-                                           border-right-color: "rgb(143, 197, 43)"
+-                                           border-bottom-color: "rgb(143, 197, 43)"
+-                                           border-left-color: "rgb(143, 197, 43)"
+-                                           opacity: "0"
+-                                           transform: "scale(0.86)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                            <CheckUpShowcaseSection>
+                            ...
+                              <div className="inner grid...">
+                                <motion.div className="relative m..." initial={false} animate={undefined} ...>
+                                  <div
+                                    className="relative min-w-0 xl:order-2"
+                                    style={{
+-                                     opacity: "0"
+-                                     transform: "translateY(16px)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                                <div className="relative m...">
+                                  <div ref={{current:null}} className="mx-auto w-...">
+                                    <ol aria-label="Plan sonra..." className="m-0 grid m...">
+                                      <motion.li className="xl:h-[52%]..." initial={false} animate={undefined} ...>
+                                        <li
+                                          className="xl:h-[52%] grid min-w-0 grid-cols-[32px_44px_minmax(0,1fr)] items..."
+                                          style={{
+-                                           opacity: "0"
+-                                           clip-path: "inset(100% 0% 0%)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                          <motion.span className="text-[13px..." initial={false} animate={undefined} ...>
+                                            <span
+                                              className="text-[13px] font-extrabold leading-none tracking-[0.08em] tex..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(6px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
++                                             01
+                                          <motion.span className="grid h-10 ..." initial={false} animate={undefined} ...>
+                                            <span
+                                              className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(6px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
+                                          <motion.span className="min-w-0 te..." initial={false} animate={undefined} ...>
+                                            <span
+                                              className="min-w-0 text-[15px] font-extrabold leading-5 text-[#241D18] x..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(6px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
++                                             Kişiye özel bilişsel egzersizler
+                                      <motion.li className="xl:h-[76%]..." initial={false} animate={undefined} ...>
+                                        <li
+                                          className="xl:h-[76%] grid min-w-0 grid-cols-[32px_44px_minmax(0,1fr)] items..."
+                                          style={{
+-                                           opacity: "0"
+-                                           clip-path: "inset(100% 0% 0%)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                          <motion.span className="text-[13px..." initial={false} animate={undefined} ...>
+                                            <span
+                                              className="text-[13px] font-extrabold leading-none tracking-[0.08em] tex..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(6px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
++                                             02
+                                          <motion.span className="grid h-10 ..." initial={false} animate={undefined} ...>
+                                            <span
+                                              className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(6px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
+                                          <motion.span className="min-w-0 te..." initial={false} animate={undefined} ...>
+                                            <span
+                                              className="min-w-0 text-[15px] font-extrabold leading-5 text-[#241D18] x..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(6px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
++                                             Düzenli gelişim takibi
+                                      <motion.li className="xl:h-full ..." initial={false} animate={undefined} ...>
+                                        <li
+                                          className="xl:h-full grid min-w-0 grid-cols-[32px_44px_minmax(0,1fr)] items-..."
+                                          style={{
+-                                           opacity: "0"
+-                                           clip-path: "inset(100% 0% 0%)"
+                                          }}
+                                          ref={function useMotionRef.useCallback}
+                                        >
+                                          <motion.span className="text-[13px..." initial={false} animate={undefined} ...>
+                                            <span
+                                              className="text-[13px] font-extrabold leading-none tracking-[0.08em] tex..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(6px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
++                                             03
+                                          <motion.span className="grid h-10 ..." initial={false} animate={undefined} ...>
+                                            <span
+                                              className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(6px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
+                                          <motion.span className="min-w-0 te..." initial={false} animate={undefined} ...>
+                                            <span
+                                              className="min-w-0 text-[15px] font-extrabold leading-5 text-[#241D18] x..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(6px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
++                                             Gerektiğinde planın yeniden değerlendirilmesi
+                                    <motion.div className="mt-4 flex ..." initial={false} animate={undefined} ...>
+                                      <div
+                                        className="mt-4 flex min-h-[80px] items-center gap-4 border border-[rgba(22,76..."
+                                        style={{
+-                                         opacity: "0"
+-                                         transform: "translateY(12px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                        <motion.span initial={false} animate={undefined} transition={{delay:1.2, ...}}>
+                                          <span
++                                           style={{}}
+-                                           style={{transform:"none"}}
+                                            ref={function useMotionRef.useCallback}
+                                          >
+                                        ...
+                            ...
+                              <div className="inner">
+                                <motion.div className="max-w-[760px]" initial={false} animate={undefined} ...>
+                                  <div
+                                    className="max-w-[760px]"
+                                    style={{
+-                                     opacity: "0"
+-                                     transform: "translateY(12px)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                                <div className="mt-10 grid...">
+                                  <ScopePanel from="left" className="rounded-[2...">
+                                    <motion.div ref={{current:null}} className="rounded-[2..." initial={false} ...>
+                                      <div
+                                        className="rounded-[28px] bg-[#F0F7F2] p-6 md:p-8"
+                                        style={{
+-                                         opacity: "0"
+-                                         transform: "translateX(-20px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                        <h3>
+                                        <ul className="mt-6 grid ...">
+                                          <motion.li className="flex items..." initial={false} animate={undefined} ...>
+                                            <li
+                                              className="flex items-center gap-3 rounded-[18px] bg-white p-4 text-[15p..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(10px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
+                                              <motion.span className="shrink-0" initial={false} animate={undefined} ...>
+                                                <span
+                                                  className="shrink-0"
++                                                 style={{}}
+-                                                 style={{transform:"scale(0.85)"}}
+                                                  ref={function useMotionRef.useCallback}
+                                                >
+                                              ...
+                                          <motion.li className="flex items..." initial={false} animate={undefined} ...>
+                                            <li
+                                              className="flex items-center gap-3 rounded-[18px] bg-white p-4 text-[15p..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(10px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
+                                              <motion.span className="shrink-0" initial={false} animate={undefined} ...>
+                                                <span
+                                                  className="shrink-0"
++                                                 style={{}}
+-                                                 style={{transform:"scale(0.85)"}}
+                                                  ref={function useMotionRef.useCallback}
+                                                >
+                                              ...
+                                          <motion.li className="flex items..." initial={false} animate={undefined} ...>
+                                            <li
+                                              className="flex items-center gap-3 rounded-[18px] bg-white p-4 text-[15p..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(10px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
+                                              <motion.span className="shrink-0" initial={false} animate={undefined} ...>
+                                                <span
+                                                  className="shrink-0"
++                                                 style={{}}
+-                                                 style={{transform:"scale(0.85)"}}
+                                                  ref={function useMotionRef.useCallback}
+                                                >
+                                              ...
+                                          <motion.li className="flex items..." initial={false} animate={undefined} ...>
+                                            <li
+                                              className="flex items-center gap-3 rounded-[18px] bg-white p-4 text-[15p..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(10px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
+                                              <motion.span className="shrink-0" initial={false} animate={undefined} ...>
+                                                <span
+                                                  className="shrink-0"
++                                                 style={{}}
+-                                                 style={{transform:"scale(0.85)"}}
+                                                  ref={function useMotionRef.useCallback}
+                                                >
+                                              ...
+                                  <ScopePanel from="right" delay={0.12} className="rounded-[2...">
+                                    <motion.div ref={{current:null}} className="rounded-[2..." initial={false} ...>
+                                      <div
+                                        className="rounded-[28px] bg-[#FEF9F5] p-6 md:p-8"
+                                        style={{
+-                                         opacity: "0"
+-                                         transform: "translateX(20px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                        <h3>
+                                        <ul className="mt-6 grid ...">
+                                          <motion.li className="flex items..." initial={false} animate={undefined} ...>
+                                            <li
+                                              className="flex items-start gap-3 rounded-[18px] bg-white p-4 text-[15px..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(10px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
+                                              <motion.span className="mt-0.5 shr..." initial={false} animate={undefined} ...>
+                                                <span
+                                                  className="mt-0.5 shrink-0"
++                                                 style={{}}
+-                                                 style={{transform:"scale(0.85)"}}
+                                                  ref={function useMotionRef.useCallback}
+                                                >
+                                              ...
+                                          <motion.li className="flex items..." initial={false} animate={undefined} ...>
+                                            <li
+                                              className="flex items-start gap-3 rounded-[18px] bg-white p-4 text-[15px..."
+                                              style={{
+-                                               opacity: "0"
+-                                               transform: "translateY(10px)"
+                                              }}
+                                              ref={function useMotionRef.useCallback}
+                                            >
+                                              <motion.span className="mt-0.5 shr..." initial={false} animate={undefined} ...>
+                                                <span
+                                                  className="mt-0.5 shrink-0"
++                                                 style={{}}
+-                                                 style={{transform:"scale(0.85)"}}
+                                                  ref={function useMotionRef.useCallback}
+                                                >
+                                              ...
+                                <div ref={{current:null}} className="mt-10 grid...">
+                                  <motion.div className="max-w-[480px]" initial={false} animate={undefined} ...>
+                                    <div
+                                      className="max-w-[480px]"
+                                      style={{
+-                                       opacity: "0"
+-                                       transform: "translateY(12px)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
+                                  <div className="grid gap-3">
+                                    <motion.article className="overflow-h..." initial={false} animate={undefined} ...>
+                                      <article
+                                        className="overflow-hidden rounded-[22px] border border-[rgba(36,29,24,0.08)] ..."
+                                        style={{
+-                                         opacity: "0"
+-                                         transform: "translateY(12px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    <motion.article className="overflow-h..." initial={false} animate={undefined} ...>
+                                      <article
+                                        className="overflow-hidden rounded-[22px] border border-[rgba(36,29,24,0.08)] ..."
+                                        style={{
+-                                         opacity: "0"
+-                                         transform: "translateY(12px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    <motion.article className="overflow-h..." initial={false} animate={undefined} ...>
+                                      <article
+                                        className="overflow-hidden rounded-[22px] border border-[rgba(36,29,24,0.08)] ..."
+                                        style={{
+-                                         opacity: "0"
+-                                         transform: "translateY(12px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                                    <motion.article className="overflow-h..." initial={false} animate={undefined} ...>
+                                      <article
+                                        className="overflow-hidden rounded-[22px] border border-[rgba(36,29,24,0.08)] ..."
+                                        style={{
+-                                         opacity: "0"
+-                                         transform: "translateY(12px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                            ...
+                              <PopChildMeasure isPresent={true} childRef={{current:null}} sizeRef={{...}} pop={false}>
+                                <motion.span className="inline-block" initial={undefined} animate={undefined} ...>
+                                  <span
+                                    className="inline-block"
+                                    style={{
+-                                     transform: "translateY(16px) rotate(-2deg)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                            ...
+                          ...
+                        ...
+                      <FloatingCta audience="children">
+                        <aside>
+                        <div className="fixed bott..." style={{...}}>
+                          <AnimatePresence>
+                          <motion.a href="https://wa..." target="_blank" rel="noopener n..." aria-label="WhatsApp i..." ...>
+                            <a href="https://wa..." target="_blank" rel="noopener n..." aria-label="WhatsApp i..." ...>
+                              <span
++                               className="pointer-events-none absolute right-full mr-3 origin-right whitespace-nowrap..."
+-                               className="pointer-events-none absolute right-0 h-[60px] w-[60px] rounded-full"
+-                               aria-hidden="true"
+-                               style={{background-image:"initial",background-position-x:"initial",background-position-y:"initial", ...}}
+                              >
++                               {"WhatsApp'tan Yazın"}
+-                               
+                              ...
+                ...
+              ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:3120:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:3174:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:6749:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:761:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9452:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9387:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9381:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9364:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:8891:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:10085:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_1amofcm._.js:2647:64)
+[   68673ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   68691ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  296288ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  296356ms] [LOG] [Fast Refresh] done in 149ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  296435ms] [LOG] [Fast Refresh] done in 149ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  312417ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  312490ms] [LOG] [Fast Refresh] done in 13ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  376630ms] [LOG] [Fast Refresh] done in 13ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  376744ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  376759ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  397241ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  397254ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
