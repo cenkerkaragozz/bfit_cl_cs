@@ -147,10 +147,13 @@ function AdultHero() {
             </p>
             <div className="v4-ctas">
               <a href="#checkup-form" className="v4-cta-p arrow-shift">
-                Bilişsel Profilimi Keşfetmek İstiyorum
+                Bilişsel profilimi keşfet
                 <ArrowUpRight size={18} strokeWidth={2.7} aria-hidden="true" />
               </a>
-              <a href="#checkup" className="v4-cta-s">Süreç nasıl ilerliyor?</a>
+              <a href="#checkup" className="v4-cta-s arrow-shift">
+                Süreç nasıl ilerliyor?
+                <ArrowUpRight size={18} strokeWidth={2.4} aria-hidden="true" />
+              </a>
             </div>
             <div className="v4-chips">
               <span className="v4-chip">Karşıyaka · Yüz yüze</span>
@@ -349,7 +352,7 @@ function ScopeAndFaqSection() {
               <>
                 <h3 className="compact-title text-[#164C35]">Ne yapıyoruz?</h3>
                 <ul className="mt-6 grid gap-3">
-                  {["Bilişsel profil değerlendirmesi", "Kişiye özel egzersiz planı"].map((item, index) => (
+                  {["Bilişsel Değerlendirme", "Bilişsel Yeterlilik Analizi", "Kişiye Özel Gelişim Planı", "Düzenli Gelişim Takibi"].map((item, index) => (
                     <motion.li
                       key={item}
                       className="flex items-center gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold text-[#241D18]"
@@ -390,7 +393,7 @@ function ScopeAndFaqSection() {
               <>
                 <h3 className="compact-title text-[#8C5038]">Ne yapmıyoruz?</h3>
                 <ul className="mt-6 grid gap-3">
-                  {["Sağlık hizmeti sunmuyoruz", "Doktorunuzun ya da uzmanınızın yerine geçmiyoruz"].map((item, index) => (
+                  {["Tıbbi tanı koymuyoruz", "İlaç önermiyor veya mevcut tedavinin yerine geçmiyoruz"].map((item, index) => (
                     <motion.li
                       key={item}
                       className="flex items-start gap-3 rounded-[18px] bg-white p-4 text-[15px] font-extrabold leading-6 text-[#241D18]"

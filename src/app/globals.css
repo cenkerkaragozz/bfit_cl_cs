@@ -268,17 +268,18 @@ li {
 }
 .v4 .v4-h1 {
   font-family: var(--display);
-  font-size: clamp(42px, 5vw, 64px);
+  font-size: clamp(40px, 4.8vw, 64px);
   font-weight: 700;
-  line-height: 0.94;
+  line-height: 0.98;
   color: #160a08;
   text-wrap: balance;
   max-width: 18ch;
   margin-top: 8px;
 }
 .v4 .v4-sub {
-  font-size: clamp(16px, 1.7vw, 19px);
-  line-height: 1.85;
+  font-size: clamp(17px, 1.35vw, 19px);
+  font-weight: 600;
+  line-height: 1.62;
   color: rgba(36, 29, 24, 0.78);
   max-width: 50ch;
   margin-top: 28px;
@@ -291,10 +292,11 @@ li {
   padding: 0.05em 0.22em;
 }
 .v4 .v4-ctas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: min(100%, 480px);
+  margin-top: 28px;
 }
 .v4 .v4-cta-p {
   display: inline-flex;
@@ -302,9 +304,12 @@ li {
   justify-content: center;
   gap: 8px;
   border-radius: 9999px;
-  padding: 0 28px;
-  min-height: 52px;
-  font-size: 15px;
+  width: 100%;
+  min-width: 0;
+  min-height: 54px;
+  padding: 0 16px;
+  white-space: nowrap;
+  font-size: 14px;
   font-weight: 800;
   background: #fcbf48;
   color: #160a08;
@@ -321,10 +326,14 @@ li {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  min-height: 54px;
+  padding: 0 16px;
+  white-space: nowrap;
   border-radius: 9999px;
-  padding: 0 28px;
-  min-height: 52px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 800;
   color: #164c35;
   border: 1.5px solid rgba(22, 76, 53, 0.32);
@@ -416,6 +425,13 @@ li {
   }
 }
 
+@media (min-width: 641px) and (max-width: 1279px) {
+  .v4 .v4-ctas {
+    grid-template-columns: minmax(0, 1fr);
+    width: min(100%, 340px);
+  }
+}
+
 @media (max-width: 640px) {
   .v4::after {
     background-position: 84% 92%;
@@ -440,27 +456,24 @@ li {
   }
 
   .v4 .v4-h1 {
-    font-size: clamp(42px, 5vw, 64px);
-    line-height: 1;
     max-width: 15ch;
     margin-top: 14px;
   }
 
   .v4 .v4-sub {
-    font-size: 15px;
-    line-height: 1.62;
     margin-top: 22px;
     max-width: 36ch;
   }
 
   .v4 .v4-ctas {
+    grid-template-columns: minmax(0, 1fr);
     gap: 14px;
     margin-top: 28px;
+    max-width: 360px;
   }
 
   .v4 .v4-cta-p,
   .v4 .v4-cta-s {
-    width: 100%;
     min-height: 50px;
     padding-inline: 18px;
     font-size: 14px;
