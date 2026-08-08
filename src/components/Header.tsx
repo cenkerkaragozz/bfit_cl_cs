@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,9 +30,6 @@ export function Header({ audience = "children" }: HeaderProps) {
   const navItems = audience === "adults" ? adultNavItems : childNavItems;
   const logoHref = audience === "adults" ? "/yetiskinler" : "/";
   const logoAriaLabel = audience === "adults" ? "BrainFit yetişkinler sayfası" : "BrainFit ana sayfa";
-  const cta = audience === "adults"
-    ? { label: "Çocuk", shortLabel: "Çocuk", href: "/" }
-    : { label: "Yetişkinler", shortLabel: "Yetişkinler", href: "/yetiskinler" };
 
   return (
     <header className="pointer-events-none sticky top-0 z-50 h-0">
@@ -61,15 +58,32 @@ export function Header({ audience = "children" }: HeaderProps) {
           </div>
 
           <div className="header-actions flex items-center gap-3">
-            <Link
-              className={`pill-button arrow-shift ${audience === "adults" ? "header-cta-amber" : "header-cta !bg-[#E86F5B] !shadow-[0_12px_26px_rgba(232,111,91,0.28)] hover:!bg-[#F5927E]"}`}
-              href={cta.href}
-              aria-label={cta.label}
-            >
-              <span className="header-cta-label-full">{cta.label}</span>
-              <span className="header-cta-label-short">{cta.shortLabel}</span>
-              <ArrowUpRight size={16} />
-            </Link>
+            <div className="audience-switch" role="group" aria-label="Kitle seçimi">
+              {audience === "children" ? (
+                <span className="audience-switch-segment audience-switch-segment-active" aria-current="page">
+                  Çocuk
+                </span>
+              ) : (
+                <Link
+                  className="audience-switch-segment audience-switch-segment-inactive focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E86F5B]"
+                  href="/"
+                >
+                  Çocuk
+                </Link>
+              )}
+              {audience === "adults" ? (
+                <span className="audience-switch-segment audience-switch-segment-active" aria-current="page">
+                  Yetişkinler
+                </span>
+              ) : (
+                <Link
+                  className="audience-switch-segment audience-switch-segment-inactive focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E86F5B]"
+                  href="/yetiskinler"
+                >
+                  Yetişkinler
+                </Link>
+              )}
+            </div>
             <button
               className="grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-white lg:hidden"
               type="button"
