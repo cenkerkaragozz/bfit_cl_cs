@@ -35,7 +35,7 @@ export function Header({ audience = "children" }: HeaderProps) {
     <header className="pointer-events-none sticky top-0 z-50 h-0">
       <div className="inner pointer-events-auto relative pt-5">
         <nav
-          className="main-nav mx-auto flex min-h-[72px] max-w-[1110px] items-center justify-between gap-4 rounded-b-[30px] rounded-t-[18px] bg-white/95 px-5 shadow-[0_18px_50px_rgba(36,29,24,0.08)] backdrop-blur"
+          className="main-nav mx-auto flex min-h-[72px] max-w-[1110px] items-center justify-between gap-4 rounded-[30px] bg-white/95 px-5 shadow-[0_18px_50px_rgba(36,29,24,0.08)] backdrop-blur"
           aria-label="Primary navigation"
         >
           <Link className="header-logo flex min-w-0 items-center" href={logoHref} aria-label={logoAriaLabel}>
