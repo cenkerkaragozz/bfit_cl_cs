@@ -25,10 +25,17 @@ import { ContactActions } from "@/components/ContactActions";
 import { ReportAndMeasurementSection } from "@/components/ReportAndMeasurementSection";
 import { TestimonialSection } from "@/components/TestimonialSection";
 import { TrustBar } from "@/components/TrustBar";
+import { useHoverable } from "@/lib/useHoverable";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
 const easeOutExpo: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+const heroChips = [
+  "Karşıyaka · Yüz yüze",
+  "Bilişsel profil değerlendirmesi",
+  "Kişisel egzersiz planı",
+] as const;
 
 const audienceCards = [
   {
@@ -118,7 +125,7 @@ export function AdultLandingPage() {
   return (
     <>
       <AdultHero />
-      <TrustBar />
+      <TrustBar variant="adults" />
       <AudienceSection />
       <AdultApproachSection />
       <CheckUpSection audience="adults" />
@@ -132,20 +139,68 @@ export function AdultLandingPage() {
 }
 
 function AdultHero() {
+  const reduceMotion = useReducedMotion();
+  const active = !reduceMotion;
+
   return (
     <section className="v4">
       <div className="inner v4-inner">
         <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
           <div>
-            <span className="v4-kicker">
+            <motion.span
+              className="v4-kicker"
+              initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+              animate={active ? { opacity: 1, y: 0 } : undefined}
+              transition={{ delay: 0.08, duration: 0.4, ease: easeOutExpo }}
+            >
               <span className="v4-kicker-bar" aria-hidden="true" />
               BrainFit Karşıyaka · Bilişsel Gelişim Merkezi
-            </span>
-            <h1 className="v4-h1">Yorgun olan bedeniniz değilse?</h1>
-            <p className="v4-sub">
-              Gün sonunda tükenen şey bazen enerjiniz değil, zihninizdir. Dikkat, hafıza ve işlem hızı gibi bilişsel becerilerinizi değerlendirerek <mark>bilişsel profilinizi</mark> oluşturuyor; güçlü yönlerinizi ve gelişime açık alanlarınızı birlikte ele alıyoruz.
-            </p>
-            <div className="v4-ctas">
+            </motion.span>
+            <h1 className="v4-h1">
+              <span className="-mb-[0.09em] block overflow-hidden pb-[0.09em]">
+                <motion.span
+                  className="block"
+                  initial={reduceMotion ? false : { y: "112%" }}
+                  animate={active ? { y: "0%" } : undefined}
+                  transition={{ delay: 0.18, duration: 0.55, ease: easeOutExpo }}
+                >
+                  Yorgun olan
+                </motion.span>
+              </span>
+              <span className="-mb-[0.09em] block overflow-hidden pb-[0.09em]">
+                <motion.span
+                  className="block"
+                  initial={reduceMotion ? false : { y: "112%" }}
+                  animate={active ? { y: "0%" } : undefined}
+                  transition={{ delay: 0.26, duration: 0.55, ease: easeOutExpo }}
+                >
+                  bedeniniz değilse?
+                </motion.span>
+              </span>
+            </h1>
+            <motion.p
+              className="v4-sub"
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={active ? { opacity: 1, y: 0 } : undefined}
+              transition={{ delay: 0.48, duration: 0.45, ease: easeOutExpo }}
+            >
+              Gün sonunda tükenen şey bazen enerjiniz değil, zihninizdir. Dikkat, hafıza ve işlem hızı gibi bilişsel becerilerinizi değerlendirerek{" "}
+              <motion.mark
+                className="inline-block"
+                initial={reduceMotion ? false : { clipPath: "inset(0 100% 0 0)" }}
+                animate={active ? { clipPath: "inset(0 0% 0 0)" } : undefined}
+                transition={{ delay: 0.72, duration: 0.4, ease: easeOutExpo }}
+              >
+                bilişsel profilinizi
+              </motion.mark>{" "}
+              oluşturuyor; güçlü yönlerinizi ve gelişime açık alanlarınızı birlikte ele alıyoruz.
+            </motion.p>
+            <motion.div
+              className="v4-ctas"
+              initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+              animate={active ? { opacity: 1, y: 0 } : undefined}
+              transition={{ delay: 0.62, duration: 0.45, ease: easeOutExpo }}
+            >
               <a href="#checkup-form" className="v4-cta-p arrow-shift">
                 Bilişsel profilimi keşfet
                 <ArrowUpRight size={18} strokeWidth={2.7} aria-hidden="true" />
@@ -154,11 +209,23 @@ function AdultHero() {
                 Süreç nasıl ilerliyor?
                 <ArrowUpRight size={18} strokeWidth={2.4} aria-hidden="true" />
               </a>
-            </div>
+            </motion.div>
             <div className="v4-chips">
-              <span className="v4-chip">Karşıyaka · Yüz yüze</span>
-              <span className="v4-chip">Bilişsel profil değerlendirmesi</span>
-              <span className="v4-chip">Kişisel egzersiz planı</span>
+              {heroChips.map((chip, index) => (
+                <motion.span
+                  key={chip}
+                  className="v4-chip"
+                  initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+                  animate={active ? { opacity: 1, y: 0 } : undefined}
+                  transition={{
+                    delay: 0.76 + index * 0.05,
+                    duration: 0.3,
+                    ease: easeOutExpo,
+                  }}
+                >
+                  {chip}
+                </motion.span>
+              ))}
             </div>
           </div>
           <div className="v4-visual-space" aria-hidden="true" />
@@ -169,37 +236,71 @@ function AdultHero() {
 }
 
 function AudienceSection() {
+  const reduceMotion = useReducedMotion();
+  const hoverable = useHoverable();
+  const sectionRef = useRef<HTMLElement>(null);
+  // One section-level observer runs the entrance once per page load;
+  // children animate only while the section first enters the viewport.
+  const sectionInView = useInView(sectionRef, { once: true, margin: "-80px" });
+  const sectionActive = !reduceMotion && sectionInView;
+
   return (
     <section
+      ref={sectionRef}
       id="help"
       aria-labelledby="adult-audience-title"
       className="section-surface relative scroll-mt-28 overflow-hidden py-[72px] md:py-[112px]"
     >
       <div className="inner">
         <div className="max-w-[820px]">
-          <div className="badge border-[#E7A988] bg-transparent text-[#8C5038]">
+          <motion.div
+            className="badge border-[#E7A988] bg-transparent text-[#8C5038]"
+            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+            animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+            transition={{ delay: 0.168, duration: 1.344, ease: easeOutExpo }}
+          >
             Son 1 yıl
-          </div>
-          <h2
+          </motion.div>
+          <motion.h2
             id="adult-audience-title"
             className="section-title mt-7 max-w-[800px] text-[#241D18]"
+            initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+            animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+            transition={{ delay: 0.408, duration: 1.512, ease: easeOutExpo }}
           >
             Son bir yılda zihinsel performansınızda bir değişiklik fark ettiniz mi?
-          </h2>
-          <p className="body-copy mt-5 max-w-[680px] text-[17px]">
+          </motion.h2>
+          <motion.p
+            className="body-copy mt-5 max-w-[680px] text-[17px]"
+            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+            animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+            transition={{ delay: 0.6, duration: 1.344, ease: easeOutExpo }}
+          >
             Aşağıdaki durumlardan bazıları size tanıdık gelebilir.
-          </p>
+          </motion.p>
         </div>
 
         <div className="mt-10 grid items-stretch gap-5 lg:grid-cols-3 xl:gap-6">
-          {audienceCards.map((card) => {
+          {audienceCards.map((card, cardIndex) => {
             const Icon = card.icon;
             const NoteIcon = card.noteIcon;
+            const cardDelay = 0.672 + cardIndex * 0.312;
 
             return (
-              <article
+              <motion.article
                 key={card.id}
                 className="flex h-full min-w-0 flex-col rounded-[30px] bg-white p-6 shadow-[0_18px_44px_rgba(36,29,24,0.08)] sm:p-7 lg:p-6 xl:p-7"
+                initial={reduceMotion ? false : { opacity: 0, y: 26 }}
+                animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+                transition={{ delay: cardDelay, duration: 1.68, ease: easeOutExpo }}
+                whileHover={
+                  hoverable
+                    ? {
+                        y: -4,
+                        transition: { duration: 0.28, ease: easeOutExpo },
+                      }
+                    : undefined
+                }
               >
                 <span
                   className={`grid h-14 w-14 shrink-0 place-items-center rounded-full ${card.iconSurface} ${card.iconColor}`}
@@ -213,23 +314,37 @@ function AudienceSection() {
                 </h3>
 
                 <ul className="mt-5 grid gap-3.5">
-                  {card.bullets.map((bullet) => (
-                    <li
+                  {card.bullets.map((bullet, bulletIndex) => (
+                    <motion.li
                       key={bullet}
                       className="flex items-start gap-3 text-[15px] font-semibold leading-6.5 text-[rgba(36,29,24,0.76)]"
+                      initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+                      animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+                      transition={{
+                        delay: 1.008 + cardDelay + bulletIndex * 0.168,
+                        duration: 1.176,
+                        ease: easeOutExpo,
+                      }}
                     >
                       <span
                         className={`mt-[9px] h-2 w-2 shrink-0 rounded-full ${card.bulletColor}`}
                         aria-hidden="true"
                       />
                       <span>{bullet}</span>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
 
                 <div className="mt-auto pt-7">
-                  <div
+                  <motion.div
                     className={`flex min-h-[116px] items-start gap-4 rounded-[22px] p-5 ${card.noteSurface}`}
+                    initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                    animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+                    transition={{
+                      delay: 1.152 + cardDelay + card.bullets.length * 0.168,
+                      duration: 1.512,
+                      ease: easeOutExpo,
+                    }}
                   >
                     <NoteIcon
                       className={`mt-0.5 shrink-0 ${card.iconColor}`}
@@ -240,14 +355,19 @@ function AudienceSection() {
                     <p className="text-[14px] font-semibold leading-6 text-[rgba(36,29,24,0.72)]">
                       {card.explanation}
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
-              </article>
+              </motion.article>
             );
           })}
         </div>
 
-        <div className="mt-9 flex justify-center">
+        <motion.div
+          className="mt-9 flex justify-center"
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+          animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+          transition={{ delay: 2.208, duration: 1.512, ease: easeOutExpo }}
+        >
           <a
             href="#about"
             className="pill-button arrow-shift min-h-[54px] w-full max-w-[440px] px-7 text-center text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#164C35] sm:w-auto sm:min-w-[420px]"
@@ -255,25 +375,79 @@ function AudienceSection() {
             Bunlardan birkaçını ben de yaşıyorum
             <ArrowUpRight size={18} strokeWidth={2.5} aria-hidden="true" />
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
 
 function AdultApproachSection() {
+  const reduceMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  const sectionInView = useInView(sectionRef, { once: true, margin: "-80px" });
+  const sectionActive = !reduceMotion && sectionInView;
+
   return (
-    <section id="about" className="section-surface-alt scroll-mt-28 py-[68px] md:py-[104px]">
+    <section
+      ref={sectionRef}
+      id="about"
+      className="section-surface-alt scroll-mt-28 py-[68px] md:py-[104px]"
+    >
       <div className="inner grid gap-8 lg:grid-cols-[1fr_0.86fr] lg:items-center">
         <div>
-          <div className="badge border-[#9B66F4] bg-[#F5F0FE] text-[#6A3FD4]">BrainFit nasıl yardımcı olur?</div>
+          <motion.div
+            className="badge border-[#9B66F4] bg-[#F5F0FE] text-[#6A3FD4]"
+            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+            animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+            transition={{ delay: 0.05, duration: 0.4, ease: easeOutExpo }}
+          >
+            BrainFit nasıl yardımcı olur?
+          </motion.div>
           <h2 className="section-title mt-7 max-w-[760px]">
-            İlk adım,
-            <span className="block text-[#164C35]">zihinsel profilinizi</span>
-            anlamaktır.
+            <motion.span
+              className="block"
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+              transition={{ delay: 0.12, duration: 0.45, ease: easeOutExpo }}
+            >
+              İlk adım,
+            </motion.span>
+            <motion.span
+              className="block text-[#164C35]"
+              initial={
+                reduceMotion ? false : { clipPath: "inset(0 100% 0 0)" }
+              }
+              animate={
+                sectionActive ? { clipPath: "inset(0 0% 0 0)" } : undefined
+              }
+              transition={{ delay: 0.26, duration: 0.55, ease: easeOutExpo }}
+            >
+              zihinsel profilinizi
+            </motion.span>
+            <motion.span
+              className="block"
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+              transition={{ delay: 0.36, duration: 0.45, ease: easeOutExpo }}
+            >
+              anlamaktır.
+            </motion.span>
           </h2>
         </div>
-        <div className="rounded-[28px] bg-white px-6 py-7 shadow-[0_18px_48px_rgba(36,29,24,0.08)] md:px-8 md:py-9">
+        <motion.div
+          className="rounded-[28px] bg-white px-6 py-7 shadow-[0_18px_48px_rgba(36,29,24,0.08)] md:px-8 md:py-9"
+          initial={
+            reduceMotion
+              ? false
+              : { opacity: 0, y: 18, filter: "blur(6px)" }
+          }
+          animate={
+            sectionActive
+              ? { opacity: 1, y: 0, filter: "blur(0px)" }
+              : undefined
+          }
+          transition={{ delay: 0.2, duration: 0.6, ease: easeOutExpo }}
+        >
           <div className="flex items-start gap-4">
             <Brain className="mt-1 shrink-0 text-[#164C35]" size={28} aria-hidden="true" />
             <h3 className="compact-title max-w-[15ch] text-[#164C35]">
@@ -283,7 +457,7 @@ function AdultApproachSection() {
           <p className="mt-6 max-w-[44ch] text-[1rem] font-normal leading-7 text-[#514236] [text-wrap:pretty]">
             BrainFit; dikkat, hafıza ve zihinsel yorgunluk gibi günlük deneyimleri tek başına yorumlamak yerine bilişsel alanları birlikte ele alır. Amaç, yaşadıklarınızı daha anlaşılır hâle getirmektir.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -366,11 +540,11 @@ function ScopeAndFaqSection() {
                     >
                       <motion.span
                         className="shrink-0"
-                        initial={reduceMotion ? false : { scale: 0.85 }}
-                        animate={panelActive ? { scale: [0.85, 1.1, 1] } : undefined}
+                        initial={reduceMotion ? false : { scale: 0.9 }}
+                        animate={panelActive ? { scale: [0.9, 1.05, 1] } : undefined}
                         transition={{
-                          delay: 0.3 + index * 0.06,
-                          duration: 0.3,
+                          delay: 0.28 + index * 0.06,
+                          duration: 0.28,
                           ease: "easeOut",
                         }}
                       >
@@ -407,11 +581,11 @@ function ScopeAndFaqSection() {
                     >
                       <motion.span
                         className="mt-0.5 shrink-0"
-                        initial={reduceMotion ? false : { scale: 0.85 }}
-                        animate={panelActive ? { scale: [0.85, 1.1, 1] } : undefined}
+                        initial={reduceMotion ? false : { scale: 0.9 }}
+                        animate={panelActive ? { scale: [0.9, 1.05, 1] } : undefined}
                         transition={{
-                          delay: 0.3 + index * 0.06,
-                          duration: 0.3,
+                          delay: 0.28 + index * 0.06,
+                          duration: 0.28,
                           ease: "easeOut",
                         }}
                       >
@@ -492,6 +666,9 @@ function AdultCheckUpFormSection() {
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [message, setMessage] = useState("");
   const reduceMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  const sectionInView = useInView(sectionRef, { once: true, margin: "-80px" });
+  const sectionActive = !reduceMotion && sectionInView;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -527,27 +704,92 @@ function AdultCheckUpFormSection() {
   }
 
   return (
-    <section id="contact" className="section-surface relative scroll-mt-28 overflow-hidden py-[72px] md:py-[112px]">
+    <section
+      ref={sectionRef}
+      id="contact"
+      className="section-surface relative scroll-mt-28 overflow-hidden py-[72px] md:py-[112px]"
+    >
       <div id="checkup-form" className="inner scroll-mt-28">
         <div className="section-cta-surface grid gap-9 rounded-[34px] px-5 py-8 sm:px-7 md:p-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
           <div>
-            <div className="badge border-[#160A08]/35 bg-white/20 text-[#160A08]">İletişime geçin</div>
-            <h2 className="section-title mt-7 max-w-[650px] !text-[#160A08]">Zihninizde neyin değiştiğini merak ediyorsanız, önce bugünkü performansınızı tanıyın.</h2>
-            <p className="mt-6 max-w-[560px] text-[16px] font-semibold leading-8 text-[#160A08]/76">
+            <motion.div
+              className="badge border-[#160A08]/35 bg-white/20 text-[#160A08]"
+              initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+              animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+              transition={{ delay: 0.05, duration: 0.4, ease: easeOutExpo }}
+            >
+              İletişime geçin
+            </motion.div>
+            <motion.h2
+              className="section-title mt-7 max-w-[650px] !text-[#160A08]"
+              initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+              animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+              transition={{ delay: 0.12, duration: 0.45, ease: easeOutExpo }}
+            >
+              Zihninizde neyin değiştiğini merak ediyorsanız, önce bugünkü performansınızı tanıyın.
+            </motion.h2>
+            <motion.p
+              className="mt-6 max-w-[560px] text-[16px] font-semibold leading-8 text-[#160A08]/76"
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+              transition={{ delay: 0.2, duration: 0.45, ease: easeOutExpo }}
+            >
               Daha kolay odaklanmak, günlük hayatı daha iyi organize etmek ya da yaş alırken bilişsel becerilerinizi aktif tutmak... Başlangıç noktası, hangi alanlarda güçlü olduğunuzu bilmektir. BrainFit Karşıyaka&apos;da oluşturulan bilişsel profiliniz doğrultusunda, size özel bir egzersiz planıyla sürecinizi yapılandırıyoruz.
-            </p>
-            <ContactActions audience="adults" className="mt-7 max-w-[560px]" />
+            </motion.p>
+            <motion.div
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+              transition={{ delay: 0.28, duration: 0.45, ease: easeOutExpo }}
+            >
+              <ContactActions audience="adults" className="mt-7 max-w-[560px]" />
+            </motion.div>
             <div className="mt-7 grid gap-3 sm:grid-cols-3">
-              {["1 saatlik değerlendirme", "Bilişsel profil", "Kişisel egzersiz planı"].map((item) => (
-                <div key={item} className="flex items-center gap-2 rounded-[18px] bg-white/24 p-3">
+              {["1 saatlik değerlendirme", "Bilişsel profil", "Kişisel egzersiz planı"].map((item, index) => (
+                <motion.div
+                  key={item}
+                  className="flex items-center gap-2 rounded-[18px] bg-white/24 p-3"
+                  initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+                  animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
+                  transition={{
+                    delay: 0.36 + index * 0.06,
+                    duration: 0.35,
+                    ease: easeOutExpo,
+                  }}
+                >
                   <CheckCircle2 size={17} className="shrink-0 text-[#164C35]" aria-hidden="true" />
                   <p className="text-[12px] font-extrabold leading-5 text-[#160A08]">{item}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
 
-          <form id="callback-form" onSubmit={handleSubmit} method="post" action="/api/checkup-request" aria-busy={submitState === "submitting"} className="scroll-mt-28 rounded-[28px] bg-white p-5 shadow-[0_28px_80px_rgba(22,10,8,0.18)] md:p-7">
+          <motion.form
+            id="callback-form"
+            onSubmit={handleSubmit}
+            method="post"
+            action="/api/checkup-request"
+            aria-busy={submitState === "submitting"}
+            className="scroll-mt-28 rounded-[28px] bg-white p-5 shadow-[0_28px_80px_rgba(22,10,8,0.18)] md:p-7"
+            initial={
+              reduceMotion
+                ? false
+                : {
+                    opacity: 0,
+                    y: 24,
+                    boxShadow: "0 24px 68px rgba(22,10,8,0.12)",
+                  }
+            }
+            animate={
+              sectionActive
+                ? {
+                    opacity: 1,
+                    y: 0,
+                    boxShadow: "0 28px 80px rgba(22,10,8,0.18)",
+                  }
+                : undefined
+            }
+            transition={{ delay: 0.18, duration: 0.55, ease: easeOutExpo }}
+          >
             <h3 className="compact-title text-[#241D18]">Size Ulaşalım</h3>
             <p className="mt-2 text-[14px] font-semibold leading-6 text-[var(--text-support)]">İletişim bilgilerinizi bırakın; ekibimiz sorularınızı yanıtlasın.</p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -604,7 +846,7 @@ function AdultCheckUpFormSection() {
                 </motion.div>
               ) : null}
             </AnimatePresence>
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>

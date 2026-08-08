@@ -23,9 +23,9 @@ export default async function AdultsPage() {
         <Header audience="adults" />
         <main>
           <AdultLandingPage />
-          <BlogSection posts={posts} />
+          <BlogSection posts={posts} variant="adults" />
         </main>
-        <Footer />
+        <Footer animated />
       </div>
       <FloatingCta audience="adults" />
     </div>

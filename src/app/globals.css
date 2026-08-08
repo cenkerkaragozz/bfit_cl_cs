@@ -230,7 +230,7 @@ li {
   will-change: opacity, scale, filter;
   animation:
     adult-hero-bg-reveal 1800ms cubic-bezier(0.16, 1, 0.3, 1) forwards,
-    adult-hero-bg-breathe 12000ms ease-in-out 1800ms infinite;
+    adult-hero-bg-breathe 16000ms ease-in-out 1800ms infinite;
 }
 .v4::before {
   content: "";
@@ -395,7 +395,30 @@ li {
   }
 
   50% {
-    scale: 1.018;
+    scale: 1.006;
+  }
+}
+
+/* Adult page: restrained hover depth for pointer devices only.
+   Applied exclusively inside adult page components; protected sections
+   (ADIM ADIM / BİLİŞSEL PROFİL) never use these classes. */
+@media (hover: hover) and (pointer: fine) {
+  .adult-hover-zoom .adult-hover-zoom-img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .adult-hover-zoom:hover .adult-hover-zoom-img {
+    transform: scale(1.035);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .adult-hover-zoom .adult-hover-zoom-img {
+    transition: none;
+  }
+
+  .adult-hover-zoom:hover .adult-hover-zoom-img {
+    transform: none;
   }
 }
 
