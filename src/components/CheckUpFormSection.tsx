@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ContactActions } from "@/components/ContactActions";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
@@ -9,6 +10,7 @@ type SubmitState = "idle" | "submitting" | "success" | "error";
 export function CheckUpFormSection() {
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [message, setMessage] = useState("");
+  const reduceMotion = useReducedMotion();
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -75,6 +77,7 @@ export function CheckUpFormSection() {
             onSubmit={handleSubmit}
             method="post"
             action="/api/checkup-request"
+            aria-busy={submitState === "submitting"}
             className="scroll-mt-28 rounded-[28px] bg-white p-5 shadow-[0_28px_80px_rgba(22,10,8,0.18)] md:p-7"
           >
             <h3 className="compact-title text-[#241D18]">Size Ulaşalım</h3>
@@ -128,26 +131,74 @@ export function CheckUpFormSection() {
               disabled={submitState === "submitting"}
               className="mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#164C35] px-6 text-[15px] font-extrabold text-white shadow-[0_16px_34px_rgba(22,76,53,0.24)] transition duration-150 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#164C35] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-65"
             >
-              {submitState === "submitting" ? "İletiliyor..." : "Size Ulaşalım"}
-              <ArrowUpRight size={18} aria-hidden="true" />
+              {submitState === "submitting" ? (
+                <>
+                  <span
+                    aria-hidden="true"
+                    className="h-4 w-4 shrink-0 animate-spin rounded-full border-2 border-white/40 border-t-white motion-reduce:animate-none"
+                  />
+                  İletiliyor...
+                </>
+              ) : (
+                <>
+                  Size Ulaşalım
+                  <ArrowUpRight size={18} aria-hidden="true" />
+                </>
+              )}
             </button>
 
             <p data-compliance-status="pending" className="mt-4 text-[11px] font-semibold leading-5 text-[var(--text-support)]">
               Aydınlatma ve veri işleme metni yayın öncesinde bu alana eklenecek.
             </p>
 
-            {message ? (
-              <p
-                className={`mt-4 rounded-[18px] px-4 py-3 text-[14px] font-extrabold leading-6 ${
-                  submitState === "success"
-                    ? "bg-[#F0F7F2] text-[#164C35]"
-                    : "bg-[#FFF0D7] text-[#8C5038]"
-                }`}
-                role="status"
-              >
-                {message}
-              </p>
-            ) : null}
+            <AnimatePresence initial={false}>
+              {message ? (
+                <motion.div
+                  key="form-status"
+                  role="status"
+                  aria-live="polite"
+                  className="overflow-hidden"
+                  initial={reduceMotion ? false : { opacity: 0, height: 0 }}
+                  animate={
+                    reduceMotion ? undefined : { opacity: 1, height: "auto" }
+                  }
+                  exit={reduceMotion ? undefined : { opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <p
+                    className={`mt-4 flex items-start gap-2 rounded-[18px] px-4 py-3 text-[14px] font-extrabold leading-6 ${
+                      submitState === "success"
+                        ? "bg-[#F0F7F2] text-[#164C35]"
+                        : "bg-[#FFF0D7] text-[#8C5038]"
+                    }`}
+                  >
+                    {submitState === "success" ? (
+                      <motion.span
+                        className="mt-0.5 shrink-0"
+                        initial={
+                          reduceMotion ? false : { opacity: 0, scale: 0.6 }
+                        }
+                        animate={
+                          reduceMotion ? undefined : { opacity: 1, scale: 1 }
+                        }
+                        transition={{
+                          delay: 0.12,
+                          duration: 0.25,
+                          ease: [0.16, 1, 0.3, 1],
+                        }}
+                      >
+                        <CheckCircle2
+                          size={18}
+                          className="text-[#164C35]"
+                          aria-hidden="true"
+                        />
+                      </motion.span>
+                    ) : null}
+                    <span>{message}</span>
+                  </p>
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
           </form>
         </div>
       </div>

@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef } from "react";
 import {
   ArrowUpRight,
   ChartNoAxesColumnIncreasing,
@@ -6,6 +9,15 @@ import {
   NotebookPen,
   Presentation,
 } from "lucide-react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+
+const easeOutExpo: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+// Sequence timing shared by every breakpoint so the journey always reads
+// in the same calm order: line piece k starts at 0.5 + k*0.13s and step
+// (i+1) acknowledges the line at 0.7 + i*0.15s.
+const connectorDelay = (k: number) => 0.5 + k * 0.13;
+const badgeDelay = (i: number) => 0.7 + i * 0.15;
 
 const processSteps = [
   {
@@ -65,6 +77,15 @@ export function CheckUpSection({
 }: {
   audience?: "children" | "adults";
 }) {
+  const reduceMotion = useReducedMotion();
+  // One in-view observer on the journey wrapper (which is fully inside the
+  // viewport) drives every connector, stub, and badge animation. The rail
+  // elements themselves sit in the left gutter and would never intersect
+  // their own observers, so they must not observe themselves.
+  const journeyRef = useRef<HTMLDivElement>(null);
+  const journeyInView = useInView(journeyRef, { once: true, margin: "-80px" });
+  const journeyActive = !reduceMotion && journeyInView;
+
   return (
     <section
       id="checkup"
@@ -84,11 +105,30 @@ export function CheckUpSection({
           </p>
         </div>
 
-        <div className="relative mt-12">
-          <span
+        <div ref={journeyRef} className="relative mt-12">
+          <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-[10%] right-[10%] top-8 z-10 hidden h-[3px] rounded-full bg-[#E86F5B] xl:block"
-          />
+            className="pointer-events-none absolute inset-x-0 top-8 z-10 hidden h-[3px] xl:block"
+          >
+            {[0, 1, 2, 3].map((i) => (
+              <motion.span
+                key={i}
+                className="absolute top-0 h-full rounded-full bg-[#E86F5B]"
+                style={{
+                  left: `calc(${10 + i * 20}% ${["- 0.5rem", "- 0.25rem", "", "+ 0.25rem"][i]})`,
+                  width: "calc(20% + 0.25rem)",
+                  transformOrigin: "left",
+                }}
+                initial={reduceMotion ? false : { scaleX: 0 }}
+                animate={journeyActive ? { scaleX: 1 } : undefined}
+                transition={{
+                  delay: connectorDelay(i),
+                  duration: 0.3,
+                  ease: easeOutExpo,
+                }}
+              />
+            ))}
+          </div>
           <ol className="relative m-0 grid list-none grid-cols-1 gap-x-5 gap-y-8 p-0 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-5">
             {processSteps.map((step, index) => {
               const Icon = step.icon;
@@ -104,16 +144,61 @@ export function CheckUpSection({
                   key={step.title}
                   className={`relative pt-8 sm:col-span-2 md:col-span-2 xl:col-span-1 ${rowPosition}`}
                 >
+                  {/* Tablet layouts (sm–xl): a vertical continuity rail and
+                      stubs connect each numbered step. The mobile layout keeps
+                      the cards independent, without the rail or its gutter. */}
+                  {index < 4 ? (
+                    <motion.span
+                      aria-hidden="true"
+                      className={`pointer-events-none absolute -left-[18px] -bottom-8 top-0 z-10 w-[3px] rounded-full bg-[#E86F5B] max-sm:hidden ${
+                        index === 1 || index === 2
+                          ? "sm:hidden"
+                          : index === 3
+                            ? "md:hidden"
+                            : "xl:hidden"
+                      }`}
+                      style={{ transformOrigin: "top" }}
+                      initial={reduceMotion ? false : { scaleY: 0 }}
+                      animate={journeyActive ? { scaleY: 1 } : undefined}
+                      transition={{
+                        delay: connectorDelay(index),
+                        duration: 0.3,
+                        ease: easeOutExpo,
+                      }}
+                    />
+                  ) : null}
+                  <motion.span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -left-[18px] top-0 z-10 h-[3px] w-[calc(50%+18px)] rounded-full bg-[#E86F5B] max-sm:hidden xl:hidden"
+                    style={{ transformOrigin: "left" }}
+                    initial={reduceMotion ? false : { scaleX: 0 }}
+                    animate={journeyActive ? { scaleX: 1 } : undefined}
+                    transition={{
+                      delay: connectorDelay(index),
+                      duration: 0.25,
+                      ease: easeOutExpo,
+                    }}
+                  />
                   <article className="relative flex h-full flex-col items-center rounded-[28px] bg-white px-5 pb-8 pt-14 text-center shadow-[0_18px_40px_rgba(36,29,24,0.12)] sm:min-h-[350px] md:min-h-[366px] xl:min-h-[360px]">
-                    <span
-                      className="absolute -top-8 left-1/2 z-20 grid h-16 w-16 -translate-x-1/2 place-items-center rounded-full border-[5px] border-white text-[26px] font-extrabold leading-none shadow-[0_8px_20px_rgba(36,29,24,0.14)]"
+                    <motion.span
+                      className="absolute -top-8 left-1/2 z-20 grid h-16 w-16 place-items-center rounded-full border-[5px] border-white text-[26px] font-extrabold leading-none shadow-[0_8px_20px_rgba(36,29,24,0.14)]"
                       style={{
                         backgroundColor: step.color,
                         color: step.numberColor,
+                        x: "-50%",
+                      }}
+                      initial={reduceMotion ? false : { scale: 1 }}
+                      animate={
+                        journeyActive ? { scale: [1, 1.07, 1] } : undefined
+                      }
+                      transition={{
+                        delay: badgeDelay(index),
+                        duration: 0.28,
+                        ease: "easeOut",
                       }}
                     >
                       {String(index + 1).padStart(2, "0")}
-                    </span>
+                    </motion.span>
                     <Icon
                       className="shrink-0"
                       size={48}

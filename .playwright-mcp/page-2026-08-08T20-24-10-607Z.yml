@@ -1,0 +1,299 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - banner:
+        - navigation "Primary navigation" [ref=e5]:
+          - link "BrainFit ana sayfa" [ref=e6] [cursor=pointer]:
+            - /url: /
+            - img "BrainFit" [ref=e7]
+          - generic [ref=e14]:
+            - group "Kitle seçimi" [ref=e15]:
+              - generic [ref=e16]: Çocuk
+              - link "Yetişkinler" [ref=e17] [cursor=pointer]:
+                - /url: /yetiskinler
+            - button "Menüyü Aç" [ref=e645]
+      - main [ref=e18]:
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - generic [ref=e22]: Bilişsel Gelişim · Karşıyaka
+            - heading "Çocuğunuzun yaşadığı zorluğun nedenini birlikte keşfedelim." [level=1] [ref=e32]:
+              - generic [ref=e33]: Çocuğunuzun
+              - generic [ref=e34]: yaşadığı zorluğun nedenini
+              - generic [ref=e38]: birlikte keşfedelim.
+            - generic [ref=e39]:
+              - paragraph [ref=e40]: Bilimsel değerlendirme ve çocuğunuza özel yaklaşımımızla güçlü yönlerini ve desteğe ihtiyaç duyduğu alanları birlikte ortaya çıkarıyoruz.
+              - link "Ücretsiz Ön Görüşme Oluştur" [ref=e41] [cursor=pointer]:
+                - /url: "#checkup-form"
+          - generic [ref=e46]:
+            - img "Düşünen ve gülümseyen çocuk görseli - BrainFit Ana Sayfa" [ref=e84]
+            - paragraph [ref=e91]: Çocuğunuzun eşsiz potansiyelini keşfedelim.
+        - region "Güven göstergeleri" [ref=e93]:
+          - generic [ref=e96]:
+            - generic [ref=e97]: 4.6/5 Google puanı
+            - generic [ref=e102]: 48.000+ BrainFit ailesi
+            - generic [ref=e110]: "%93 Memnuniyet oranı"
+            - generic [ref=e116]: Karşıyaka Yüz yüze merkez
+        - generic [ref=e122]:
+          - generic [ref=e123]:
+            - generic [ref=e124]: SİZE TANIDIK GELİYOR MU?
+            - heading "Bunlardan hangileri size tanıdık geliyor?" [level=2] [ref=e125]
+            - paragraph [ref=e126]: Aşağıdaki durumlardan biri ya da birkaçı size tanıdık gelebilir.
+          - list "Tanıdık gelebilecek durumlar" [ref=e127]:
+            - listitem [ref=e128]:
+              - paragraph [ref=e131]: Sınıfta sık sık dalıp gidiyor.
+            - listitem [ref=e132]:
+              - paragraph [ref=e136]: Bildiği sorularda hata yapıyor.
+            - listitem [ref=e137]:
+              - paragraph [ref=e141]: Ödevin başına oturmak istemiyor.
+            - listitem [ref=e142]:
+              - paragraph [ref=e146]: Sürekli hareket ediyor.
+            - listitem [ref=e147]:
+              - paragraph [ref=e152]: Dikkatini uzun süre sürdüremiyor.
+            - listitem [ref=e153]:
+              - paragraph [ref=e156]: Öğretmeninden sık sık olumsuz geri bildirim alıyorsunuz.
+            - listitem [ref=e157]:
+              - paragraph [ref=e163]: Arkadaş ilişkilerinde zorlanabiliyor.
+            - listitem [ref=e164]:
+              - paragraph [ref=e169]: Sürekli erteleme davranışı gösteriyor.
+          - paragraph [ref=e174]: Bu gözlemler tek başına bir tanı değildir.
+        - region [ref=e175]:
+          - generic [ref=e177]:
+            - generic [ref=e178]:
+              - generic [ref=e179]: Birlikte anlayalım
+              - heading "Tek başınıza anlamlandırmak zorunda değilsiniz." [level=2] [ref=e180]:
+                - generic [ref=e181]: Tek başınıza
+                - text: anlamlandırmak zorunda değilsiniz.
+            - generic [ref=e182]:
+              - paragraph [ref=e183]: Ön görüşmede sizi dinler, gözlemlerinizi birlikte değerlendirir ve çocuğunuz için sonraki adımı netleştiririz.
+              - list [ref=e184]:
+                - listitem [ref=e185]: Sizi dinleriz
+                - listitem [ref=e186]: Birlikte değerlendiririz
+                - listitem [ref=e187]: Sonraki adımı netleştiririz
+              - link "Ücretsiz Ön Görüşme Oluştur" [ref=e188] [cursor=pointer]:
+                - /url: "#checkup-form"
+        - region [ref=e192]:
+          - generic [ref=e193]:
+            - generic [ref=e194]:
+              - generic [ref=e195]: ADIM ADIM
+              - heading "Süreç nasıl ilerliyor?" [level=2] [ref=e196]
+              - paragraph [ref=e197]: Ne olacağını baştan bilmeniz için süreci beş açık adımda anlatıyoruz.
+            - list [ref=e199]:
+              - listitem [ref=e200]:
+                - article [ref=e201]:
+                  - generic [ref=e202]: "01"
+                  - heading "Ön Görüşme" [level=3] [ref=e207]
+                  - paragraph [ref=e208]: Sizi dinliyor, gözlemlerinizi ve sorularınızı birlikte konuşuyoruz.
+              - listitem [ref=e209]:
+                - article [ref=e210]:
+                  - generic [ref=e211]: "02"
+                  - heading "Bilimsel Değerlendirme" [level=3] [ref=e217]
+                  - paragraph [ref=e218]: Çocuğunuzun bilişsel becerilerine 1 saatlik Zihin Check-Up ile bakıyoruz.
+              - listitem [ref=e219]:
+                - article [ref=e220]:
+                  - generic [ref=e221]: "03"
+                  - heading "Bilişsel Profil Analizi" [level=3] [ref=e224]
+                  - paragraph [ref=e225]: Güçlü olduğu ve desteğe ihtiyaç duyduğu alanları birlikte görüyoruz.
+              - listitem [ref=e226]:
+                - article [ref=e227]:
+                  - generic [ref=e228]: "04"
+                  - heading "Sonuçların Birlikte Değerlendirilmesi" [level=3] [ref=e233]
+                  - paragraph [ref=e234]: Bulguları sizinle birlikte, sade bir dille değerlendiriyoruz.
+              - listitem [ref=e235]:
+                - article [ref=e236]:
+                  - generic [ref=e237]: "05"
+                  - heading "Kişiye Özel Gelişim Planı" [level=3] [ref=e242]
+                  - paragraph [ref=e243]: Ortaya çıkan ihtiyaçlara göre çocuğunuza özel bir plan hazırlıyoruz.
+            - link "Ücretsiz Ön Görüşme Oluştur" [ref=e245] [cursor=pointer]:
+              - /url: "#checkup-form"
+        - region [ref=e249]:
+          - generic [ref=e250]:
+            - generic [ref=e251]:
+              - generic [ref=e252]: Bilişsel Profil
+              - heading "Çocuğunuzun güçlü yönlerini birlikte görelim." [level=2] [ref=e253]
+              - paragraph [ref=e254]: Dikkat, hafıza, görsel ve işitsel beceriler ile duygusal düzenlemeyi birlikte değerlendiriyoruz.
+              - paragraph [ref=e259]: Her alan, çocuğunuzun öğrenme biçimini daha iyi anlamamıza yardımcı olur.
+            - generic "Bilişsel profil alanları" [ref=e647]:
+              - generic [ref=e648]:
+                - generic [ref=e649]: Bilişsel Profil
+                - generic [ref=e650]: Beş alan,tek bir bütün
+              - list [ref=e651]:
+                - listitem [ref=e652]:
+                  - generic [ref=e658]: Dikkat
+                - listitem [ref=e659]:
+                  - generic [ref=e669]: Hafıza
+                - listitem [ref=e670]:
+                  - generic [ref=e675]: Görsel Beceriler
+                - listitem [ref=e676]:
+                  - generic [ref=e681]: İşitsel Beceriler
+                - listitem [ref=e682]:
+                  - generic [ref=e686]: Duygusal Düzenleme
+        - region [ref=e311]:
+          - generic [ref=e312]:
+            - generic [ref=e313]:
+              - generic [ref=e314]: DEĞERLENDİRME SONRASI
+              - heading "Değerlendirme Sonunda Neler Sunuyoruz?" [level=2] [ref=e315]
+              - paragraph [ref=e316]: Çocuğunuzun güçlü yönlerini ve desteklenmesi gereken alanları birlikte görür, ona özel gelişim planını netleştiririz.
+            - generic [ref=e320]:
+              - generic [ref=e321]: SONUÇ DOSYASI
+              - list "Değerlendirme sonrası sunulan çıktılar" [ref=e327]:
+                - listitem [ref=e328]:
+                  - generic [ref=e329]: "01"
+                  - generic [ref=e335]: Uzman Değerlendirmesi
+                - listitem [ref=e336]:
+                  - generic [ref=e337]: "02"
+                  - generic [ref=e342]: Bilişsel Yeterlilik Raporu
+                - listitem [ref=e343]:
+                  - generic [ref=e344]: "03"
+                  - generic [ref=e352]: Güçlü Yönlerin Belirlenmesi
+                - listitem [ref=e353]:
+                  - generic [ref=e354]: "04"
+                  - generic [ref=e360]: Desteklenmesi Gereken Alanlar
+                - listitem [ref=e361]:
+                  - generic [ref=e362]: "05"
+                  - generic [ref=e368]: Kişiye Özel Gelişim Planı
+        - region [ref=e369]:
+          - generic [ref=e370]:
+            - generic [ref=e371]:
+              - generic [ref=e372]: PLAN SONRASI
+              - heading "Plan hazırlandıktan sonra süreç nasıl devam ediyor?" [level=2] [ref=e373]
+              - paragraph [ref=e374]: Değerlendirmede ortaya çıkan ihtiyaçlara göre hazırlanan plan, çocuğunuzun gelişimi doğrultusunda takip edilir.
+              - link "Ücretsiz Ön Görüşme Oluştur" [ref=e375] [cursor=pointer]:
+                - /url: "#checkup-form"
+            - generic [ref=e381]:
+              - list "Plan sonrası takip adımları" [ref=e382]:
+                - listitem [ref=e383]:
+                  - generic [ref=e384]: "01"
+                  - generic [ref=e398]: Kişiye özel bilişsel egzersizler
+                - listitem [ref=e399]:
+                  - generic [ref=e400]: "02"
+                  - generic [ref=e404]: Düzenli gelişim takibi
+                - listitem [ref=e405]:
+                  - generic [ref=e406]: "03"
+                  - generic [ref=e414]: Gerektiğinde planın yeniden değerlendirilmesi
+              - paragraph [ref=e415]:
+                - generic [ref=e419]: Çocuğunuzun gelişimi sürekli takipte.
+        - generic [ref=e421]:
+          - generic [ref=e422]:
+            - generic [ref=e423]: Hizmet kapsamı
+            - heading "Çocuğunuz için nasıl bir destek sunuyoruz?" [level=2] [ref=e424]
+          - generic [ref=e425]:
+            - generic [ref=e426]:
+              - heading "Ne yapıyoruz?" [level=3] [ref=e427]
+              - list [ref=e428]:
+                - listitem [ref=e429]: Bilişsel Değerlendirme
+                - listitem [ref=e433]: Bilişsel Yeterlilik Analizi
+                - listitem [ref=e437]: Kişiye Özel Gelişim Planı
+                - listitem [ref=e441]: Düzenli Gelişim Takibi
+            - generic [ref=e445]:
+              - heading "Ne yapmıyoruz?" [level=3] [ref=e446]
+              - list [ref=e447]:
+                - listitem [ref=e448]: Tıbbi tanı koymuyoruz
+                - listitem [ref=e453]: İlaç önermiyor veya mevcut tedavinin yerine geçmiyoruz
+          - generic [ref=e458]:
+            - generic [ref=e459]:
+              - paragraph [ref=e460]: Sık sorulanlar
+              - heading "Aklınızdaki temel sorular." [level=3] [ref=e461]
+              - paragraph [ref=e462]: Zihin Check-Up süreciyle ilgili ailelerin en çok merak ettiği konuları kısa ve açık biçimde yanıtladık.
+            - generic [ref=e463]:
+              - article [ref=e464]:
+                - heading [level=4] [ref=e465]:
+                  - button "Zihin Check-Up tıbbi bir test mi?" [expanded] [ref=e466]
+                - paragraph [ref=e470]: Hayır. Tıbbi tanı ya da tedavi amacı taşımaz; çocuğunuzun bilişsel becerilerini anlamaya yardımcı bir değerlendirmedir.
+              - article [ref=e471]:
+                - heading [level=4] [ref=e472]:
+                  - button "Değerlendirme sonunda ne elde ederiz?" [ref=e473]
+              - article [ref=e476]:
+                - heading [level=4] [ref=e477]:
+                  - button "Belirgin bir sorun yoksa başvurabilir miyiz?" [ref=e478]
+              - article [ref=e481]:
+                - heading [level=4] [ref=e482]:
+                  - button "İlk iletişim nasıl ilerler?" [ref=e483]
+        - generic [ref=e493]:
+          - blockquote [ref=e496]:
+            - paragraph [ref=e497]:
+              - generic [ref=e700]:
+                - text: Uzmanın raporu sade bir şekilde açıklaması kafamızdaki birçok soruyu
+                - generic [ref=e701]: yanıtladı
+                - text: .
+          - generic [ref=e502]:
+            - paragraph [ref=e503]: BrainFit Karşıyaka Velisi
+            - 'generic "Google Puanı: 4.6/5" [ref=e504]'
+          - generic [ref=e516]:
+            - paragraph [ref=e521]: Karşıyaka'da yüz yüze merkez
+            - paragraph [ref=e526]: WhatsApp ile hızlı randevu
+            - paragraph [ref=e531]: KVKK kapsamında iletişim
+            - paragraph [ref=e536]: Uzman açıklamalı rapor
+        - generic [ref=e544]:
+          - generic [ref=e545]:
+            - generic [ref=e546]: İletişime geçin
+            - heading "Önce yaşadığınız durumu konuşalım." [level=2] [ref=e547]
+            - paragraph [ref=e548]: WhatsApp'tan yazabilir ya da numaranızı bırakabilirsiniz. Ekibimiz sizi dinler, Zihin Check-Up hakkında bilgi verir ve sorularınızı yanıtlar.
+            - generic [ref=e549]:
+              - link "WhatsApp iletişim bilgisi yayın öncesinde eklenecek" [disabled] [ref=e550] [cursor=pointer]:
+                - /url: "#contact"
+                - text: WhatsApp'tan Yaz
+              - link "Size Ulaşalım" [ref=e553] [cursor=pointer]:
+                - /url: "#callback-form"
+            - generic [ref=e557]:
+              - paragraph [ref=e562]: 1 saatlik değerlendirme
+              - paragraph [ref=e567]: Bilişsel profil
+              - paragraph [ref=e572]: Kişisel egzersiz planı
+          - generic [ref=e573]:
+            - heading "Size Ulaşalım" [level=3] [ref=e574]
+            - paragraph [ref=e575]: İletişim bilgilerinizi bırakın; ekibimiz sorularınızı yanıtlasın.
+            - generic [ref=e576]:
+              - generic [ref=e577]:
+                - text: Adınız Soyadınız
+                - textbox "Adınız Soyadınız" [ref=e578]:
+                  - /placeholder: Adınız soyadınız
+              - generic [ref=e579]:
+                - text: Telefon Numaranız
+                - textbox "Telefon Numaranız" [ref=e580]:
+                  - /placeholder: 05XX XXX XX XX
+              - generic [ref=e581]:
+                - text: Çocuğunuzun Yaşı
+                - textbox "Çocuğunuzun Yaşı" [ref=e582]:
+                  - /placeholder: Örn. 10
+              - generic [ref=e583]:
+                - text: Kısa Notunuz
+                - generic [ref=e584]: (isteğe bağlı)
+                - textbox "Kısa Notunuz (isteğe bağlı)" [ref=e585]:
+                  - /placeholder: Eklemek istediğiniz bir ayrıntı varsa yazabilirsiniz.
+            - button "Size Ulaşalım" [ref=e586]
+            - paragraph [ref=e590]: Aydınlatma ve veri işleme metni yayın öncesinde bu alana eklenecek.
+        - generic [ref=e592]:
+          - generic [ref=e593]:
+            - heading "BrainFit’ten Güncel Yazılar" [level=2] [ref=e594]
+            - link "Tüm Yazıları Gör" [ref=e595] [cursor=pointer]:
+              - /url: /blog
+          - generic [ref=e599]:
+            - paragraph [ref=e600]: Henüz yayınlanmış bir içerik bulunmuyor.
+            - paragraph [ref=e601]: Yayınlanan içerikler burada görünecektir.
+      - contentinfo [ref=e602]:
+        - generic [ref=e603]:
+          - generic [ref=e604]:
+            - generic [ref=e605]:
+              - img "BrainFit" [ref=e606]
+              - heading "Sorunuz varsa önce konuşalım." [level=2] [ref=e607]
+              - paragraph [ref=e608]: Çocuklar ve yetişkinler için Zihin Check-Up süreci hakkında bilgi almak üzere iletişim bölümündeki iki seçenekten birini kullanabilirsiniz.
+            - generic [ref=e609]:
+              - generic [ref=e610]: BrainFit Karşıyaka · İzmir
+              - navigation "Alt bilgi bağlantıları" [ref=e615]:
+                - link "Çocuklar" [ref=e616] [cursor=pointer]:
+                  - /url: /
+                - link "Yetişkinler" [ref=e617] [cursor=pointer]:
+                  - /url: /yetiskinler
+                - link "Zihin Check-Up" [ref=e618] [cursor=pointer]:
+                  - /url: "#checkup"
+                - link "Bilişsel Profil" [ref=e619] [cursor=pointer]:
+                  - /url: "#cognitive-profile"
+          - paragraph [ref=e621]: Tüm Hakları Saklıdır © 2026 BrainFit.
+    - complementary "Hızlı iletişim" [ref=e689]:
+      - generic [ref=e690]:
+        - link "WhatsApp iletişim bilgisi yayın öncesinde eklenecek" [disabled] [ref=e691] [cursor=pointer]:
+          - /url: "#contact"
+          - text: WhatsApp'tan Yaz
+        - link "Size Ulaşalım" [ref=e694] [cursor=pointer]:
+          - /url: "#callback-form"
+  - button "Open Next.js Dev Tools" [ref=e633] [cursor=pointer]
+  - alert [ref=e637]
