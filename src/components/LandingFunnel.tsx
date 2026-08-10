@@ -13,12 +13,12 @@ export function LandingFunnel() {
     <>
       <HelpSection />
       <ConfidenceSection />
+      <TestimonialSection />
       <CheckUpSection />
       <ReportAndMeasurementSection surface="white" />
       <CheckUpShowcaseSection />
       <PostPlanSupportSection />
       <ChildFaqSection />
-      <TestimonialSection />
       <CheckUpFormSection />
     </>
   );
