@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import {
   CalendarClock,
   CircleHelp,
@@ -41,7 +42,7 @@ function AmberStarburst() {
       fill="none"
       aria-hidden="true"
       focusable="false"
-      className="pointer-events-none absolute right-[9%] top-[150px] hidden h-12 w-12 text-[#D49210] lg:block"
+      className="pointer-events-none absolute right-[3%] top-[100px] z-20 hidden h-12 w-12 text-[#D49210] lg:block"
     >
       <path
         d="M24 3v12M24 33v12M3 24h12M33 24h12M9 9l8.5 8.5M30.5 30.5 39 39M39 9l-8.5 8.5M17.5 30.5 9 39"
@@ -69,20 +70,49 @@ export function HelpSection() {
 
       <div className="inner relative z-10">
         <motion.div
-          className="max-w-[960px]"
+          className="grid max-w-none gap-8 md:gap-10 lg:grid-cols-2 lg:items-center lg:gap-4"
           initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           animate={active ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.42, ease: easeOutExpo }}
         >
-          <div className="badge border-[#E86F5B] bg-[#FEF0EC] text-[#C4533C]">
-            SİZE TANIDIK GELİYOR MU?
+          <div className="min-w-0 lg:max-w-[780px]">
+            <div className="badge border-[#E86F5B] bg-[#FEF0EC] text-[#C4533C]">
+              SİZE TANIDIK GELİYOR MU?
+            </div>
+            <h2 className="section-title mt-7 max-w-[900px]">
+              Bunlardan hangileri size tanıdık geliyor?
+            </h2>
+            <p className="body-copy mt-5 max-w-[680px]">
+              Aşağıdaki durumlardan biri ya da birkaçı size tanıdık gelebilir.
+            </p>
           </div>
-          <h2 className="section-title mt-7 max-w-[900px]">
-            Bunlardan hangileri size tanıdık geliyor?
-          </h2>
-          <p className="body-copy mt-5 max-w-[680px]">
-            Aşağıdaki durumlardan biri ya da birkaçı size tanıdık gelebilir.
-          </p>
+
+          <motion.div
+            className="relative w-full max-w-[560px] justify-self-center rounded-[28px] border border-[rgba(36,29,24,0.06)] bg-white p-3 shadow-[0_20px_48px_rgba(36,29,24,0.12)] lg:max-w-none lg:justify-self-end"
+            initial={
+              reduceMotion
+                ? false
+                : { opacity: 0, y: 24, scale: 0.985 }
+            }
+            animate={
+              active ? { opacity: 1, y: 0, scale: 1 } : undefined
+            }
+            transition={{ delay: 0.12, duration: 0.58, ease: easeOutExpo }}
+          >
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[21px] bg-[#F4F1EB] lg:aspect-[2/1]">
+              <Image
+                src="/images/homepage-recognition/student-thinking-editorial.webp"
+                alt="Evde çalışma masasındaki ödevine kısa bir ara verip düşüncelerini toparlayan bir öğrenci ve onu uzaktan gözlemleyen ebeveyn."
+                fill
+                sizes="(max-width: 640px) calc(100vw - 52px), (max-width: 1023px) min(536px, calc(100vw - 52px)), 56vw"
+                quality={75}
+                loading="lazy"
+                decoding="async"
+                className="object-cover"
+                style={{ objectPosition: "57% 30%" }}
+              />
+            </div>
+          </motion.div>
         </motion.div>
 
         <ul
