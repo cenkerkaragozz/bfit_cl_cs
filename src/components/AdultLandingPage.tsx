@@ -128,11 +128,11 @@ export function AdultLandingPage() {
       <TrustBar variant="adults" />
       <AudienceSection />
       <AdultApproachSection />
+      <TestimonialSection audience="adults" />
       <CheckUpSection audience="adults" />
       <ReportAndMeasurementSection surface="white" audience="adults" />
       <CheckUpShowcaseSection audience="adults" />
       <ScopeAndFaqSection />
-      <TestimonialSection audience="adults" />
       <AdultCheckUpFormSection />
     </>
   );

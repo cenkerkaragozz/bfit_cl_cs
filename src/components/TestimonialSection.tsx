@@ -76,12 +76,21 @@ const localProofItems = [
 ] as const;
 
 // Populate src, poster, and title as approved video assets become available.
-const childVideoTestimonials: VideoTestimonial[] = [
-  { src: "", poster: "", title: "" },
-  { src: "", poster: "", title: "" },
-  { src: "", poster: "", title: "" },
-  { src: "", poster: "", title: "" },
-];
+const videoTestimonialGroups: Record<TestimonialAudience, VideoTestimonial[]> =
+  {
+    children: [
+      { src: "", poster: "", title: "" },
+      { src: "", poster: "", title: "" },
+      { src: "", poster: "", title: "" },
+      { src: "", poster: "", title: "" },
+    ],
+    adults: [
+      { src: "", poster: "", title: "" },
+      { src: "", poster: "", title: "" },
+      { src: "", poster: "", title: "" },
+      { src: "", poster: "", title: "" },
+    ],
+  };
 
 export function TestimonialSection({
   audience = "children",
@@ -90,7 +99,9 @@ export function TestimonialSection({
   audience?: TestimonialAudience;
   showLocalProofBars?: boolean;
 }) {
-  return <Testimonials audience={audience} showLocalProofBars={showLocalProofBars} />;
+  return (
+    <Testimonials audience={audience} showLocalProofBars={showLocalProofBars} />
+  );
 }
 
 function Testimonials({
@@ -102,7 +113,6 @@ function Testimonials({
 }) {
   const [active, setActive] = useState(0);
   const [activeVideo, setActiveVideo] = useState(0);
-  const [interacting, setInteracting] = useState(false);
   const [writtenHovered, setWrittenHovered] = useState(false);
   const [writtenFocused, setWrittenFocused] = useState(false);
   const reduceMotion = useReducedMotion();
@@ -113,425 +123,354 @@ function Testimonials({
   const sectionVisible = useInView(sectionRef, { margin: "-60px" });
   const sectionSeen = useInView(sectionRef, { once: true, margin: "-60px" });
   const testimonials = testimonialGroups[audience];
+  const videoTestimonials = videoTestimonialGroups[audience];
   const isAdults = audience === "adults";
-  const participantLabel = audience === "adults" ? "BrainFit Katılımcısı" : "BrainFit Karşıyaka Velisi";
+  const participantLabel =
+    audience === "adults"
+      ? "BrainFit Katılımcısı"
+      : "BrainFit Karşıyaka Velisi";
+  const videoSectionLabel = isAdults
+    ? "Katılımcıların video deneyimleri"
+    : "Video deneyimleri";
+  const writtenSectionLabel = isAdults
+    ? "Yazılı katılımcı deneyimleri"
+    : "Yazılı veli deneyimleri";
 
   useEffect(() => {
     if (reduceMotion) return;
     if (isAdults && !sectionVisible) return;
-    if (isAdults ? interacting : writtenHovered || writtenFocused) return;
+    if (writtenHovered || writtenFocused) return;
 
-    const timer = window.setInterval(() => {
-      setActive((current) => (current + 1) % testimonials.length);
-    }, isAdults ? 6500 : 3125);
+    const timer = window.setInterval(
+      () => {
+        setActive((current) => (current + 1) % testimonials.length);
+      },
+      isAdults ? 6500 : 3125,
+    );
 
     return () => window.clearInterval(timer);
   }, [
     audience,
     reduceMotion,
     sectionVisible,
-    interacting,
     writtenHovered,
     writtenFocused,
     testimonials.length,
   ]);
 
   const testimonial = testimonials[active];
-
-  if (!isAdults) {
-    const selectedVideo = childVideoTestimonials[activeVideo];
-
-    return (
-      <section
-        id="experiences"
-        ref={sectionRef}
-        className="section-surface relative scroll-mt-28 py-[82px] md:py-[116px]"
-      >
-        <span id="about" className="absolute top-0" aria-hidden="true" />
-        <Leaf className="absolute right-[4%] top-[8%] hidden md:block" />
-        <div className="inner">
-          <div className="relative mx-auto max-w-[1180px]">
-            <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-              <div>
-                <h2 className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[rgba(36,29,24,0.68)]">
-                  Video deneyimleri
-                </h2>
-                <div
-                  id="children-video-panel"
-                  role="tabpanel"
-                  aria-labelledby={`children-video-tab-${activeVideo}`}
-                  tabIndex={-1}
-                  className="mt-5 aspect-[16/10] overflow-hidden rounded-[28px] border border-[rgba(36,29,24,0.08)] bg-[#241D18] shadow-[0_22px_52px_rgba(36,29,24,0.16)] focus:outline-none"
-                >
-                  {selectedVideo.src ? (
-                    <video
-                      key={activeVideo}
-                      className="h-full w-full object-cover"
-                      controls
-                      preload="metadata"
-                      playsInline
-                      src={selectedVideo.src}
-                      poster={selectedVideo.poster || undefined}
-                      aria-label={
-                        selectedVideo.title || `Veli deneyimi videosu ${activeVideo + 1}`
-                      }
-                    >
-                      Tarayıcınız video oynatmayı desteklemiyor.
-                    </video>
-                  ) : (
-                    <div className="relative flex h-full flex-col items-center justify-center overflow-hidden px-6 text-center">
-                      <div
-                        className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(252,191,72,0.18),transparent_46%)]"
-                        aria-hidden="true"
-                      />
-                      <span
-                        className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#FCBF48] text-[var(--ink)]"
-                        aria-hidden="true"
-                      >
-                        <VideoIcon size={26} strokeWidth={2.2} />
-                      </span>
-                      <p className="relative mt-5 text-[11px] font-extrabold uppercase tracking-[0.16em] text-white/60">
-                        Video {activeVideo + 1}
-                      </p>
-                      <p className="display relative mt-2 max-w-[14ch] text-[clamp(28px,3.6vw,42px)] leading-[0.98] text-white">
-                        Video referansı
-                      </p>
-                      <p className="relative mt-3 max-w-[28ch] text-[14px] leading-6 text-white/70">
-                        Gerçek video eklendiğinde burada oynatılacak.
-                      </p>
-                    </div>
-                  )}
-                </div>
-
-                <div
-                  className="mt-4 grid grid-cols-4 gap-3"
-                  role="tablist"
-                  aria-label="Video deneyimleri"
-                  aria-orientation="horizontal"
-                >
-                  {childVideoTestimonials.map((video, index) => {
-                    const videoTitle = video.title?.trim();
-
-                    return (
-                      <button
-                        key={index}
-                        type="button"
-                        id={`children-video-tab-${index}`}
-                        role="tab"
-                        aria-selected={index === activeVideo}
-                        aria-controls="children-video-panel"
-                        aria-label={videoTitle || `Video deneyimi ${index + 1}`}
-                        tabIndex={index === activeVideo ? 0 : -1}
-                        ref={(element) => {
-                          videoTabRefs.current[index] = element;
-                        }}
-                        onClick={() => setActiveVideo(index)}
-                        onKeyDown={(event: KeyboardEvent<HTMLButtonElement>) => {
-                          let nextIndex: number | null = null;
-
-                          if (event.key === "ArrowRight") {
-                            nextIndex = (index + 1) % childVideoTestimonials.length;
-                          } else if (event.key === "ArrowLeft") {
-                            nextIndex =
-                              (index - 1 + childVideoTestimonials.length) %
-                              childVideoTestimonials.length;
-                          } else if (event.key === "Home") {
-                            nextIndex = 0;
-                          } else if (event.key === "End") {
-                            nextIndex = childVideoTestimonials.length - 1;
-                          }
-
-                          if (nextIndex === null) return;
-
-                          event.preventDefault();
-                          setActiveVideo(nextIndex);
-                          videoTabRefs.current[nextIndex]?.focus();
-                        }}
-                        className={`flex min-h-12 min-w-0 items-center justify-center rounded-full border px-3 transition-[background-color,border-color,box-shadow,transform] duration-200 motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--coral)] active:translate-y-px ${
-                          index === activeVideo
-                            ? "border-[#241D18] bg-[#FCBF48] text-[var(--ink)] shadow-[0_10px_22px_rgba(252,191,72,0.22)]"
-                            : "border-[rgba(36,29,24,0.1)] bg-white text-[var(--ink)] hover:border-[rgba(36,29,24,0.24)]"
-                        }`}
-                      >
-                        {videoTitle ? (
-                          <span className="display max-w-full break-words text-center text-[clamp(11px,1.35vw,15px)] leading-[1.1]">
-                            {videoTitle}
-                          </span>
-                        ) : (
-                          <span className="display text-[24px] leading-none" aria-hidden="true">
-                            {index + 1}
-                          </span>
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div
-                role="region"
-                aria-labelledby="written-testimonials-title"
-                tabIndex={0}
-                onMouseEnter={() => setWrittenHovered(true)}
-                onMouseLeave={() => setWrittenHovered(false)}
-                onFocus={() => setWrittenFocused(true)}
-                onBlur={(event) => {
-                  if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-                    setWrittenFocused(false);
-                  }
-                }}
-                className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-[var(--coral)]"
-              >
-                <h2
-                  id="written-testimonials-title"
-                  className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[rgba(36,29,24,0.68)]"
-                >
-                  Yazılı veli deneyimleri
-                </h2>
-                <QuoteIcon className="mb-8 mt-6" />
-                <blockquote>
-                  <p className="display max-w-[560px] text-[clamp(36px,4.2vw,48px)] leading-[0.98]">
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key={`${audience}-${testimonial.highlight}`}
-                        className="inline-block"
-                        initial={
-                          reduceMotion
-                            ? undefined
-                            : { y: 16, rotate: -2 }
-                        }
-                        animate={
-                          reduceMotion
-                            ? undefined
-                            : { y: 0, rotate: 0 }
-                        }
-                        exit={
-                          reduceMotion
-                            ? undefined
-                            : { y: -12, rotate: 2 }
-                        }
-                        transition={{ duration: 0.38 }}
-                      >
-                        {testimonial.lead}
-                        <span className="inline-block rounded-full bg-[#FCBF48] px-5 pb-2 text-[var(--ink)]">
-                          {testimonial.highlight}
-                        </span>
-                        {testimonial.tail}
-                      </motion.span>
-                    </AnimatePresence>
-                  </p>
-                </blockquote>
-
-                <div className="mt-10 flex items-center gap-5">
-                  <Image
-                    src="/images/avatar-mira.svg"
-                    alt=""
-                    aria-hidden="true"
-                    width={58}
-                    height={58}
-                    className="rounded-full"
-                  />
-                  <div>
-                    <p className="font-extrabold">{participantLabel}</p>
-                    <div
-                      className="mt-1 flex items-center gap-1 text-[#FCBF48]"
-                      aria-label="Google Puanı: 4.6/5"
-                    >
-                      {Array.from({ length: 5 }).map((_, index) => (
-                        <Star
-                          key={index}
-                          size={16}
-                          fill="currentColor"
-                          strokeWidth={2.2}
-                          aria-hidden="true"
-                        />
-                      ))}
-                      <span className="ml-2 text-[14px] font-extrabold text-[rgba(36,29,24,0.68)]">
-                        Google Puanı: 4.6/5
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8 flex gap-3" aria-hidden="true">
-                  {testimonials.map((item, index) => (
-                    <span
-                      key={item.highlight}
-                      className={`h-[5px] rounded-full transition-[width,background-color] duration-300 motion-reduce:transition-none ${
-                        index === active
-                          ? "w-10 bg-[#F5927E]"
-                          : "w-5 bg-[rgba(36,29,24,0.18)]"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="mx-auto max-w-[980px]">
-              {showLocalProofBars ? (
-                <div className="mt-10 grid gap-3 sm:grid-cols-2">
-                  {localProofItems.map((item, index) => (
-                    <motion.div
-                      key={item}
-                      className="flex items-center gap-3 rounded-[18px] bg-white p-4"
-                      initial={
-                        reduceMotion || !isAdults
-                          ? false
-                          : { opacity: 0, y: 12 }
-                      }
-                      animate={
-                        isAdults && sectionSeen
-                          ? { opacity: 1, y: 0 }
-                          : undefined
-                      }
-                      transition={{
-                        delay: 0.1 + index * 0.08,
-                        duration: 0.4,
-                        ease: easeOutExpo,
-                      }}
-                    >
-                      <ShieldCheck size={19} className="shrink-0 text-[#6BC862]" />
-                      <p className="text-[14px] font-extrabold text-[#241D18]">{item}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
+  const selectedVideo = videoTestimonials[activeVideo];
 
   return (
     <section
       id="experiences"
       ref={sectionRef}
-      onMouseEnter={isAdults ? () => setInteracting(true) : undefined}
-      onMouseLeave={isAdults ? () => setInteracting(false) : undefined}
-      onFocusCapture={isAdults ? () => setInteracting(true) : undefined}
-      onBlurCapture={isAdults ? () => setInteracting(false) : undefined}
       className="section-surface relative scroll-mt-28 py-[82px] md:py-[116px]"
     >
       <span id="about" className="absolute top-0" aria-hidden="true" />
       <Leaf className="absolute right-[4%] top-[8%] hidden md:block" />
       <div className="inner">
-        <div className="relative mx-auto max-w-[980px]">
-          <QuoteIcon className="mb-8" />
-          <blockquote>
-            <p className="display max-w-[880px] text-[clamp(36px,4.6vw,54px)] leading-[1.02]">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={`${audience}-${testimonial.highlight}`}
-                  className="inline-block"
-                  initial={
-                    reduceMotion
-                      ? undefined
-                      : isAdults
-                        ? { y: 26, opacity: 0, clipPath: "inset(0 0 100% 0)" }
-                        : { y: 16, rotate: -2 }
-                  }
-                  animate={
-                    reduceMotion
-                      ? undefined
-                      : isAdults
-                        ? { y: 0, opacity: 1, clipPath: "inset(0 0 0% 0)" }
-                        : { y: 0, rotate: 0 }
-                  }
-                  exit={
-                    reduceMotion
-                      ? undefined
-                      : isAdults
-                        ? { y: -18, opacity: 0, clipPath: "inset(0 0 100% 0)" }
-                        : { y: -12, rotate: 2 }
-                  }
-                  transition={{
-                    duration: isAdults ? 0.45 : 0.38,
-                    ease: isAdults ? easeOutExpo : undefined,
-                  }}
-                >
-                  {testimonial.lead}
-                  {isAdults ? (
-                    <motion.span
-                      className="inline-block rounded-full bg-[#FCBF48] px-5 pb-2 text-[var(--ink)]"
-                      initial={reduceMotion ? undefined : { clipPath: "inset(0 100% 0 0)" }}
-                      animate={reduceMotion ? undefined : { clipPath: "inset(0 0% 0 0)" }}
-                      transition={{ delay: 0.18, duration: 0.4, ease: easeOutExpo }}
-                    >
-                      {testimonial.highlight}
-                    </motion.span>
-                  ) : (
-                    <span className="inline-block rounded-full bg-[#FCBF48] px-5 pb-2 text-[var(--ink)]">
-                      {testimonial.highlight}
-                    </span>
-                  )}
-                  {testimonial.tail}
-                </motion.span>
-              </AnimatePresence>
-            </p>
-          </blockquote>
-
-          <div className="mt-10 flex items-center gap-5">
-            <Image
-              src="/images/avatar-mira.svg"
-              alt=""
-              aria-hidden="true"
-              width={58}
-              height={58}
-              className="rounded-full"
-            />
+        <div className="relative mx-auto max-w-[1180px]">
+          <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <div>
-              <p className="font-extrabold">{participantLabel}</p>
-              <div className="mt-1 flex items-center gap-1 text-[#FCBF48]" aria-label="Google Puanı: 4.6/5">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star key={index} size={16} fill="currentColor" strokeWidth={2.2} aria-hidden="true" />
+              <h2 className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[rgba(36,29,24,0.68)]">
+                {videoSectionLabel}
+              </h2>
+              <div
+                id={`${audience}-video-panel`}
+                role="tabpanel"
+                aria-labelledby={`${audience}-video-tab-${activeVideo}`}
+                tabIndex={-1}
+                className="mt-5 aspect-[16/10] overflow-hidden rounded-[28px] border border-[rgba(36,29,24,0.08)] bg-[#241D18] shadow-[0_22px_52px_rgba(36,29,24,0.16)] focus:outline-none"
+              >
+                {selectedVideo.src ? (
+                  <video
+                    key={activeVideo}
+                    className="h-full w-full object-cover"
+                    controls
+                    preload="metadata"
+                    playsInline
+                    src={selectedVideo.src}
+                    poster={selectedVideo.poster || undefined}
+                    aria-label={
+                      selectedVideo.title ||
+                      `${isAdults ? "Katılımcı" : "Veli"} deneyimi videosu ${activeVideo + 1}`
+                    }
+                  >
+                    Tarayıcınız video oynatmayı desteklemiyor.
+                  </video>
+                ) : (
+                  <div className="relative flex h-full flex-col items-center justify-center overflow-hidden px-6 text-center">
+                    <div
+                      className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(252,191,72,0.18),transparent_46%)]"
+                      aria-hidden="true"
+                    />
+                    <span
+                      className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#FCBF48] text-[var(--ink)]"
+                      aria-hidden="true"
+                    >
+                      <VideoIcon size={26} strokeWidth={2.2} />
+                    </span>
+                    <p className="relative mt-5 text-[11px] font-extrabold uppercase tracking-[0.16em] text-white/60">
+                      Video {activeVideo + 1}
+                    </p>
+                    <p className="display relative mt-2 max-w-[14ch] text-[clamp(28px,3.6vw,42px)] leading-[0.98] text-white">
+                      {isAdults ? "Katılımcı deneyimi" : "Video referansı"}
+                    </p>
+                    <p className="relative mt-3 max-w-[28ch] text-[14px] leading-6 text-white/70">
+                      {isAdults
+                        ? "Gerçek katılımcı videosu eklendiğinde burada oynatılacak."
+                        : "Gerçek video eklendiğinde burada oynatılacak."}
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              <div
+                className="mt-4 grid grid-cols-4 gap-3"
+                role="tablist"
+                aria-label={videoSectionLabel}
+                aria-orientation="horizontal"
+              >
+                {videoTestimonials.map((video, index) => {
+                  const videoTitle = video.title?.trim();
+
+                  return (
+                    <button
+                      key={index}
+                      type="button"
+                      id={`${audience}-video-tab-${index}`}
+                      role="tab"
+                      aria-selected={index === activeVideo}
+                      aria-controls={`${audience}-video-panel`}
+                      aria-label={
+                        videoTitle ||
+                        `${isAdults ? "Katılımcı" : "Video"} deneyimi ${index + 1}`
+                      }
+                      tabIndex={index === activeVideo ? 0 : -1}
+                      ref={(element) => {
+                        videoTabRefs.current[index] = element;
+                      }}
+                      onClick={() => setActiveVideo(index)}
+                      onKeyDown={(event: KeyboardEvent<HTMLButtonElement>) => {
+                        let nextIndex: number | null = null;
+
+                        if (event.key === "ArrowRight") {
+                          nextIndex = (index + 1) % videoTestimonials.length;
+                        } else if (event.key === "ArrowLeft") {
+                          nextIndex =
+                            (index - 1 + videoTestimonials.length) %
+                            videoTestimonials.length;
+                        } else if (event.key === "Home") {
+                          nextIndex = 0;
+                        } else if (event.key === "End") {
+                          nextIndex = videoTestimonials.length - 1;
+                        }
+
+                        if (nextIndex === null) return;
+
+                        event.preventDefault();
+                        setActiveVideo(nextIndex);
+                        videoTabRefs.current[nextIndex]?.focus();
+                      }}
+                      className={`flex min-h-12 min-w-0 items-center justify-center rounded-full border px-3 transition-[background-color,border-color,box-shadow,transform] duration-200 motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--coral)] active:translate-y-px ${
+                        index === activeVideo
+                          ? "border-[#241D18] bg-[#FCBF48] text-[var(--ink)] shadow-[0_10px_22px_rgba(252,191,72,0.22)]"
+                          : "border-[rgba(36,29,24,0.1)] bg-white text-[var(--ink)] hover:border-[rgba(36,29,24,0.24)]"
+                      }`}
+                    >
+                      {videoTitle ? (
+                        <span className="display max-w-full break-words text-center text-[clamp(11px,1.35vw,15px)] leading-[1.1]">
+                          {videoTitle}
+                        </span>
+                      ) : (
+                        <span
+                          className="display text-[24px] leading-none"
+                          aria-hidden="true"
+                        >
+                          {index + 1}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div
+              role="region"
+              aria-labelledby={`${audience}-written-testimonials-title`}
+              tabIndex={0}
+              onMouseEnter={() => setWrittenHovered(true)}
+              onMouseLeave={() => setWrittenHovered(false)}
+              onFocus={() => setWrittenFocused(true)}
+              onBlur={(event) => {
+                if (
+                  !event.currentTarget.contains(
+                    event.relatedTarget as Node | null,
+                  )
+                ) {
+                  setWrittenFocused(false);
+                }
+              }}
+              className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-[var(--coral)]"
+            >
+              <h2
+                id={`${audience}-written-testimonials-title`}
+                className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[rgba(36,29,24,0.68)]"
+              >
+                {writtenSectionLabel}
+              </h2>
+              <QuoteIcon className="mb-8 mt-6" />
+              <blockquote>
+                <p className="display max-w-[560px] text-[clamp(36px,4.2vw,48px)] leading-[0.98]">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={`${audience}-${testimonial.highlight}`}
+                      className="inline-block"
+                      initial={
+                        reduceMotion
+                          ? undefined
+                          : isAdults
+                            ? {
+                                y: 26,
+                                opacity: 0,
+                                clipPath: "inset(0 0 100% 0)",
+                              }
+                            : { y: 16, rotate: -2 }
+                      }
+                      animate={
+                        reduceMotion
+                          ? undefined
+                          : isAdults
+                            ? { y: 0, opacity: 1, clipPath: "inset(0 0 0% 0)" }
+                            : { y: 0, rotate: 0 }
+                      }
+                      exit={
+                        reduceMotion
+                          ? undefined
+                          : isAdults
+                            ? {
+                                y: -18,
+                                opacity: 0,
+                                clipPath: "inset(0 0 100% 0)",
+                              }
+                            : { y: -12, rotate: 2 }
+                      }
+                      transition={{
+                        duration: isAdults ? 0.45 : 0.38,
+                        ease: isAdults ? easeOutExpo : undefined,
+                      }}
+                    >
+                      {testimonial.lead}
+                      {isAdults ? (
+                        <motion.span
+                          className="inline-block rounded-full bg-[#FCBF48] px-5 pb-2 text-[var(--ink)]"
+                          initial={
+                            reduceMotion
+                              ? undefined
+                              : { clipPath: "inset(0 100% 0 0)" }
+                          }
+                          animate={
+                            reduceMotion
+                              ? undefined
+                              : { clipPath: "inset(0 0% 0 0)" }
+                          }
+                          transition={{
+                            delay: 0.18,
+                            duration: 0.4,
+                            ease: easeOutExpo,
+                          }}
+                        >
+                          {testimonial.highlight}
+                        </motion.span>
+                      ) : (
+                        <span className="inline-block rounded-full bg-[#FCBF48] px-5 pb-2 text-[var(--ink)]">
+                          {testimonial.highlight}
+                        </span>
+                      )}
+                      {testimonial.tail}
+                    </motion.span>
+                  </AnimatePresence>
+                </p>
+              </blockquote>
+
+              <div className="mt-10 flex items-center gap-5">
+                <Image
+                  src="/images/avatar-mira.svg"
+                  alt=""
+                  aria-hidden="true"
+                  width={58}
+                  height={58}
+                  className="rounded-full"
+                />
+                <div>
+                  <p className="font-extrabold">{participantLabel}</p>
+                  <div
+                    className="mt-1 flex items-center gap-1 text-[#FCBF48]"
+                    aria-label="Google Puanı: 4.6/5"
+                  >
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <Star
+                        key={index}
+                        size={16}
+                        fill="currentColor"
+                        strokeWidth={2.2}
+                        aria-hidden="true"
+                      />
+                    ))}
+                    <span className="ml-2 text-[14px] font-extrabold text-[rgba(36,29,24,0.68)]">
+                      Google Puanı: 4.6/5
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 flex gap-3" aria-hidden="true">
+                {testimonials.map((item, index) => (
+                  <span
+                    key={item.highlight}
+                    className={`h-[5px] rounded-full transition-[width,background-color] duration-300 motion-reduce:transition-none ${
+                      index === active
+                        ? "w-10 bg-[#F5927E]"
+                        : "w-5 bg-[rgba(36,29,24,0.18)]"
+                    }`}
+                  />
                 ))}
-                <span className="ml-2 text-[14px] font-extrabold text-[rgba(36,29,24,0.68)]">
-                  Google Puanı: 4.6/5
-                </span>
               </div>
             </div>
           </div>
 
-          {showLocalProofBars ? (
-            <div className="mt-10 grid gap-3 sm:grid-cols-2">
-              {localProofItems.map((item, index) => (
-                <motion.div
-                  key={item}
-                  className="flex items-center gap-3 rounded-[18px] bg-white p-4"
-                  initial={
-                    reduceMotion || !isAdults
-                      ? false
-                      : { opacity: 0, y: 12 }
-                  }
-                  animate={
-                    isAdults && sectionSeen
-                      ? { opacity: 1, y: 0 }
-                      : undefined
-                  }
-                  transition={{
-                    delay: 0.1 + index * 0.08,
-                    duration: 0.4,
-                    ease: easeOutExpo,
-                  }}
-                >
-                  <ShieldCheck size={19} className="shrink-0 text-[#6BC862]" />
-                  <p className="text-[14px] font-extrabold text-[#241D18]">{item}</p>
-                </motion.div>
-              ))}
-            </div>
-          ) : null}
-
-          <div className="mt-12 flex gap-3" aria-hidden="true">
-            {testimonials.map((item, index) => (
-              <span
-                key={item.highlight}
-                className={`h-[5px] rounded-full transition-[width,background-color] duration-300 ${
-                  index === active ? "w-10 bg-[#F5927E]" : "w-5 bg-[rgba(36,29,24,0.18)]"
-                }`}
-              />
-            ))}
+          <div className="mx-auto max-w-[980px]">
+            {showLocalProofBars ? (
+              <div className="mt-10 grid gap-3 sm:grid-cols-2">
+                {localProofItems.map((item, index) => (
+                  <motion.div
+                    key={item}
+                    className="flex items-center gap-3 rounded-[18px] bg-white p-4"
+                    initial={
+                      reduceMotion || !isAdults ? false : { opacity: 0, y: 12 }
+                    }
+                    animate={
+                      isAdults && sectionSeen ? { opacity: 1, y: 0 } : undefined
+                    }
+                    transition={{
+                      delay: 0.1 + index * 0.08,
+                      duration: 0.4,
+                      ease: easeOutExpo,
+                    }}
+                  >
+                    <ShieldCheck
+                      size={19}
+                      className="shrink-0 text-[#6BC862]"
+                    />
+                    <p className="text-[14px] font-extrabold text-[#241D18]">
+                      {item}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
