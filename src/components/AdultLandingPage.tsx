@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useRef, useState, type ReactNode } from "react";
+import Image from "next/image";
 import {
   AnimatePresence,
   motion,
@@ -41,6 +42,10 @@ const audienceCards = [
   {
     id: "fatigue",
     title: "Zihinsel yorgunluk",
+    image: "/images/yetiskinler-recognition/mental-fatigue-editorial.webp",
+    imageAlt:
+      "Gün ortasında çalışma masasındaki işlerine kısa bir ara vererek düşüncelerini toparlayan bir yetişkin.",
+    imagePosition: "50% 44%",
     icon: BatteryMedium,
     noteIcon: Lightbulb,
     iconSurface: "bg-[#EAF8FC]",
@@ -59,6 +64,11 @@ const audienceCards = [
   {
     id: "planning",
     title: "Günlük planlama",
+    image:
+      "/images/yetiskinler-recognition/daily-planning-editorial-landscape.webp",
+    imageAlt:
+      "Günlük hazırlık sırasında notuna ve anahtarlarına bakarak işlerini sıraya koyan bir yetişkin.",
+    imagePosition: "50% 50%",
     icon: CalendarDays,
     noteIcon: Puzzle,
     iconSurface: "bg-[#EDF8EF]",
@@ -77,6 +87,10 @@ const audienceCards = [
   {
     id: "active-mind",
     title: "Zihnimi aktif tutmak istiyorum",
+    image: "/images/yetiskinler-recognition/active-mind-editorial.webp",
+    imageAlt:
+      "Okuma, yemek hazırlama, müzik ve yapboz gibi zihni aktif tutan günlük uğraşları gösteren editoryal illüstrasyon.",
+    imagePosition: "50% 50%",
     icon: Brain,
     noteIcon: Star,
     iconSurface: "bg-[#FFF6E5]",
@@ -302,6 +316,22 @@ function AudienceSection() {
                     : undefined
                 }
               >
+                <figure className="mb-6">
+                  <div className="relative aspect-[5/4] overflow-hidden rounded-[22px] bg-[#F4F1EB] lg:aspect-[3/2]">
+                    <Image
+                      src={card.image}
+                      alt={card.imageAlt}
+                      fill
+                      sizes="(max-width: 640px) calc(100vw - 76px), (max-width: 1023px) calc(100vw - 84px), (max-width: 1279px) 28vw, 360px"
+                      quality={75}
+                      loading="lazy"
+                      decoding="async"
+                      className="object-cover"
+                      style={{ objectPosition: card.imagePosition }}
+                    />
+                  </div>
+                </figure>
+
                 <span
                   className={`grid h-14 w-14 shrink-0 place-items-center rounded-full ${card.iconSurface} ${card.iconColor}`}
                   aria-hidden="true"
