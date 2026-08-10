@@ -51,8 +51,8 @@ const visualDoodles = [
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
-  // The yellow underline starts drawing only after the second headline line
-  // ("nedenini") has revealed; under reduced motion it stays static and visible.
+  // The yellow underline starts drawing as the "nedenini" line reveals; under
+  // reduced motion it stays static and visible.
   const [underlineActive, setUnderlineActive] = useState(false);
   useEffect(() => {
     if (reduceMotion) return;
@@ -82,65 +82,79 @@ export function Hero() {
           </motion.div>
 
           <h1 className="hero-title hero-title-home mt-5 max-w-[20ch] text-[#160A08]">
-            <span className="block">
-              <motion.span
-                className="block"
-                initial={
-                  reduceMotion
-                    ? false
-                    : { clipPath: "inset(0% 0% 100% 0%)" }
-                }
-                animate={
-                  reduceMotion
-                    ? undefined
-                    : { clipPath: "inset(-20% 0% -20% 0%)" }
-                }
-                transition={{ delay: 0.25, duration: 0.45, ease: easeOutExpo }}
-              >
-                Çocuğunuzun
-              </motion.span>
-            </span>
-            <span className="relative inline-block">
-              <motion.span
-                className="block"
-                initial={
-                  reduceMotion
-                    ? false
-                    : { clipPath: "inset(0% 0% 100% 0%)" }
-                }
-                animate={
-                  reduceMotion
-                    ? undefined
-                    : { clipPath: "inset(-20% 0% -20% 0%)" }
-                }
-                transition={{ delay: 0.45, duration: 0.45, ease: easeOutExpo }}
-              >
-                yaşadığı zorluğun nedenini
-              </motion.span>
-              <HeroUnderline
-                animate={!reduceMotion}
-                active={underlineActive}
-                className="absolute -bottom-5 left-[-6px] h-7 w-[min(100%,330px)] text-[#FCBF48] sm:-bottom-6 sm:w-[360px]"
-              />
-            </span>
-            <span className="mt-1 block">
-              <motion.span
-                className="block"
-                initial={
-                  reduceMotion
-                    ? false
-                    : { clipPath: "inset(0% 0% 100% 0%)" }
-                }
-                animate={
-                  reduceMotion
-                    ? undefined
-                    : { clipPath: "inset(-20% 0% -20% 0%)" }
-                }
-                transition={{ delay: 0.65, duration: 0.45, ease: easeOutExpo }}
-              >
-                birlikte keşfedelim.
-              </motion.span>
-            </span>
+            <motion.span
+              className="block"
+              initial={
+                reduceMotion
+                  ? false
+                  : { clipPath: "inset(0% 0% 100% 0%)" }
+              }
+              animate={
+                reduceMotion
+                  ? undefined
+                  : { clipPath: "inset(-20% 0% -20% 0%)" }
+              }
+              transition={{ delay: 0.25, duration: 0.45, ease: easeOutExpo }}
+            >
+              Çocuğunuzun
+            </motion.span>
+            <motion.span
+              className="block"
+              initial={
+                reduceMotion
+                  ? false
+                  : { clipPath: "inset(0% 0% 100% 0%)" }
+              }
+              animate={
+                reduceMotion
+                  ? undefined
+                  : { clipPath: "inset(-20% 0% -20% 0%)" }
+              }
+              transition={{ delay: 0.45, duration: 0.45, ease: easeOutExpo }}
+            >
+              yaşadığı zorluğun
+            </motion.span>
+            <motion.span
+              className="block"
+              initial={
+                reduceMotion
+                  ? false
+                  : { clipPath: "inset(0% 0% 100% 0%)" }
+              }
+              animate={
+                reduceMotion
+                  ? undefined
+                  : { clipPath: "inset(-20% 0% -20% 0%)" }
+              }
+              transition={{ delay: 0.65, duration: 0.45, ease: easeOutExpo }}
+            >
+              <span className="relative inline-block pb-3">
+                nedenini
+                <HeroUnderline
+                  animate={!reduceMotion}
+                  active={underlineActive}
+                  className="absolute inset-x-0 bottom-0 h-auto w-full text-[#FCBF48]"
+                />
+              </span>
+              <span className="hidden xl:inline">{" "}birlikte</span>
+            </motion.span>
+            <motion.span
+              className="mt-1 block"
+              initial={
+                reduceMotion
+                  ? false
+                  : { clipPath: "inset(0% 0% 100% 0%)" }
+              }
+              animate={
+                reduceMotion
+                  ? undefined
+                  : { clipPath: "inset(-20% 0% -20% 0%)" }
+              }
+              transition={{ delay: 0.85, duration: 0.45, ease: easeOutExpo }}
+            >
+              <span className="xl:hidden">birlikte{" "}</span>
+              keşfedelim.
+            </motion.span>
           </h1>
 
           <motion.div
