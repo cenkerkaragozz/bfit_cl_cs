@@ -60,6 +60,46 @@ final result: passed
 
 ---
 
+# Design QA — Founder video audience move
+
+## Scope and source truth
+
+- Supplied thumbnail: `/var/folders/mr/06sd3f393j967lhn7_h2r9840000gn/T/codex-clipboard-1a0e77f2-0933-4374-8222-87eea510177a.png` (`454 × 532` px).
+- Implemented selector thumbnail: `public/videos/testimonials/children/thumb-founder-adult-v1.webp` (`144 × 256` px, `4.6 KB`).
+- Source/output crop comparison: `artifacts/design-qa/founder-video-move/thumbnail-comparison.png` (`320 × 292` px).
+- Desktop browser evidence: `artifacts/design-qa/founder-video-move/adult-desktop.png` (`1536 × 1024` px).
+- Mobile browser evidence: `artifacts/design-qa/founder-video-move/adult-mobile.png` (`390 × 844` px).
+
+## Full-view and focused comparison evidence
+
+The supplied image and encoded WebP were normalized to the selector's 9:16 crop and opened side by side. The implemented asset preserves the subject's face, folded-arm pose, blue sweater, colorful background, and orange lower graphic without stretching. The desktop and mobile browser captures confirm that this image appears only in the first adult selector position; the large player continues to use the existing video poster as requested.
+
+## Required fidelity surfaces
+
+- Image quality: The supplied PNG was aspect-filled, center-cropped to `144 × 256`, and encoded as WebP quality `82`. No generated or substitute person was introduced.
+- Layout and spacing: Existing player, selector sizes, gaps, radii, section order, and written testimonial layout are unchanged.
+- Typography and colors: No page text, font, color token, rating, quote, or proof-bar styling changed.
+- Content order: The children group now contains four videos. `BrainFit nedir?` is the first real video in the adult group, followed by the existing seven placeholders.
+
+## Responsive, interaction, and performance verification
+
+- Desktop adult route: eight selector tabs; first label `BrainFit nedir?`; supplied thumbnail path active.
+- Mobile adult route at `390 × 844`: eight tabs, first video selected, panel `356 × 633px`, and `0px` horizontal page overflow.
+- Mobile children route: four tabs, no founder entry, and `0px` horizontal page overflow.
+- Initial render on both routes: `0` video elements and `0` MP4 URLs in the DOM, preserving click-to-load behavior.
+- Adult play interaction: one video mounted and played successfully (`paused=false`, `readyState=4`, advancing `currentTime`).
+- Browser console remained free of errors and warnings during route, selection, and playback checks.
+- Build and lint were not run, following the repository instruction. `git diff --check` passed.
+
+## Findings
+
+- No actionable P0/P1/P2 findings remain.
+- No layout iteration was needed because the existing responsive player accepted the moved entry without overflow or alignment regressions.
+
+final result: passed
+
+---
+
 # Design QA — Custom testimonial thumbnails and section order
 
 ## Comparison target

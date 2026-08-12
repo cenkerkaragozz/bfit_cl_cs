@@ -109,15 +109,14 @@ const videoTestimonialGroups: Record<TestimonialAudience, VideoTestimonial[]> =
         poster: "/videos/testimonials/children/poster-sumru-v1.webp",
         thumbnail: "/videos/testimonials/children/thumb-custom-4-v1.webp",
       },
+    ],
+    adults: [
       {
         title: "BrainFit nedir?",
         src: "/videos/testimonials/children/founder-explains-v1.mp4",
         poster: "/videos/testimonials/children/poster-founder-explains-v1.webp",
-        thumbnail: "/videos/testimonials/children/thumb-founder-explains-v1.webp",
+        thumbnail: "/videos/testimonials/children/thumb-founder-adult-v1.webp",
       },
-    ],
-    adults: [
-      { src: "", poster: "", title: "" },
       { src: "", poster: "", title: "" },
       { src: "", poster: "", title: "" },
       { src: "", poster: "", title: "" },
@@ -235,15 +234,17 @@ function Testimonials({
         <div className="relative mx-auto max-w-[1180px]">
           <div className="grid gap-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
             <div className="min-w-0">
-              <h2 className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[rgba(36,29,24,0.68)] lg:mx-auto lg:max-w-[400px] lg:text-center">
-                {videoSectionLabel}
-              </h2>
+              {!isAdults ? (
+                <h2 className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[rgba(36,29,24,0.68)] lg:mx-auto lg:max-w-[400px] lg:text-center">
+                  {videoSectionLabel}
+                </h2>
+              ) : null}
               <div
                 id={`${audience}-video-panel`}
                 role="tabpanel"
                 aria-labelledby={`${audience}-video-tab-${activeVideo}`}
                 tabIndex={-1}
-                className="mx-auto mt-5 h-auto max-h-[75svh] max-w-full overflow-hidden rounded-[28px] border border-[rgba(36,29,24,0.08)] bg-[#241D18] shadow-[0_22px_52px_rgba(36,29,24,0.16)] focus:outline-none"
+                className={`${isAdults ? "" : "mt-5"} mx-auto h-auto max-h-[75svh] max-w-full overflow-hidden rounded-[28px] border border-[rgba(36,29,24,0.08)] bg-[#241D18] shadow-[0_22px_52px_rgba(36,29,24,0.16)] focus:outline-none`}
                 style={{
                   width: "min(100%, 400px, calc(75svh * 0.5625))",
                   aspectRatio: "9 / 16",
