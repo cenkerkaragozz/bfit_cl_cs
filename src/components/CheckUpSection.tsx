@@ -94,7 +94,7 @@ export function CheckUpSection({
     >
       <div className="inner relative z-10">
         <div className="max-w-[900px]">
-          <div className="badge !border-[#E86F5B] !bg-[#E86F5B] !text-[#160A08]">
+          <div className="badge border-[#E86F5B] bg-[#FEF0EC] text-[#C4533C]">
             ADIM ADIM
           </div>
           <h2 id="checkup-process-title" className="section-title mt-7 max-w-[720px]">

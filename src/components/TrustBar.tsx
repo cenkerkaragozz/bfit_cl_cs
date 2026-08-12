@@ -18,7 +18,7 @@ type TrustItem = {
 // NOT: "48.000+" sayfada hâlihazırda kullanılan marka geneli rakamdır.
 // Karşıyaka'ya özgü doğrulanmış bir sayı varsa value'yu güncellemek yeterli.
 const items: TrustItem[] = [
-  { value: "4.6/5", label: "Google puanı", icon: Star, accent: "#D49210" },
+  { value: "4.8/5", label: "Google puanı", icon: Star, accent: "#D49210" },
   { value: "48.000+", label: "BrainFit ailesi", icon: Users, accent: "#1E99B5" },
   { value: "%93", label: "Memnuniyet oranı", icon: TrendingUp, accent: "#3F9B5E" },
   { value: "Karşıyaka", label: "Yüz yüze merkez", icon: ShieldCheck, accent: "#C4533C" },

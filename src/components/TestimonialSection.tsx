@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { ShieldCheck, Star, Video as VideoIcon } from "lucide-react";
 import {
   AnimatePresence,
@@ -396,19 +395,11 @@ function Testimonials({
               </blockquote>
 
               <div className="mt-10 flex items-center gap-5">
-                <Image
-                  src="/images/avatar-mira.svg"
-                  alt=""
-                  aria-hidden="true"
-                  width={58}
-                  height={58}
-                  className="rounded-full"
-                />
                 <div>
                   <p className="font-extrabold">{participantLabel}</p>
                   <div
                     className="mt-1 flex items-center gap-1 text-[#FCBF48]"
-                    aria-label="Google Puanı: 4.6/5"
+                    aria-label="Google Puanı: 4.8/5"
                   >
                     {Array.from({ length: 5 }).map((_, index) => (
                       <Star
@@ -420,7 +411,7 @@ function Testimonials({
                       />
                     ))}
                     <span className="ml-2 text-[14px] font-extrabold text-[rgba(36,29,24,0.68)]">
-                      Google Puanı: 4.6/5
+                      Google Puanı: 4.8/5
                     </span>
                   </div>
                 </div>

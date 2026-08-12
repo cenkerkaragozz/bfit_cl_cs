@@ -32,7 +32,7 @@ export function ConfidenceSection() {
             animate={active ? { opacity: 1, x: 0 } : undefined}
             transition={{ duration: 0.5, ease: easeOutExpo }}
           >
-            <div className="inline-flex min-h-8 items-center rounded-full bg-[#E86F5B] px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.12em] text-white">
+            <div className="badge border-[#E86F5B] bg-[#FEF0EC] text-[#C4533C]">
               Birlikte anlayalım
             </div>
 
@@ -104,7 +104,7 @@ export function ConfidenceSection() {
             >
               <a
                 href="#checkup-form"
-                className="pill-button arrow-shift w-full !min-h-13 !bg-[#E86F5B] !px-7 !text-[15px] !text-white !shadow-[0_14px_28px_rgba(232,111,91,0.24)] hover:!bg-[#F5927E] sm:w-auto sm:!px-8 lg:w-full"
+                className="pill-button arrow-shift w-full !min-h-13 !bg-[#E86F5B] !px-7 !text-[15px] !text-[#160A08] !shadow-[0_14px_28px_rgba(232,111,91,0.24)] hover:!bg-[#F5927E] sm:w-auto sm:!px-8 lg:w-full"
               >
                 Ücretsiz Ön Görüşme Oluştur
                 <ArrowUpRight aria-hidden="true" size={20} strokeWidth={2.4} />

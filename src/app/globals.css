@@ -307,20 +307,20 @@ li {
   width: 100%;
   min-width: 0;
   min-height: 54px;
-  padding: 0 16px;
-  white-space: nowrap;
+  padding: 10px 16px;
+  text-align: center;
   font-size: 14px;
   font-weight: 800;
-  background: #fcbf48;
+  background: var(--coral-action);
   color: #160a08;
   border: none;
   cursor: pointer;
-  box-shadow: 0 18px 36px rgba(252, 191, 72, 0.32);
+  box-shadow: 0 18px 36px rgba(232, 111, 91, 0.32);
   transition: transform 180ms ease, background 180ms ease;
 }
 .v4 .v4-cta-p:hover {
   transform: translateY(-2px);
-  background: #fdd060;
+  background: var(--coral-action-hover);
 }
 .v4 .v4-cta-s {
   display: inline-flex;

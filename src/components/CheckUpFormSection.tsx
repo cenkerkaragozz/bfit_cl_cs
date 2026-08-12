@@ -60,7 +60,7 @@ export function CheckUpFormSection() {
               WhatsApp&apos;tan yazabilir ya da numaranızı bırakabilirsiniz. Ekibimiz sizi dinler, Zihin Check-Up hakkında bilgi verir ve sorularınızı yanıtlar.
             </p>
 
-            <ContactActions audience="children" className="mt-7 max-w-[560px]" />
+            <ContactActions audience="children" className="mt-7 max-w-[560px]" showCallbackLink={false} />
 
             <div className="mt-7 grid gap-3 sm:grid-cols-3">
               {["1 saatlik değerlendirme", "Bilişsel profil", "Kişisel egzersiz planı"].map((item) => (

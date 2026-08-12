@@ -216,7 +216,7 @@ function AdultHero() {
               transition={{ delay: 0.62, duration: 0.45, ease: easeOutExpo }}
             >
               <a href="#checkup-form" className="v4-cta-p arrow-shift">
-                Bilişsel profilimi keşfet
+                Ücretsiz Ön Görüşme Oluştur
                 <ArrowUpRight size={18} strokeWidth={2.7} aria-hidden="true" />
               </a>
               <a href="#checkup" className="v4-cta-s arrow-shift">
@@ -771,7 +771,7 @@ function AdultCheckUpFormSection() {
               animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
               transition={{ delay: 0.28, duration: 0.45, ease: easeOutExpo }}
             >
-              <ContactActions audience="adults" className="mt-7 max-w-[560px]" />
+              <ContactActions audience="adults" className="mt-7 max-w-[560px]" showCallbackLink={false} />
             </motion.div>
             <div className="mt-7 grid gap-3 sm:grid-cols-3">
               {["1 saatlik değerlendirme", "Bilişsel profil", "Kişisel egzersiz planı"].map((item, index) => (

@@ -156,7 +156,7 @@ function ChildCognitiveProfileSection({
     >
       <div className="inner grid items-center gap-12 lg:grid-cols-[0.84fr_1.16fr] lg:gap-10 xl:gap-16">
         <div>
-          <div className="badge !border-[#E86F5B] !bg-[#E86F5B] !text-white">
+          <div className="badge border-[#E86F5B] bg-[#FEF0EC] text-[#C4533C]">
             Bilişsel Profil
           </div>
           <h2
@@ -529,7 +529,7 @@ function AdultCognitiveProfileSection({
     >
       <div className="inner grid items-center gap-12 lg:grid-cols-[0.84fr_1.16fr] lg:gap-10 xl:gap-16">
         <div>
-          <div className="badge !border-[#E86F5B] !bg-[#E86F5B] !text-white">
+          <div className="badge border-[#E86F5B] bg-[#FEF0EC] text-[#C4533C]">
             Bilişsel Profil
           </div>
           <h2

@@ -18,14 +18,16 @@ export function getWhatsAppHref(audience: Audience) {
 export function ContactActions({
   audience,
   className = "",
+  showCallbackLink = true,
 }: {
   audience: Audience;
   className?: string;
+  showCallbackLink?: boolean;
 }) {
   const whatsappHref = getWhatsAppHref(audience);
 
   return (
-    <div className={`grid grid-cols-2 gap-3 ${className}`}>
+    <div className={`grid ${showCallbackLink ? "grid-cols-2" : "grid-cols-1"} gap-3 ${className}`}>
       <a
         href={whatsappHref ?? "#contact"}
         target={whatsappHref ? "_blank" : undefined}
@@ -41,13 +43,15 @@ export function ContactActions({
         <MessageCircle size={18} aria-hidden="true" />
         WhatsApp&apos;tan Yaz
       </a>
-      <a
-        href="#callback-form"
-        className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-[#F5927E] px-4 text-center text-[14px] font-extrabold text-[#160A08] shadow-[0_14px_28px_rgba(245,146,126,0.24)] transition duration-150 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C4533C] active:translate-y-0"
-      >
-        Size Ulaşalım
-        <ArrowUpRight size={17} aria-hidden="true" />
-      </a>
+      {showCallbackLink ? (
+        <a
+          href="#callback-form"
+          className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-[#F5927E] px-4 text-center text-[14px] font-extrabold text-[#160A08] shadow-[0_14px_28px_rgba(245,146,126,0.24)] transition duration-150 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C4533C] active:translate-y-0"
+        >
+          Size Ulaşalım
+          <ArrowUpRight size={17} aria-hidden="true" />
+        </a>
+      ) : null}
     </div>
   );
 }
