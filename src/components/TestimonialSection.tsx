@@ -166,7 +166,6 @@ function Testimonials({
       ref={sectionRef}
       className="section-surface relative scroll-mt-28 py-[82px] md:py-[116px]"
     >
-      <span id="about" className="absolute top-0" aria-hidden="true" />
       <Leaf className="absolute right-[4%] top-[8%] hidden md:block" />
       <div className="inner">
         <div className="relative mx-auto max-w-[1180px]">

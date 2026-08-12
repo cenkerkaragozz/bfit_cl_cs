@@ -535,7 +535,7 @@ function ScopeAndFaqSection() {
   const faqActive = !reduceMotion && faqInView;
 
   return (
-    <section ref={sectionRef} className="section-surface py-[72px] md:py-[112px]">
+    <section ref={sectionRef} id="faq" className="section-surface scroll-mt-28 py-[72px] md:py-[112px]">
       <div className="inner">
         <motion.div
           className="max-w-[760px]"
