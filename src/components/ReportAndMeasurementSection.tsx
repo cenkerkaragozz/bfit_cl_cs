@@ -8,6 +8,7 @@ import {
   Eye,
   Heart,
   HeartHandshake,
+  MousePointerClick,
   Target,
 } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -192,9 +193,20 @@ function ChildCognitiveProfileSection({
                 exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
                 transition={{ duration: 0.24, ease: easeOutExpo }}
               >
-                <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[var(--text-support)]">
-                  SEÇİLİ ALAN
-                </p>
+                <div className="flex items-center justify-between gap-4">
+                  <p className="shrink-0 text-[11px] font-extrabold uppercase tracking-[0.16em] text-[var(--text-support)]">
+                    SEÇİLİ ALAN
+                  </p>
+                  <p className="flex items-center gap-1.5 text-right text-[11px] font-semibold leading-4 text-[var(--text-support)]">
+                    <MousePointerClick
+                      size={14}
+                      strokeWidth={2}
+                      className="shrink-0"
+                      aria-hidden="true"
+                    />
+                    Başka bir alanı görmek için dairelere tıklayın.
+                  </p>
+                </div>
                 <div className="mt-3 flex items-center gap-3">
                   <span
                     className="grid h-9 w-9 shrink-0 place-items-center rounded-full"
@@ -452,7 +464,7 @@ function ChildCognitiveProfileSection({
                 >
                   <motion.button
                     type="button"
-                    className={`grid h-full w-full place-items-center rounded-full border-[3px] px-3 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#241D18] focus-visible:ring-offset-4 ${isSelected ? "shadow-[0_16px_34px_rgba(36,29,24,0.15)]" : "shadow-[0_12px_28px_rgba(36,29,24,0.1)]"}`}
+                    className={`grid h-full w-full cursor-pointer place-items-center rounded-full border-[3px] px-3 text-center transition-shadow duration-200 hover:shadow-[0_18px_38px_rgba(36,29,24,0.17)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#241D18] focus-visible:ring-offset-4 ${isSelected ? "shadow-[0_16px_34px_rgba(36,29,24,0.15)]" : "shadow-[0_12px_28px_rgba(36,29,24,0.1)]"}`}
                     style={{
                       borderColor: cluster.color,
                       backgroundColor: isSelected ? `${cluster.color}10` : "#FFFFFF",
@@ -463,6 +475,14 @@ function ChildCognitiveProfileSection({
                     initial={reduceMotion ? false : { opacity: 0, scale: 0.86 }}
                     whileInView={
                       reduceMotion ? undefined : { opacity: 1, scale: 1 }
+                    }
+                    whileHover={
+                      reduceMotion
+                        ? undefined
+                        : {
+                            scale: 1.02,
+                            transition: { duration: 0.18, ease: easeOutExpo },
+                          }
                     }
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{
