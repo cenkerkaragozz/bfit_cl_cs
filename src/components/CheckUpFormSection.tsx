@@ -147,10 +147,6 @@ export function CheckUpFormSection() {
               )}
             </button>
 
-            <p data-compliance-status="pending" className="mt-4 text-[11px] font-semibold leading-5 text-[var(--text-support)]">
-              Aydınlatma ve veri işleme metni yayın öncesinde bu alana eklenecek.
-            </p>
-
             <AnimatePresence initial={false}>
               {message ? (
                 <motion.div

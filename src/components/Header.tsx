@@ -123,8 +123,9 @@ export function Header({ audience = "children" }: HeaderProps) {
     <header className="pointer-events-none sticky top-0 z-50 h-0">
       <div className="inner pointer-events-auto relative pt-5">
         <motion.nav
-          className="main-nav mx-auto flex max-w-[1110px] items-center justify-between gap-4 rounded-[30px] bg-white/95 px-5 backdrop-blur"
+          className="main-nav mx-auto flex min-h-[72px] max-w-[1110px] items-center justify-between gap-4 rounded-[30px] bg-white/95 px-5 shadow-[0_18px_50px_rgba(36,29,24,0.08)] backdrop-blur"
           aria-label="Primary navigation"
+          initial={false}
           animate={{
             minHeight: isCondensed ? "60px" : "72px",
             boxShadow: isCondensed
@@ -144,56 +145,39 @@ export function Header({ audience = "children" }: HeaderProps) {
             />
           </Link>
 
-          <div className="flex min-w-0 flex-1 items-center justify-center">
-            <div className="hidden items-center gap-1 text-[14px] font-bold text-[rgba(36,29,24,0.76)] lg:flex xl:gap-2">
-              {navItems.map((item) => {
-                const isActive = item.href === activeHref;
-                return (
-                  <a
-                    key={item.href}
-                    className="relative rounded-full px-3 py-2 transition-colors xl:px-4"
-                    href={item.href}
-                    aria-current={isActive ? "location" : undefined}
-                    onClick={() => handleNavClick(item.href)}
-                    style={{ color: isActive ? "var(--ink)" : "rgba(36,29,24,0.76)" }}
-                  >
-                    {isActive ? (
-                      reduceMotion ? (
-                        <span
-                          className="absolute inset-0 -z-10 rounded-full"
-                          style={{ background: "var(--paper)" }}
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        <motion.span
-                          layoutId="nav-active-pill"
-                          className="absolute inset-0 -z-10 rounded-full"
-                          style={{ background: "var(--paper)" }}
-                          transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                          aria-hidden="true"
-                        />
-                      )
-                    ) : null}
-                    <span className="relative">{item.label}</span>
-                  </a>
-                );
-              })}
-            </div>
-
-            <AnimatePresence>
-              {activeLabel ? (
-                <motion.span
-                  key={activeLabel}
-                  initial={reduceMotion ? false : { opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={reduceMotion ? undefined : { opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="max-w-full truncate rounded-full bg-[var(--paper)] px-3 py-1.5 text-[11px] font-bold text-[var(--ink)] lg:hidden"
+          <div className="hidden min-w-0 flex-1 items-center justify-center gap-1 text-[14px] font-bold text-[rgba(36,29,24,0.76)] lg:flex xl:gap-2">
+            {navItems.map((item) => {
+              const isActive = item.href === activeHref;
+              return (
+                <a
+                  key={item.href}
+                  className="relative rounded-full px-3 py-2 transition-colors xl:px-4"
+                  href={item.href}
+                  aria-current={isActive ? "location" : undefined}
+                  onClick={() => handleNavClick(item.href)}
+                  style={{ color: isActive ? "var(--ink)" : "rgba(36,29,24,0.76)" }}
                 >
-                  {activeLabel}
-                </motion.span>
-              ) : null}
-            </AnimatePresence>
+                  {isActive ? (
+                    reduceMotion ? (
+                      <span
+                        className="absolute inset-0 -z-10 rounded-full"
+                        style={{ background: "var(--paper)" }}
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <motion.span
+                        layoutId="nav-active-pill"
+                        className="absolute inset-0 -z-10 rounded-full"
+                        style={{ background: "var(--paper)" }}
+                        transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                        aria-hidden="true"
+                      />
+                    )
+                  ) : null}
+                  <span className="relative">{item.label}</span>
+                </a>
+              );
+            })}
           </div>
 
           <div className="header-actions flex shrink-0 items-center gap-3">
@@ -235,6 +219,23 @@ export function Header({ audience = "children" }: HeaderProps) {
             </button>
           </div>
         </motion.nav>
+
+        <AnimatePresence>
+          {activeLabel && !isMenuOpen ? (
+            <motion.div
+              key={activeLabel}
+              initial={reduceMotion ? false : { opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduceMotion ? undefined : { opacity: 0, y: -4 }}
+              transition={{ duration: 0.2 }}
+              className="pointer-events-none absolute right-1 top-[76px] lg:hidden"
+            >
+              <span className="inline-block max-w-[62vw] truncate rounded-full bg-[var(--paper)] px-3 py-1.5 text-[11px] font-bold text-[var(--ink)] shadow-[0_10px_24px_rgba(36,29,24,0.12)]">
+                {activeLabel}
+              </span>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
 
         {isMenuOpen ? (
           <div

@@ -764,7 +764,7 @@ function AdultCheckUpFormSection() {
               animate={sectionActive ? { opacity: 1, y: 0 } : undefined}
               transition={{ delay: 0.2, duration: 0.45, ease: easeOutExpo }}
             >
-              Daha kolay odaklanmak, günlük hayatı daha iyi organize etmek ya da yaş alırken bilişsel becerilerinizi aktif tutmak... Başlangıç noktası, hangi alanlarda güçlü olduğunuzu bilmektir. BrainFit Karşıyaka&apos;da oluşturulan bilişsel profiliniz doğrultusunda, size özel bir egzersiz planıyla sürecinizi yapılandırıyoruz.
+              WhatsApp&apos;tan yazabilir ya da numaranızı bırakabilirsiniz. Ekibimiz sizi dinler, bilişsel profil değerlendirmesi hakkında bilgi verir ve sorularınızı yanıtlar.
             </motion.p>
             <motion.div
               initial={reduceMotion ? false : { opacity: 0, y: 12 }}
@@ -845,7 +845,6 @@ function AdultCheckUpFormSection() {
                 </>
               )}
             </button>
-            <p data-compliance-status="pending" className="mt-4 text-[11px] font-semibold leading-5 text-[var(--text-support)]">Aydınlatma ve veri işleme metni yayın öncesinde bu alana eklenecek.</p>
             <AnimatePresence initial={false}>
               {message ? (
                 <motion.div

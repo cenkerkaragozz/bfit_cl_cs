@@ -22,6 +22,12 @@ const adultClusters = [
     label: "Dikkat",
     color: "#E86F5B",
     icon: Target,
+    details: [
+      "Dikkati sürdürme",
+      "Dürtü kontrolü",
+      "İşlem hızı",
+      "Bilişsel esneklik",
+    ],
     position:
       "left-1/2 top-[13.7%] -translate-x-1/2 -translate-y-1/2",
   },
@@ -30,6 +36,12 @@ const adultClusters = [
     label: "Hafıza",
     color: "#164C35",
     icon: Brain,
+    details: [
+      "Denge",
+      "Motor planlama",
+      "El-göz koordinasyonu",
+      "İnce motor kontrolü",
+    ],
     position:
       "left-[18.5%] top-1/2 -translate-x-1/2 -translate-y-1/2",
   },
@@ -38,6 +50,12 @@ const adultClusters = [
     label: "Görsel Beceriler",
     color: "#E7A500",
     icon: Eye,
+    details: [
+      "Görsel bellek",
+      "Göz izleme",
+      "Görsel algı",
+      "Görsel akıl yürütme",
+    ],
     position:
       "left-[81.5%] top-1/2 -translate-x-1/2 -translate-y-1/2",
   },
@@ -46,6 +64,12 @@ const adultClusters = [
     label: "İşitsel Beceriler",
     color: "#2AB3D4",
     icon: Ear,
+    details: [
+      "İşitsel bellek",
+      "Ses ayırt etme",
+      "Dil çalışma belleği",
+      "İşitsel dikkat",
+    ],
     position:
       "left-[31.5%] top-[79.2%] -translate-x-1/2 -translate-y-1/2",
   },
@@ -54,6 +78,12 @@ const adultClusters = [
     label: "Duygusal Düzenleme",
     color: "#8FC52B",
     icon: HeartHandshake,
+    details: [
+      "Duygusal düzenleme",
+      "Öz yönetim",
+      "Sosyal yönetim",
+      "Duygu tanıma",
+    ],
     position:
       "left-[68.5%] top-[79.2%] -translate-x-1/2 -translate-y-1/2",
   },
@@ -520,6 +550,15 @@ function AdultCognitiveProfileSection({
   surface: "canvas" | "white";
 }) {
   const reduceMotion = useReducedMotion();
+  const [selectedAdultId, setSelectedAdultId] = useState("attention");
+  const [openMobileAdultId, setOpenMobileAdultId] = useState<string | null>(
+    "attention",
+  );
+  const selectedAdult =
+    adultClusters.find((cluster) => cluster.id === selectedAdultId) ??
+    adultClusters[0];
+  const SelectedIcon = selectedAdult.icon;
+  const desktopDetailsId = "adult-cognitive-profile-desktop-details";
 
   return (
     <section
@@ -553,6 +592,70 @@ function AdultCognitiveProfileSection({
               önemli bir parça sunar.
             </p>
           </div>
+
+          <div
+            id={desktopDetailsId}
+            className="mt-8 hidden min-h-[222px] max-w-[560px] rounded-[24px] border border-[#E4DDD3] bg-[#FCFAF7] p-5 lg:block"
+            aria-live="polite"
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={selectedAdult.id}
+                initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+                animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
+                transition={{ duration: 0.24, ease: easeOutExpo }}
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <p className="shrink-0 text-[11px] font-extrabold uppercase tracking-[0.16em] text-[var(--text-support)]">
+                    SEÇİLİ ALAN
+                  </p>
+                  <p className="flex items-center gap-1.5 text-right text-[11px] font-semibold leading-4 text-[var(--text-support)]">
+                    <MousePointerClick
+                      size={14}
+                      strokeWidth={2}
+                      className="shrink-0"
+                      aria-hidden="true"
+                    />
+                    Başka bir alanı görmek için dairelere tıklayın.
+                  </p>
+                </div>
+                <div className="mt-3 flex items-center gap-3">
+                  <span
+                    className="grid h-9 w-9 shrink-0 place-items-center rounded-full"
+                    style={{ backgroundColor: `${selectedAdult.color}14` }}
+                  >
+                    <SelectedIcon
+                      size={20}
+                      strokeWidth={2}
+                      style={{ color: selectedAdult.color }}
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <h3 className="text-[17px] font-extrabold text-[#241D18]">
+                    {selectedAdult.label}
+                  </h3>
+                </div>
+                <ul className="mt-5 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
+                  {selectedAdult.details.map((detail) => (
+                    <li
+                      key={detail}
+                      className="flex items-start gap-2 text-[14px] font-semibold leading-5 text-[var(--text-support)]"
+                    >
+                      <ChevronRight
+                        size={16}
+                        strokeWidth={2.5}
+                        className="mt-0.5 shrink-0"
+                        style={{ color: selectedAdult.color }}
+                        aria-hidden="true"
+                      />
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
 
         <div
@@ -580,11 +683,13 @@ function AdultCognitiveProfileSection({
           <ul className="mt-3 overflow-hidden rounded-[22px] bg-white px-4">
             {adultClusters.map((cluster, index) => {
               const Icon = cluster.icon;
+              const isOpen = openMobileAdultId === cluster.id;
+              const mobileDetailsId = `adult-cognitive-profile-mobile-details-${cluster.id}`;
 
               return (
                 <motion.li
                   key={cluster.id}
-                  className={`flex min-h-[68px] items-center gap-4 py-3 ${index === adultClusters.length - 1 ? "" : "border-b border-[rgba(36,29,24,0.1)]"}`}
+                  className={`${index === adultClusters.length - 1 ? "" : "border-b border-[rgba(36,29,24,0.1)]"}`}
                   initial={reduceMotion ? false : { opacity: 0, y: 10 }}
                   whileInView={
                     reduceMotion ? undefined : { opacity: 1, y: 0 }
@@ -596,20 +701,73 @@ function AdultCognitiveProfileSection({
                     ease: easeOutExpo,
                   }}
                 >
-                  <span
-                    className="grid h-11 w-11 shrink-0 place-items-center rounded-full"
-                    style={{ backgroundColor: `${cluster.color}14` }}
+                  <button
+                    type="button"
+                    className="flex min-h-[68px] w-full items-center gap-4 py-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#241D18] focus-visible:ring-offset-2"
+                    aria-expanded={isOpen}
+                    aria-controls={mobileDetailsId}
+                    onClick={() => {
+                      setOpenMobileAdultId(isOpen ? null : cluster.id);
+                      setSelectedAdultId(cluster.id);
+                    }}
                   >
-                    <Icon
-                      size={24}
-                      strokeWidth={2}
-                      style={{ color: cluster.color }}
-                      aria-hidden="true"
-                    />
-                  </span>
-                  <span className="text-[15px] font-extrabold text-[#241D18]">
-                    {cluster.label}
-                  </span>
+                    <span
+                      className="grid h-11 w-11 shrink-0 place-items-center rounded-full"
+                      style={{ backgroundColor: `${cluster.color}14` }}
+                    >
+                      <Icon
+                        size={24}
+                        strokeWidth={2}
+                        style={{ color: cluster.color }}
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <span className="min-w-0 flex-1 text-[15px] font-extrabold text-[#241D18]">
+                      {cluster.label}
+                    </span>
+                    <motion.span
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{
+                        duration: reduceMotion ? 0 : 0.2,
+                        ease: easeOutExpo,
+                      }}
+                      className="shrink-0 text-[#241D18]"
+                    >
+                      <ChevronDown size={20} strokeWidth={2.2} aria-hidden="true" />
+                    </motion.span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen ? (
+                      <motion.div
+                        id={mobileDetailsId}
+                        key={mobileDetailsId}
+                        initial={reduceMotion ? false : { opacity: 0, height: 0 }}
+                        animate={reduceMotion ? undefined : { opacity: 1, height: "auto" }}
+                        exit={reduceMotion ? undefined : { opacity: 0, height: 0 }}
+                        transition={{ duration: 0.24, ease: easeOutExpo }}
+                        className="overflow-hidden"
+                      >
+                        <ul className="grid grid-cols-1 gap-x-5 gap-y-2 pb-5 pl-[60px] pr-1 min-[380px]:grid-cols-2">
+                          {cluster.details.map((detail) => (
+                            <li
+                              key={detail}
+                              className="flex items-start gap-1.5 text-[13px] font-semibold leading-5 text-[var(--text-support)]"
+                            >
+                              <ChevronRight
+                                size={15}
+                                strokeWidth={2.5}
+                                className="mt-0.5 shrink-0"
+                                style={{ color: cluster.color }}
+                                aria-hidden="true"
+                              />
+                              <span>{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    ) : null}
+                  </AnimatePresence>
                 </motion.li>
               );
             })}
@@ -713,18 +871,34 @@ function AdultCognitiveProfileSection({
           <ul className="contents">
             {adultClusters.map((cluster, index) => {
               const Icon = cluster.icon;
+              const isSelected = selectedAdult.id === cluster.id;
 
               return (
                 <li
                   key={cluster.id}
                   className={`absolute ${cluster.position} z-20 aspect-square w-[23.9%] min-w-[128px] max-w-[148px]`}
                 >
-                  <motion.div
-                    className="grid h-full w-full place-items-center rounded-full border-[3px] bg-white px-3 text-center shadow-[0_12px_28px_rgba(36,29,24,0.1)]"
-                    style={{ borderColor: cluster.color }}
+                  <motion.button
+                    type="button"
+                    className={`grid h-full w-full cursor-pointer place-items-center rounded-full border-[3px] px-3 text-center transition-shadow duration-200 hover:shadow-[0_18px_38px_rgba(36,29,24,0.17)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#241D18] focus-visible:ring-offset-4 ${isSelected ? "shadow-[0_16px_34px_rgba(36,29,24,0.15)]" : "shadow-[0_12px_28px_rgba(36,29,24,0.1)]"}`}
+                    style={{
+                      borderColor: cluster.color,
+                      backgroundColor: isSelected ? `${cluster.color}10` : "#FFFFFF",
+                    }}
+                    aria-expanded={isSelected}
+                    aria-controls={desktopDetailsId}
+                    onClick={() => setSelectedAdultId(cluster.id)}
                     initial={reduceMotion ? false : { opacity: 0, scale: 0.86 }}
                     whileInView={
                       reduceMotion ? undefined : { opacity: 1, scale: 1 }
+                    }
+                    whileHover={
+                      reduceMotion
+                        ? undefined
+                        : {
+                            scale: 1.02,
+                            transition: { duration: 0.18, ease: easeOutExpo },
+                          }
                     }
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{
@@ -745,7 +919,7 @@ function AdultCognitiveProfileSection({
                         {cluster.label}
                       </span>
                     </span>
-                  </motion.div>
+                  </motion.button>
                 </li>
               );
             })}
