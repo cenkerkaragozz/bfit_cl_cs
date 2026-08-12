@@ -12,8 +12,8 @@ export function LandingFunnel() {
   return (
     <>
       <HelpSection />
-      <ConfidenceSection />
       <TestimonialSection />
+      <ConfidenceSection />
       <CheckUpSection />
       <ReportAndMeasurementSection surface="white" />
       <CheckUpShowcaseSection />
