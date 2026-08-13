@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
-  AnimatePresence,
   motion,
   useMotionValueEvent,
   useReducedMotion,
@@ -117,8 +116,6 @@ export function Header({ audience = "children" }: HeaderProps) {
     suppressSpyUntilRef.current = Date.now() + SPY_SUPPRESS_MS;
   }, []);
 
-  const activeLabel = navItems.find((item) => item.href === activeHref)?.label ?? null;
-
   return (
     <header className="pointer-events-none sticky top-0 z-50 h-0">
       <div className="inner pointer-events-auto relative pt-5">
@@ -219,23 +216,6 @@ export function Header({ audience = "children" }: HeaderProps) {
             </button>
           </div>
         </motion.nav>
-
-        <AnimatePresence>
-          {activeLabel && !isMenuOpen ? (
-            <motion.div
-              key={activeLabel}
-              initial={reduceMotion ? false : { opacity: 0, y: -4 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reduceMotion ? undefined : { opacity: 0, y: -4 }}
-              transition={{ duration: 0.2 }}
-              className="pointer-events-none absolute right-1 top-[76px] lg:hidden"
-            >
-              <span className="inline-block max-w-[62vw] truncate rounded-full bg-[var(--paper)] px-3 py-1.5 text-[11px] font-bold text-[var(--ink)] shadow-[0_10px_24px_rgba(36,29,24,0.12)]">
-                {activeLabel}
-              </span>
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
 
         {isMenuOpen ? (
           <div

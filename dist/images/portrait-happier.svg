@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 520" role="img" aria-labelledby="title">
+  <title id="title">Happy portrait</title>
+  <rect width="360" height="520" fill="#F4865D"/>
+  <path d="M278 42c25 25 28 65 7 94-22 29-63 36-93 17 48-15 79-54 86-111z" fill="#F9DC7B"/>
+  <path d="M60 395c74-62 201-65 300 6v119H60z" fill="#9B66F4"/>
+  <path d="M79 204c0-80 52-137 125-137s125 57 125 137c0 62-31 111-68 137H146c-36-26-67-75-67-137z" fill="#40251D"/>
+  <circle cx="205" cy="211" r="86" fill="#9A624B"/>
+  <path d="M114 199c14-72 79-111 145-81 35 16 57 45 65 83-61-4-108-21-142-57-20 31-43 49-68 55z" fill="#40251D"/>
+  <path d="M155 310c31 24 69 24 100-1l9 83H145z" fill="#9A624B"/>
+  <path d="M82 520c8-92 50-144 126-144 75 0 120 53 129 144z" fill="#F4F1EB"/>
+  <circle cx="174" cy="216" r="7" fill="#160A08"/>
+  <circle cx="237" cy="216" r="7" fill="#160A08"/>
+  <path d="M177 260c19 19 44 19 63 0" fill="none" stroke="#160A08" stroke-width="8" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">Healing program avatar</title>
+  <rect width="200" height="200" rx="100" fill="#9B66F4"/>
+  <circle cx="150" cy="56" r="24" fill="#F4865D"/>
+  <path d="M33 200c8-53 39-82 92-82s85 29 93 82z" fill="#164C35"/>
+  <circle cx="104" cy="89" r="45" fill="#9A624B"/>
+  <path d="M52 86c8-43 42-64 84-43 21 11 34 29 38 50-39-1-70-13-92-39-8 18-18 29-30 32z" fill="#241D18"/>
+</svg>

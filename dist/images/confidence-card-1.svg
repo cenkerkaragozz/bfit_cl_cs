@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" role="img" aria-labelledby="title">
+  <title id="title">Guided confidence illustration</title>
+  <rect width="560" height="420" fill="#91DDF4"/>
+  <circle cx="454" cy="72" r="50" fill="#F9DC7B"/>
+  <path d="M0 333c126-76 295-78 560 0v87H0z" fill="#C9F58B"/>
+  <path d="M166 186c10-68 59-107 124-107s112 40 121 108c8 66-30 116-81 140h-84c-51-25-90-76-80-141z" fill="#241D18"/>
+  <circle cx="290" cy="196" r="77" fill="#B87558"/>
+  <path d="M198 190c13-67 68-98 128-66 30 16 47 40 53 70-54-2-96-17-126-49-13 24-31 39-55 45z" fill="#241D18"/>
+  <path d="M235 297c32 26 75 26 105 0l11 83H224z" fill="#B87558"/>
+  <path d="M137 420c14-90 64-138 154-138s139 48 154 138z" fill="#FAF9F5"/>
+  <path d="M57 78c23 31 58 48 105 50" stroke="#F4865D" stroke-width="9" stroke-linecap="round" fill="none"/>
+</svg>

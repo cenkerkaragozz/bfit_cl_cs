@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" role="img" aria-labelledby="title">
+  <title id="title">Rest illustration</title>
+  <rect width="520" height="300" fill="#FAF9F5"/>
+  <circle cx="108" cy="82" r="45" fill="#9B66F4"/>
+  <path d="M0 228c128-58 310-58 520 0v72H0z" fill="#C9F58B"/>
+  <path d="M170 176c8-54 48-85 101-85s92 32 99 87c6 52-28 90-69 108h-61c-41-20-78-60-70-110z" fill="#4A332B"/>
+  <circle cx="271" cy="181" r="60" fill="#B87558"/>
+  <path d="M201 177c10-53 51-76 98-51 24 13 38 33 43 56-45 0-82-14-109-42-8 20-18 31-32 37z" fill="#4A332B"/>
+</svg>

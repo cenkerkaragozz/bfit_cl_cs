@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">Joy program avatar</title>
+  <rect width="200" height="200" rx="100" fill="#C9F58B"/>
+  <circle cx="58" cy="52" r="24" fill="#91DDF4"/>
+  <path d="M34 200c8-52 37-81 88-81s82 29 89 81z" fill="#F9DC7B"/>
+  <circle cx="101" cy="92" r="45" fill="#C78563"/>
+  <path d="M51 89c9-43 43-62 82-42 21 11 34 29 38 48-38 0-67-13-88-37-8 18-18 28-32 31z" fill="#2B1712"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" role="img" aria-labelledby="title">
+  <title id="title">Balance illustration</title>
+  <rect width="520" height="300" fill="#FAF9F5"/>
+  <circle cx="404" cy="80" r="46" fill="#F4865D"/>
+  <path d="M0 230c105-48 282-50 520 0v70H0z" fill="#91DDF4"/>
+  <path d="M166 166c9-55 50-87 105-87s95 33 102 88c6 52-29 91-71 109h-64c-42-20-80-60-72-110z" fill="#241D18"/>
+  <circle cx="271" cy="173" r="62" fill="#C78563"/>
+  <path d="M198 169c10-54 53-78 100-52 24 14 39 34 45 57-48 0-84-15-110-44-9 22-20 34-35 39z" fill="#241D18"/>
+</svg>
