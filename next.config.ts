@@ -25,3 +25,13 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+// Makes Cloudflare bindings (R2 cache, IMAGES, ...) available during `next dev`.
+// Guarded and dynamically imported so the adapter is never loaded during a
+// production build — this project also deploys to Vercel, which must stay
+// unaware of the Cloudflare toolchain.
+if (process.env.NODE_ENV === "development") {
+  void import("@opennextjs/cloudflare").then(({ initOpenNextCloudflareForDev }) =>
+    initOpenNextCloudflareForDev()
+  );
+}
