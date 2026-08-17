@@ -3,15 +3,45 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { JsonLd } from "@/components/JsonLd";
 import { SanityImage } from "@/components/SanityImage";
 import { getAllPosts } from "@/lib/sanity/queries";
+import { absoluteUrl, SITE } from "@/lib/seo/site";
+import {
+  buildBlogNode,
+  buildBreadcrumbListNode,
+  buildJsonLdGraph,
+} from "@/lib/seo/jsonld";
 
 export const revalidate = 300;
 
+const title = "BrainFit Günlüğü";
+const description =
+  "Bilişsel gelişim, Zihin Check-Up ve günlük yaşama yönelik BrainFit Karşıyaka yazıları.";
+
 export const metadata: Metadata = {
-  title: "BrainFit Günlüğü | BrainFit Karşıyaka",
-  description:
-    "Bilişsel gelişim, Zihin Check-Up ve günlük yaşama yönelik BrainFit Karşıyaka yazıları.",
+  title,
+  description,
+  alternates: {
+    canonical: "/blog",
+  },
+  // A page-level `openGraph` object replaces the layout's entirely (Next.js
+  // does not deep-merge it), so the site-wide defaults are repeated here.
+  openGraph: {
+    type: "website",
+    siteName: SITE.brandName,
+    locale: SITE.locale,
+    title,
+    description,
+    url: absoluteUrl("/blog"),
+    images: [
+      {
+        url: absoluteUrl(SITE.defaultOgImage),
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
 };
 
 function formatDate(value?: string) {
@@ -24,11 +54,20 @@ function formatDate(value?: string) {
   }).format(new Date(value));
 }
 
+const blogJsonLd = buildJsonLdGraph([
+  buildBlogNode(),
+  buildBreadcrumbListNode([
+    { name: "Ana Sayfa", path: "/" },
+    { name: "BrainFit Günlüğü", path: "/blog" },
+  ]),
+]);
+
 export default async function BlogPage() {
   const posts = await getAllPosts();
 
   return (
     <div className="site-matte">
+      <JsonLd graph={blogJsonLd} />
       <div className="page-shell">
         <Header />
         <main className="min-h-screen pt-[132px]">

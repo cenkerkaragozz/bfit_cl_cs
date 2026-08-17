@@ -6,6 +6,7 @@ export type PostCard = {
   slug: string;
   excerpt?: string;
   publishedAt?: string;
+  updatedAt?: string;
   commentCount?: number;
   cardImage?: {
     alt?: string;
@@ -23,6 +24,14 @@ export type PostCard = {
   };
   categories?: { title: string }[];
   body?: unknown[];
+  seoTitle?: string;
+  seoDescription?: string;
+  ogImage?: {
+    alt?: string;
+    asset?: unknown;
+    [key: string]: unknown;
+  };
+  noindex?: boolean;
 };
 
 const postFields = `
@@ -31,11 +40,16 @@ const postFields = `
   "slug": slug.current,
   excerpt,
   publishedAt,
+  updatedAt,
   commentCount,
   cardImage,
   mainImage,
   author->{name, image},
-  categories[]->{title}
+  categories[]->{title},
+  seoTitle,
+  seoDescription,
+  ogImage,
+  noindex
 `;
 
 export async function getLatestPosts(): Promise<PostCard[]> {
@@ -66,4 +80,24 @@ export async function getPostBySlug(slug: string): Promise<PostCard | null> {
     }`,
     params: { slug },
   });
+}
+
+export type PostSitemapEntry = {
+  slug: string;
+  publishedAt?: string;
+  updatedAt?: string;
+  noindex?: boolean;
+};
+
+export async function getAllPostSlugs(): Promise<PostSitemapEntry[]> {
+  const posts = await sanityFetch<PostSitemapEntry[]>({
+    query: `*[_type == "post" && defined(slug.current) && publishedAt <= now()] | order(publishedAt desc) {
+      "slug": slug.current,
+      publishedAt,
+      updatedAt,
+      noindex
+    }`,
+  });
+
+  return posts ?? [];
 }

@@ -8,6 +8,7 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { CheckCircle2, ChevronDown, XCircle } from "lucide-react";
+import { childFaqs as faqs } from "@/lib/faq-data";
 
 const easeOutExpo: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -44,33 +45,6 @@ function ScopePanel({
     </motion.div>
   );
 }
-
-const faqs = [
-  {
-    id: "medical",
-    question: "Zihin Check-Up tıbbi bir test mi?",
-    answer:
-      "Hayır. Tıbbi tanı ya da tedavi amacı taşımaz; çocuğunuzun bilişsel becerilerini anlamaya yardımcı bir değerlendirmedir.",
-  },
-  {
-    id: "result",
-    question: "Değerlendirme sonunda ne elde ederiz?",
-    answer:
-      "Çocuğunuzun güçlü yönleri, desteklenmesi gereken alanlar ve bunlara uygun kişiye özel gelişim planı belirlenir.",
-  },
-  {
-    id: "without-problem",
-    question: "Belirgin bir sorun yoksa başvurabilir miyiz?",
-    answer:
-      "Evet. Zihin Check-Up yalnızca zorlanma yaşayan çocuklar için değil, çocuğunu daha yakından tanımak isteyen tüm aileler için uygundur.",
-  },
-  {
-    id: "contact",
-    question: "İlk iletişim nasıl ilerler?",
-    answer:
-      "WhatsApp’tan yazabilir ya da formu bırakabilirsiniz; ekibimiz sizi arayıp süreci anlatır.",
-  },
-] as const;
 
 export function ChildFaqSection() {
   const [openFaq, setOpenFaq] = useState<string>(faqs[0].id);

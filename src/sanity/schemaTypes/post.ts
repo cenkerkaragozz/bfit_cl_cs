@@ -4,6 +4,13 @@ export const post = defineType({
   name: "post",
   title: "Post",
   type: "document",
+  fieldsets: [
+    {
+      name: "seo",
+      title: "SEO",
+      options: { collapsible: true, collapsed: true },
+    },
+  ],
   fields: [
     defineField({
       name: "title",
@@ -54,6 +61,7 @@ export const post = defineType({
           name: "alt",
           title: "Alternative text",
           type: "string",
+          validation: (rule) => rule.required(),
         }),
       ],
     }),
@@ -62,6 +70,13 @@ export const post = defineType({
       title: "Published at",
       type: "datetime",
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "updatedAt",
+      title: "Updated at",
+      description:
+        "When this post was last meaningfully revised. Feeds the article's \"date modified\" signal for search engines — leave blank if the post hasn't been updated since publishing.",
+      type: "datetime",
     }),
     defineField({
       name: "excerpt",
@@ -82,7 +97,16 @@ export const post = defineType({
       title: "Body",
       type: "array",
       of: [
-        defineArrayMember({ type: "block" }),
+        defineArrayMember({
+          type: "block",
+          styles: [
+            { title: "Normal", value: "normal" },
+            { title: "H2", value: "h2" },
+            { title: "H3", value: "h3" },
+            { title: "H4", value: "h4" },
+            { title: "Quote", value: "blockquote" },
+          ],
+        }),
         defineArrayMember({
           type: "image",
           options: { hotspot: true },
@@ -95,6 +119,44 @@ export const post = defineType({
           ],
         }),
       ],
+    }),
+    defineField({
+      name: "seoTitle",
+      title: "SEO title",
+      description:
+        "Overrides the page title in search results and social shares. Aim for ~60 characters. Leave blank to use the post title.",
+      type: "string",
+      fieldset: "seo",
+      validation: (rule) => rule.max(60).warning("Beyond ~60 characters, search engines usually truncate the title."),
+    }),
+    defineField({
+      name: "seoDescription",
+      title: "SEO description",
+      description:
+        "Overrides the excerpt as the meta description. Aim for ~155-160 characters. Leave blank to use the excerpt.",
+      type: "text",
+      rows: 3,
+      fieldset: "seo",
+      validation: (rule) =>
+        rule
+          .max(160)
+          .warning("Beyond ~155-160 characters, search engines usually truncate the description."),
+    }),
+    defineField({
+      name: "ogImage",
+      title: "Social share image",
+      description: "Overrides the main image for social cards (Open Graph / Twitter). Leave blank to use the main image.",
+      type: "image",
+      options: { hotspot: true },
+      fieldset: "seo",
+    }),
+    defineField({
+      name: "noindex",
+      title: "Hide from search engines",
+      description: "When on, this post is excluded from indexing and from the sitemap.",
+      type: "boolean",
+      initialValue: false,
+      fieldset: "seo",
     }),
   ],
   preview: {

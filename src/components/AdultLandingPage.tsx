@@ -26,6 +26,7 @@ import { ContactActions } from "@/components/ContactActions";
 import { ReportAndMeasurementSection } from "@/components/ReportAndMeasurementSection";
 import { TestimonialSection } from "@/components/TestimonialSection";
 import { TrustBar } from "@/components/TrustBar";
+import { adultFaqs as faqs } from "@/lib/faq-data";
 import { useHoverable } from "@/lib/useHoverable";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
@@ -105,33 +106,6 @@ const audienceCards = [
     ],
     explanation:
       "Bilişsel becerilerinizi tanımak için mutlaka bir zorluk yaşamanız gerekmez. Bugünkü performansınızı bilmek, hangi alanları destekleyebileceğinizi anlamanın başlangıcı olabilir.",
-  },
-] as const;
-
-const faqs = [
-  {
-    id: "medical",
-    question: "Bu bir sağlık hizmeti mi?",
-    answer:
-      "Hayır. BrainFit bir sağlık kuruluşu değildir. Bilişsel becerilerinizin bugünkü durumunu anlamanıza yardımcı olan bir değerlendirmedir.",
-  },
-  {
-    id: "result",
-    question: "Değerlendirme sonunda ne elde ederim?",
-    answer:
-      "Beş ana bilişsel alanı birlikte gösteren kişisel profil ve bu profile göre şekillenen egzersiz planı elde edersiniz.",
-  },
-  {
-    id: "without-problem",
-    question: "Belirgin bir zorlanmam yoksa başvurabilir miyim?",
-    answer:
-      "Evet. Bu değerlendirme yalnızca bir zorlanma yaşayanlar için değil; dikkatini, öğrenme biçimini veya zihinsel çalışma düzenini daha yakından tanımak isteyenler için de uygundur.",
-  },
-  {
-    id: "contact",
-    question: "İlk iletişim nasıl ilerler?",
-    answer:
-      "WhatsApp’tan yazabilir ya da formu bırakabilirsiniz. Ekibimiz sizi dinler, süreci açıklar ve sorularınızı yanıtlar.",
   },
 ] as const;
 
