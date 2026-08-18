@@ -23,9 +23,11 @@ const adultClusters = [
     color: "#E86F5B",
     icon: Target,
     details: [
-      "Dikkati sürdürme",
+      "Görsel dikkat",
+      "İşitsel dikkat",
       "Dürtü kontrolü",
       "İşlem hızı",
+      "Algı hızı",
       "Bilişsel esneklik",
     ],
     position:
@@ -52,9 +54,11 @@ const adultClusters = [
     icon: Eye,
     details: [
       "Görsel bellek",
+      "Görsel çalışma belleği",
       "Göz izleme",
       "Görsel algı",
       "Görsel akıl yürütme",
+      "Uzamsal algı",
     ],
     position:
       "left-[81.5%] top-1/2 -translate-x-1/2 -translate-y-1/2",
@@ -66,9 +70,10 @@ const adultClusters = [
     icon: Ear,
     details: [
       "İşitsel bellek",
-      "Ses ayırt etme",
+      "İşitsel çalışma belleği",
+      "Kelime ayırt etme",
+      "Ses perdelerini ayırt etme",
       "Dil çalışma belleği",
-      "İşitsel dikkat",
     ],
     position:
       "left-[31.5%] top-[79.2%] -translate-x-1/2 -translate-y-1/2",
@@ -79,9 +84,10 @@ const adultClusters = [
     color: "#8FC52B",
     icon: HeartHandshake,
     details: [
+      "Büyüme zihniyeti",
       "Duygusal düzenleme",
-      "Öz yönetim",
       "Sosyal yönetim",
+      "Öz yönetim",
       "Duygu tanıma",
     ],
     position:
@@ -96,9 +102,11 @@ const childClusters = [
     color: "#E86F5B",
     icon: Target,
     details: [
-      "Dikkati sürdürme",
+      "Görsel dikkat",
+      "İşitsel dikkat",
       "Dürtü kontrolü",
       "İşlem hızı",
+      "Algı hızı",
       "Bilişsel esneklik",
     ],
     position:
@@ -125,9 +133,11 @@ const childClusters = [
     icon: Eye,
     details: [
       "Görsel bellek",
+      "Görsel çalışma belleği",
       "Göz izleme",
       "Görsel algı",
       "Görsel akıl yürütme",
+      "Uzamsal algı",
     ],
     position:
       "left-[81.5%] top-1/2 -translate-x-1/2 -translate-y-1/2",
@@ -139,9 +149,10 @@ const childClusters = [
     icon: Ear,
     details: [
       "İşitsel bellek",
-      "Ses ayırt etme",
+      "İşitsel çalışma belleği",
+      "Kelime ayırt etme",
+      "Ses perdelerini ayırt etme",
       "Dil çalışma belleği",
-      "İşitsel dikkat",
     ],
     position:
       "left-[31.5%] top-[79.2%] -translate-x-1/2 -translate-y-1/2",
@@ -152,9 +163,10 @@ const childClusters = [
     color: "#8FC52B",
     icon: HeartHandshake,
     details: [
+      "Büyüme zihniyeti",
       "Duygusal düzenleme",
-      "Öz yönetim",
       "Sosyal yönetim",
+      "Öz yönetim",
       "Duygu tanıma",
     ],
     position:
