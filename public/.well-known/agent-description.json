@@ -1,0 +1,31 @@
+{
+  "name": "BrainFit Karşıyaka",
+  "description": "Machine-readable discovery information for BrainFit Karşıyaka's public web and lead-capture resources.",
+  "homepage": "https://karsiyaka.brainfit.com.tr/",
+  "resources": [
+    {
+      "rel": "api-catalog",
+      "href": "/.well-known/api-catalog",
+      "type": "application/json"
+    },
+    {
+      "rel": "service-doc",
+      "href": "/llms.txt",
+      "type": "text/plain"
+    },
+    {
+      "rel": "describedby",
+      "href": "/sitemap.xml",
+      "type": "application/xml"
+    }
+  ],
+  "representations": [
+    {
+      "href": "/",
+      "requestHeader": "Accept: text/markdown",
+      "responseContentType": "text/markdown",
+      "defaultContentType": "text/html"
+    }
+  ],
+  "agentProtocols": []
+}

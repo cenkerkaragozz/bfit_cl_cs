@@ -1,0 +1,16 @@
+; Repository artifact only: this zone fragment is NOT published by Next.js.
+; Public DNS is currently delegated to ns1/ns2.natrohost.com, but the record
+; below is still only a proposed Natro zone entry until it is added there.
+; Review the endpoint and DNSSEC steps in dns/README.md before publishing.
+
+$ORIGIN brainfit.com.tr.
+
+; DNS-AID discovery for the site's HTTPS service. In the Natro DNS panel,
+; use the full name _index._agents.karsiyaka.brainfit.com.tr. (or the
+; equivalent relative name _index._agents.karsiyaka when editing the
+; brainfit.com.tr. zone).
+_index._agents.karsiyaka 3600 IN HTTPS 1 karsiyaka.brainfit.com.tr. alpn="h2" port=443 mandatory=alpn,port
+
+; Do not add _a2a._agents.karsiyaka until a real A2A endpoint is deployed.
+; It is intentionally absent: this repository currently exposes web/API
+; discovery resources, not an A2A protocol endpoint.

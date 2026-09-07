@@ -1,0 +1,31 @@
+# BrainFit Karşıyaka
+
+> Çocuklar ve yetişkinler için Zihin Check-Up ve bilişsel gelişim hizmetleri.
+
+## Hakkında
+
+BrainFit Karşıyaka, bilimsel değerlendirme ve kişiye özel yaklaşım ile bilişsel becerileri anlamaya yardımcı olur. Hizmet tıbbi tanı veya tedavi amacı taşımaz.
+
+## Ana sayfalar
+
+- [Çocuklar](/)
+- [Yetişkinler](/yetiskinler)
+- [Blog](/blog)
+- [Site haritası](/sitemap.xml)
+
+## Makine-okunabilir kaynaklar
+
+- [API kataloğu](/.well-known/api-catalog): Başvuru API'si ve içerik müzakeresi bilgileri.
+- [Agent açıklaması](/.well-known/agent-description.json): Genel keşif kaynakları.
+- Ana sayfa için `Accept: text/markdown` gönderildiğinde `Content-Type: text/markdown` yanıtı alınır. HTML, varsayılan temsildir.
+
+## Zihin Check-Up
+
+- Çocuğun güçlü yönlerini ve desteklenmesi gereken alanları anlamaya yardımcı olur.
+- Değerlendirme sonunda kişisel bilişsel profil ve gelişim planı paylaşılır.
+- Ücretsiz ön görüşme için ana sayfadaki form kullanılabilir.
+
+## İletişim
+
+- Telefon: +905513657484
+- Merkez: BrainFit Karşıyaka, İzmir

@@ -12,6 +12,16 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: "/",
+        headers: [
+          {
+            key: "Link",
+            value:
+              '</.well-known/api-catalog>; rel="api-catalog"; type="application/json", </.well-known/agent-description.json>; rel="service-desc"; type="application/json", </llms.txt>; rel="service-doc"; type="text/plain", </sitemap.xml>; rel="describedby"; type="application/xml"',
+          },
+        ],
+      },
     ];
   },
   images: {

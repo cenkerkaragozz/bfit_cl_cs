@@ -7,6 +7,9 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
       disallow: ["/api/"],
+      other: {
+        "Content-Signal": "ai-train=no, search=yes, ai-input=no",
+      },
     },
     sitemap: absoluteUrl("/sitemap.xml"),
     host: SITE.origin,
