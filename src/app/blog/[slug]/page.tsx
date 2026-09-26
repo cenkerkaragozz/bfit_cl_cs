@@ -18,7 +18,7 @@ import {
   buildJsonLdGraph,
 } from "@/lib/seo/jsonld";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 type PortableTextValue = ComponentProps<typeof PortableText>["value"];
 const getPost = cache(getPostBySlug);
@@ -26,7 +26,7 @@ const getPost = cache(getPostBySlug);
 // Statically generate published posts at build time. `getAllPostSlugs` (via
 // `sanityFetch`) already degrades to [] when Sanity is unconfigured or the
 // request fails, so this never breaks the build — it just falls back to
-// on-demand rendering for every slug (`revalidate = 3600` still applies).
+// on-demand rendering for every slug (`revalidate = 300` still applies).
 export async function generateStaticParams() {
   const posts = await getAllPostSlugs();
 

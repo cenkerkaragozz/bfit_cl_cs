@@ -13,7 +13,7 @@ import {
   buildJsonLdGraph,
 } from "@/lib/seo/jsonld";
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 const title = "BrainFit Günlüğü";
 const description =

@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const revalidate = 3600;
+export const revalidate = 300;
 
 const adultsJsonLd = buildJsonLdGraph([
   buildServiceNode({
