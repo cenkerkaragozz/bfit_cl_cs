@@ -15,7 +15,7 @@ import {
   buildServiceNode,
 } from "@/lib/seo/jsonld";
 
-export const revalidate = 300;
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   // `absolute` keeps this exact string and ignores the root layout's
