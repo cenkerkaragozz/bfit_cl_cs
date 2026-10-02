@@ -5,7 +5,7 @@ import { X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ContactActions } from "@/components/ContactActions";
 
-const WHATSAPP_PHONE = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "905555555555";
+const WHATSAPP_PHONE = (process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "905513657484").replace(/\D/g, "");
 const WHATSAPP_MESSAGES = {
   children: "Merhaba, çocuğum için CogMap randevusu almak istiyorum.",
   adults: "Merhaba, yetişkin bilişsel profil değerlendirmesi hakkında bilgi almak istiyorum.",

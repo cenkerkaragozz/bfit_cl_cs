@@ -8,7 +8,7 @@ const messages: Record<Audience, string> = {
 };
 
 export function getWhatsAppHref(audience: Audience) {
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE?.replace(/\D/g, "");
+  const phone = (process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "905513657484").replace(/\D/g, "");
 
   if (!phone) return null;
 

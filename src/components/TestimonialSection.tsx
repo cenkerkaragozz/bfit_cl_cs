@@ -117,13 +117,6 @@ const videoTestimonialGroups: Record<TestimonialAudience, VideoTestimonial[]> =
         poster: "/videos/testimonials/children/poster-founder-explains-v1.webp",
         thumbnail: "/videos/testimonials/children/thumb-founder-adult-v1.webp",
       },
-      { src: "", poster: "", title: "" },
-      { src: "", poster: "", title: "" },
-      { src: "", poster: "", title: "" },
-      { src: "", poster: "", title: "" },
-      { src: "", poster: "", title: "" },
-      { src: "", poster: "", title: "" },
-      { src: "", poster: "", title: "" },
     ],
   };
 
@@ -163,6 +156,7 @@ function Testimonials({
   const testimonials = testimonialGroups[audience];
   const videoTestimonials = videoTestimonialGroups[audience];
   const isAdults = audience === "adults";
+  const hasVideoTabs = videoTestimonials.length > 1;
   const participantLabel =
     audience === "adults"
       ? "BrainFit Katılımcısı"
@@ -241,8 +235,10 @@ function Testimonials({
               ) : null}
               <div
                 id={`${audience}-video-panel`}
-                role="tabpanel"
-                aria-labelledby={`${audience}-video-tab-${activeVideo}`}
+                role={hasVideoTabs ? "tabpanel" : undefined}
+                aria-labelledby={
+                  hasVideoTabs ? `${audience}-video-tab-${activeVideo}` : undefined
+                }
                 tabIndex={-1}
                 className={`${isAdults ? "" : "mt-5"} mx-auto h-auto max-h-[75svh] max-w-full overflow-hidden rounded-[28px] border border-[rgba(36,29,24,0.08)] bg-[#241D18] shadow-[0_22px_52px_rgba(36,29,24,0.16)] focus:outline-none`}
                 style={{
@@ -364,6 +360,7 @@ function Testimonials({
                 )}
               </div>
 
+              {hasVideoTabs ? (
               <div
                 className="mx-auto mt-4 flex w-full max-w-[400px] gap-3 overflow-x-auto px-1 pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
                 role="tablist"
@@ -445,6 +442,7 @@ function Testimonials({
                   );
                 })}
               </div>
+              ) : null}
             </div>
 
             <div
